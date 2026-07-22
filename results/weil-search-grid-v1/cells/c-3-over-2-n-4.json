@@ -1,0 +1,2468 @@
+{
+  "attempts": [
+    {
+      "candidate_generation": {
+        "classification": "SKIPPED_LDLT_POSITIVE",
+        "role": "untrusted-search-hint-only",
+        "tested": []
+      },
+      "cell": {
+        "cell_id": "c-3-over-2-n-4",
+        "cutoff_c": {
+          "denominator": "2",
+          "numerator": "3"
+        },
+        "degree": "4",
+        "dimension": "9",
+        "input_sha256": "397a0fc791eab127ac41fa25a45bd1ece7cdc108a6676e7b8a5d2c4c30d91d83"
+      },
+      "classification": "EXPLORATORY",
+      "decision": "FINITE_POSITIVE_CERTIFIED",
+      "kind": "SEARCH",
+      "limitation": "This is a bounded search over finitely many cutoffs and Fourier modes. Positive cells do not prove RH, an inconclusive cell is not evidence of a negative direction, and any interval-negative candidate remains quarantined until independent sign, normalization, source-equation, and backend audits reproduce it.",
+      "matrix_construction": {
+        "classification": "COMPLETE"
+      },
+      "matrix_evidence": {
+        "checks": {
+          "all_archimedean_oracle_pairs_checked": true,
+          "all_pole_oracle_pairs_checked": true,
+          "archimedean_oracle_pairs": "45",
+          "exact_prime_power_cutoff": true,
+          "pole_oracle_pairs": "45",
+          "symmetric_enclosures_by_construction": true
+        },
+        "dimension": "9",
+        "indices": [
+          "-4",
+          "-3",
+          "-2",
+          "-1",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "matrix_entries_upper_triangle": [
+          {
+            "archimedean": {
+              "display": "[-2.290555239569950784 +/- 4.65e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-84506572582082703745",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "-4",
+            "pole": {
+              "display": "[-5.2936221541155e-5 +/- 4.39e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-1953001861997767",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[2.2905023033484096290 +/- 8.27e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "84504619580220705977",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.0020614531539548368 +/- 9.04e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-76054197501892499",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "-3",
+            "pole": {
+              "display": "[-7.05765262199158e-5 +/- 8.50e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2603814233580477",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.001990876627734921 +/- 1.03e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "73450383268312023",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.0030665480748510086 +/- 8.72e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-113135655053006555",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "-2",
+            "pole": {
+              "display": "[-0.000105844893735878 +/- 4.20e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-3904987332509437",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.002960703181115131 +/- 1.11e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "109230667720497119",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.005924433623622218 +/- 1.16e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-218573021673277507",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "-1",
+            "pole": {
+              "display": "[-0.0002114971381308887 +/- 8.47e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-7802867158845003",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.0057129364854913293 +/- 8.53e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "210770154514432505",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.060939058167374329 +/- 4.70e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2248254420212908091",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "0",
+            "pole": {
+              "display": "[5.2943110894482e-5 +/- 2.95e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "1953256034273059",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.060992001278268810 +/- 5.08e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2250207676247181151",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.093947832893625595 +/- 1.25e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-3466063259336686443",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "1",
+            "pole": {
+              "display": "[0.0002116072603097041 +/- 8.27e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "7806929950143897",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.094159440153935299 +/- 1.97e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3473870189286830339",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.0802298948648821020 +/- 8.33e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2959960675266208605",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "2",
+            "pole": {
+              "display": "[0.0001058724457712683 +/- 8.72e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3906003823200559",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.080335767310653370 +/- 3.62e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2963866679089409163",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.069350144597862827 +/- 5.64e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2558568737743053177",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "3",
+            "pole": {
+              "display": "[7.0588773339396e-5 +/- 3.24e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2604266072537851",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.069420733371202223 +/- 2.96e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2561173003815591027",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.060939058167374329 +/- 4.70e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2248254420212908091",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-4",
+            "n": "4",
+            "pole": {
+              "display": "[5.2943110894482e-5 +/- 2.95e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "1953256034273059",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.060992001278268810 +/- 5.08e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2250207676247181151",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-2.004052082318814995 +/- 1.07e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-73936471745839773997",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-3",
+            "n": "-3",
+            "pole": {
+              "display": "[-9.4094551710847e-5 +/- 3.18e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-3471476228280839",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[2.003957987767104148 +/- 3.20e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "73933000269611493159",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.004071642995747180 +/- 5.57e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-150217112604120613",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-3",
+            "n": "-2",
+            "pole": {
+              "display": "[-0.000141113261251840 +/- 5.00e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-5206160431438399",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.003930529734495341 +/- 1.61e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "145010952172682215",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.007855923858455909 +/- 5.29e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-289832433758970011",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-3",
+            "n": "-1",
+            "pole": {
+              "display": "[-0.000281957444086375 +/- 2.02e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-10402393621477265",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.007573966414369533 +/- 5.42e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "279430040137492747",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.080564926505180826 +/- 1.42e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2972321161116579957",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-3",
+            "n": "0",
+            "pole": {
+              "display": "[9.4116323265948e-5 +/- 4.16e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3472279456890905",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.080659042828446774 +/- 5.03e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2975793440573470861",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.1169194278285432846 +/- 8.81e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-4313565524795384929",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-3",
+            "n": "1",
+            "pole": {
+              "display": "[0.000282153206942109 +/- 1.68e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "10409615996074991",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.117201581035485394 +/- 4.16e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "4323975140791459919",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.095863583207067555 +/- 9.29e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-3536741970819071825",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-3",
+            "n": "2",
+            "pole": {
+              "display": "[0.0001411622401695051 +/- 8.76e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "5207967434556765",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.096004745447237060 +/- 2.14e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3541949938253628591",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.080564926505180826 +/- 1.42e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2972321161116579957",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-3",
+            "n": "3",
+            "pole": {
+              "display": "[9.4116323265948e-5 +/- 4.16e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3472279456890905",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.080659042828446774 +/- 5.03e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2975793440573470861",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.069350144597862827 +/- 5.64e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2558568737743053177",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-3",
+            "n": "4",
+            "pole": {
+              "display": "[7.0588773339396e-5 +/- 3.24e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2604266072537851",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.069420733371202223 +/- 2.96e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2561173003815591027",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-1.6018716561771886165 +/- 8.19e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-59098632960859717143",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-2",
+            "n": "-2",
+            "pole": {
+              "display": "[-0.000211620928890741 +/- 5.44e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-7807434231776391",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[1.601660035248297875 +/- 1.48e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "59090825526627940753",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.011640204721164637 +/- 3.97e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-429447754913819411",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-2",
+            "n": "-1",
+            "pole": {
+              "display": "[-0.000422801626920911 +/- 3.69e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-15598626811516133",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.0112174030942437260 +/- 8.14e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "413849128102303279",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.118811568259897649 +/- 4.09e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-4383373185372809629",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-2",
+            "n": "0",
+            "pole": {
+              "display": "[0.000211731115524841 +/- 3.72e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "7811499401055557",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.119023299375422490 +/- 1.46e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "4391184684773865185",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.154535356106141986 +/- 9.74e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-5701348328859139701",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-2",
+            "n": "1",
+            "pole": {
+              "display": "[0.000423242029673425 +/- 3.36e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "15614874805246119",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.154958598135815411 +/- 3.47e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "5716963203664385821",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.118811568259897649 +/- 4.09e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-4383373185372809629",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-2",
+            "n": "2",
+            "pole": {
+              "display": "[0.000211731115524841 +/- 3.72e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "7811499401055557",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.119023299375422490 +/- 1.46e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "4391184684773865185",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.095863583207067555 +/- 9.29e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-3536741970819071825",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-2",
+            "n": "3",
+            "pole": {
+              "display": "[0.0001411622401695051 +/- 8.76e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "5207967434556765",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.096004745447237060 +/- 2.14e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3541949938253628591",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.0802298948648821020 +/- 8.33e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2959960675266208605",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-2",
+            "n": "4",
+            "pole": {
+              "display": "[0.0001058724457712683 +/- 8.72e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3906003823200559",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.080335767310653370 +/- 3.62e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2963866679089409163",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.9248290464600125661 +/- 8.95e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-34120169463961384759",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-1",
+            "n": "-1",
+            "pole": {
+              "display": "[-0.000844503621023463 +/- 5.32e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-31156684332681663",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.923984542838989103 +/- 4.13e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "34089012779628703097",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.2259829317986306606 +/- 8.76e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-8337298615831799845",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-1",
+            "n": "0",
+            "pole": {
+              "display": "[0.0008462638579705933 +/- 8.97e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "31221625613627247",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.226829195656601254 +/- 2.11e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "8368520241445427091",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.2259829317986306606 +/- 8.76e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-8337298615831799845",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-1",
+            "n": "1",
+            "pole": {
+              "display": "[0.0008462638579705933 +/- 8.97e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "31221625613627247",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.226829195656601254 +/- 2.11e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "8368520241445427091",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.154535356106141986 +/- 9.74e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-5701348328859139701",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-1",
+            "n": "2",
+            "pole": {
+              "display": "[0.000423242029673425 +/- 3.36e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "15614874805246119",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.154958598135815411 +/- 3.47e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "5716963203664385821",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.1169194278285432846 +/- 8.81e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-4313565524795384929",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-1",
+            "n": "3",
+            "pole": {
+              "display": "[0.000282153206942109 +/- 1.68e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "10409615996074991",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.117201581035485394 +/- 4.16e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "4323975140791459919",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.093947832893625595 +/- 1.25e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-3466063259336686443",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "-1",
+            "n": "4",
+            "pole": {
+              "display": "[0.0002116072603097041 +/- 8.27e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "7806929950143897",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.094159440153935299 +/- 1.97e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3473870189286830339",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[0.612253684864838055 +/- 3.43e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "22588174065774573587",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "0",
+            "n": "0",
+            "pole": {
+              "display": "[0.813711493188474442 +/- 3.16e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "30020655329367682171",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.201457808323636386 +/- 5.59e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "7432481263593108583",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.2259829317986306606 +/- 8.76e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-8337298615831799845",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "0",
+            "n": "1",
+            "pole": {
+              "display": "[0.0008462638579705933 +/- 8.97e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "31221625613627247",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.226829195656601254 +/- 2.11e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "8368520241445427091",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.118811568259897649 +/- 4.09e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-4383373185372809629",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "0",
+            "n": "2",
+            "pole": {
+              "display": "[0.000211731115524841 +/- 3.72e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "7811499401055557",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.119023299375422490 +/- 1.46e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "4391184684773865185",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.080564926505180826 +/- 1.42e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2972321161116579957",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "0",
+            "n": "3",
+            "pole": {
+              "display": "[9.4116323265948e-5 +/- 4.16e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3472279456890905",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.080659042828446774 +/- 5.03e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2975793440573470861",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.060939058167374329 +/- 4.70e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2248254420212908091",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "0",
+            "n": "4",
+            "pole": {
+              "display": "[5.2943110894482e-5 +/- 2.95e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "1953256034273059",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.060992001278268810 +/- 5.08e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "2250207676247181151",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.9248290464600125661 +/- 8.95e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-34120169463961384759",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "1",
+            "n": "1",
+            "pole": {
+              "display": "[-0.000844503621023463 +/- 5.32e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-31156684332681663",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.923984542838989103 +/- 4.13e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "34089012779628703097",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.011640204721164637 +/- 3.97e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-429447754913819411",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "1",
+            "n": "2",
+            "pole": {
+              "display": "[-0.000422801626920911 +/- 3.69e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-15598626811516133",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.0112174030942437260 +/- 8.14e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "413849128102303279",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.007855923858455909 +/- 5.29e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-289832433758970011",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "1",
+            "n": "3",
+            "pole": {
+              "display": "[-0.000281957444086375 +/- 2.02e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-10402393621477265",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.007573966414369533 +/- 5.42e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "279430040137492747",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.005924433623622218 +/- 1.16e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-218573021673277507",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "1",
+            "n": "4",
+            "pole": {
+              "display": "[-0.0002114971381308887 +/- 8.47e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-7802867158845003",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.0057129364854913293 +/- 8.53e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "210770154514432505",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-1.6018716561771886165 +/- 8.19e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-59098632960859717143",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "2",
+            "n": "2",
+            "pole": {
+              "display": "[-0.000211620928890741 +/- 5.44e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-7807434231776391",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[1.601660035248297875 +/- 1.48e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "59090825526627940753",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.004071642995747180 +/- 5.57e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-150217112604120613",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "2",
+            "n": "3",
+            "pole": {
+              "display": "[-0.000141113261251840 +/- 5.00e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-5206160431438399",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.003930529734495341 +/- 1.61e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "145010952172682215",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.0030665480748510086 +/- 8.72e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-113135655053006555",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "2",
+            "n": "4",
+            "pole": {
+              "display": "[-0.000105844893735878 +/- 4.20e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-3904987332509437",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.002960703181115131 +/- 1.11e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "109230667720497119",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-2.004052082318814995 +/- 1.07e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-73936471745839773997",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "3",
+            "n": "3",
+            "pole": {
+              "display": "[-9.4094551710847e-5 +/- 3.18e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-3471476228280839",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[2.003957987767104148 +/- 3.20e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "73933000269611493159",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-0.0020614531539548368 +/- 9.04e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-76054197501892499",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "3",
+            "n": "4",
+            "pole": {
+              "display": "[-7.05765262199158e-5 +/- 8.50e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-2603814233580477",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[0.001990876627734921 +/- 1.03e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "73450383268312023",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "archimedean": {
+              "display": "[-2.290555239569950784 +/- 4.65e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-84506572582082703745",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "m": "4",
+            "n": "4",
+            "pole": {
+              "display": "[-5.2936221541155e-5 +/- 4.39e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "-1953001861997767",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "prime_power": {
+              "display": "0",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "0",
+                "radius_mantissa": "0"
+              },
+              "is_exact": true
+            },
+            "q": {
+              "display": "[2.2905023033484096290 +/- 8.27e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "84504619580220705977",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          }
+        ],
+        "normalization": "A=P-R-S",
+        "prime_power_transcript": []
+      },
+      "payload_sha256": "1ce663fd99573d2f9c50358bdc860e87d3f5d86611303a82b59efe45777e8582",
+      "positive_definiteness": {
+        "classification": "POSITIVE_DEFINITE",
+        "failed_pivot_index": null,
+        "pivots": [
+          {
+            "index": "0",
+            "value": {
+              "display": "[2.2905023033484096290 +/- 8.27e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "84504619580220705977",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "index": "1",
+            "value": {
+              "display": "[2.003956257321454272 +/- 2.46e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "73932936427435419691",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "index": "2",
+            "value": {
+              "display": "[1.601648509053024453 +/- 4.32e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "59090400285079235905",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "index": "3",
+            "value": {
+              "display": "[0.923863453437581311 +/- 5.15e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "34084545369233086645",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "index": "4",
+            "value": {
+              "display": "[0.132720097722014603 +/- 3.98e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "4896507352231450867",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "index": "5",
+            "value": {
+              "display": "[0.666677408024394672 +/- 5.61e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "24596055051100094157",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "index": "6",
+            "value": {
+              "display": "[1.503460082547535584 +/- 2.21e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "55467886735585250607",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "index": "7",
+            "value": {
+              "display": "[1.952865394704361809 +/- 2.14e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "72048016293030301173",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          },
+          {
+            "index": "8",
+            "value": {
+              "display": "[2.258796087385452206 +/- 2.46e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "83334866677391825929",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            }
+          }
+        ]
+      },
+      "precision_bits": "96",
+      "schema": "rh-lab/weil-search-attempt/v1",
+      "secondary_rump_spectrum": {
+        "algorithm": "flint-arb_mat-eig-rump",
+        "classification": "POSITIVE_SPECTRUM",
+        "eigenvalues": [
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "0",
+            "real": {
+              "display": "[0.092007663449471905 +/- 9.89e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "3394483640944817569",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          },
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "1",
+            "real": {
+              "display": "[0.6521282889881806991 +/- 8.32e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "24059287300382144319",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          },
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "2",
+            "real": {
+              "display": "[1.154316031068347782 +/- 3.95e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "42586744810595950233",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          },
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "3",
+            "real": {
+              "display": "[1.490397783575111968 +/- 5.34e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "54985972963268095187",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          },
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "4",
+            "real": {
+              "display": "[1.732362817308183925 +/- 4.66e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "63912907067389048953",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          },
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "5",
+            "real": {
+              "display": "[1.9398960003619265124 +/- 8.65e-20]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "71569530096578460179",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          },
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "6",
+            "real": {
+              "display": "[2.106378982892898866 +/- 3.04e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "77711668039331870331",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          },
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "7",
+            "real": {
+              "display": "[2.250179257138842248 +/- 1.32e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "83016961752820199011",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          },
+          {
+            "imaginary": {
+              "display": "[+/- 1.09e-19]",
+              "dyadic": {
+                "mid_exponent": "0",
+                "mid_mantissa": "0",
+                "radius_exponent": "-63",
+                "radius_mantissa": "1"
+              },
+              "is_exact": false
+            },
+            "imaginary_contains_zero": true,
+            "index": "8",
+            "real": {
+              "display": "[2.424000721946273990 +/- 4.93e-19]",
+              "dyadic": {
+                "mid_exponent": "-65",
+                "mid_mantissa": "89429841904460208773",
+                "radius_exponent": "-65",
+                "radius_mantissa": "3"
+              },
+              "is_exact": false
+            },
+            "real_part_is_positive": true
+          }
+        ],
+        "ordering": "ascending by pairwise-separated real enclosures",
+        "smallest_eigenvalue": {
+          "imaginary": {
+            "display": "[+/- 1.09e-19]",
+            "dyadic": {
+              "mid_exponent": "0",
+              "mid_mantissa": "0",
+              "radius_exponent": "-63",
+              "radius_mantissa": "1"
+            },
+            "is_exact": false
+          },
+          "ordered_index": "0",
+          "real": {
+            "display": "[0.092007663449471905 +/- 9.89e-20]",
+            "dyadic": {
+              "mid_exponent": "-65",
+              "mid_mantissa": "3394483640944817569",
+              "radius_exponent": "-65",
+              "radius_mantissa": "3"
+            },
+            "is_exact": false
+          },
+          "separated_from_all_others": true
+        }
+      },
+      "sequence": "0"
+    }
+  ],
+  "cell": {
+    "cell_id": "c-3-over-2-n-4",
+    "cutoff_c": {
+      "denominator": "2",
+      "numerator": "3"
+    },
+    "degree": "4",
+    "dimension": "9",
+    "input_sha256": "397a0fc791eab127ac41fa25a45bd1ece7cdc108a6676e7b8a5d2c4c30d91d83"
+  },
+  "classification": "EXPLORATORY",
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This is a bounded search over finitely many cutoffs and Fourier modes. Positive cells do not prove RH, an inconclusive cell is not evidence of a negative direction, and any interval-negative candidate remains quarantined until independent sign, normalization, source-equation, and backend audits reproduce it.",
+  "payload_sha256": "84ee99aea0a288b43fd29d2dfcf798816b6ba2c6da891232a9fd65538e4481dc",
+  "plan_sha256": "68afe80851df02f1db4eb0b8119818bf45e9afef2d1ade7de4f73200f32827fc",
+  "policy": {
+    "attempt_bits": [
+      "96",
+      "192",
+      "384"
+    ],
+    "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+    "confirmation_bits": "768",
+    "positive_terminal_gate": "fixed-order-interval-ldlt",
+    "witness_policy": {
+      "eigenpair_count": "3",
+      "eigensolver_role": "approximate-untrusted-hint-only",
+      "normalization": "primitive-gcd-and-first-nonzero-positive",
+      "parts": [
+        "real",
+        "imaginary"
+      ],
+      "projections": [
+        "even",
+        "odd",
+        "raw"
+      ],
+      "rounding": "exact-rational-round-ties-to-even",
+      "scale_bits": [
+        "8",
+        "12",
+        "16",
+        "24",
+        "32",
+        "48"
+      ]
+    }
+  },
+  "quarantined_candidate": null,
+  "schema": "rh-lab/weil-search-cell/v1",
+  "status": "FINITE_POSITIVE_CERTIFIED"
+}

@@ -33,6 +33,35 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Lagarias certificate](results/lagarias-1-1000000.json), and the
 [machine-checked claim ledger](claims/registry.json).
 
+### Adaptive finite Weil search (`EXPLORATORY`)
+
+The frozen [v1 search plan](plans/weil-grid-v1.json) evaluated all 32 pairs of
+exact cutoffs `c in {3/2, 2, 5/2, 3, 4, 5, 8, 9}` and degrees
+`N in {4, 8, 12, 16}`. Every complete matrix closed
+`FINITE_POSITIVE_CERTIFIED` by interval `LDL^T`: 23 cells at 96 bits, six at
+192 bits, and the three hardest cells at 384 bits. There were no inconclusive
+terminal cells and no interval-negative witnesses. At lower precisions where
+`LDL^T` had not yet closed, the engine performed 443 primitive integer-vector
+candidate evaluations: 370 were strictly positive and 73 were
+interval-inconclusive at the attempted precision; none was negative.
+
+The most ill-conditioned terminal cell was `c=9, N=16` (dimension 33). Its
+secondary Rump diagnostic enclosed the smallest eigenvalue as
+`[1.483861410967958711918628391031090118348e-29 +/- 1.47e-69]`; the actual
+terminal certificate is the complete list of 33 positive interval `LDL^T`
+pivots. A separate process replayed all 32 cell artifacts successfully. The
+[search index](results/weil-search-grid-v1/index.json) has payload SHA-256
+`f0595f9630b8738d518dfabfeb2d4d9921f4e0fcb0d4d09a9c201fe6f47e7d87` and
+binds plan SHA-256
+`68afe80851df02f1db4eb0b8119818bf45e9afef2d1ade7de4f73200f32827fc`.
+
+This is a bounded null search, not evidence sufficient for RH: it says only
+that no negative direction was found in these 32 finite Fourier
+compressions. The aggregate remains `EXPLORATORY`, does not enter the global
+claim ledger, and leaves the headline verdict `UNRESOLVED`. The adaptive
+engine, quarantine gates, and prime-power transition frontier are documented
+in the [v1 search methodology](docs/weil-search-plan-v1.md).
+
 The zero result is intentionally nowhere near a record. Platt and Trudgian
 already proved that the lowest **12,363,153,437,138** positive-ordinate zeros
 lie on the critical line through height **3,000,175,332,800**
@@ -108,6 +137,9 @@ python -m venv .venv
   --artifact results\lagarias-1-1000000.json
 .\.venv\Scripts\rh-lab.exe verify-weil `
   --artifact results\weil-matrix-c5-over-2-n4.json --bits 384
+.\.venv\Scripts\rh-lab.exe verify-weil-search `
+  --index results\weil-search-grid-v1\index.json `
+  --checkpoint-dir results\weil-search-grid-v1
 ```
 
 Generate fresh artifacts:
@@ -119,7 +151,14 @@ Generate fresh artifacts:
   --output results\lagarias-new.json
 .\.venv\Scripts\rh-lab.exe weil --bits 192 `
   --output results\weil-matrix-new.json
+.\.venv\Scripts\rh-lab.exe weil-search `
+  --plan plans\weil-grid-v1.json `
+  --checkpoint-dir results\weil-search-grid-v1-new
 ```
+
+The search writes atomic per-attempt checkpoints so an interrupted cell can be
+resumed with `--resume`. Terminal cell files embed those ordered attempts;
+therefore the redundant `attempts/` working directory is not committed.
 
 `python-flint` wraps FLINT/Arb ball arithmetic. FLINT's critical-line routine
 isolates Hardy-Z roots and embeds them at real part `1/2`; the decisive finite
@@ -134,6 +173,7 @@ not an independent implementation.
 
 - `src/riemann_lab/`: certificate generators, exact-dyadic ball encodings,
   same-backend replay verifiers, and schema/hash claim gates;
+- `plans/`: canonically hashed exploratory search schedules;
 - `results/`: hash-pinned generated evidence;
 - `claims/registry.json`: the machine-checked claim ledger;
 - `docs/`: research charter, methodology, and primary-source map;

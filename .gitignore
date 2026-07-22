@@ -10,3 +10,7 @@ dist/
 build/
 .idea/
 .vscode/
+
+# Terminal cell artifacts embed every ordered attempt; these generated files
+# are redundant and exist only to support interruption before a cell closes.
+results/weil-search-grid-v1/attempts/

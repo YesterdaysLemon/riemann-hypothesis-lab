@@ -1,0 +1,105 @@
+{
+  "backend": {
+    "flint": "3.6.0",
+    "python_flint": "0.9.0"
+  },
+  "classification": "EXPLORATORY",
+  "engine_id": "finite-weil-grid-search-v1",
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This is a bounded search over finitely many cutoffs and Fourier modes. Positive cells do not prove RH, an inconclusive cell is not evidence of a negative direction, and any interval-negative candidate remains quarantined until independent sign, normalization, source-equation, and backend audits reproduce it.",
+  "payload_sha256": "e9a65dda0d7ff74af3ec19c215db9e92a28857822e209fa410da4545a22a0d64",
+  "plan": {
+    "backend_contract": {
+      "flint": "3.6.0",
+      "python_flint": "0.9.0"
+    },
+    "classification": "EXPLORATORY",
+    "cutoffs": [
+      {
+        "denominator": "2",
+        "numerator": "3"
+      },
+      {
+        "denominator": "1",
+        "numerator": "2"
+      },
+      {
+        "denominator": "2",
+        "numerator": "5"
+      },
+      {
+        "denominator": "1",
+        "numerator": "3"
+      },
+      {
+        "denominator": "1",
+        "numerator": "4"
+      },
+      {
+        "denominator": "1",
+        "numerator": "5"
+      },
+      {
+        "denominator": "1",
+        "numerator": "8"
+      },
+      {
+        "denominator": "1",
+        "numerator": "9"
+      }
+    ],
+    "degrees": [
+      "4",
+      "8",
+      "12",
+      "16"
+    ],
+    "engine": {
+      "algorithm_id": "finite-weil-grid-search-v1",
+      "cell_order": "cutoff ascending, then degree ascending",
+      "matrix": "A=P-R-S",
+      "matrix_builder": "complete exact-cutoff finite Weil components",
+      "parallelism": "serial; FLINT ctx.prec is shared mutable state",
+      "source_oracles_required": true
+    },
+    "hypothesis_status": "UNRESOLVED",
+    "limitation": "This is a bounded search over finitely many cutoffs and Fourier modes. Positive cells do not prove RH, an inconclusive cell is not evidence of a negative direction, and any interval-negative candidate remains quarantined until independent sign, normalization, source-equation, and backend audits reproduce it.",
+    "plan_sha256": "68afe80851df02f1db4eb0b8119818bf45e9afef2d1ade7de4f73200f32827fc",
+    "precision_policy": {
+      "attempt_bits": [
+        "96",
+        "192",
+        "384"
+      ],
+      "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+      "confirmation_bits": "768",
+      "positive_terminal_gate": "fixed-order-interval-ldlt"
+    },
+    "schema": "rh-lab/weil-search-plan/v1",
+    "witness_policy": {
+      "eigenpair_count": "3",
+      "eigensolver_role": "approximate-untrusted-hint-only",
+      "normalization": "primitive-gcd-and-first-nonzero-positive",
+      "parts": [
+        "real",
+        "imaginary"
+      ],
+      "projections": [
+        "even",
+        "odd",
+        "raw"
+      ],
+      "rounding": "exact-rational-round-ties-to-even",
+      "scale_bits": [
+        "8",
+        "12",
+        "16",
+        "24",
+        "32",
+        "48"
+      ]
+    }
+  },
+  "plan_sha256": "68afe80851df02f1db4eb0b8119818bf45e9afef2d1ade7de4f73200f32827fc",
+  "schema": "rh-lab/weil-search-run/v1"
+}

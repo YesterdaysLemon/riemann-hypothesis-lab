@@ -5,3 +5,4 @@
 *.py text eol=lf
 *.toml text eol=lf
 *.yml text eol=lf
+results/weil-search-grid-v1/cells/*.json linguist-generated=true

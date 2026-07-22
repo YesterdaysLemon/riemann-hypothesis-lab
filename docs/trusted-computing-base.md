@@ -50,6 +50,28 @@ clean-room independent. Connes and Consani's published core theorem supplies
 the domain and finite-compression limit bridge, but this one matrix leaves all
 higher modes and other cutoffs untested.
 
+## Exploratory finite Weil search
+
+The adaptive grid inherits the entire finite Weil trusted computing base. Its
+additional trusted code covers plan canonicalization, exact ties-to-even
+rationalization of approximate eigenvectors, primitive integer-vector
+evaluation, precision scheduling, atomic checkpoints, and artifact replay.
+Approximate eigensolvers and Rump spectra are expressly untrusted hints:
+neither can establish a terminal sign. Positive cells close only through
+interval `LDL^T`; negative candidates require the same exact integer witness
+to have a strictly negative interval upper bound at two precisions.
+
+Arb quadrature is permitted to return slightly different valid enclosures on
+repeated calls. Before hashing, the engine therefore outward-rounds every ball
+onto a guarded deterministic dyadic grid. Replay requires the same stabilized
+evidence, exact input structure and prime-power transcript, and higher-
+precision containment where a candidate is confirmed. Generation and
+verification still share this repository, CPython, python-flint, FLINT, and
+Arb, so a quarantined negative would require a separate implementation and
+mathematical audit before it could support any global claim. Every aggregate
+search artifact remains `EXPLORATORY` and leaves the hypothesis status
+`UNRESOLVED`.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker

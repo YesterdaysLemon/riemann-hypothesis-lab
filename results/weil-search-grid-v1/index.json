@@ -1,0 +1,309 @@
+{
+  "backend": {
+    "flint": "3.6.0",
+    "python_flint": "0.9.0"
+  },
+  "cells": [
+    {
+      "cell_id": "c-3-over-2-n-4",
+      "cell_payload_sha256": "84ee99aea0a288b43fd29d2dfcf798816b6ba2c6da891232a9fd65538e4481dc",
+      "path": "cells/c-3-over-2-n-4.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-3-over-2-n-8",
+      "cell_payload_sha256": "7f0e34251bdac1fe22cd763fbdce4cc8c0bf153864a725a21d82340e3c96cbea",
+      "path": "cells/c-3-over-2-n-8.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-3-over-2-n-12",
+      "cell_payload_sha256": "d4921c10dadbe39ecaeabc0ce3956e5b39a09ed415b474d1d7844a59360d5a16",
+      "path": "cells/c-3-over-2-n-12.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-3-over-2-n-16",
+      "cell_payload_sha256": "3a9403dec320f5a5aa410cc112f1853775dae22d1cc05b26d3eacee2343ac649",
+      "path": "cells/c-3-over-2-n-16.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-2-over-1-n-4",
+      "cell_payload_sha256": "5122e3e9eaff0f3f44f87b1736d7417bbd6a88a08ca4330c9ea363a08b942d9d",
+      "path": "cells/c-2-over-1-n-4.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-2-over-1-n-8",
+      "cell_payload_sha256": "8546e84329fe3965517a3a0dfc249ec9e12632343dc00106722323d12352ef1e",
+      "path": "cells/c-2-over-1-n-8.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-2-over-1-n-12",
+      "cell_payload_sha256": "2876fb8927b41a40857f6547e68fc45990ecc2068e41d833f4f5e8787f0e4ee9",
+      "path": "cells/c-2-over-1-n-12.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-2-over-1-n-16",
+      "cell_payload_sha256": "5e80c429b5e14ae386e7b85bdba3b07d0ee3f20ea905e14b8812e4a9ce3721f5",
+      "path": "cells/c-2-over-1-n-16.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-5-over-2-n-4",
+      "cell_payload_sha256": "fea6d4fe7c11cbfd8deef90067434d09fd699e94fe935d2d0bdd745d0b1bcb80",
+      "path": "cells/c-5-over-2-n-4.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-5-over-2-n-8",
+      "cell_payload_sha256": "bc928473ea5c2e296b59dcf0d1c87f5d06db68f58edef7e8d7a3b187dc21af41",
+      "path": "cells/c-5-over-2-n-8.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-5-over-2-n-12",
+      "cell_payload_sha256": "82a73a4e02209d2b70b7119a65521e2cf9be1fdf626b1591d2e79811d970b05b",
+      "path": "cells/c-5-over-2-n-12.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-5-over-2-n-16",
+      "cell_payload_sha256": "24f614bc2f08e0ff4065d99fb32cf841a67182e5ea00085afab8dbaf3678f5f8",
+      "path": "cells/c-5-over-2-n-16.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-3-over-1-n-4",
+      "cell_payload_sha256": "53c9776c3c3d1c9184697ab28ef8133bb1995bae40ed05db4f163555fe884e71",
+      "path": "cells/c-3-over-1-n-4.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-3-over-1-n-8",
+      "cell_payload_sha256": "2afeb95bfac6d4c5bfc6b942d6cd0bd840e5646f9e3638ce9a4918f5b13b3379",
+      "path": "cells/c-3-over-1-n-8.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-3-over-1-n-12",
+      "cell_payload_sha256": "80c43a1ec983df8e7db235131188ce7bd57867c9cea7a6bb2a2ed986f2052380",
+      "path": "cells/c-3-over-1-n-12.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-3-over-1-n-16",
+      "cell_payload_sha256": "0e164d353fcc400c4388cde33301784a382695cf2022dcacf84a4e38af124b4e",
+      "path": "cells/c-3-over-1-n-16.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-4-over-1-n-4",
+      "cell_payload_sha256": "d44b4261fe0c6db86026e7ca72c45488dc8db36b4080b2e65f4472f2d197a5a2",
+      "path": "cells/c-4-over-1-n-4.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-4-over-1-n-8",
+      "cell_payload_sha256": "72916e7901161aad64e8c5591af83564919acab528ba20ae1a42ba3b616ac821",
+      "path": "cells/c-4-over-1-n-8.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-4-over-1-n-12",
+      "cell_payload_sha256": "d024fe2d812f99aa999af3499072670d0e86bffcafaf6f8ac290375ef84c42e3",
+      "path": "cells/c-4-over-1-n-12.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-4-over-1-n-16",
+      "cell_payload_sha256": "df2d0d49236c6183908f21589b89470f29f22a63f27a34a1162a5c68e10ac36d",
+      "path": "cells/c-4-over-1-n-16.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-5-over-1-n-4",
+      "cell_payload_sha256": "119ec81358224da9c90768b3b570ea0d11a60b11c794a746d042864ea21430da",
+      "path": "cells/c-5-over-1-n-4.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-5-over-1-n-8",
+      "cell_payload_sha256": "eb5f1f4b8c3892f1be4206f8cbf84a183db806ddf4f14642382f807ef7e179ba",
+      "path": "cells/c-5-over-1-n-8.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-5-over-1-n-12",
+      "cell_payload_sha256": "123e913e0b83c27b6ba9124c91d3be3218e4956ad6137fed5cb5991be1376c3f",
+      "path": "cells/c-5-over-1-n-12.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-5-over-1-n-16",
+      "cell_payload_sha256": "d1f7a6e291391edee4032c94733d4c26ad57b37bf329d9828a6c78ccae095e5d",
+      "path": "cells/c-5-over-1-n-16.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-8-over-1-n-4",
+      "cell_payload_sha256": "c10426a928de5ea5beb2763cd659c5612f11ab2527ffcc38a9515a641ea9b41c",
+      "path": "cells/c-8-over-1-n-4.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-8-over-1-n-8",
+      "cell_payload_sha256": "a61e194329e5529c97bbbcf625d3388e20c7eb707eac68fffd9da66ac8c6b6d1",
+      "path": "cells/c-8-over-1-n-8.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-8-over-1-n-12",
+      "cell_payload_sha256": "8363ae158a67e33f584d37dc2cb8c8d77b8a79392216f832e8f341703e5b1422",
+      "path": "cells/c-8-over-1-n-12.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-8-over-1-n-16",
+      "cell_payload_sha256": "44c6abc1f12d5719763930154123e1289d1ecc42931df194caee2cd04fecd6bc",
+      "path": "cells/c-8-over-1-n-16.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-9-over-1-n-4",
+      "cell_payload_sha256": "06ee0d71f7b995eb59d6c014ee41488509579940e2ed90ebf5d0922f27d00b10",
+      "path": "cells/c-9-over-1-n-4.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-9-over-1-n-8",
+      "cell_payload_sha256": "bf969199d0ca0aae8c8173b63fba263fa9cefb35dc13141f070ec7ef003e94f1",
+      "path": "cells/c-9-over-1-n-8.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-9-over-1-n-12",
+      "cell_payload_sha256": "9745d0d14931325e32de0e6a7e09c31fb8aa672983d6683740c3f6124991d6d7",
+      "path": "cells/c-9-over-1-n-12.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    },
+    {
+      "cell_id": "c-9-over-1-n-16",
+      "cell_payload_sha256": "e838b3967ba8178ee8ab543bf89a28f123756d2d232b99aaaa00138769c8ed4b",
+      "path": "cells/c-9-over-1-n-16.json",
+      "status": "FINITE_POSITIVE_CERTIFIED"
+    }
+  ],
+  "classification": "EXPLORATORY",
+  "conclusion": "NO_NEGATIVE_WITNESS_IN_FINITE_GRID",
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This is a bounded search over finitely many cutoffs and Fourier modes. Positive cells do not prove RH, an inconclusive cell is not evidence of a negative direction, and any interval-negative candidate remains quarantined until independent sign, normalization, source-equation, and backend audits reproduce it.",
+  "missing_cells": [],
+  "payload_sha256": "f0595f9630b8738d518dfabfeb2d4d9921f4e0fcb0d4d09a9c201fe6f47e7d87",
+  "plan": {
+    "backend_contract": {
+      "flint": "3.6.0",
+      "python_flint": "0.9.0"
+    },
+    "classification": "EXPLORATORY",
+    "cutoffs": [
+      {
+        "denominator": "2",
+        "numerator": "3"
+      },
+      {
+        "denominator": "1",
+        "numerator": "2"
+      },
+      {
+        "denominator": "2",
+        "numerator": "5"
+      },
+      {
+        "denominator": "1",
+        "numerator": "3"
+      },
+      {
+        "denominator": "1",
+        "numerator": "4"
+      },
+      {
+        "denominator": "1",
+        "numerator": "5"
+      },
+      {
+        "denominator": "1",
+        "numerator": "8"
+      },
+      {
+        "denominator": "1",
+        "numerator": "9"
+      }
+    ],
+    "degrees": [
+      "4",
+      "8",
+      "12",
+      "16"
+    ],
+    "engine": {
+      "algorithm_id": "finite-weil-grid-search-v1",
+      "cell_order": "cutoff ascending, then degree ascending",
+      "matrix": "A=P-R-S",
+      "matrix_builder": "complete exact-cutoff finite Weil components",
+      "parallelism": "serial; FLINT ctx.prec is shared mutable state",
+      "source_oracles_required": true
+    },
+    "hypothesis_status": "UNRESOLVED",
+    "limitation": "This is a bounded search over finitely many cutoffs and Fourier modes. Positive cells do not prove RH, an inconclusive cell is not evidence of a negative direction, and any interval-negative candidate remains quarantined until independent sign, normalization, source-equation, and backend audits reproduce it.",
+    "plan_sha256": "68afe80851df02f1db4eb0b8119818bf45e9afef2d1ade7de4f73200f32827fc",
+    "precision_policy": {
+      "attempt_bits": [
+        "96",
+        "192",
+        "384"
+      ],
+      "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+      "confirmation_bits": "768",
+      "positive_terminal_gate": "fixed-order-interval-ldlt"
+    },
+    "schema": "rh-lab/weil-search-plan/v1",
+    "witness_policy": {
+      "eigenpair_count": "3",
+      "eigensolver_role": "approximate-untrusted-hint-only",
+      "normalization": "primitive-gcd-and-first-nonzero-positive",
+      "parts": [
+        "real",
+        "imaginary"
+      ],
+      "projections": [
+        "even",
+        "odd",
+        "raw"
+      ],
+      "rounding": "exact-rational-round-ties-to-even",
+      "scale_bits": [
+        "8",
+        "12",
+        "16",
+        "24",
+        "32",
+        "48"
+      ]
+    }
+  },
+  "plan_sha256": "68afe80851df02f1db4eb0b8119818bf45e9afef2d1ade7de4f73200f32827fc",
+  "progress": {
+    "completed_cells": "32",
+    "planned_cells": "32",
+    "status_counts": {
+      "FINITE_POSITIVE_CERTIFIED": "32",
+      "INCONCLUSIVE_MAX_PRECISION": "0",
+      "NEGATIVE_CANDIDATE_QUARANTINED": "0"
+    }
+  },
+  "schema": "rh-lab/weil-search-index/v1"
+}

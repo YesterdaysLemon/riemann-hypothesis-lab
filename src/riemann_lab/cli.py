@@ -24,6 +24,12 @@ from .weil import (
     certify_weil_matrix,
     verify_weil_certificate,
 )
+from .weil_search import (
+    WeilSearchError,
+    load_search_plan,
+    run_weil_search,
+    verify_weil_search,
+)
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -53,6 +59,21 @@ def _parser() -> argparse.ArgumentParser:
     weil.add_argument("--bits", type=int, default=192)
     weil.add_argument("--output", type=Path, required=True)
 
+    weil_search = commands.add_parser(
+        "weil-search",
+        help="run or resume a checkpointed exploratory finite Weil grid",
+    )
+    weil_search.add_argument(
+        "--plan", type=Path, default=Path("plans/weil-grid-v1.json")
+    )
+    weil_search.add_argument("--checkpoint-dir", type=Path, required=True)
+    weil_search.add_argument("--resume", action="store_true")
+    weil_search.add_argument(
+        "--max-cells",
+        type=int,
+        help="complete at most this many new cells before checkpointing",
+    )
+
     verify_zeros = commands.add_parser(
         "verify-zeros", help="validate and replay a zero certificate"
     )
@@ -69,6 +90,15 @@ def _parser() -> argparse.ArgumentParser:
     )
     verify_weil.add_argument("--artifact", type=Path, required=True)
     verify_weil.add_argument("--bits", type=int, default=384)
+
+    verify_weil_search_parser = commands.add_parser(
+        "verify-weil-search",
+        help="validate and replay a checkpointed exploratory Weil search",
+    )
+    verify_weil_search_parser.add_argument("--index", type=Path, required=True)
+    verify_weil_search_parser.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
 
     claims = commands.add_parser("verify-claims", help="validate the claim ledger")
     claims.add_argument(
@@ -115,6 +145,32 @@ def main(argv: Sequence[str] | None = None) -> int:
         }, sort_keys=True))
         return 0 if artifact["classification"] == "CERTIFIED_FINITE" else 2
 
+    if args.command == "weil-search":
+        try:
+            plan = load_search_plan(args.plan)
+            index = run_weil_search(
+                plan,
+                args.checkpoint_dir,
+                resume=args.resume,
+                max_cells=args.max_cells,
+            )
+        except (WeilSearchError, OSError, ValueError, TypeError) as exc:
+            print(f"Weil search rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": index["classification"],
+                    "conclusion": index["conclusion"],
+                    "index": str(args.checkpoint_dir / "index.json"),
+                    "payload_sha256": index["payload_sha256"],
+                    "progress": index["progress"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
     if args.command == "verify-zeros":
         try:
             artifact = json.loads(args.artifact.read_text(encoding="utf-8"))
@@ -141,6 +197,15 @@ def main(argv: Sequence[str] | None = None) -> int:
             result = verify_weil_certificate(artifact, args.bits)
         except (WeilCertificateError, OSError, json.JSONDecodeError) as exc:
             print(f"Weil certificate rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-weil-search":
+        try:
+            result = verify_weil_search(args.index, args.checkpoint_dir)
+        except (WeilSearchError, OSError, json.JSONDecodeError) as exc:
+            print(f"Weil search artifact rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0

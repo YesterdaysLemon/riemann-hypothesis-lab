@@ -24,6 +24,17 @@ prime-power transcript, and certifies positive definiteness by interval
 `LDL^T`. Deleting the sole `p=2` term produces a rigorously negative mutation
 control. See [the v1 specification and result](weil-matrix-v1.md).
 
+The follow-on search engine applies that complete matrix construction to a
+canonically hashed grid of exact rational cutoffs and degrees. It checkpoints
+each precision attempt atomically, treats approximate eigenvectors only as
+candidate generators, and rounds their exact dyadic midpoints to primitive
+integer vectors. A negative is retained only when direct Arb evaluation of the
+same integer vector has a strictly negative upper bound at two precisions; even
+then its status is `NEGATIVE_CANDIDATE_QUARANTINED`, never `DISPROVED`. Interval
+`LDL^T` is the sole positive terminal gate. Failed elimination, overlapping
+eigenvalue enclosures, and exhausted precision all remain inconclusive. See
+[the adaptive search plan](weil-search-plan-v1.md).
+
 The proof target is not one larger matrix. Connes and Consani prove that the
 Laurent-polynomial Fourier spaces form a core and that finite-compression
 minimum eigenvalues converge to the semilocal lower bound. Our basis vectors

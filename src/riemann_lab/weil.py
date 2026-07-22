@@ -454,11 +454,11 @@ def certify_positive_ldlt(matrix: Sequence[Sequence[Any]]) -> dict[str, Any]:
     }
 
 
-def certify_integer_witness(
+def evaluate_integer_rayleigh(
     matrix: Sequence[Sequence[Any]],
     witness: Sequence[int],
 ) -> dict[str, Any]:
-    """Evaluate an exact integer-vector Rayleigh quotient with ball entries."""
+    """Evaluate and classify an exact integer-vector Rayleigh quotient."""
 
     size = len(matrix)
     if size == 0 or any(len(row) != size for row in matrix):
@@ -490,13 +490,42 @@ def certify_integer_witness(
         raise ValueError("witness must be nonzero")
     quotient = numerator / norm_squared
     is_negative = quotient < 0
+    is_positive = quotient > 0
     return {
-        "classification": "CONTROL_NEGATIVE" if is_negative else "INCONCLUSIVE",
+        "sign": (
+            "NEGATIVE"
+            if is_negative
+            else "POSITIVE"
+            if is_positive
+            else "INCONCLUSIVE"
+        ),
         "witness": [str(value) for value in witness],
         "norm_squared": str(norm_squared),
         "numerator": arb_record(numerator),
         "rayleigh_quotient": arb_record(quotient),
         "upper_bound_is_negative": is_negative,
+        "lower_bound_is_positive": is_positive,
+    }
+
+
+def certify_integer_witness(
+    matrix: Sequence[Sequence[Any]],
+    witness: Sequence[int],
+) -> dict[str, Any]:
+    """Wrap a negative Rayleigh result as the frozen mutation control."""
+
+    evaluation = evaluate_integer_rayleigh(matrix, witness)
+    return {
+        "classification": (
+            "CONTROL_NEGATIVE"
+            if evaluation["upper_bound_is_negative"]
+            else "INCONCLUSIVE"
+        ),
+        "witness": evaluation["witness"],
+        "norm_squared": evaluation["norm_squared"],
+        "numerator": evaluation["numerator"],
+        "rayleigh_quotient": evaluation["rayleigh_quotient"],
+        "upper_bound_is_negative": evaluation["upper_bound_is_negative"],
     }
 
 
