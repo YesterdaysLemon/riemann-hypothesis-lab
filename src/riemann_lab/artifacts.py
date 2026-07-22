@@ -31,6 +31,12 @@ def file_sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def canonical_json_file_sha256(path: Path) -> str:
+    """Hash parsed JSON independently of whitespace and line endings."""
+
+    return content_sha256(json.loads(path.read_text(encoding="utf-8")))
+
+
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(

@@ -2,7 +2,8 @@
   "claims": [
     {
       "artifact": "results/zeros-1-10000.json",
-      "artifact_sha256": "8b1f919d8db3ef93182b5ff9ca999edc373781211d5129296f027c9b8d0dbe3b",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "aec460a022249c5a27d59ba5b55d5f82466e2c9cf4a6f7489a43c7cb75c2f931",
       "classification": "CERTIFIED_FINITE",
       "id": "zeros-prefix-10000-v1",
       "implies_rh": false,
@@ -18,7 +19,8 @@
     },
     {
       "artifact": "results/lagarias-1-1000000.json",
-      "artifact_sha256": "aa93667ba18518fb8ad9b60a488d62183fab576a7340b7a577f6110d733b5f1a",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "14502ca22c611defb6dbb6c5d54d58f35415444ccec864638d0c3db86c368146",
       "classification": "CERTIFIED_FINITE",
       "id": "lagarias-prefix-1000000-v1",
       "implies_rh": false,
