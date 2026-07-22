@@ -17,12 +17,21 @@ would disprove RH only if its full archimedean term and every prime-power term
 allowed by the support are included; a negative truncated sum is not decisive.
 Positive finite matrices are only `CERTIFIED_FINITE`.
 
-The proof target is not a larger matrix. It is a quantitative density and
-continuity theorem that upgrades positivity on nested finite spaces to the
-entire Weil test-function space. The Davenport-Heilbronn function will be used
-as a negative control once this track is implemented. It is not the Riemann
-zeta function and its known off-critical zeros do not disprove RH; it only tests
-whether the implementation detects failure of the analogous hypothesis.
+The first frozen implementation uses `c=5/2` and modes `-4..4`. It evaluates
+the desingularized archimedean source integral with Acb, cross-checks every
+entry against a separately derived digamma/Lerch formula, uses an exact
+prime-power transcript, and certifies positive definiteness by interval
+`LDL^T`. Deleting the sole `p=2` term produces a rigorously negative mutation
+control. See [the v1 specification and result](weil-matrix-v1.md).
+
+The proof target is not one larger matrix. Connes and Consani prove that the
+Laurent-polynomial Fourier spaces form a core and that finite-compression
+minimum eigenvalues converge to the semilocal lower bound. Our basis vectors
+are in that core, so a complete negative finite vector needs no separate
+smoothing bridge. The unresolved positive-side target is an analytic theorem
+controlling every mode and every cutoff, not a long finite prefix. The
+Davenport-Heilbronn function remains a future negative control for the
+analogous hypothesis; it is not zeta and cannot disprove RH.
 
 ### 2. Nyman-Beurling-Baez-Duarte approximation
 

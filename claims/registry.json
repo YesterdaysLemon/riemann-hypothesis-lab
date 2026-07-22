@@ -34,9 +34,26 @@
       "statement": "The Lagarias inequality is certified for every integer 1 <= n <= 1,000,000, with equality only at n=1."
     },
     {
+      "artifact": "results/weil-matrix-c5-over-2-n4.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "9f32940f83a96696003549c5ecffa90db482aaf028bb6a0495e4705bd7e59d09",
+      "classification": "CERTIFIED_FINITE",
+      "id": "weil-matrix-c5-over-2-n4-v1",
+      "implies_rh": false,
+      "limitations": "One positive finite compression cannot prove RH or exclude negative directions elsewhere. The negative omission control is deliberately corrupted and has no implication for RH.",
+      "reproduction": "rh-lab verify-weil --artifact results/weil-matrix-c5-over-2-n4.json --bits 384",
+      "scope": {
+        "cutoff_c": "5/2",
+        "degree": "4",
+        "dimension": "9",
+        "precision_bits": "192"
+      },
+      "statement": "The complete finite Weil matrix A=P-R-S for c=5/2 and modes -4 through 4 is positive definite by nine interval LDL^T pivots; deleting its sole p^r=2 term produces a certified negative mutation control."
+    },
+    {
       "classification": "EXPLORATORY",
       "id": "weil-positivity-program-v1",
-      "limitations": "No finite-dimensional positivity result supplies the missing density and continuity theorem for the full Weil test-function space.",
+      "limitations": "No finite set of positive compressions controls every Fourier mode and a cofinal unbounded family of cutoffs; the universal positivity theorem remains missing.",
       "statement": "Finite-prime Weil quadratic forms are the primary candidate-witness and proof-bridge research track."
     }
   ],

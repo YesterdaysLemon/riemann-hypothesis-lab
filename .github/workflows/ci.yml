@@ -28,3 +28,4 @@ jobs:
       - run: rh-lab verify-claims
       - run: rh-lab verify-zeros --artifact results/zeros-1-10000.json --bits 384
       - run: rh-lab verify-lagarias --artifact results/lagarias-1-1000000.json
+      - run: rh-lab verify-weil --artifact results/weil-matrix-c5-over-2-n4.json --bits 384

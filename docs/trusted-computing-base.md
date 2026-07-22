@@ -30,6 +30,26 @@ human-readable fields as well as numerical changes, but both passes share the
 same code. The test suite also compares all one million release values against a
 separately implemented divisor-addition sieve.
 
+## Finite Weil matrix certificate
+
+- CPython exact integers and rational cutoff comparisons;
+- this repository's kernel, pole, archimedean, prime-power, interval `LDL^T`,
+  mutation-control, serialization, and replay code;
+- `python-flint==0.9.0` / FLINT 3.6.0 Arb and Acb arithmetic, special functions,
+  certified quadrature, and the secondary Rump eigenvalue enclosure;
+- Bombieri's Weil-functional formulation and the frozen finite-cutoff formulas
+  of Connes--Consani--Moscovici.
+
+The 45 archimedean entries are supplied by segmented Acb integration of a
+desingularized source integrand and cross-checked against a separately coded
+digamma/trigamma/Lerch expression. Pole entries are cross-checked against their
+defining integrals. Interval `LDL^T` is the positive-definiteness certificate;
+Rump eigenvalues are a regression oracle. Both computations, both precisions,
+and both entry formulas still share FLINT and repository code, so they are not
+clean-room independent. Connes and Consani's published core theorem supplies
+the domain and finite-compression limit bridge, but this one matrix leaves all
+higher modes and other cutoffs untested.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker
