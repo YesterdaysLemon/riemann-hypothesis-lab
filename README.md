@@ -62,6 +62,32 @@ claim ledger, and leaves the headline verdict `UNRESOLVED`. The adaptive
 engine, quarantine gates, and prime-power transition frontier are documented
 in the [v1 search methodology](docs/weil-search-plan-v1.md).
 
+### Prime-power transition search v2 (`ACTIVE`, `EXPLORATORY`)
+
+The next frozen experiment consists of 81 explicitly hashed matrices around
+the prime-power cutoffs `q=7,8,9`. For each transition it uses the exact point
+`c=q` and four log-symmetric rational pairs
+`c_-=q*2^j/(2^j+1)`, `c_+=q*(2^j+1)/2^j`, with
+`j in {4,6,8,10}`. Each cutoff is evaluated at three scheduled degrees; the
+largest matrix has degree 24 and dimension 49. The canonical plan hash is
+`33185881cc619fda99b7835f5e71422b0c5cf745cb5411162638a8e08dd05336`.
+
+V2 adds exact transition-contract validation, per-cell precision policies,
+dedicated 768- or 1536-bit candidate replay, reversal-parity audits, and
+degree-nesting/zero-padding audits. It completes the full bounded plan even if
+a finite negative candidate appears. Approximate eigenvectors and Rump
+spectra remain diagnostic only; interval `LDL^T` and direct evaluation of an
+exact primitive integer vector are the sign-bearing computations. The frozen
+[plan](plans/weil-transition-q7-q9-v2.json) and
+[methodology](docs/weil-transition-v2.md) are public now; executed results will
+replace this active-run notice after generation and separate-process
+same-backend replay.
+
+This design still cannot turn 81 positive matrices into a proof. A negative
+finite direction would remain quarantined until every promotion gate and an
+independent implementation reproduce the bridge back to the full Weil
+criterion. The global verdict remains `UNRESOLVED` throughout the run.
+
 The zero result is intentionally nowhere near a record. Platt and Trudgian
 already proved that the lowest **12,363,153,437,138** positive-ordinate zeros
 lie on the critical line through height **3,000,175,332,800**
@@ -154,11 +180,29 @@ Generate fresh artifacts:
 .\.venv\Scripts\rh-lab.exe weil-search `
   --plan plans\weil-grid-v1.json `
   --checkpoint-dir results\weil-search-grid-v1-new
+.\.venv\Scripts\rh-lab.exe weil-transition-search `
+  --plan plans\weil-transition-q7-q9-v2.json `
+  --checkpoint-dir results\weil-transition-q7-q9-v2
 ```
 
-The search writes atomic per-attempt checkpoints so an interrupted cell can be
-resumed with `--resume`. Terminal cell files embed those ordered attempts;
-therefore the redundant `attempts/` working directory is not committed.
+Both search engines write atomic per-attempt checkpoints. Resume the v2 batch
+without changing its frozen plan:
+
+```powershell
+.\.venv\Scripts\rh-lab.exe weil-transition-search `
+  --plan plans\weil-transition-q7-q9-v2.json `
+  --checkpoint-dir results\weil-transition-q7-q9-v2 --resume
+.\.venv\Scripts\rh-lab.exe verify-weil-transition-search `
+  --index results\weil-transition-q7-q9-v2\index.json `
+  --checkpoint-dir results\weil-transition-q7-q9-v2
+```
+
+Terminal cell files embed their ordered attempts; the redundant `attempts/`
+working directories are not published as primary evidence. The v2 batch is a
+substantial serial computation because FLINT's precision context is shared.
+Parity and nesting audits have their own `weil-parity-audit`,
+`weil-nesting-audit`, and corresponding `verify-...` commands; run
+`rh-lab <command> --help` for exact witness and precision options.
 
 `python-flint` wraps FLINT/Arb ball arithmetic. FLINT's critical-line routine
 isolates Hardy-Z roots and embeds them at real part `1/2`; the decisive finite
