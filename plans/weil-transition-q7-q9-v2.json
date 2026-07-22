@@ -1,0 +1,4791 @@
+{
+  "backend_contract": {
+    "flint": "3.6.0",
+    "python_flint": "0.9.0"
+  },
+  "cells": [
+    {
+      "cell_contract_sha256": "d083bdfa09c4985e1d10d6775ce7d046b54cb1bbd1c353362ffebdb13005ccd6",
+      "contract_id": "q-7-j-4-below-n-12",
+      "matrix_input": {
+        "cell_id": "c-112-over-17-n-12",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "112"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "fe18817a71e46d06734198a89124b38ec230f09a5b295511182ccb5fb79ef9d3"
+      },
+      "matrix_input_sha256": "fe18817a71e46d06734198a89124b38ec230f09a5b295511182ccb5fb79ef9d3",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "9b49ab9c8a85b5c74faf9b8c576db35d9815fa5c20f7d4aeac35661f4247f02d",
+      "contract_id": "q-7-j-4-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-112-over-17-n-16",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "112"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "98fb8206771f652ef5a98cd26286563055658040fae76b46c4ea1b32f9e5cbd9"
+      },
+      "matrix_input_sha256": "98fb8206771f652ef5a98cd26286563055658040fae76b46c4ea1b32f9e5cbd9",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "8ef544eb030e0126e82e871c88235cb4948bc9365739f2d80714a85e6f08aadc",
+      "contract_id": "q-7-j-4-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-112-over-17-n-20",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "112"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "5ebc2397e2f4565b36599c87625e11d2d324e18395d16608d8a93639509b3b4f"
+      },
+      "matrix_input_sha256": "5ebc2397e2f4565b36599c87625e11d2d324e18395d16608d8a93639509b3b4f",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "ca40388bcb035fc6e55f71178f368177d05165bf219cdd612f0698953c9d680d",
+      "contract_id": "q-7-j-6-below-n-12",
+      "matrix_input": {
+        "cell_id": "c-448-over-65-n-12",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "448"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "210ef6ce560f12174416be99ff85120bbaf3a552ac54bfd8df5155dd5b17a338"
+      },
+      "matrix_input_sha256": "210ef6ce560f12174416be99ff85120bbaf3a552ac54bfd8df5155dd5b17a338",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "5e6c3ee33f0732fa4806e9f4c58a76b479c82acc4be641d0f1ca82566cfda0b8",
+      "contract_id": "q-7-j-6-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-448-over-65-n-16",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "448"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "692c8faed499b5426e5f33ad45e564037473786c38ca5656c7a6d24a6fb711a2"
+      },
+      "matrix_input_sha256": "692c8faed499b5426e5f33ad45e564037473786c38ca5656c7a6d24a6fb711a2",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "e26b412490dd337b275d0d5bdcf1007944983e83621535dbaf48e1ce20f85878",
+      "contract_id": "q-7-j-6-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-448-over-65-n-20",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "448"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "49e3607f2a3f8dfb6d2453aa2371537041826cef00cd9d84c71ce409efc0cde6"
+      },
+      "matrix_input_sha256": "49e3607f2a3f8dfb6d2453aa2371537041826cef00cd9d84c71ce409efc0cde6",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "d37685357b182058c2be9dcc2f0d0e494c0e89eec49f1468bebc199ee0a79bbd",
+      "contract_id": "q-7-j-8-below-n-12",
+      "matrix_input": {
+        "cell_id": "c-1792-over-257-n-12",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "1792"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "0c2cb0e08d84568020f07e4a1ac07c2dfeaeaf170fe808d3f23cb93c59d54c97"
+      },
+      "matrix_input_sha256": "0c2cb0e08d84568020f07e4a1ac07c2dfeaeaf170fe808d3f23cb93c59d54c97",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "4b1958e85fda1b0969b19428425f261511aee22a3e240c085aaa6ec4ba61dfe0",
+      "contract_id": "q-7-j-8-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-1792-over-257-n-16",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "1792"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "62c1dd65ba01b08485cfc27cb4d85007c05a4a6bbd1878300c5fb3b9ea81f8e9"
+      },
+      "matrix_input_sha256": "62c1dd65ba01b08485cfc27cb4d85007c05a4a6bbd1878300c5fb3b9ea81f8e9",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "bca0e5894ce904019afc8800b535edcfa22c78a0eee4c1a5aec4b5b5185206b3",
+      "contract_id": "q-7-j-8-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-1792-over-257-n-20",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "1792"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "f8688a7e6679b5dc7d70e7d3ece4659f7f9e4f921dd6a4c031792feb84354a6a"
+      },
+      "matrix_input_sha256": "f8688a7e6679b5dc7d70e7d3ece4659f7f9e4f921dd6a4c031792feb84354a6a",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "1fbc75dcfecbd2c28ff1f53c243ba2177ab407fc0c738aa2f1ceeb527ecf9139",
+      "contract_id": "q-7-j-10-below-n-12",
+      "matrix_input": {
+        "cell_id": "c-7168-over-1025-n-12",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "7168"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "96589447e199dcef4809a470e5b26edc8ea7b0ebfdb1e84ab6a0c542a307b0a2"
+      },
+      "matrix_input_sha256": "96589447e199dcef4809a470e5b26edc8ea7b0ebfdb1e84ab6a0c542a307b0a2",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "46ccd75daafa3a57cd75b22f2a4ff4b2defa94210f0873cc33c2386e1b9ab247",
+      "contract_id": "q-7-j-10-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-7168-over-1025-n-16",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "7168"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "13f03d1b2836f28a24e4c6f0b95990f6424e52e8e02cfb20ed929f47a8bc29bf"
+      },
+      "matrix_input_sha256": "13f03d1b2836f28a24e4c6f0b95990f6424e52e8e02cfb20ed929f47a8bc29bf",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "6ff14d76ef7e4c96b396e1085cd27b368b12f9dbbe2eec1c70629c105f5808ec",
+      "contract_id": "q-7-j-10-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-7168-over-1025-n-20",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "7168"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "bd83a41d16dce643a0661cbf1737c2604faf67adee4bcfdfb6dfedb886e386fc"
+      },
+      "matrix_input_sha256": "bd83a41d16dce643a0661cbf1737c2604faf67adee4bcfdfb6dfedb886e386fc",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "341ccf14cccb69f84f54eb6f81909f3486142c6ed9c0e8ce38c646ddaad4a2b4",
+      "contract_id": "q-7-exact-n-12",
+      "matrix_input": {
+        "cell_id": "c-7-over-1-n-12",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "7"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "bd9c301979e2831542020f85815fdcc00eac9ae4a36dee4a3c95a56310af959c"
+      },
+      "matrix_input_sha256": "bd9c301979e2831542020f85815fdcc00eac9ae4a36dee4a3c95a56310af959c",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q",
+        "position": "exact",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "d06d6543682770625eb1f5e7be58e2107dc1e430b3d9b1b0d0909b25ae3badfe",
+      "contract_id": "q-7-exact-n-16",
+      "matrix_input": {
+        "cell_id": "c-7-over-1-n-16",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "7"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "c47dd9341138f6207d49c6d4fa8ad7ec4f92194fb75a7ac1a48cdeb0dbc1a9d7"
+      },
+      "matrix_input_sha256": "c47dd9341138f6207d49c6d4fa8ad7ec4f92194fb75a7ac1a48cdeb0dbc1a9d7",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q",
+        "position": "exact",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "32221e993b1b8af6880cbc7a83e006f1dcb2540cd214e1a41b5d09d242154453",
+      "contract_id": "q-7-exact-n-20",
+      "matrix_input": {
+        "cell_id": "c-7-over-1-n-20",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "7"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "77406821b209d42488422c8d6da844cd20e379309ab4116fa448822c3e54a4e3"
+      },
+      "matrix_input_sha256": "77406821b209d42488422c8d6da844cd20e379309ab4116fa448822c3e54a4e3",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q",
+        "position": "exact",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "e8f26bc8c6d4a5d49ae0960aa18c6845f4f996f2f48def4364fe77a66c162a68",
+      "contract_id": "q-7-j-10-above-n-12",
+      "matrix_input": {
+        "cell_id": "c-7175-over-1024-n-12",
+        "cutoff_c": {
+          "denominator": "1024",
+          "numerator": "7175"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "e3e0dbef60b251401812bc3265394892b06e4ad420b5930cd1f45e9a3a1789e3"
+      },
+      "matrix_input_sha256": "e3e0dbef60b251401812bc3265394892b06e4ad420b5930cd1f45e9a3a1789e3",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "8454646e4d630ce7c7d6cef0259fce7194a8c735d688bb30995b5cc636d425f9",
+      "contract_id": "q-7-j-10-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-7175-over-1024-n-16",
+        "cutoff_c": {
+          "denominator": "1024",
+          "numerator": "7175"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "9656d738c5b0c8ae5020134d951e7796044ba0e88a70e36c4658dea79be71768"
+      },
+      "matrix_input_sha256": "9656d738c5b0c8ae5020134d951e7796044ba0e88a70e36c4658dea79be71768",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "ff39bfae4ef9fffde135a5098d5c736fdd6176aced0c4d9a8fd1662fdf6c6622",
+      "contract_id": "q-7-j-10-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-7175-over-1024-n-20",
+        "cutoff_c": {
+          "denominator": "1024",
+          "numerator": "7175"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "3d598e981f238ee6d037c104de84025db3ed31b6e02fa5fe1938ffc4be59fac8"
+      },
+      "matrix_input_sha256": "3d598e981f238ee6d037c104de84025db3ed31b6e02fa5fe1938ffc4be59fac8",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "33e90c0f2462dd6a05b62936bc04607ce8caef502deaf75d0dd252b23e8c2adb",
+      "contract_id": "q-7-j-8-above-n-12",
+      "matrix_input": {
+        "cell_id": "c-1799-over-256-n-12",
+        "cutoff_c": {
+          "denominator": "256",
+          "numerator": "1799"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "3969117a0f8082b45da57eb2b38ed7e1185e24f9e16ac17c2bf4d5dc4661a875"
+      },
+      "matrix_input_sha256": "3969117a0f8082b45da57eb2b38ed7e1185e24f9e16ac17c2bf4d5dc4661a875",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "9b5b6cfeb2378e80770e70c4933fe550210a191df933d38c6987dc01e476087e",
+      "contract_id": "q-7-j-8-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-1799-over-256-n-16",
+        "cutoff_c": {
+          "denominator": "256",
+          "numerator": "1799"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "f45c56a4bf89027dd0e81e72266c1b73142675b95ad007f212819079af3bb406"
+      },
+      "matrix_input_sha256": "f45c56a4bf89027dd0e81e72266c1b73142675b95ad007f212819079af3bb406",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "36ab7190eadb85c0b69f6b88bf59d926d590757a242aa6c48dc68d5cb46c9001",
+      "contract_id": "q-7-j-8-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-1799-over-256-n-20",
+        "cutoff_c": {
+          "denominator": "256",
+          "numerator": "1799"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "bc72753b0d783d0074fbf0257c77e1091ad8a93ed71055a714db62770286173b"
+      },
+      "matrix_input_sha256": "bc72753b0d783d0074fbf0257c77e1091ad8a93ed71055a714db62770286173b",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "58897b4819580a0898b0d95d54c15548c38370f1a751cc7f2e2eb349291414ee",
+      "contract_id": "q-7-j-6-above-n-12",
+      "matrix_input": {
+        "cell_id": "c-455-over-64-n-12",
+        "cutoff_c": {
+          "denominator": "64",
+          "numerator": "455"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "8af60242cae39746d24b9ef74b89d75b2073500bd821f64f8163ee8b5671a8b7"
+      },
+      "matrix_input_sha256": "8af60242cae39746d24b9ef74b89d75b2073500bd821f64f8163ee8b5671a8b7",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "1f88f1b45f6b8422538402de7f4082aa6b0847e63927bec0b7103127792ae448",
+      "contract_id": "q-7-j-6-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-455-over-64-n-16",
+        "cutoff_c": {
+          "denominator": "64",
+          "numerator": "455"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "025011b9295b88d5bc5b0919a0ca2b8d7a352d68d6e38b9d5c2343286e8ec50e"
+      },
+      "matrix_input_sha256": "025011b9295b88d5bc5b0919a0ca2b8d7a352d68d6e38b9d5c2343286e8ec50e",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "ee1bb0cf01e45d5ae1a8fd79b0e0cab4a2f3972ea40e2de53f18b0892eb45321",
+      "contract_id": "q-7-j-6-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-455-over-64-n-20",
+        "cutoff_c": {
+          "denominator": "64",
+          "numerator": "455"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "a1ee7f88269be13ebba2a8c2aa53b621c29e845377b46fe2eff4d50e53f814b4"
+      },
+      "matrix_input_sha256": "a1ee7f88269be13ebba2a8c2aa53b621c29e845377b46fe2eff4d50e53f814b4",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "c4126fc5ef3cd122bafbe2473b13d192c8bc9f9a7e6ae6d5baaeabd4ec88dd40",
+      "contract_id": "q-7-j-4-above-n-12",
+      "matrix_input": {
+        "cell_id": "c-119-over-16-n-12",
+        "cutoff_c": {
+          "denominator": "16",
+          "numerator": "119"
+        },
+        "degree": "12",
+        "dimension": "25",
+        "input_sha256": "3386df79bb69b2e66703225301cd95ab60f427133760fd54a2cde4c17285feca"
+      },
+      "matrix_input_sha256": "3386df79bb69b2e66703225301cd95ab60f427133760fd54a2cde4c17285feca",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "768",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "b20fa338f36fd0381c099ab45a6d9c734a38c3ba996abdf473a63b4a6de92667",
+      "contract_id": "q-7-j-4-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-119-over-16-n-16",
+        "cutoff_c": {
+          "denominator": "16",
+          "numerator": "119"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "2c80590c4c8de1d2ff95e4c519908721630ba3686d1064ddc20f9cb8a2d2149f"
+      },
+      "matrix_input_sha256": "2c80590c4c8de1d2ff95e4c519908721630ba3686d1064ddc20f9cb8a2d2149f",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "3a4ab9257c7f415986aa32376c4666e4e1845562a03f69a15c7e70428abb235f",
+      "contract_id": "q-7-j-4-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-119-over-16-n-20",
+        "cutoff_c": {
+          "denominator": "16",
+          "numerator": "119"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "6c9d88bf1cfd3d85696eeec1f7f8fd102a56e67e67d1465c997796209941a31f"
+      },
+      "matrix_input_sha256": "6c9d88bf1cfd3d85696eeec1f7f8fd102a56e67e67d1465c997796209941a31f",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "1",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "7",
+        "q": "7",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "254013e4794089154d765f7ad1f0281c0bd179118ab8862917f04845b218940a",
+      "contract_id": "q-8-j-4-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-128-over-17-n-16",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "128"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "bb2f075b8b74c7e03e2a76a402b06990583323eb74befa76156a3e3f024281cd"
+      },
+      "matrix_input_sha256": "bb2f075b8b74c7e03e2a76a402b06990583323eb74befa76156a3e3f024281cd",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "a086651c96a45ebc11eb32d55fd969a9fcda5ac975bbcc0881dfe55955eda33e",
+      "contract_id": "q-8-j-4-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-128-over-17-n-20",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "128"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "09eaa8325620dd2c7c336e28fa62eb61ecaea0c60f8c4a6946d3b167b0bfa7aa"
+      },
+      "matrix_input_sha256": "09eaa8325620dd2c7c336e28fa62eb61ecaea0c60f8c4a6946d3b167b0bfa7aa",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "e0de7cc994131f60bf9ac891c05af3c40e2fb3b046e7ecab63d8d1fddbb8a783",
+      "contract_id": "q-8-j-4-below-n-24",
+      "matrix_input": {
+        "cell_id": "c-128-over-17-n-24",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "128"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "43935ef19e3eacfccf1fece192b7dcd5456e1773000817ec62cdbd11e3da961c"
+      },
+      "matrix_input_sha256": "43935ef19e3eacfccf1fece192b7dcd5456e1773000817ec62cdbd11e3da961c",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "cc84d97464d215825922f75579047776983cbec5c0643f3cbdc9b4c2eea8c845",
+      "contract_id": "q-8-j-6-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-512-over-65-n-16",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "512"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "f10ac3ef4db1d863fdbded4883f64aacd2bcee9bf4e281f6bcbf7748c1e43944"
+      },
+      "matrix_input_sha256": "f10ac3ef4db1d863fdbded4883f64aacd2bcee9bf4e281f6bcbf7748c1e43944",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "0226a310752c60e443373c946bec02fa410c01ad8f2a01ce1d2c4d5c1a943a1b",
+      "contract_id": "q-8-j-6-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-512-over-65-n-20",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "512"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "346ebce6ae5339c520620e37eb0cafa574db9c00b211e277a93048051294b728"
+      },
+      "matrix_input_sha256": "346ebce6ae5339c520620e37eb0cafa574db9c00b211e277a93048051294b728",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "07b7665306b30a84d2cd3f7b91776df3e83dee6a4e67b1546d93e68c3246e0b7",
+      "contract_id": "q-8-j-6-below-n-24",
+      "matrix_input": {
+        "cell_id": "c-512-over-65-n-24",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "512"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "f9cba495fff210a6b16efd9f74b3bee8b0a2ba605c8541e1aab3f8fe5e0387a3"
+      },
+      "matrix_input_sha256": "f9cba495fff210a6b16efd9f74b3bee8b0a2ba605c8541e1aab3f8fe5e0387a3",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "c5e3f95a936aec08a9c54f90a15586a9d49f7681a1dad3b5c813be42508ab576",
+      "contract_id": "q-8-j-8-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-2048-over-257-n-16",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "2048"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "e30c47f1cb9ed5c50f186f0dbd07167a16833dc68c017864723f5f9f2dab827b"
+      },
+      "matrix_input_sha256": "e30c47f1cb9ed5c50f186f0dbd07167a16833dc68c017864723f5f9f2dab827b",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "3e9dfd9e09031087360c53b7123ab818b43f51756c7b6b213caeb4bdefaa8fdb",
+      "contract_id": "q-8-j-8-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-2048-over-257-n-20",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "2048"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "b5cb3d91216a06a28ea7460508672bce8838ada875307f541a5bfdda7880ef06"
+      },
+      "matrix_input_sha256": "b5cb3d91216a06a28ea7460508672bce8838ada875307f541a5bfdda7880ef06",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "46981cceb550204b67977bce41036703fdd981f98f71b75aa53805d9ed7caff8",
+      "contract_id": "q-8-j-8-below-n-24",
+      "matrix_input": {
+        "cell_id": "c-2048-over-257-n-24",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "2048"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "b43073f1839bacd7348a778dc8d6802832d828e34d0e4626c07db04a07eeee61"
+      },
+      "matrix_input_sha256": "b43073f1839bacd7348a778dc8d6802832d828e34d0e4626c07db04a07eeee61",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "3a49c815190bc4193e36c7ee803046c7a863cbf3c7eb2e788496d6c9a183962b",
+      "contract_id": "q-8-j-10-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-8192-over-1025-n-16",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "8192"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "689d2b46c6ded66d20bae0e14d2c0f8c56e84d6293336d1b4da7dfa2939a0262"
+      },
+      "matrix_input_sha256": "689d2b46c6ded66d20bae0e14d2c0f8c56e84d6293336d1b4da7dfa2939a0262",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "3fb4704690d6f935bd98089f16e70aed3892185bc6fdf451ffd12422eb091776",
+      "contract_id": "q-8-j-10-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-8192-over-1025-n-20",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "8192"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "e0f80259248d6ab4753d459c63811f7c85908bdbc9b3e297e92bc270745e9504"
+      },
+      "matrix_input_sha256": "e0f80259248d6ab4753d459c63811f7c85908bdbc9b3e297e92bc270745e9504",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "9f926915ae2f7f6cfc53ba09dc4885876530251b19d28d528a58b626192a239c",
+      "contract_id": "q-8-j-10-below-n-24",
+      "matrix_input": {
+        "cell_id": "c-8192-over-1025-n-24",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "8192"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "df0afc527e767a4aee0738be446e5023c429dcb5b01259cca403dc2afa705d47"
+      },
+      "matrix_input_sha256": "df0afc527e767a4aee0738be446e5023c429dcb5b01259cca403dc2afa705d47",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "4ed4edd546202e2c31bed4e50be6dd88e9cac1f9e1c5e4f1fd9fa2e1b6e99f3c",
+      "contract_id": "q-8-exact-n-16",
+      "matrix_input": {
+        "cell_id": "c-8-over-1-n-16",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "8"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "dd1fc7fb69c9daf7e7664b419169c9b538b8245c2abded0f585a518731231e7d"
+      },
+      "matrix_input_sha256": "dd1fc7fb69c9daf7e7664b419169c9b538b8245c2abded0f585a518731231e7d",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q",
+        "position": "exact",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "f65f0086789a5505add661a5ddf3467ee6f904a21a8c4c71a29478b84385b398",
+      "contract_id": "q-8-exact-n-20",
+      "matrix_input": {
+        "cell_id": "c-8-over-1-n-20",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "8"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "a463e6e7ab0c6aa9eb71d5d6f4b3d2c684393013bdb8afb9318b1af79c67b78a"
+      },
+      "matrix_input_sha256": "a463e6e7ab0c6aa9eb71d5d6f4b3d2c684393013bdb8afb9318b1af79c67b78a",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q",
+        "position": "exact",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "66570e15d3c0105c2ca951a204ddc7f7cb90335b95c6e5b2d89b855a189d053b",
+      "contract_id": "q-8-exact-n-24",
+      "matrix_input": {
+        "cell_id": "c-8-over-1-n-24",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "8"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "68f744dc58de575d6b4de14a29ed7587eec3703d458b662623563b3d00b19417"
+      },
+      "matrix_input_sha256": "68f744dc58de575d6b4de14a29ed7587eec3703d458b662623563b3d00b19417",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q",
+        "position": "exact",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "e43d500b58a329a45d9e4bbe6cd6ded332d402e5701a71a181b7defc1d25b51c",
+      "contract_id": "q-8-j-10-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-1025-over-128-n-16",
+        "cutoff_c": {
+          "denominator": "128",
+          "numerator": "1025"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "fc00b15c1f9c56adf84db266a5aa8ba404498bd308b1c6974867149eda020559"
+      },
+      "matrix_input_sha256": "fc00b15c1f9c56adf84db266a5aa8ba404498bd308b1c6974867149eda020559",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "ed627ab42a6b9def9e87a1b61f997727f9180952dbc02bfdfef3edefa0cf8ec3",
+      "contract_id": "q-8-j-10-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-1025-over-128-n-20",
+        "cutoff_c": {
+          "denominator": "128",
+          "numerator": "1025"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "1cf6ed426eee3bb582ec4c6ef0bd68521faa1ebcd783f1b343caf12191ace021"
+      },
+      "matrix_input_sha256": "1cf6ed426eee3bb582ec4c6ef0bd68521faa1ebcd783f1b343caf12191ace021",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "8093fe8acbe41e46fff81f1a020915de75957c464b815d27ac633198595f9f35",
+      "contract_id": "q-8-j-10-above-n-24",
+      "matrix_input": {
+        "cell_id": "c-1025-over-128-n-24",
+        "cutoff_c": {
+          "denominator": "128",
+          "numerator": "1025"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "01a47fd2d5841c25732b0713f31744372c10e125e45823975bd68e950a0b97a1"
+      },
+      "matrix_input_sha256": "01a47fd2d5841c25732b0713f31744372c10e125e45823975bd68e950a0b97a1",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "80e57cdd020f8ea1bf5b3287f30c0ccffa2f924c7ee62b42946d9e34ed246061",
+      "contract_id": "q-8-j-8-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-257-over-32-n-16",
+        "cutoff_c": {
+          "denominator": "32",
+          "numerator": "257"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "e7d2bde2195f06a0a04efd4138bb14d5090ceca226491a407301ed7ef9d2120b"
+      },
+      "matrix_input_sha256": "e7d2bde2195f06a0a04efd4138bb14d5090ceca226491a407301ed7ef9d2120b",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "d7256efa2cac727fb7d807463694c0d7412be9c9e670eb9d3b81dcc05852a0be",
+      "contract_id": "q-8-j-8-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-257-over-32-n-20",
+        "cutoff_c": {
+          "denominator": "32",
+          "numerator": "257"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "716a8d961bed87c20d03ccfbc12350232f90dd3d4f991ac09b73ceb0859d1bb0"
+      },
+      "matrix_input_sha256": "716a8d961bed87c20d03ccfbc12350232f90dd3d4f991ac09b73ceb0859d1bb0",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "ff74d413492e411df1d7370eac55254a3bc7c9a330b1a12b7f419a280b5dbf8c",
+      "contract_id": "q-8-j-8-above-n-24",
+      "matrix_input": {
+        "cell_id": "c-257-over-32-n-24",
+        "cutoff_c": {
+          "denominator": "32",
+          "numerator": "257"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "96bb0ade49ee97d44a1dd5bf9b68dd5409fb7976b1cdfd0b89d6c911b543865d"
+      },
+      "matrix_input_sha256": "96bb0ade49ee97d44a1dd5bf9b68dd5409fb7976b1cdfd0b89d6c911b543865d",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "066c48b53d748f452298c1f07587fc66f1250c2538e2eee9cebbe3f59de6ecc7",
+      "contract_id": "q-8-j-6-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-65-over-8-n-16",
+        "cutoff_c": {
+          "denominator": "8",
+          "numerator": "65"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "88a2836677ce50b3e183e8b2dafc6c40ebd6720be443ee6d08945a7e1422577c"
+      },
+      "matrix_input_sha256": "88a2836677ce50b3e183e8b2dafc6c40ebd6720be443ee6d08945a7e1422577c",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "a2808eb7f5b04d6badaf7a1b42a68825672e4c2b3f04fbfc1346c4d1d1a0e3ef",
+      "contract_id": "q-8-j-6-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-65-over-8-n-20",
+        "cutoff_c": {
+          "denominator": "8",
+          "numerator": "65"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "cbc928e0ac7bf1cf3184a15d357428650152540d1fdea74d6a1c27f88902f8a0"
+      },
+      "matrix_input_sha256": "cbc928e0ac7bf1cf3184a15d357428650152540d1fdea74d6a1c27f88902f8a0",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "45b1f619762bbdb5fd00a20473c2fb7230e1dfbe83ca11644b93134b97e43740",
+      "contract_id": "q-8-j-6-above-n-24",
+      "matrix_input": {
+        "cell_id": "c-65-over-8-n-24",
+        "cutoff_c": {
+          "denominator": "8",
+          "numerator": "65"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "95493a981b544e8f82ee66f6109b90deb440c40af17710de433cdb666595aeea"
+      },
+      "matrix_input_sha256": "95493a981b544e8f82ee66f6109b90deb440c40af17710de433cdb666595aeea",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "d1fcda8c17ea47b0e6557d857782673e17c97ca1859c8850a48d7ebcff16a47b",
+      "contract_id": "q-9-j-4-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-144-over-17-n-16",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "144"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "17f073f36bec4a46505d2001e491b07b42ac141e1db8253131b8b5c9b2c8335b"
+      },
+      "matrix_input_sha256": "17f073f36bec4a46505d2001e491b07b42ac141e1db8253131b8b5c9b2c8335b",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "f274bf7b390bfc51b0283d2e0c41c900726ab1e8f6fc4ed31b5db25efb65ca8d",
+      "contract_id": "q-9-j-4-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-144-over-17-n-20",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "144"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "2b090f564998323900aef76eb28d33be85ad4422d111f759df367e6652d37bd9"
+      },
+      "matrix_input_sha256": "2b090f564998323900aef76eb28d33be85ad4422d111f759df367e6652d37bd9",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "737d0f083d513693c6b59b260036bbc0582fb11008ab047736a11e7cda5dba02",
+      "contract_id": "q-9-j-4-below-n-24",
+      "matrix_input": {
+        "cell_id": "c-144-over-17-n-24",
+        "cutoff_c": {
+          "denominator": "17",
+          "numerator": "144"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "6171b203c8c49d1050b8559a167a97f28c6c7f39feade4865a7f0e30b8fa41cf"
+      },
+      "matrix_input_sha256": "6171b203c8c49d1050b8559a167a97f28c6c7f39feade4865a7f0e30b8fa41cf",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "24b88e71eae6776630592d35759c3418a162eed19da60779f461a07f1aa37a39",
+      "contract_id": "q-8-j-4-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-17-over-2-n-16",
+        "cutoff_c": {
+          "denominator": "2",
+          "numerator": "17"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "54c3c443781c52052d83b087222a0e3c6646625e2e42964999c11fd682941e7c"
+      },
+      "matrix_input_sha256": "54c3c443781c52052d83b087222a0e3c6646625e2e42964999c11fd682941e7c",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "a13e70d62b8d3d0f47ee2194b425f310b19f728ef439d2520206dfa617c36f32",
+      "contract_id": "q-8-j-4-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-17-over-2-n-20",
+        "cutoff_c": {
+          "denominator": "2",
+          "numerator": "17"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "17a6d6ee62a82be87c85acde846ef16bab496927abecc709c8f47b1e3172ea98"
+      },
+      "matrix_input_sha256": "17a6d6ee62a82be87c85acde846ef16bab496927abecc709c8f47b1e3172ea98",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "7e796d649b4f186a052e279a7c6132ce92d59199202893c11a0b5211d8a560d2",
+      "contract_id": "q-8-j-4-above-n-24",
+      "matrix_input": {
+        "cell_id": "c-17-over-2-n-24",
+        "cutoff_c": {
+          "denominator": "2",
+          "numerator": "17"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "63fb42066e35c5da4bd4049a7c3765a0dea2e3acb0184b5b0db0c019e4ce28d6"
+      },
+      "matrix_input_sha256": "63fb42066e35c5da4bd4049a7c3765a0dea2e3acb0184b5b0db0c019e4ce28d6",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "3",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "2",
+        "q": "8",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "c076051fde292bbb8be4cff2da7d96fa7578e55076390a6df5c8baace7423c57",
+      "contract_id": "q-9-j-6-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-576-over-65-n-16",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "576"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "973620afb6f390cf753a3f0f634f2c080c557c70e79010a8bf9c497dacf0bc0f"
+      },
+      "matrix_input_sha256": "973620afb6f390cf753a3f0f634f2c080c557c70e79010a8bf9c497dacf0bc0f",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "badc45921bd4e01c5159aa2bf9950beb9dd1b448fd46471a5660d38377dfb74c",
+      "contract_id": "q-9-j-6-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-576-over-65-n-20",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "576"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "2061ab870de446ae4ce06b098b42d127240d220c68324edfb246061830472482"
+      },
+      "matrix_input_sha256": "2061ab870de446ae4ce06b098b42d127240d220c68324edfb246061830472482",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "1d859bfa3cc23a2a74fe7002faf0c574759151d133f50b94fd809e81aa4230ad",
+      "contract_id": "q-9-j-6-below-n-24",
+      "matrix_input": {
+        "cell_id": "c-576-over-65-n-24",
+        "cutoff_c": {
+          "denominator": "65",
+          "numerator": "576"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "4b632a8c32899ed7754b580cc8db091538272ee72591f32fa46be722d3d99c00"
+      },
+      "matrix_input_sha256": "4b632a8c32899ed7754b580cc8db091538272ee72591f32fa46be722d3d99c00",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "ace1e94cbd645f05654d5b6acb63360cb98c60b031d2ced8342cfaf1dc58cb73",
+      "contract_id": "q-9-j-8-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-2304-over-257-n-16",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "2304"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "431273e6a4a2ae98b0d6265e5eeae338c52629abf6bf0e31f6a06235557c2640"
+      },
+      "matrix_input_sha256": "431273e6a4a2ae98b0d6265e5eeae338c52629abf6bf0e31f6a06235557c2640",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "80618832e0f2403db8cb48341220f6e8cbceee49a1c40677132bb353745e88da",
+      "contract_id": "q-9-j-8-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-2304-over-257-n-20",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "2304"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "e1dee6dbae17c561c5886015b43fa404bc4b6fe103201e12070952983bf902c8"
+      },
+      "matrix_input_sha256": "e1dee6dbae17c561c5886015b43fa404bc4b6fe103201e12070952983bf902c8",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "d3667e1c3f6482fb8a559b98b99a69fa155a8894e30a045c07267b7caf169f9a",
+      "contract_id": "q-9-j-8-below-n-24",
+      "matrix_input": {
+        "cell_id": "c-2304-over-257-n-24",
+        "cutoff_c": {
+          "denominator": "257",
+          "numerator": "2304"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "a883f5e4ac7d17ae575ced5b2058e6b488646e23f9c8004344e1a1c084f06d7b"
+      },
+      "matrix_input_sha256": "a883f5e4ac7d17ae575ced5b2058e6b488646e23f9c8004344e1a1c084f06d7b",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "a1057af2d3e126979077e3d25f436b94604073a8848516c25254cfe530437736",
+      "contract_id": "q-9-j-10-below-n-16",
+      "matrix_input": {
+        "cell_id": "c-9216-over-1025-n-16",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "9216"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "a204592c655aa2838d36cfbe962097abd286f8cc1cc10f5e04e498ee023ac989"
+      },
+      "matrix_input_sha256": "a204592c655aa2838d36cfbe962097abd286f8cc1cc10f5e04e498ee023ac989",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "5d99f309f14c5cb7d4f359b19a35fe90f414a3bc681d62f7da514414b6ba98ba",
+      "contract_id": "q-9-j-10-below-n-20",
+      "matrix_input": {
+        "cell_id": "c-9216-over-1025-n-20",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "9216"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "6a733fada032e8360014576c43050837e783c01dfd611e1d3b0c56c329b63e21"
+      },
+      "matrix_input_sha256": "6a733fada032e8360014576c43050837e783c01dfd611e1d3b0c56c329b63e21",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "f72645d498896efba13d88981aaab870fd05310ffefe976cfa4bd152fb56d15e",
+      "contract_id": "q-9-j-10-below-n-24",
+      "matrix_input": {
+        "cell_id": "c-9216-over-1025-n-24",
+        "cutoff_c": {
+          "denominator": "1025",
+          "numerator": "9216"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "10dca2aa6f2c6be8aa912bc2d3a232fc1cd15bb2a859d98a4a4ab8848e4fcec1"
+      },
+      "matrix_input_sha256": "10dca2aa6f2c6be8aa912bc2d3a232fc1cd15bb2a859d98a4a4ab8848e4fcec1",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*2^j/(2^j+1)",
+        "position": "below",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "a5a80aff4d1f501fa106ff2d22889dc1133386dd9e828e78a49eaf64fd936bdc",
+      "contract_id": "q-9-exact-n-16",
+      "matrix_input": {
+        "cell_id": "c-9-over-1-n-16",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "9"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "4bdba9a3d7effce391d73241849c63cb724bb6311381190bf14e2eaa3bdd0232"
+      },
+      "matrix_input_sha256": "4bdba9a3d7effce391d73241849c63cb724bb6311381190bf14e2eaa3bdd0232",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q",
+        "position": "exact",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "2c546b2ac1e906a3ec05fb26d4f8cef49a73ba8f5d52c76a7b4d3a0bb56e3f9e",
+      "contract_id": "q-9-exact-n-20",
+      "matrix_input": {
+        "cell_id": "c-9-over-1-n-20",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "9"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "d1dcce260119ecddc669bae2b243c10521fc7744dd0200d21edc0f1596754add"
+      },
+      "matrix_input_sha256": "d1dcce260119ecddc669bae2b243c10521fc7744dd0200d21edc0f1596754add",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q",
+        "position": "exact",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "ba39f4b2ad1051740a08a1eaaafce19f4591fab70a331e9813d244fefe58e6d9",
+      "contract_id": "q-9-exact-n-24",
+      "matrix_input": {
+        "cell_id": "c-9-over-1-n-24",
+        "cutoff_c": {
+          "denominator": "1",
+          "numerator": "9"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "25d722ebccbbb7a3f6a6ddbc8b279eb6c604c375aaab6da1112014b093e5e69e"
+      },
+      "matrix_input_sha256": "25d722ebccbbb7a3f6a6ddbc8b279eb6c604c375aaab6da1112014b093e5e69e",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q",
+        "position": "exact",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": null
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "50b0fd1d8d089e7595ee246251df6b80091bd8c0ffff833b7371c0a97b10285c",
+      "contract_id": "q-9-j-10-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-9225-over-1024-n-16",
+        "cutoff_c": {
+          "denominator": "1024",
+          "numerator": "9225"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "ca270b51b61c2ea8ca11232a8c042de1a6ffca0943bf6a8c93aeb45051e479a8"
+      },
+      "matrix_input_sha256": "ca270b51b61c2ea8ca11232a8c042de1a6ffca0943bf6a8c93aeb45051e479a8",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "de25c514308afaf6016670c35f0975c31819263e9913e01a35044edb1653553c",
+      "contract_id": "q-9-j-10-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-9225-over-1024-n-20",
+        "cutoff_c": {
+          "denominator": "1024",
+          "numerator": "9225"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "a69d762b785f8f81f80d4f0fbf6f2a75baf0eb9bbec626df15d01ebff9817125"
+      },
+      "matrix_input_sha256": "a69d762b785f8f81f80d4f0fbf6f2a75baf0eb9bbec626df15d01ebff9817125",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "4a3a4f30b4677fa042a06b61019969f9d6e9d71dc9a1769c924bf194dfe7df83",
+      "contract_id": "q-9-j-10-above-n-24",
+      "matrix_input": {
+        "cell_id": "c-9225-over-1024-n-24",
+        "cutoff_c": {
+          "denominator": "1024",
+          "numerator": "9225"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "a80f7424df4f0b607ff813946cd0ce9ed2f2c9d122bf9f3303ed755413099155"
+      },
+      "matrix_input_sha256": "a80f7424df4f0b607ff813946cd0ce9ed2f2c9d122bf9f3303ed755413099155",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "10"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "ff0da35a6b4a3b2c43bcc3619c7c4edfab037a136916e9560e9be1d1cf70d680",
+      "contract_id": "q-9-j-8-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-2313-over-256-n-16",
+        "cutoff_c": {
+          "denominator": "256",
+          "numerator": "2313"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "9d53a458b7c9dd1620ec075ef8aef60281bece7b955d011e323500be71e936a6"
+      },
+      "matrix_input_sha256": "9d53a458b7c9dd1620ec075ef8aef60281bece7b955d011e323500be71e936a6",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "570e6a9e15710d65e35108d85710a789bfc3ada673e3c0c7343ae9fe4abcfd84",
+      "contract_id": "q-9-j-8-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-2313-over-256-n-20",
+        "cutoff_c": {
+          "denominator": "256",
+          "numerator": "2313"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "47e2a22ea7ee114b8a162840770956ab441a8ffdb8922adbc7d4e9d668aaaecc"
+      },
+      "matrix_input_sha256": "47e2a22ea7ee114b8a162840770956ab441a8ffdb8922adbc7d4e9d668aaaecc",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "31ea7ec35ff995a96457021f4f27a6e802191c4dd57392e2dc2004f1273c1854",
+      "contract_id": "q-9-j-8-above-n-24",
+      "matrix_input": {
+        "cell_id": "c-2313-over-256-n-24",
+        "cutoff_c": {
+          "denominator": "256",
+          "numerator": "2313"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "06600b9ebb87295abdb65b3b01527f99e0f55773db4a93aa97da3937eda62ab8"
+      },
+      "matrix_input_sha256": "06600b9ebb87295abdb65b3b01527f99e0f55773db4a93aa97da3937eda62ab8",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "8"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "1b632df36c0afc1cf7a7c13e22dcc16a9189739f95d0c1fadde01839e8cfb48d",
+      "contract_id": "q-9-j-6-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-585-over-64-n-16",
+        "cutoff_c": {
+          "denominator": "64",
+          "numerator": "585"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "adcc7728b3271ba38309386d32b4bf853282d55a9ac9e1957c95e080cf4df628"
+      },
+      "matrix_input_sha256": "adcc7728b3271ba38309386d32b4bf853282d55a9ac9e1957c95e080cf4df628",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "099feb771015c872e10ad4d15b6cb0aea75984f33b8ee06a87c9ad95f5bfff4c",
+      "contract_id": "q-9-j-6-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-585-over-64-n-20",
+        "cutoff_c": {
+          "denominator": "64",
+          "numerator": "585"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "d69747760a0423e8d458d07e96e014ade2c02f2ea47894fb93df3c9c7e586d2c"
+      },
+      "matrix_input_sha256": "d69747760a0423e8d458d07e96e014ade2c02f2ea47894fb93df3c9c7e586d2c",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "b98f21263939077df68be23cd3a2e57c0137dc754a69f2dc073d28c29ebed430",
+      "contract_id": "q-9-j-6-above-n-24",
+      "matrix_input": {
+        "cell_id": "c-585-over-64-n-24",
+        "cutoff_c": {
+          "denominator": "64",
+          "numerator": "585"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "490ae3fbcf9e2d4aa95c2a85a62525bca249a2fb5672b2cea10d8e7327dc7b19"
+      },
+      "matrix_input_sha256": "490ae3fbcf9e2d4aa95c2a85a62525bca249a2fb5672b2cea10d8e7327dc7b19",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "6"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "32bb09d07b4bc9b733d40cab0a7b829b75debaa24afef0625ee673f956ab3611",
+      "contract_id": "q-9-j-4-above-n-16",
+      "matrix_input": {
+        "cell_id": "c-153-over-16-n-16",
+        "cutoff_c": {
+          "denominator": "16",
+          "numerator": "153"
+        },
+        "degree": "16",
+        "dimension": "33",
+        "input_sha256": "3e0763bba155a0c6c52ad35482c9efcfb8ab9e7e3c1c448861fb19b41034b234"
+      },
+      "matrix_input_sha256": "3e0763bba155a0c6c52ad35482c9efcfb8ab9e7e3c1c448861fb19b41034b234",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "192",
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "085988bd31647019aeeac45b4a96c2dd6cffe1fbccfaea734ba98303b167c9d8",
+      "contract_id": "q-9-j-4-above-n-20",
+      "matrix_input": {
+        "cell_id": "c-153-over-16-n-20",
+        "cutoff_c": {
+          "denominator": "16",
+          "numerator": "153"
+        },
+        "degree": "20",
+        "dimension": "41",
+        "input_sha256": "09ec200512d9b0484ec839bc6e666ec5a73602aff1394f5a5c582056b92092b5"
+      },
+      "matrix_input_sha256": "09ec200512d9b0484ec839bc6e666ec5a73602aff1394f5a5c582056b92092b5",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    },
+    {
+      "cell_contract_sha256": "663b85cd6a215e374e4e5fffde63d208be7fb81f9c22567e587d290e1e7336be",
+      "contract_id": "q-9-j-4-above-n-24",
+      "matrix_input": {
+        "cell_id": "c-153-over-16-n-24",
+        "cutoff_c": {
+          "denominator": "16",
+          "numerator": "153"
+        },
+        "degree": "24",
+        "dimension": "49",
+        "input_sha256": "5e830a8a117f8ac4a9f6bb36e33c5fed78f5fd7148b345434a286f335ddf0b0a"
+      },
+      "matrix_input_sha256": "5e830a8a117f8ac4a9f6bb36e33c5fed78f5fd7148b345434a286f335ddf0b0a",
+      "numerical_engine_id": "finite-weil-grid-search-v1",
+      "policy": {
+        "attempt_bits": [
+          "384",
+          "768"
+        ],
+        "candidate_confirmation": "same primitive integer witness is interval-negative at a strictly higher precision",
+        "confirmation_bits": "1536",
+        "positive_terminal_gate": "fixed-order-interval-ldlt",
+        "witness_policy": {
+          "eigenpair_count": "3",
+          "eigensolver_role": "approximate-untrusted-hint-only",
+          "normalization": "primitive-gcd-and-first-nonzero-positive",
+          "parts": [
+            "real",
+            "imaginary"
+          ],
+          "projections": [
+            "even",
+            "odd",
+            "raw"
+          ],
+          "rounding": "exact-rational-round-ties-to-even",
+          "scale_bits": [
+            "8",
+            "12",
+            "16",
+            "24",
+            "32",
+            "48"
+          ]
+        }
+      },
+      "schema": "rh-lab/weil-transition-cell-contract/v2",
+      "transition": {
+        "exponent": "2",
+        "formula": "q*(2^j+1)/2^j",
+        "position": "above",
+        "prime": "3",
+        "q": "9",
+        "stencil_exponent": "4"
+      },
+      "v1_plan_binding": "cell_contract_sha256"
+    }
+  ],
+  "classification": "EXPLORATORY",
+  "engine": {
+    "algorithm_id": "finite-weil-prime-transition-search-v2",
+    "candidate_behavior": "finish bounded plan; never stop early",
+    "cell_order": "exact rational cutoff ascending globally, then degree, numerator, denominator",
+    "matrix": "A=P-R-S",
+    "numerical_engine_id": "finite-weil-grid-search-v1",
+    "parallelism": "serial; FLINT ctx.prec is shared mutable state"
+  },
+  "frozen_batch": {
+    "batch_id": "weil-transition-q7-q9-v2",
+    "cell_count": "81",
+    "degree_ladders": {
+      "7": [
+        "12",
+        "16",
+        "20"
+      ],
+      "8": [
+        "16",
+        "20",
+        "24"
+      ],
+      "9": [
+        "16",
+        "20",
+        "24"
+      ]
+    },
+    "prime_powers": [
+      {
+        "exponent": "1",
+        "prime": "7",
+        "q": "7"
+      },
+      {
+        "exponent": "3",
+        "prime": "2",
+        "q": "8"
+      },
+      {
+        "exponent": "2",
+        "prime": "3",
+        "q": "9"
+      }
+    ],
+    "stencil_exponents": [
+      "4",
+      "6",
+      "8",
+      "10"
+    ],
+    "stencil_shape": "four exact below/above pairs plus one unparameterized exact point for every q and degree"
+  },
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This is a bounded finite-dimensional search at explicitly selected prime-power transition stencils. Positive cells do not prove RH, and negative candidates remain quarantined pending independent mathematical and backend audits. The global Riemann Hypothesis status is UNRESOLVED.",
+  "plan_sha256": "33185881cc619fda99b7835f5e71422b0c5cf745cb5411162638a8e08dd05336",
+  "schema": "rh-lab/weil-transition-plan/v2"
+}

@@ -24,12 +24,44 @@ from .weil import (
     certify_weil_matrix,
     verify_weil_certificate,
 )
+from .weil_audits import (
+    WeilAuditVerificationError,
+    certify_degree_nesting_audit,
+    certify_parity_audit,
+    verify_degree_nesting_audit,
+    verify_parity_audit,
+)
 from .weil_search import (
+    WeilSearchCell,
     WeilSearchError,
     load_search_plan,
     run_weil_search,
     verify_weil_search,
 )
+from .weil_transition import (
+    WeilTransitionError,
+    load_transition_plan,
+    run_weil_transition_search,
+    verify_weil_transition_search,
+)
+
+
+def _integer_witness(value: str) -> tuple[int, ...]:
+    """Parse a comma-separated exact integer vector for an audit command."""
+
+    try:
+        witness = tuple(int(item.strip()) for item in value.split(","))
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(
+            "witness entries must be comma-separated integers"
+        ) from exc
+    if not witness or any(not item.strip() for item in value.split(",")):
+        raise argparse.ArgumentTypeError(
+            "witness entries must be comma-separated integers"
+        )
+    if not any(witness):
+        raise argparse.ArgumentTypeError("witness must be nonzero")
+    return witness
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -74,6 +106,61 @@ def _parser() -> argparse.ArgumentParser:
         help="complete at most this many new cells before checkpointing",
     )
 
+    transition_search = commands.add_parser(
+        "weil-transition-search",
+        help="run or resume the exploratory prime-power transition batch",
+    )
+    transition_search.add_argument(
+        "--plan",
+        type=Path,
+        default=Path("plans/weil-transition-q7-q9-v2.json"),
+    )
+    transition_search.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
+    transition_search.add_argument("--resume", action="store_true")
+    transition_search.add_argument(
+        "--max-cells",
+        type=int,
+        help="complete at most this many new cells before checkpointing",
+    )
+
+    parity = commands.add_parser(
+        "weil-parity-audit",
+        help="generate an exploratory reversal-parity audit for one Weil cell",
+    )
+    parity.add_argument("--cutoff-numerator", type=int, required=True)
+    parity.add_argument("--cutoff-denominator", type=int, default=1)
+    parity.add_argument("--degree", type=int, required=True)
+    parity.add_argument("--bits", type=int, default=192)
+    parity.add_argument(
+        "--witness",
+        type=_integer_witness,
+        action="append",
+        default=[],
+        help="optional comma-separated full-basis integer vector; repeatable",
+    )
+    parity.add_argument("--output", type=Path, required=True)
+
+    nesting = commands.add_parser(
+        "weil-nesting-audit",
+        help="generate an exploratory fixed-cutoff degree-nesting audit",
+    )
+    nesting.add_argument("--cutoff-numerator", type=int, required=True)
+    nesting.add_argument("--cutoff-denominator", type=int, default=1)
+    nesting.add_argument("--lower-degree", type=int, required=True)
+    nesting.add_argument("--higher-degree", type=int, required=True)
+    nesting.add_argument("--bits", type=int, default=192)
+    nesting.add_argument("--replay-bits", type=int, default=384)
+    nesting.add_argument(
+        "--witness",
+        type=_integer_witness,
+        action="append",
+        default=[],
+        help="optional comma-separated lower-basis integer vector; repeatable",
+    )
+    nesting.add_argument("--output", type=Path, required=True)
+
     verify_zeros = commands.add_parser(
         "verify-zeros", help="validate and replay a zero certificate"
     )
@@ -99,6 +186,27 @@ def _parser() -> argparse.ArgumentParser:
     verify_weil_search_parser.add_argument(
         "--checkpoint-dir", type=Path, required=True
     )
+
+    verify_transition = commands.add_parser(
+        "verify-weil-transition-search",
+        help="validate and replay an exploratory prime-power transition batch",
+    )
+    verify_transition.add_argument("--index", type=Path, required=True)
+    verify_transition.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
+
+    verify_parity = commands.add_parser(
+        "verify-weil-parity-audit",
+        help="validate and replay an exploratory Weil parity audit",
+    )
+    verify_parity.add_argument("--artifact", type=Path, required=True)
+
+    verify_nesting = commands.add_parser(
+        "verify-weil-nesting-audit",
+        help="validate and replay an exploratory Weil degree-nesting audit",
+    )
+    verify_nesting.add_argument("--artifact", type=Path, required=True)
 
     claims = commands.add_parser("verify-claims", help="validate the claim ledger")
     claims.add_argument(
@@ -171,6 +279,99 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0
 
+    if args.command == "weil-transition-search":
+        try:
+            plan = load_transition_plan(args.plan)
+            index = run_weil_transition_search(
+                plan,
+                args.checkpoint_dir,
+                resume=args.resume,
+                max_cells=args.max_cells,
+            )
+        except (WeilTransitionError, OSError, TypeError, ValueError) as exc:
+            print(f"Weil transition search rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": index["classification"],
+                    "conclusion": index["conclusion"],
+                    "hypothesis_status": index["hypothesis_status"],
+                    "index": str(args.checkpoint_dir / "index.json"),
+                    "payload_sha256": index["payload_sha256"],
+                    "progress": index["progress"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
+    if args.command == "weil-parity-audit":
+        try:
+            artifact = certify_parity_audit(
+                WeilSearchCell(
+                    args.cutoff_numerator,
+                    args.cutoff_denominator,
+                    args.degree,
+                ),
+                args.bits,
+                witnesses=args.witness,
+            )
+            write_json(args.output, artifact)
+        except (OSError, TypeError, ValueError) as exc:
+            print(f"Weil parity audit rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "decision": artifact["decision"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0 if artifact["decision"] != "AUDIT_FAILED" else 2
+
+    if args.command == "weil-nesting-audit":
+        try:
+            lower = WeilSearchCell(
+                args.cutoff_numerator,
+                args.cutoff_denominator,
+                args.lower_degree,
+            )
+            higher = WeilSearchCell(
+                args.cutoff_numerator,
+                args.cutoff_denominator,
+                args.higher_degree,
+            )
+            artifact = certify_degree_nesting_audit(
+                lower,
+                higher,
+                args.bits,
+                args.replay_bits,
+                negative_witnesses=args.witness,
+            )
+            write_json(args.output, artifact)
+        except (OSError, TypeError, ValueError) as exc:
+            print(f"Weil nesting audit rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "decision": artifact["decision"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0 if artifact["decision"] != "AUDIT_FAILED" else 2
+
     if args.command == "verify-zeros":
         try:
             artifact = json.loads(args.artifact.read_text(encoding="utf-8"))
@@ -206,6 +407,46 @@ def main(argv: Sequence[str] | None = None) -> int:
             result = verify_weil_search(args.index, args.checkpoint_dir)
         except (WeilSearchError, OSError, json.JSONDecodeError) as exc:
             print(f"Weil search artifact rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-weil-transition-search":
+        try:
+            result = verify_weil_transition_search(
+                args.index,
+                args.checkpoint_dir,
+            )
+        except (WeilTransitionError, OSError, json.JSONDecodeError) as exc:
+            print(f"Weil transition search rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-weil-parity-audit":
+        try:
+            artifact = json.loads(args.artifact.read_text(encoding="utf-8"))
+            result = verify_parity_audit(artifact)
+        except (
+            WeilAuditVerificationError,
+            OSError,
+            json.JSONDecodeError,
+        ) as exc:
+            print(f"Weil parity audit rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-weil-nesting-audit":
+        try:
+            artifact = json.loads(args.artifact.read_text(encoding="utf-8"))
+            result = verify_degree_nesting_audit(artifact)
+        except (
+            WeilAuditVerificationError,
+            OSError,
+            json.JSONDecodeError,
+        ) as exc:
+            print(f"Weil nesting audit rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0
