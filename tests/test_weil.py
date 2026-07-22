@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import copy
+from pathlib import Path
 
 import pytest
 from flint import acb, arb, ctx
 
-from riemann_lab.artifacts import content_sha256
+from riemann_lab.artifacts import canonical_json_file_sha256, content_sha256
 from riemann_lab.weil import (
     CONTROL_WITNESS,
     WeilCertificateError,
@@ -13,6 +14,7 @@ from riemann_lab.weil import (
     archimedean_entry_integral,
     certify_positive_ldlt,
     certify_weil_matrix,
+    evaluate_integer_rayleigh,
     pole_entry,
     pole_entry_integral,
     prime_power_entry,
@@ -199,6 +201,31 @@ def test_ldlt_rejects_merely_overlapping_asymmetric_entries() -> None:
     ]
     with pytest.raises(ValueError, match="identical symmetric"):
         certify_positive_ldlt(matrix)
+
+
+def test_integer_rayleigh_signs_are_fail_closed() -> None:
+    positive = evaluate_integer_rayleigh(
+        [[arb(2), arb(0)], [arb(0), arb(3)]], [1, 1]
+    )
+    negative = evaluate_integer_rayleigh(
+        [[arb(-2), arb(0)], [arb(0), arb(3)]], [1, 0]
+    )
+    inconclusive = evaluate_integer_rayleigh(
+        [[arb("0 +/- 1"), arb(0)], [arb(0), arb(3)]], [1, 0]
+    )
+    assert positive["sign"] == "POSITIVE"
+    assert positive["lower_bound_is_positive"] is True
+    assert negative["sign"] == "NEGATIVE"
+    assert negative["upper_bound_is_negative"] is True
+    assert inconclusive["sign"] == "INCONCLUSIVE"
+    assert inconclusive["upper_bound_is_negative"] is False
+    assert inconclusive["lower_bound_is_positive"] is False
+
+
+def test_frozen_weil_release_hash_is_unchanged() -> None:
+    assert canonical_json_file_sha256(
+        Path("results/weil-matrix-c5-over-2-n4.json")
+    ) == "9f32940f83a96696003549c5ecffa90db482aaf028bb6a0495e4705bd7e59d09"
 
 
 @pytest.mark.parametrize(
