@@ -1,0 +1,48 @@
+{
+  "claims": [
+    {
+      "artifact": "results/zeros-1-10000.json",
+      "artifact_sha256": "8b1f919d8db3ef93182b5ff9ca999edc373781211d5129296f027c9b8d0dbe3b",
+      "classification": "CERTIFIED_FINITE",
+      "id": "zeros-prefix-10000-v1",
+      "implies_rh": false,
+      "limitations": "Finite reproduction using one numerical backend. It is far below the published record and cannot establish the universal statement RH.",
+      "reproduction": "rh-lab verify-zeros --artifact results/zeros-1-10000.json --bits 384",
+      "scope": {
+        "final_separator_approx": "9878.21871319559671548",
+        "first_positive_ordinate_index": "1",
+        "last_positive_ordinate_index": "10000",
+        "precision_bits": "192"
+      },
+      "statement": "FLINT/Arb isolated 10,000 ordered critical-line Hardy-Z roots, and Turing counts account for every nontrivial zeta zero below the final separator T approximately 9878.2187131956."
+    },
+    {
+      "artifact": "results/lagarias-1-1000000.json",
+      "artifact_sha256": "aa93667ba18518fb8ad9b60a488d62183fab576a7340b7a577f6110d733b5f1a",
+      "classification": "CERTIFIED_FINITE",
+      "id": "lagarias-prefix-1000000-v1",
+      "implies_rh": false,
+      "limitations": "Lagarias's theorem quantifies over every positive integer. A positive finite prefix cannot prove RH.",
+      "reproduction": "rh-lab verify-lagarias --artifact results/lagarias-1-1000000.json",
+      "scope": {
+        "first_n": "1",
+        "last_n": "1000000",
+        "precision_bits": "192"
+      },
+      "statement": "The Lagarias inequality is certified for every integer 1 <= n <= 1,000,000, with equality only at n=1."
+    },
+    {
+      "classification": "EXPLORATORY",
+      "id": "weil-positivity-program-v1",
+      "limitations": "No finite-dimensional positivity result supplies the missing density and continuity theorem for the full Weil test-function space.",
+      "statement": "Finite-prime Weil quadratic forms are the primary candidate-witness and proof-bridge research track."
+    }
+  ],
+  "hypothesis": {
+    "name": "Riemann Hypothesis",
+    "resolution_evidence": null,
+    "status": "UNRESOLVED",
+    "status_as_of": "2026-07-22"
+  },
+  "schema": "rh-lab/claim-registry/v1"
+}

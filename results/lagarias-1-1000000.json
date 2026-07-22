@@ -1,0 +1,37 @@
+{
+  "backend": {
+    "arithmetic": "exact integer sigma; Arb ball transcendental operations",
+    "flint": "3.6.0",
+    "python_flint": "0.9.0"
+  },
+  "checks": {
+    "equality_at_one": true,
+    "inconclusive_n": [],
+    "violating_n": []
+  },
+  "claim": "The Lagarias inequality holds for every integer in the stated finite range, with equality at n=1 only.",
+  "classification": "CERTIFIED_FINITE",
+  "limitation": "This checks finitely many integers. Lagarias's equivalence has a universal quantifier, so this result does not prove RH.",
+  "payload_sha256": "e8f914a93de6aa07003eeed97d17355b6bf0d059e9cbbef57c84bc0186a36d63",
+  "precision_bits": "192",
+  "schema": "rh-lab/lagarias-certificate/v1",
+  "scope": {
+    "first_n": "1",
+    "last_n": "1000000"
+  },
+  "smallest_recorded_margin_lower_bound": {
+    "margin": {
+      "display": "[0.3171685434118021783180761906577313314270 +/- 8.01e-42]",
+      "dyadic": {
+        "mid_exponent": "-190",
+        "mid_mantissa": "497724803565072311907083960428674434619309462339186623015",
+        "radius_exponent": "-217",
+        "radius_mantissa": "251565503"
+      },
+      "is_exact": false
+    },
+    "n": "2",
+    "sigma_n": "3"
+  },
+  "source": "https://arxiv.org/abs/math/0008177"
+}

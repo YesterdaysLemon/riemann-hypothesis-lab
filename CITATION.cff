@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If this research harness helps your work, please cite the repository and the primary mathematical sources used by the relevant artifact."
+title: "Riemann Hypothesis Lab"
+type: software
+authors:
+  - family-names: Afshan
+    given-names: Alireza
+repository-code: "https://github.com/YesterdaysLemon/riemann-hypothesis-lab"
+license: MIT
+version: 0.1.0
+date-released: 2026-07-22
