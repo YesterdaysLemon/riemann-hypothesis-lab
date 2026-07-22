@@ -32,8 +32,11 @@ separately implemented divisor-addition sieve.
 
 ## Claim ledger
 
-The ledger gate checks schemas, SHA-256 file binding, a pinned checker manifest,
-resolution-claim linkage, and distinct declared backend families. It does not
+The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker
+manifest, resolution-claim linkage, and distinct declared backend families.
+JSON artifacts use a canonical parsed representation so whitespace and checkout
+line endings cannot change their identity; arbitrary proof artifacts use raw
+bytes. The gate does not
 execute arbitrary proof assistants, establish author independence, peer review
 the mathematics, or confer Clay recognition. Those are separate promotion
 requirements.

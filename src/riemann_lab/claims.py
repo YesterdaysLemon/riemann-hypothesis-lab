@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .artifacts import file_sha256
+from .artifacts import canonical_json_file_sha256, file_sha256
 
 
 ALLOWED_CLASSIFICATIONS = {
@@ -34,6 +34,7 @@ def _validate_file_reference(
     record: dict[str, Any],
     path_key: str,
     hash_key: str,
+    hash_mode_key: str,
     label: str,
 ) -> Path:
     artifact_name = record.get(path_key)
@@ -51,7 +52,17 @@ def _validate_file_reference(
     artifact_path = (repository_root / artifact_name).resolve()
     _require(artifact_path.is_relative_to(repository_root), f"{label} escapes repository")
     _require(artifact_path.is_file(), f"{label} is missing")
-    _require(file_sha256(artifact_path) == expected_hash.lower(), f"{label} hash mismatch")
+    hash_mode = record.get(hash_mode_key)
+    _require(
+        hash_mode in {"raw-bytes", "canonical-json-v1"},
+        f"{label} hash mode is invalid",
+    )
+    actual_hash = (
+        canonical_json_file_sha256(artifact_path)
+        if hash_mode == "canonical-json-v1"
+        else file_sha256(artifact_path)
+    )
+    _require(actual_hash == expected_hash.lower(), f"{label} hash mismatch")
     return artifact_path
 
 
@@ -89,6 +100,7 @@ def load_and_validate_registry(path: Path) -> dict[str, Any]:
             evidence,
             "formal_proof_artifact",
             "formal_proof_sha256",
+            "formal_proof_hash_mode",
             "formal proof artifact",
         )
         _validate_file_reference(
@@ -96,6 +108,7 @@ def load_and_validate_registry(path: Path) -> dict[str, Any]:
             evidence,
             "assumption_manifest",
             "assumption_manifest_sha256",
+            "assumption_manifest_hash_mode",
             "assumption manifest",
         )
         reproductions = evidence.get("independent_reproductions", [])
@@ -115,6 +128,7 @@ def load_and_validate_registry(path: Path) -> dict[str, Any]:
                 reproduction,
                 "artifact",
                 "artifact_sha256",
+                "artifact_hash_mode",
                 f"independent reproduction {index}",
             )
             backend_family = reproduction.get("backend_family")
@@ -185,6 +199,7 @@ def load_and_validate_registry(path: Path) -> dict[str, Any]:
                 claim,
                 "artifact",
                 "artifact_sha256",
+                "artifact_hash_mode",
                 f"artifact for {claim_id}",
             )
 
