@@ -19,6 +19,11 @@ from .zeros import (
     certify_critical_line_zeros,
     verify_zero_certificate,
 )
+from .weil import (
+    WeilCertificateError,
+    certify_weil_matrix,
+    verify_weil_certificate,
+)
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -42,6 +47,12 @@ def _parser() -> argparse.ArgumentParser:
     lagarias.add_argument("--bits", type=int, default=192)
     lagarias.add_argument("--output", type=Path, required=True)
 
+    weil = commands.add_parser(
+        "weil", help="certify the frozen c=5/2, degree-4 finite Weil matrix"
+    )
+    weil.add_argument("--bits", type=int, default=192)
+    weil.add_argument("--output", type=Path, required=True)
+
     verify_zeros = commands.add_parser(
         "verify-zeros", help="validate and replay a zero certificate"
     )
@@ -52,6 +63,12 @@ def _parser() -> argparse.ArgumentParser:
         "verify-lagarias", help="validate and replay a Lagarias certificate"
     )
     verify_lagarias.add_argument("--artifact", type=Path, required=True)
+
+    verify_weil = commands.add_parser(
+        "verify-weil", help="validate and replay a finite Weil certificate"
+    )
+    verify_weil.add_argument("--artifact", type=Path, required=True)
+    verify_weil.add_argument("--bits", type=int, default=384)
 
     claims = commands.add_parser("verify-claims", help="validate the claim ledger")
     claims.add_argument(
@@ -88,6 +105,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         }, sort_keys=True))
         return 0 if artifact["classification"] == "CERTIFIED_FINITE" else 2
 
+    if args.command == "weil":
+        artifact = certify_weil_matrix(precision_bits=args.bits)
+        write_json(args.output, artifact)
+        print(json.dumps({
+            "classification": artifact["classification"],
+            "output": str(args.output),
+            "payload_sha256": artifact["payload_sha256"],
+        }, sort_keys=True))
+        return 0 if artifact["classification"] == "CERTIFIED_FINITE" else 2
+
     if args.command == "verify-zeros":
         try:
             artifact = json.loads(args.artifact.read_text(encoding="utf-8"))
@@ -104,6 +131,16 @@ def main(argv: Sequence[str] | None = None) -> int:
             result = verify_lagarias_certificate(artifact)
         except (LagariasCertificateError, OSError, json.JSONDecodeError) as exc:
             print(f"Lagarias certificate rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-weil":
+        try:
+            artifact = json.loads(args.artifact.read_text(encoding="utf-8"))
+            result = verify_weil_certificate(artifact, args.bits)
+        except (WeilCertificateError, OSError, json.JSONDecodeError) as exc:
+            print(f"Weil certificate rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0

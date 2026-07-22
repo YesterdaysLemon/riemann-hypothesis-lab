@@ -35,6 +35,12 @@ paper's approach is equally promising.
 
 ## Equivalent criteria used here
 
+- Bombieri,
+  [Remarks on Weil's quadratic functional in the theory of prime numbers, I](https://www.bdim.eu/item?id=RLIN_2000_9_11_3_183_0).
+- Connes and Consani,
+  [Spectral Triples and Zeta-Cycles](https://arxiv.org/abs/2106.01715): the
+  lower-semicontinuous semilocal Weil form, its Laurent-polynomial core, and
+  the finite-compression lower-bound limit.
 - Lagarias, [An Elementary Problem Equivalent to the Riemann Hypothesis](https://arxiv.org/abs/math/0008177).
 - Li, [The positivity of a sequence of numbers and the Riemann hypothesis](https://doi.org/10.1006/jnth.1997.2137).
 - Bombieri and Lagarias,
