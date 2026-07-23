@@ -108,6 +108,33 @@
       "statement": "For every 1 <= n <= 4096, the first Vasyunin greedy recurrence matches the two-adic Mobius closed formula, preserves exact interval interpolation, and has the recorded exact rational L1 and squared-L2 increment multipliers; at all twelve nontrivial powers of two those multipliers are 1/2 and n/4."
     },
     {
+      "artifact": "results/nyman-alias-sharp-truncation-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "5cfd2859838d620c7de5375d1d464e35147f16246e89aec09a4e4bf5da416f94",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-alias-sharp-prefix-4096-v1",
+      "implies_rh": false,
+      "limitations": "This exact finite audit checks one frozen two-point shell only through X=4096. The all-shell non-little-o theorem is an external human-auditable analytic bridge, not a finite extrapolation. The result does not cover scale-dependent regularizations and does not prove or disprove RH.",
+      "reproduction": "rh-lab verify-nyman-alias-sharp-truncation-audit --artifact results/nyman-alias-sharp-truncation-v1.json",
+      "scope": {
+        "arithmetic": "exact integers and reduced fractions",
+        "first_X": "1",
+        "last_X": "4096",
+        "shell": "y_9=1, y_16=-1"
+      },
+      "statement": "For the frozen shell y_9=1, y_16=-1, every finite Mobius extension, divisor inversion, direct/factored slope, and integer-interval alias identity agrees exactly through X=4096."
+    },
+    {
+      "artifact": "docs/nyman-alias-regularization-v1.md",
+      "artifact_hash_mode": "raw-bytes",
+      "artifact_sha256": "36c50497bb8dc87a9db2b3b65d35c6047f6a8861044cd98ca4f82238ac74f02c",
+      "classification": "FAILED",
+      "id": "nyman-fixed-shell-sharp-truncation-no-go-v1",
+      "implies_rh": false,
+      "limitations": "The proof is human-auditable rather than formally checked and rejects only a fixed nonzero finite source with its natural hard cutoff. It does not reject scale-dependent shells, balanced finite multipliers, or genuinely multiscale constructions, and does not prove or disprove RH.",
+      "statement": "For every nonzero finitely supported real y, S(X)=sum_{n<=X}(mu*y)(n)/n is not o(X^(-1/2)); consequently the natural sharp alias sections do not converge to f_y in L2((0,infinity),dt/t^2)."
+    },
+    {
       "classification": "EXPLORATORY",
       "id": "weil-positivity-program-v1",
       "limitations": "No finite set of positive compressions controls every Fourier mode and a cofinal unbounded family of cutoffs; the universal positivity theorem remains missing.",
@@ -118,7 +145,7 @@
     "name": "Riemann Hypothesis",
     "resolution_evidence": null,
     "status": "UNRESOLVED",
-    "status_as_of": "2026-07-22"
+    "status_as_of": "2026-07-23"
   },
   "schema": "rh-lab/claim-registry/v1"
 }

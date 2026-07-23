@@ -59,6 +59,12 @@ from .nyman_vasyunin import (
     audit_vasyunin_greedy,
     verify_vasyunin_greedy_audit,
 )
+from .nyman_alias import (
+    DEFAULT_AUDIT_LIMIT as NYMAN_ALIAS_DEFAULT_LIMIT,
+    NymanAliasError,
+    audit_alias_sharp_truncation,
+    verify_alias_sharp_truncation_audit,
+)
 from .zeros import (
     ZeroCertificateError,
     certify_critical_line_zeros,
@@ -253,6 +259,15 @@ def _parser() -> argparse.ArgumentParser:
     )
     nyman_vasyunin.add_argument("--output", type=Path, required=True)
 
+    nyman_alias = commands.add_parser(
+        "nyman-alias-sharp-truncation-audit",
+        help="audit exact finite sharp alias--Mobius truncation identities",
+    )
+    nyman_alias.add_argument(
+        "--limit", type=int, default=NYMAN_ALIAS_DEFAULT_LIMIT
+    )
+    nyman_alias.add_argument("--output", type=Path, required=True)
+
     parity = commands.add_parser(
         "weil-parity-audit",
         help="generate an exploratory reversal-parity audit for one Weil cell",
@@ -414,6 +429,12 @@ def _parser() -> argparse.ArgumentParser:
     verify_nyman_vasyunin.add_argument(
         "--artifact", type=Path, required=True
     )
+
+    verify_nyman_alias = commands.add_parser(
+        "verify-nyman-alias-sharp-truncation-audit",
+        help="exactly regenerate a finite sharp alias truncation audit",
+    )
+    verify_nyman_alias.add_argument("--artifact", type=Path, required=True)
 
     verify_parity = commands.add_parser(
         "verify-weil-parity-audit",
@@ -752,6 +773,28 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0
 
+    if args.command == "nyman-alias-sharp-truncation-audit":
+        try:
+            artifact = audit_alias_sharp_truncation(args.limit)
+            write_json(args.output, artifact)
+        except (NymanAliasError, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman alias sharp-truncation audit rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "audit_outcome": artifact["audit_outcome"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "limit": artifact["finite_scope"]["limit"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
     if args.command == "weil-parity-audit":
         try:
             artifact = certify_parity_audit(
@@ -1014,6 +1057,21 @@ def main(argv: Sequence[str] | None = None) -> int:
             ValueError,
         ) as exc:
             print(f"Nyman Vasyunin greedy audit rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-nyman-alias-sharp-truncation-audit":
+        try:
+            result = verify_alias_sharp_truncation_audit(args.artifact)
+        except (
+            NymanAliasError,
+            OSError,
+            json.JSONDecodeError,
+            TypeError,
+            ValueError,
+        ) as exc:
+            print(f"Nyman alias sharp-truncation audit rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0

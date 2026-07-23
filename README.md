@@ -9,7 +9,7 @@ not.
 
 ## Headline results
 
-**Global verdict as of 2026-07-22: `UNRESOLVED`. This repository has not proved
+**Global verdict as of 2026-07-23: `UNRESOLVED`. This repository has not proved
 or disproved RH.** Clay Mathematics Institute continues to list RH as an
 [unsolved Millennium Prize Problem](https://www.claymath.org/millennium/riemann-hypothesis/).
 
@@ -23,6 +23,7 @@ Current finite results and documented theorem consequences:
 | One exact 512-coefficient Nyman witness certifies `d_512^2 < (449/500)d_256^2`, so the normalized optimal block gain is greater than `51/500` | `CERTIFIED_FINITE` | The [N=512 audit](results/nyman-beta2-n512-v1.json) directly evaluates the stored `2^-256` dyadic vector and freshly replays the `N=256` lower certificate at 768 bits; both signs and enclosure containment replay at 1536 bits | This settles only the finite `k=8` beta=2 step. The uniform `k>=9` extension lemma that would complete this recurrence route to RH remains unproved |
 | The canonical eight-column arithmetic Nyman trial space at `256 -> 512` captures strictly less than `d_256^2/10` | `CERTIFIED_FINITE` | The [trial-space audit](results/nyman-trial-subspace-v1.json) certifies `F_V>(9/10)U_256` by 265 positive fixed-order interval `LDL^T` pivots and replays the complete construction at 1536 bits | This rigorously rejects one finite ansatz; it does not reject other trial spaces, and the successful full block captures more than `51/500` |
 | Báez-Duarte's first greedy Vasyunin correction converges pointwise but diverges in weighted `L^1`; at every nontrivial power of two its exact `L^1` increment is `log(2)/2` and its squared `L^2` increment is `n log(2)/4` | Cited 2005 theorem + `CERTIFIED_FINITE` prefix | The [exact prefix audit](results/nyman-vasyunin-greedy-v1.json) checks the recurrence, closed formula, interval interpolation, and rational increment multipliers through `n=4096`; the infinite conclusion is the theorem in the [cited preprint](https://arxiv.org/abs/math/0506318), not a finite extrapolation | This rejects the one-coefficient-at-a-time greedy rule only. Batched, regularized, and globally optimized Vasyunin/Nyman constructions remain open, and RH remains unresolved |
+| Every nonzero fixed finite shell `y` has `sum_(n<=X)(mu*y)(n)/n != o(X^-1/2)`, so its natural sharp alias sections cannot converge in weighted `L^2` | Human-auditable theorem + `CERTIFIED_FINITE` identity prefix | The [proof and regularization audit](docs/nyman-alias-regularization-v1.md) combines an exact growing-interval norm identity, Mellin continuation, an elementary boundary Abelian lemma, and Conrey's positive-proportion theorem for simple critical-line zeros; the [finite artifact](results/nyman-alias-sharp-truncation-v1.json) replays every arithmetic identity through `X=4096` | This unconditionally closes the fixed-shell hard-cutoff route. Scale-dependent balanced multipliers and genuinely multiscale constructions remain open; RH remains unresolved |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
@@ -45,6 +46,7 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Nyman N=512 finite contraction audit](results/nyman-beta2-n512-v1.json),
 [Nyman eight-column trial-space rejection](results/nyman-trial-subspace-v1.json),
 [Nyman first-Vasyunin-correction prefix audit](results/nyman-vasyunin-greedy-v1.json),
+[Nyman sharp alias-truncation prefix audit](results/nyman-alias-sharp-truncation-v1.json),
 [untrusted N=512 candidate](results/nyman-beta2-n512-candidate-v1.json),
 [public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
@@ -329,9 +331,46 @@ whole canonical-JSON SHA-256 is
 The [multiscale follow-up](docs/nyman-multiscale-tail-v1.md) also proves an
 exact alias--Möbius extension identity. It cancels every later divisor alias
 pointwise, but finite truncations retain a slope whose weighted norm is at
-least `X|S_X|^2`. Controlling that term and the region beyond `X` is the
-surviving tail-stability problem; pointwise repair alone is now ruled out as a
-shortcut.
+least `X|S_X|^2`. The next theorem closes that raw-truncation route completely.
+
+#### Fixed-shell sharp alias truncation: unconditional route rejection
+
+For any nonzero finitely supported shell `y`, put `a=mu*y` and
+
+```text
+S(X) = sum_(n<=X) a_n/n,
+g_X(t) = sum_(n<=X) a_n {t/n}.
+```
+
+Dirichlet inversion gives the exact growing-interval identity
+
+```text
+g_X(t)-f_y(t) = t S(X)              (0<t<=X),
+||g_X-f_y||_2^2 >= X |S(X)|^2.
+```
+
+The [regularization note](docs/nyman-alias-regularization-v1.md) proves
+unconditionally that `S(X)` is not `o(X^-1/2)`. If it were, partial summation
+would continue `B_y(1+z)/zeta(1+z)` to the critical boundary with an Abelian
+vanishing condition. A finite Dirichlet polynomial `B_y` has only `O(T)`
+zeros in a height-`T` strip, while Conrey proved that order `T log T` simple
+zeta zeros lie on the critical line. An uncancelled pole contradicts that
+boundary condition.
+
+Thus every nonzero fixed finite shell fails under natural hard truncation,
+even though the prime number theorem still gives pointwise convergence. The
+tracked exact artifact verifies `a=mu*y`, `1*a=y`, both formulas for `S(X)`,
+and every integer-interval alias identity through `X=4096`. Its payload
+SHA-256 is
+`c19d949db86c372916c2cbe583c3e2ff7ea96b3399c0937483eef795e8b56575`;
+its whole canonical-JSON SHA-256 is
+`5cfd2859838d620c7de5375d1d464e35147f16246e89aec09a4e4bf5da416f94`.
+
+The same note derives the exact balanced multiplier norm and audits the
+surviving regularizations. Power damping is already RH-strength; every fixed
+prime-factor damping parameter has infinite weighted alias defect; finite
+scale-dependent balanced multipliers remain open. This is a route rejection,
+not a resolution of RH.
 
 #### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
 
@@ -515,6 +554,8 @@ python -m venv .venv
   --checkpoint-dir results\nyman-natural-v1 --bits 1536
 .\.venv\Scripts\rh-lab.exe verify-nyman-vasyunin-greedy-audit `
   --artifact results\nyman-vasyunin-greedy-v1.json
+.\.venv\Scripts\rh-lab.exe verify-nyman-alias-sharp-truncation-audit `
+  --artifact results\nyman-alias-sharp-truncation-v1.json
 ```
 
 Generate fresh artifacts:
@@ -558,6 +599,8 @@ Generate fresh artifacts:
   --output results\nyman-trial-subspace-v1-new.json
 .\.venv\Scripts\rh-lab.exe nyman-vasyunin-greedy-audit `
   --limit 4096 --output results\nyman-vasyunin-greedy-v1-new.json
+.\.venv\Scripts\rh-lab.exe nyman-alias-sharp-truncation-audit `
+  --limit 4096 --output results\nyman-alias-sharp-truncation-v1-new.json
 ```
 
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch

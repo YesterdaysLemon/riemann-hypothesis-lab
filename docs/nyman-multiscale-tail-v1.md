@@ -201,6 +201,12 @@ least `S_X=o(X^-1/2)`, together with separate control for `t>X`. The prime
 number theorem supplies only `S_X=o(1)` in the argument used here. Exact
 cancellation of every discrete divisor alias is not enough.
 
+The subsequent
+[sharp-truncation audit](nyman-alias-regularization-v1.md) closes this gap in
+the negative direction: for every nonzero fixed finite `y`, the required
+`S_X=o(X^-1/2)` is impossible. Thus this natural hard-cutoff sequence cannot
+converge in the Hilbert norm, irrespective of RH.
+
 The ideal first-shell projection fits this lemma exactly. If
 
 \[
@@ -435,9 +441,11 @@ The evidence now excludes three tempting shortcuts:
 A viable route must control a signed quadratic tail or finite-section inverse
 without replacing cancellation by absolute values. The separate and
 absolute-value estimates tested here do not close that bound. The most credible
-surviving targets are a regularized block operator with a proved uniform global
-norm, or a genuinely bilinear estimate for the alias form. Neither is proved
-here.
+surviving targets are a scale-dependent regularized block operator with a
+proved global norm, or a genuinely bilinear estimate for the alias form. The
+[regularization follow-up](nyman-alias-regularization-v1.md) proves that the
+fixed-shell sharp cutoff and every fixed prime-factor damping parameter fail;
+its balanced finite multiplier problem remains open.
 
 ## Primary sources
 
