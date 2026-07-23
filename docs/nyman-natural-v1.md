@@ -8,6 +8,12 @@ that the limiting distance is zero, and a positive finite lower bound does not
 disprove RH. Every plan, cell, audit, and index keeps the global hypothesis
 status `UNRESOLVED`.
 
+The v1 six-cell bundle remains frozen. A separate post-v1 artifact now
+certifies the one-sided finite extension
+`d_512^2 < (449/500)d_256^2`; see the
+[N=512 contraction audit](nyman-beta2-n512-v1.md). It does not retroactively
+turn this finite sequence into a limiting theorem.
+
 ## Criterion and normalization
 
 Let

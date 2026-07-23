@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+import riemann_lab.cli as cli
 from riemann_lab.cli import _integer_witness, main
 
 
@@ -164,6 +165,91 @@ def test_nyman_summary_cli_generates_and_structurally_regenerates(
     )
     assert replayed["verified_cells"] == "6"
     assert replayed["numerical_replay_performed"] is False
+
+
+def test_nyman_beta2_cli_routes_candidate_audit_and_verifier(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    candidate_path = tmp_path / "candidate.json"
+    audit_path = tmp_path / "audit.json"
+    fake_candidate = {
+        "classification": "EXPLORATORY",
+        "hypothesis_status": "UNRESOLVED",
+        "payload_sha256": "a" * 64,
+        "solver_role": "approximate-untrusted-candidate-generator-only",
+    }
+    fake_audit = {
+        "classification": "CERTIFIED_FINITE",
+        "audit_outcome": "N512_STRONG_FINITE_CONTRACTION_CERTIFIED",
+        "hypothesis_status": "UNRESOLVED",
+        "payload_sha256": "b" * 64,
+    }
+    calls: list[tuple[object, ...]] = []
+
+    monkeypatch.setattr(
+        cli, "propose_nyman_beta2_candidate", lambda: fake_candidate
+    )
+
+    def fake_generate(*args: object) -> dict[str, str]:
+        calls.append(args)
+        return fake_audit
+
+    def fake_verify(*args: object, **kwargs: object) -> dict[str, object]:
+        calls.append((*args, kwargs))
+        return {
+            "classification": "REPRODUCED_CERTIFIED_FINITE_NYMAN_CONTRACTION",
+            "hypothesis_status": "UNRESOLVED",
+        }
+
+    monkeypatch.setattr(cli, "generate_nyman_beta2_audit", fake_generate)
+    monkeypatch.setattr(cli, "verify_nyman_beta2_audit", fake_verify)
+
+    assert main(
+        ["propose-nyman-beta2-n512", "--output", str(candidate_path)]
+    ) == 0
+    proposed = json.loads(capsys.readouterr().out)
+    assert proposed["classification"] == "EXPLORATORY"
+    assert json.loads(candidate_path.read_text(encoding="utf-8")) == fake_candidate
+
+    assert main(
+        [
+            "nyman-beta2-n512-audit",
+            "--candidate",
+            str(candidate_path),
+            "--summary",
+            "summary.json",
+            "--checkpoint-dir",
+            "checkpoint",
+            "--output",
+            str(audit_path),
+        ]
+    ) == 0
+    generated = json.loads(capsys.readouterr().out)
+    assert generated["classification"] == "CERTIFIED_FINITE"
+    assert json.loads(audit_path.read_text(encoding="utf-8")) == fake_audit
+
+    assert main(
+        [
+            "verify-nyman-beta2-n512-audit",
+            "--artifact",
+            str(audit_path),
+            "--candidate",
+            str(candidate_path),
+            "--summary",
+            "summary.json",
+            "--checkpoint-dir",
+            "checkpoint",
+            "--bits",
+            "1536",
+        ]
+    ) == 0
+    replayed = json.loads(capsys.readouterr().out)
+    assert replayed["classification"] == (
+        "REPRODUCED_CERTIFIED_FINITE_NYMAN_CONTRACTION"
+    )
+    assert calls[-1][-1] == {"replay_precision_bits": 1536}
 
 
 def test_parity_and_nesting_cli_artifacts_replay(

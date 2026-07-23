@@ -74,6 +74,17 @@ stored 256-bit enclosures. The isolated all-scale target
 `E_BCF(N)<=K/log(N)` remains unproved; finite decreases are not promoted into
 an asymptotic claim.
 
+The [finite `N=512` contraction audit](nyman-beta2-n512-v1.md) separates its
+untrusted approximate solve from every sign-bearing step. The solve proposes
+one exact `2^-256` dyadic vector. A clean 768-bit rebuild directly evaluates
+that vector, freshly re-certifies the frozen `N=256` lower endpoint by
+interval `LDL^T`, and checks all comparison thresholds with exact rational
+arithmetic. Verification repeats both certificates at exactly 1536 bits
+without regenerating coefficients and requires the replay energy and margin
+to remain inside the generation enclosures. This certifies only
+`d_512^2 < (449/500)d_256^2`. It settles the `k=8` beta=2 step but leaves the
+uniform `k>=9` trial-subspace inequality wholly open.
+
 ### 3. Independent falsifiers
 
 - Li coefficients: a single interval-certified negative coefficient disproves

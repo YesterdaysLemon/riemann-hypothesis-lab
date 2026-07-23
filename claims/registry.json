@@ -51,6 +51,26 @@
       "statement": "The complete finite Weil matrix A=P-R-S for c=5/2 and modes -4 through 4 is positive definite by nine interval LDL^T pivots; deleting its sole p^r=2 term produces a certified negative mutation control."
     },
     {
+      "artifact": "results/nyman-beta2-n512-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "a34e6292218e1ceaff0f14595a44772ddb91e53fae0547fea554d2b2f41bf127",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-beta2-n512-v1",
+      "implies_rh": false,
+      "limitations": "This certifies one finite 256-to-512 contraction using one FLINT/Arb backend. It gives no N=512 lower bound and does not establish the uniform k>=9 recurrence required for the Nyman limit and RH.",
+      "reproduction": "rh-lab verify-nyman-beta2-n512-audit --artifact results/nyman-beta2-n512-v1.json --candidate results/nyman-beta2-n512-candidate-v1.json --summary results/nyman-natural-v1-summary.json --checkpoint-dir results/nyman-natural-v1 --bits 1536",
+      "scope": {
+        "coefficient_grid": "2^-256",
+        "contraction_factor": "449/500",
+        "generation_precision_bits": "768",
+        "new_dimension": "512",
+        "old_dimension": "256",
+        "replay_precision_bits": "1536",
+        "stored_u512_numerator_over_2_pow_128": "2513498367794989737282886562436186984"
+      },
+      "statement": "A direct exact-dyadic primal witness and a fresh replay of the certified N=256 lower endpoint prove d_512^2 < (449/500)d_256^2, so the normalized optimal block gain is greater than 51/500."
+    },
+    {
       "classification": "EXPLORATORY",
       "id": "weil-positivity-program-v1",
       "limitations": "No finite set of positive compressions controls every Fourier mode and a cofinal unbounded family of cutoffs; the universal positivity theorem remains missing.",

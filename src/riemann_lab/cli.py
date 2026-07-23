@@ -40,6 +40,13 @@ from .nyman_mobius import (
     generate_nyman_mobius_audit,
     verify_nyman_mobius_audit,
 )
+from .nyman_beta2 import (
+    FROZEN_REPLAY_BITS as NYMAN_BETA2_REPLAY_BITS,
+    NymanBeta2Error,
+    generate_nyman_beta2_audit,
+    propose_nyman_beta2_candidate,
+    verify_nyman_beta2_audit,
+)
 from .zeros import (
     ZeroCertificateError,
     certify_critical_line_zeros,
@@ -202,6 +209,21 @@ def _parser() -> argparse.ArgumentParser:
     nyman_mobius.add_argument("--checkpoint-dir", type=Path, required=True)
     nyman_mobius.add_argument("--output", type=Path, required=True)
 
+    nyman_beta2_candidate = commands.add_parser(
+        "propose-nyman-beta2-n512",
+        help="propose the frozen exact N=512 dyadic witness (not a certificate)",
+    )
+    nyman_beta2_candidate.add_argument("--output", type=Path, required=True)
+
+    nyman_beta2 = commands.add_parser(
+        "nyman-beta2-n512-audit",
+        help="certify the finite N=256 to N=512 contraction",
+    )
+    nyman_beta2.add_argument("--candidate", type=Path, required=True)
+    nyman_beta2.add_argument("--summary", type=Path, required=True)
+    nyman_beta2.add_argument("--checkpoint-dir", type=Path, required=True)
+    nyman_beta2.add_argument("--output", type=Path, required=True)
+
     parity = commands.add_parser(
         "weil-parity-audit",
         help="generate an exploratory reversal-parity audit for one Weil cell",
@@ -327,6 +349,20 @@ def _parser() -> argparse.ArgumentParser:
     verify_nyman_mobius.add_argument("--summary", type=Path, required=True)
     verify_nyman_mobius.add_argument(
         "--checkpoint-dir", type=Path, required=True
+    )
+
+    verify_nyman_beta2 = commands.add_parser(
+        "verify-nyman-beta2-n512-audit",
+        help="regenerate and replay the finite N=512 contraction audit",
+    )
+    verify_nyman_beta2.add_argument("--artifact", type=Path, required=True)
+    verify_nyman_beta2.add_argument("--candidate", type=Path, required=True)
+    verify_nyman_beta2.add_argument("--summary", type=Path, required=True)
+    verify_nyman_beta2.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
+    verify_nyman_beta2.add_argument(
+        "--bits", type=int, default=NYMAN_BETA2_REPLAY_BITS
     )
 
     verify_parity = commands.add_parser(
@@ -574,6 +610,52 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0
 
+    if args.command == "propose-nyman-beta2-n512":
+        try:
+            artifact = propose_nyman_beta2_candidate()
+            write_json(args.output, artifact)
+        except (NymanBeta2Error, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman beta=2 candidate rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                    "solver_role": artifact["solver_role"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
+    if args.command == "nyman-beta2-n512-audit":
+        try:
+            artifact = generate_nyman_beta2_audit(
+                args.candidate,
+                args.summary,
+                args.checkpoint_dir,
+            )
+            write_json(args.output, artifact)
+        except (NymanBeta2Error, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman beta=2 audit rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "audit_outcome": artifact["audit_outcome"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
     if args.command == "weil-parity-audit":
         try:
             artifact = certify_parity_audit(
@@ -784,6 +866,25 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.JSONDecodeError,
         ) as exc:
             print(f"Nyman Mobius audit rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-nyman-beta2-n512-audit":
+        try:
+            result = verify_nyman_beta2_audit(
+                args.artifact,
+                args.candidate,
+                args.summary,
+                args.checkpoint_dir,
+                replay_precision_bits=args.bits,
+            )
+        except (
+            NymanBeta2Error,
+            OSError,
+            json.JSONDecodeError,
+        ) as exc:
+            print(f"Nyman beta=2 audit rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0

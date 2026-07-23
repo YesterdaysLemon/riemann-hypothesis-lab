@@ -339,9 +339,73 @@ E_{k+1}=E_k-t^\mathsf{T}S^{-1}t,
 \]
 
 so the target is `t^T S^-1 t >= E_k/(k+2)`. A recurrence with
-`0<alpha<1` is another compatible direction. The five certified extensions
+`0<alpha<1` is another compatible direction.
+
+The [finite N=512 audit](nyman-beta2-n512-v1.md) now closes the `k=8` step
+more strongly than this target:
+
+\[
+E_9<\frac{449}{500}E_8<\frac9{10}E_8,
+\qquad
+E_8-E_9>\frac{51}{500}E_8.
+\]
+
+This follows from a direct exact-dyadic `N=512` primal witness and the
+certified `N=256` lower endpoint. No `N=512` lower bound or interval Schur
+solve is needed. It is one finite step, not evidence that the recurrence
+persists.
+
+The remaining proof target can be stated on an explicit trial subspace. Let
+`P_k` project onto the old span, let `r_k=(I-P_k)chi`, and put
+`w_j=(I-P_k)rho_j` for `2^k<j<=2^(k+1)`. Define
+
+\[
+(S_k)_{ij}=\langle w_i,w_j\rangle,
+\qquad
+(t_k)_i=\langle r_k,w_i\rangle.
+\]
+
+For an explicit full-column-rank trial matrix `V_k`, set
+
+\[
+A_k=V_k^\mathsf T S_kV_k,
+\qquad
+u_k=V_k^\mathsf Tt_k.
+\]
+
+Then `A_k` is positive definite because `S_k` is positive definite.
+
+The best gain available in that subspace is exactly
+
+\[
+\Gamma_k(V_k)=u_k^\mathsf T A_k^{-1}u_k.
+\]
+
+It is now sufficient to prove, for one explicit arithmetic rule `V_k` and
+every `k>=9`,
+
+\[
+\boxed{\Gamma_k(V_k)\ge\frac{E_k}{k+2}.}
+\]
+
+The inverse-free sufficient form is to exhibit explicit `z_k` satisfying
+
+\[
+2u_k^\mathsf Tz_k-z_k^\mathsf TA_kz_k
+\ge\frac{E_k}{k+2}.
+\]
+
+Together with the certified base, this would give
+
+\[
+E_k<\frac{449}{50(k+1)}E_8\longrightarrow0
+\qquad(k\ge9),
+\]
+
+and hence RH by the strong natural-dilate criterion. No such uniform trial
+rule or lower bound is proved here. The earlier five certified extensions
 from `N=8` through `N=256` satisfy the stronger `beta=1` comparison, but the
-forced-rebound theorem proves that pattern must eventually fail. Finite v1
+forced-rebound theorem proves that pattern must eventually fail. Finite
 coefficients may suggest an ansatz; fitting them is not evidence for a
 uniform inequality.
 
@@ -386,6 +450,12 @@ conflict with an asymptotic liminf theorem; combined with that theorem, its
 strict certified separator forces a later scaled rebound and at least one
 adjacent scaled increase. It still supplies neither an effective rebound
 index nor a proof or disproof of RH.
+
+The later `N=512` artifact adds a one-sided primal upper certificate rather
+than a two-sided distance bracket. Its role is narrower and theorem-directed:
+it proves the `k=8` beta=2 transition and moves the uniform recurrence's first
+unproved scale to `k=9`. It does not add a seventh point to the two-sided table
+above.
 
 ## Primary sources
 

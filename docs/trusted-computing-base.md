@@ -157,6 +157,36 @@ It neither proves the required all-scale upper estimate nor imports the
 conditional Bettin--Conrey--Farmer asymptotic as an unconditional fact; its
 classification is `EXPLORATORY` and RH remains `UNRESOLVED`.
 
+### Finite N=512 beta=2 contraction audit
+
+The candidate generator trusts the same canonical natural-dilate kernel and
+FLINT/Arb backend as v1. Its 768-bit approximate solve is explicitly untrusted:
+it only proposes 512 coefficients, which are rounded by exact rational
+ties-to-even arithmetic onto a common `2^-256` grid. The standalone candidate
+is `EXPLORATORY` and certifies nothing.
+
+The `CERTIFIED_FINITE` audit rebuilds one max-512 kernel at 768 bits. It
+directly evaluates the stored exact vector against a frozen `2^-128` upper
+endpoint and separately replays the v1 `N=256` lower endpoint using all 257
+positive pivots of the augmented fixed-order interval `LDL^T`. CPython
+`Fraction` arithmetic checks the strict comparisons
+`U_512 < (449/500)L_256`, `U_512 < (9/10)L_256`, and
+`U_512 < L_256-U_256/10`. No approximate solve, Schur-complement solve, or
+displayed decimal decides a sign.
+
+Verification first rejects any artifact whose frozen payload, source hashes,
+candidate, policy, or theorem bridge has changed. It then regenerates the
+768-bit audit and repeats both decisive certificates at exactly 1536 bits
+without regenerating coefficients. The 1536-bit energy and upper-margin
+enclosures must lie inside their 768-bit counterparts. Both precisions share
+CPython, repository code, python-flint, FLINT, and the same analytic kernel;
+this is not a clean-room independent reproduction.
+
+The artifact supplies no `N=512` lower bound and proves only one finite
+transition. The Schur identity translates it into a normalized gain greater
+than `51/500`, but the uniform gain inequality for every later dyadic scale is
+unproved. Nothing in this audit resolves RH.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker
