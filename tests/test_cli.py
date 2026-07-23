@@ -57,6 +57,115 @@ def test_transition_cli_writes_and_replays_zero_cell_checkpoint(
     assert replay["hypothesis_status"] == "UNRESOLVED"
 
 
+def test_nyman_cli_writes_and_replays_zero_cell_checkpoint(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    checkpoint = tmp_path / "nyman"
+    exit_code = main(
+        [
+            "nyman-search",
+            "--plan",
+            "plans/nyman-natural-v1.json",
+            "--checkpoint-dir",
+            str(checkpoint),
+            "--max-cells",
+            "0",
+        ]
+    )
+    generated = json.loads(capsys.readouterr().out)
+    assert exit_code == 0
+    assert generated["classification"] == "EXPLORATORY"
+    assert generated["hypothesis_status"] == "UNRESOLVED"
+    assert generated["progress"]["planned_cells"] == "6"
+    assert generated["progress"]["completed_cells"] == "0"
+
+    exit_code = main(
+        [
+            "verify-nyman-search",
+            "--index",
+            str(checkpoint / "index.json"),
+            "--checkpoint-dir",
+            str(checkpoint),
+            "--bits",
+            "1536",
+        ]
+    )
+    replay = json.loads(capsys.readouterr().out)
+    assert exit_code == 0
+    assert replay["classification"] == "REPRODUCED_EXPLORATORY_NYMAN_SEARCH"
+    assert replay["verified_cells"] == "0"
+    assert replay["hypothesis_status"] == "UNRESOLVED"
+
+
+def test_nyman_normalization_cli_generates_and_exactly_regenerates(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    artifact = tmp_path / "normalization.json"
+    assert main(
+        ["nyman-normalization-audit", "--output", str(artifact)]
+    ) == 0
+    generated = json.loads(capsys.readouterr().out)
+    assert generated["classification"] == "EXPLORATORY"
+    assert generated["hypothesis_status"] == "UNRESOLVED"
+    assert generated["audit_outcome"] == (
+        "NORMALIZATION_AUDIT_PASSED_EXPLORATORY"
+    )
+
+    assert main(
+        [
+            "verify-nyman-normalization-audit",
+            "--artifact",
+            str(artifact),
+        ]
+    ) == 0
+    replayed = json.loads(capsys.readouterr().out)
+    assert replayed["classification"] == (
+        "REPRODUCED_EXPLORATORY_NYMAN_NORMALIZATION_AUDIT"
+    )
+    assert replayed["verified_ratio_comparisons"] == "14"
+    assert replayed["harmonic_comparison_reproduced"] is True
+    assert replayed["harmonic_comparison_passed"] is True
+
+
+def test_nyman_summary_cli_generates_and_structurally_regenerates(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    summary = tmp_path / "summary.json"
+    checkpoint = Path("results/nyman-natural-v1")
+    assert main(
+        [
+            "summarize-nyman",
+            "--checkpoint-dir",
+            str(checkpoint),
+            "--output",
+            str(summary),
+        ]
+    ) == 0
+    generated = json.loads(capsys.readouterr().out)
+    assert generated["classification"] == "EXPLORATORY"
+    assert generated["hypothesis_status"] == "UNRESOLVED"
+    assert generated["counts"]["cells"] == "6"
+
+    assert main(
+        [
+            "verify-nyman-summary",
+            "--summary",
+            str(summary),
+            "--checkpoint-dir",
+            str(checkpoint),
+        ]
+    ) == 0
+    replayed = json.loads(capsys.readouterr().out)
+    assert replayed["classification"] == (
+        "REPRODUCED_EXPLORATORY_NYMAN_SUMMARY"
+    )
+    assert replayed["verified_cells"] == "6"
+    assert replayed["numerical_replay_performed"] is False
+
+
 def test_parity_and_nesting_cli_artifacts_replay(
     tmp_path: Path,
     capsys: pytest.CaptureFixture[str],

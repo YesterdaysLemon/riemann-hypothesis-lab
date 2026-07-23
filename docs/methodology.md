@@ -50,7 +50,14 @@ Compute certified primal and dual bounds for finite-dimensional distances,
 using exact piecewise integration or interval-enclosed logarithms. Avoid normal
 equations in the ill-conditioned Gram systems. The theorem target is an
 explicit coefficient family with a proved error bound tending to zero; a
-finite decay plot proves nothing.
+finite decay plot proves nothing. The frozen natural-dilate normalization,
+two-sided augmented-matrix certificates, independent truncated-integral
+oracle, and finite-result semantics are specified in
+[Nyman natural-distance certificates v1](nyman-natural-v1.md). The post-v1
+[theorem frontier](nyman-theorem-frontier.md) records the exact
+Mellin/Dirichlet normalization, Burnol's asymptotic obstruction, and the
+all-`N` upper-family or infinite-tail statements that would actually bridge
+to a proof or disproof.
 
 ### 3. Independent falsifiers
 

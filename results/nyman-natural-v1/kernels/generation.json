@@ -1,0 +1,43 @@
+{
+  "classification": "EXPLORATORY",
+  "construction": "one canonical full max-N kernel; each listed commitment is hashed from an exact leading in-memory prefix",
+  "core_system_content_sha256": "1587f9ab711c2b787f0072dcd82476cef3ee1ca0198ca167eccb0c86c95b8726",
+  "hypothesis_status": "UNRESOLVED",
+  "kernel_contract_sha256": "bc3bc8679379a7a2c3a7c0f530829b67b7170b6ada950c893f6010a32eba06cf",
+  "max_n": "256",
+  "payload_sha256": "6fb54e7f63208f1bd81fb7ef2e592a8a655458dd7744081748590159b868cc26",
+  "precision_bits": "768",
+  "prefixes": [
+    {
+      "core_system_content_sha256": "9a7b774c6f45f54f02e7b637dd21f4b8de9a0a32c05f4e33244a1296edb1ac5b",
+      "n": "8",
+      "prefix_kernel_sha256": "eb4533a1ffc11d2cc831e241a4e70d22edffe4fd0a483dcfa4f866003cb77aca"
+    },
+    {
+      "core_system_content_sha256": "6e178fda8ec422b935a0e975f7034a8d41174794ed30ce1ea07851ce55d9b932",
+      "n": "16",
+      "prefix_kernel_sha256": "16f4da5822f76fcad412e1978d30ef8886208baad301ef7e51f12ef8fd1a1dfc"
+    },
+    {
+      "core_system_content_sha256": "0bef98dd0e96e32a251d25b6756c9f4b0d98a0ffc26a726b42b4b542c8548b36",
+      "n": "32",
+      "prefix_kernel_sha256": "63731cf363b13c760d588bf895cfa596f32a6917f5e2a3f44c63866be842dc08"
+    },
+    {
+      "core_system_content_sha256": "f1e4d3211526884d825d6e86028cbec3a727f6b6f7384ad1ea036056101ed9b9",
+      "n": "64",
+      "prefix_kernel_sha256": "9ca6dc3d7e9ab1a574721eead3b3ff9a3aad20891ecbe02bded79a82495e203e"
+    },
+    {
+      "core_system_content_sha256": "87c76e7f64b0d1e9d18ba5d5f88ebcc23c8e9b7a1e547a53d51e842c93e35c80",
+      "n": "128",
+      "prefix_kernel_sha256": "c0d42749b63cff4dfdfcb1a1785d6ae35bf685cff7841a7330ab79ee1ea19f91"
+    },
+    {
+      "core_system_content_sha256": "1587f9ab711c2b787f0072dcd82476cef3ee1ca0198ca167eccb0c86c95b8726",
+      "n": "256",
+      "prefix_kernel_sha256": "c5b9d836f93b406339ece4c971dde01c45f655d8b58ac2f5ed3a59c7ea285676"
+    }
+  ],
+  "schema": "rh-lab/nyman-natural-shared-kernel/v1"
+}

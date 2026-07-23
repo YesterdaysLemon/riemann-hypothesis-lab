@@ -1,0 +1,655 @@
+{
+  "audit_outcome": "NORMALIZATION_AUDIT_PASSED_EXPLORATORY",
+  "backend": {
+    "flint": "3.6.0",
+    "python_flint": "0.9.0"
+  },
+  "bundle_id": "nyman-natural-normalization-v1",
+  "cache_policy": "clean FLINT cache before and after the complete deterministic 128-bit bundle generation",
+  "classification": "EXPLORATORY",
+  "formula_vs_truncated_integral": {
+    "audit_outcome": "ALL_14_CONSISTENT_WITH_TRUNCATION_ORACLE",
+    "classification": "EXPLORATORY",
+    "comparisons": [
+      {
+        "candidate_enclosure": {
+          "display": "[1.2606614015078126229541473827288328487 +/- 4.35e-38]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "214490422795473010437846251205565594231",
+            "radius_exponent": "-150",
+            "radius_mantissa": "21806689"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.261 +/- 4.20e-4]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "214497346703037697100555305353486831507",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          "supplied": {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[0.7722092559908731398613025066820804945 +/- 4.23e-38]",
+          "dyadic": {
+            "mid_exponent": "-128",
+            "mid_mantissa": "262769193386831192122283341117309770245",
+            "radius_exponent": "-155",
+            "radius_mantissa": "1016482505"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[0.772 +/- 3.83e-4]",
+          "dyadic": {
+            "mid_exponent": "-128",
+            "mid_mantissa": "262786503578210546784470827454833063873",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "2",
+            "numerator": "1"
+          },
+          "supplied": {
+            "denominator": "2",
+            "numerator": "1"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.5444185119817462797226050133641609890 +/- 8.45e-38]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "262769193386831192122283341117309770245",
+            "radius_exponent": "-154",
+            "radius_mantissa": "1016482505"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.544 +/- 5.92e-4]",
+          "dyadic": {
+            "mid_exponent": "-125",
+            "mid_mantissa": "65694461962184858219838862733474640169",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          "supplied": {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[0.8822070185588043526546718409387383104 +/- 7.82e-38]",
+          "dyadic": {
+            "mid_exponent": "-128",
+            "mid_mantissa": "300199492389454231380580201537949608133",
+            "radius_exponent": "-154",
+            "radius_mantissa": "884092731"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[0.882 +/- 3.87e-4]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "150109554500414339349574134812276838937",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "3",
+            "numerator": "2"
+          },
+          "supplied": {
+            "denominator": "3",
+            "numerator": "2"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.3233105278382065289820077614081074657 +/- 9.65e-38]",
+          "dyadic": {
+            "mid_exponent": "-125",
+            "mid_mantissa": "56287404823022668383858787788365551525",
+            "radius_exponent": "-153",
+            "radius_mantissa": "652597125"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.323 +/- 4.91e-4]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "225159427668131793696994266485624944987",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "2",
+            "numerator": "3"
+          },
+          "supplied": {
+            "denominator": "2",
+            "numerator": "3"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[0.8822070185588043526546718409387383104 +/- 7.82e-38]",
+          "dyadic": {
+            "mid_exponent": "-128",
+            "mid_mantissa": "300199492389454231380580201537949608133",
+            "radius_exponent": "-154",
+            "radius_mantissa": "884092731"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[0.882 +/- 3.87e-4]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "150109554500414339349574134812276838937",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "3",
+            "numerator": "2"
+          },
+          "supplied": {
+            "denominator": "6",
+            "numerator": "4"
+          },
+          "supplied_was_reduced": false
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[0.9129714229104948235731398318791339639 +/- 9.11e-38]",
+          "dyadic": {
+            "mid_exponent": "-126",
+            "mid_mantissa": "77667019179790071049345615029787717389",
+            "radius_exponent": "-153",
+            "radius_mantissa": "869928759"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[0.913 +/- 1.54e-4]",
+          "dyadic": {
+            "mid_exponent": "-128",
+            "mid_mantissa": "310688649843195725194457895318359370081",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "7",
+            "numerator": "5"
+          },
+          "supplied": {
+            "denominator": "7",
+            "numerator": "5"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.278159992074692753002395764630787549 +/- 5.93e-37]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "217467653703412198938167722083405608689",
+            "radius_exponent": "-150",
+            "radius_mantissa": "161123935"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.278 +/- 3.43e-4]",
+          "dyadic": {
+            "mid_exponent": "-123",
+            "mid_mantissa": "13592371238137198117591341446485311147",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "5",
+            "numerator": "7"
+          },
+          "supplied": {
+            "denominator": "5",
+            "numerator": "7"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.190639246238667823072592303729125709 +/- 7.19e-37]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "202576770429527982746720184166532860725",
+            "radius_exponent": "-138",
+            "radius_mantissa": "148391"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.191 +/- 4.22e-4]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "202587152385437267445308740148943324217",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "32",
+            "numerator": "31"
+          },
+          "supplied": {
+            "denominator": "32",
+            "numerator": "31"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.229046963859270010913643668365549119 +/- 7.78e-37]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "209111504959512756383711157849324243329",
+            "radius_exponent": "-150",
+            "radius_mantissa": "632422599"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.229 +/- 2.31e-4]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "209121888665571600981118651400139834277",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "31",
+            "numerator": "32"
+          },
+          "supplied": {
+            "denominator": "31",
+            "numerator": "32"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.23778663543654655068282088017071983 +/- 4.56e-36]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "210598483024726412634961307676091320937",
+            "radius_exponent": "-147",
+            "radius_mantissa": "395299351"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.238 +/- 2.75e-4]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "210608868141235213162840893483472475097",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "128",
+            "numerator": "127"
+          },
+          "supplied": {
+            "denominator": "128",
+            "numerator": "127"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.24753298689667683848347301308544991 +/- 7.20e-36]",
+          "dyadic": {
+            "mid_exponent": "-127",
+            "mid_mantissa": "212256738796574652104527932145981803779",
+            "radius_exponent": "-148",
+            "radius_mantissa": "798145499"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.248 +/- 5.28e-4]",
+          "dyadic": {
+            "mid_exponent": "-126",
+            "mid_mantissa": "106133566714800678978771273706788370909",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "127",
+            "numerator": "128"
+          },
+          "supplied": {
+            "denominator": "127",
+            "numerator": "128"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.21236414640416142565285234981838800 +/- 8.76e-36]",
+          "dyadic": {
+            "mid_exponent": "-126",
+            "mid_mantissa": "103136535327122804078654963198466604471",
+            "radius_exponent": "-147",
+            "radius_mantissa": "812620465"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.212 +/- 5.48e-4]",
+          "dyadic": {
+            "mid_exponent": "-125",
+            "mid_mantissa": "51570864007330684210939211052076095259",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "256",
+            "numerator": "251"
+          },
+          "supplied": {
+            "denominator": "256",
+            "numerator": "251"
+          },
+          "supplied_was_reduced": true
+        }
+      },
+      {
+        "candidate_enclosure": {
+          "display": "[1.23651482661141563731924383089046745 +/- 8.16e-36]",
+          "dyadic": {
+            "mid_exponent": "-124",
+            "mid_mantissa": "26297761995760396259099273484867978829",
+            "radius_exponent": "-146",
+            "radius_mantissa": "415390893"
+          },
+          "is_exact": false
+        },
+        "oracle_full_enclosure": {
+          "display": "[1.237 +/- 5.47e-4]",
+          "dyadic": {
+            "mid_exponent": "-125",
+            "mid_mantissa": "52598119730835283197148180744339595081",
+            "radius_exponent": "-42",
+            "radius_mantissa": "536870913"
+          },
+          "is_exact": false
+        },
+        "outcome": "CONSISTENT_WITH_TRUNCATION_ORACLE",
+        "ratio": {
+          "canonicalization": "fractions.Fraction gcd reduction with positive denominator",
+          "reduced": {
+            "denominator": "251",
+            "numerator": "256"
+          },
+          "supplied": {
+            "denominator": "251",
+            "numerator": "256"
+          },
+          "supplied_was_reduced": true
+        }
+      }
+    ],
+    "evaluator_label": "riemann_lab.nyman.autocorrelation_a rational Vasyunin formula",
+    "hypothesis_status": "UNRESOLVED",
+    "limitation": "A passing finite normalization audit has no implication for RH.",
+    "payload_sha256": "9d472cf50d3874f4955721117caf080e7463a6a8fdbf02b58122ceaac570c827",
+    "precision_bits": "128",
+    "resolution_scope": "about 12 bits at best; overlap is a normalization check, not an identity proof",
+    "schema": "rh-lab/nyman-frozen-normalization-audit/v1",
+    "truncation": "4096"
+  },
+  "frozen_scope": {
+    "generic_tail_upper_bound": {
+      "denominator": "4096",
+      "numerator": "1"
+    },
+    "harmonic_last_index": "4096",
+    "ordered_supplied_ratio_pairs": [
+      {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      {
+        "denominator": "2",
+        "numerator": "1"
+      },
+      {
+        "denominator": "1",
+        "numerator": "2"
+      },
+      {
+        "denominator": "3",
+        "numerator": "2"
+      },
+      {
+        "denominator": "2",
+        "numerator": "3"
+      },
+      {
+        "denominator": "6",
+        "numerator": "4"
+      },
+      {
+        "denominator": "7",
+        "numerator": "5"
+      },
+      {
+        "denominator": "5",
+        "numerator": "7"
+      },
+      {
+        "denominator": "32",
+        "numerator": "31"
+      },
+      {
+        "denominator": "31",
+        "numerator": "32"
+      },
+      {
+        "denominator": "128",
+        "numerator": "127"
+      },
+      {
+        "denominator": "127",
+        "numerator": "128"
+      },
+      {
+        "denominator": "256",
+        "numerator": "251"
+      },
+      {
+        "denominator": "251",
+        "numerator": "256"
+      }
+    ],
+    "precision_bits": "128",
+    "ratio_count": "14",
+    "truncation": "4096"
+  },
+  "hypothesis_status": "UNRESOLVED",
+  "independence": {
+    "clean_room_or_alternate_backend": false,
+    "formula_implementation": "riemann_lab.nyman.autocorrelation_a; rational Vasyunin formula",
+    "harmonic_implementation": "exact Fraction harmonic sum plus an Arb-enclosed logarithm",
+    "shared_arithmetic_backend": "python-flint/Arb",
+    "truncated_integral_implementation": "riemann_lab.nyman_oracle; exact rational breakpoint partition and piece antiderivative; no nyman formula import"
+  },
+  "limitation": "The truncated-integral oracle has only about 12 bits of resolving power because its generic tail is 1/4096. The formula and oracle use the same Arb/FLINT backend, so this is not a clean-room or alternate-backend verification. A passing finite normalization audit has no implication for RH; the global hypothesis status remains UNRESOLVED.",
+  "one_minus_euler_gamma": {
+    "audit_outcome": "CORE_ONE_MINUS_EULER_GAMMA_OVERLAPS_HARMONIC_ORACLE",
+    "classification": "EXPLORATORY",
+    "comparison": "rigorous Arb enclosure overlap",
+    "core_enclosure": {
+      "display": "[0.42278433509846713939348790991759756896 +/- 4.71e-39]",
+      "dyadic": {
+        "mid_exponent": "-128",
+        "mid_mantissa": "143866054244401597108034677292753826985",
+        "radius_exponent": "-129",
+        "radius_mantissa": "1"
+      },
+      "is_exact": false
+    },
+    "core_expression": "1-arb.const_euler()",
+    "hypothesis_status": "UNRESOLVED",
+    "independent_harmonic_oracle": {
+      "backend": {
+        "arithmetic": "exact Fraction harmonic sum; Arb-enclosed log",
+        "flint": "3.6.0",
+        "python_flint": "0.9.0"
+      },
+      "bound": {
+        "base": "1-H_M+log(M)",
+        "correction_lower": {
+          "denominator": "8194",
+          "numerator": "1"
+        },
+        "correction_upper": {
+          "denominator": "8192",
+          "numerator": "1"
+        },
+        "inequality": "1/(2(M+1)) < H_M-log(M)-EulerGamma < 1/(2M)"
+      },
+      "classification": "EXPLORATORY",
+      "enclosure": {
+        "display": "[0.4227843 +/- 4.01e-8]",
+        "dyadic": {
+          "mid_exponent": "-124",
+          "mid_mantissa": "8991628179077351519165052418751559277",
+          "radius_exponent": "-55",
+          "radius_mantissa": "536739873"
+        },
+        "is_exact": false
+      },
+      "exact_harmonic_sum": {
+        "denominator": "2797733528791012208927947906359659042262681113705419091723085715632576820327946877428960149097896598935377378274083171439853054090962676139252644656156222219367478266709144252339215668789092574849939421814925367826151902205167639365816032481315055439768263299406372033076963399465417377003801904338955597991690659903403677153729870373926643835659662047420285579065646960416026455161175698531202092775979767634071160607731417157067075460231774176771461483658410296785938640986392185013774736695033077743683766381801140412435007324981776855899574201195733246126500679513631681275546725434076575433938957056326115733183943258312435280669232170216684014628434641679997563967975067110621136084609041195086805515577600012847600395523315125424546378341411784981655514267126815496086740706172268989395231266682574371016040670729185185311830722630015885381074176665125223430546836766788777048092419165525768706387031680150662165945097222824526189918751308561698534034747525062905563914833097973234797347314552332792041960739477549663044850530898619443261305941830546032944802382728182990868970919658774400718163727542680731286282749542966200823749905808465487926839602704714624219158337218861907792571577414391486286571327237035506026900373954956245445523051970177264883443616557723408175550292242087050866274161944449858129391644416931321495328576407797582752421737649927517991399865129930382739186612588575885259554347616360796118573113110942065767780102029783964115696467474940902872833441556995625516387612835229058063805743620870322138609368850737149383747720005966844441812721246639369128723725394377918883679006634600410058618731394676820695031392199171898920599731389832750038955880322930327341753570100132655878745728494249253675561894605374028778115203749552363372300221387558400000",
+        "numerator": "24886130414622274767873461948909962072064686351599039787479049171329517900009704359609746856078758656551714026845903291388049716381331909424342156565701537995794984779049255992027966613218169868716051566180299643001255173825059720076903909432104784517273419704155363786287398452567382167592754478789414365485646060037228299009219995775929310109820487170703628583866880999473396943022488762252474513579995878608047433011059307884805106486690364896444315890969807114379933234025570705812009021628619921928821358403967596722795658548953947486943398169973291615372174942539164581857805489384068689330153475020877903507720195088505814416910330196373643036650599561765419445058428269542126892808729743878756808014641421039540973535397048929078963866477888025310513986807633213496470925893884833236118946194684252494862653739434260997923731719283777305051930602350491548785944234466489499457235729033816875492870999627465416225500616250396726666453283213962039498166275802572966528097659814397503460218867132651322079836288255477146015760350383738753750689106986013768161047688801006186053919876931343529566556269144997577853133394837067610068826625234431254831963946280516895170898735902712816330725918780340163624505072517097594092004598960086488853920654330840659952191390935881673212316858971622972855905001574938319327188476013529882750302940656886832773180618168976313178179239406369206048483517864383308743096343674876730949308012284491308040442760052301458782834814797052511885377699751931150668517968106458849761342944594038032501707366615182024328046290770410100186125605617345176059376377231324810893274481863165188262640791124901053801903798182991622219197838234645511402870574420767339621516140809213012900582702837009832712279055252823026485036027078934659472173945623974906353"
+      },
+      "hypothesis_status": "UNRESOLVED",
+      "last_harmonic_index": "4096",
+      "limitation": "This independently checks one normalization constant and has no implication for the truth of RH.",
+      "payload_sha256": "4da7f363c2a3800869e4a2b331112c30f1039c8f5a09d937676d199f24f18159",
+      "precision_bits": "128",
+      "schema": "rh-lab/nyman-one-minus-euler-gamma-oracle/v1",
+      "source": "https://arxiv.org/abs/math/0306233"
+    },
+    "limitation": "This checks one normalization constant using a harmonic-sum bound. Both sides are enclosed with the same Arb backend, and the result has no implication for RH.",
+    "payload_sha256": "a058f071d0baf06bdc325a0c14bb089548afbc15dfa5118dd32da4ccdbc3e9f6",
+    "precision_bits": "128",
+    "schema": "rh-lab/nyman-harmonic-normalization-audit/v1"
+  },
+  "payload_sha256": "021a060fb3eb0121c325a0af13cc39095c0c6f26bc5a4b235269611a66a9442c",
+  "schema": "rh-lab/nyman-normalization-audit-bundle/v1"
+}

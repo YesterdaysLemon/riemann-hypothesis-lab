@@ -72,6 +72,44 @@ mathematical audit before it could support any global claim. Every aggregate
 search artifact remains `EXPLORATORY` and leaves the hypothesis status
 `UNRESOLVED`.
 
+## Exploratory Nyman natural-distance certificates
+
+The frozen natural-dilate experiment trusts CPython exact integers and
+`Fraction` arithmetic for rational reduction, breakpoint construction, and
+dyadic encodings; this repository's autocorrelation, shared-prefix,
+direct-energy, augmented-matrix, interval `LDL^T`, checkpoint, hashing, and
+replay code; and `python-flint==0.9.0` / FLINT 3.6.0 Arb arithmetic for
+logarithms, cotangents, constants, linear solves, and interval operations.
+Baez-Duarte's strong Nyman--Beurling theorem supplies the bridge from the
+infinite natural-dilate closure problem to RH.
+
+Approximate linear solves only propose coefficient vectors. The upper gate
+directly evaluates `E(c)` on the stored exact dyadic coefficients, and the
+lower gate requires every fixed-order interval `LDL^T` pivot of the augmented
+matrix to be strictly positive. Canonical shared systems and their prefixes
+carry provenance and content hashes, so ordinary public construction,
+copying, or serialized-artifact mutation cannot substitute an arbitrary
+symmetric matrix into either certificate path. Hostile in-process Python that
+calls private constructors or monkeypatches trusted code remains inside the
+declared repository-code trust boundary. Generation and replay use clean FLINT
+cache boundaries to make same-precision evidence deterministic.
+
+The separate normalization oracle uses exact rational breakpoints and a
+piecewise antiderivative rather than the Vasyunin-sum implementation. Its
+generic positive tail bound is only `1/T`, so the frozen `T=4096` audit checks
+roughly twelve bits of normalization, not the full precision of the closed
+formula. It still shares CPython, Arb logarithms, serialization code, and this
+repository, and therefore is not a clean-room backend. Higher-precision replay
+also shares the same implementation and FLINT. Six certified finite brackets,
+even if strictly decreasing, cannot establish the limiting statement required
+to prove or disprove RH.
+
+The tracked compact summary is a reporting and integrity layer only. It
+rechecks canonical schemas, exact dyadics, semantic cross-links, and all stored
+payload commitments, but deliberately does not rebuild a kernel or rerun an
+interval certificate. The `verify-nyman-search` command is the numerical
+reproduction gate.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker
