@@ -263,6 +263,30 @@ or the boundary Abelian contradiction. The theorem rejects fixed-shell sharp
 truncation only; it does not cover scale-dependent regularization or resolve
 RH.
 
+### Balanced-multiplier exploratory scout
+
+The balanced-multiplier scout is not a certificate path. It trusts the stored
+exact-dyadic Nyman candidate files, CPython binary64 conversion, NumPy 2.3.5,
+the platform BLAS/LAPACK implementation used for the finite normal solve, and
+vectorized floating-point divisor accumulation. The reconstructed shell,
+quadratic coefficients, solution, interval sums, and displayed convergence
+tables are approximate. Reported energy fractions use the midpoint of each
+stored candidate's certified energy bracket, not a fresh exact energy
+evaluation.
+
+The time-domain identity for the interval error and the formulas for signed
+direct gain are human-auditable exact mathematics. Their large-scale numerical
+evaluation is truncated. The missing alias-norm tail is positive, but the
+missing old-residual cross term has no fixed sign; a truncated direct gain is
+therefore neither a certified lower nor a certified upper bound.
+
+The separate small-scale full-Gram helper rounds the shell and multiplier to
+exact dyadics, reconstructs harmonic balance exactly, and evaluates a complete
+finite coefficient vector with the existing Arb autocorrelation kernel. It is
+an independent consistency check for selected rounded vectors, not a verifier
+for the large-scale binary64 grid. No balanced-multiplier value is entered in
+the claim ledger, and no uniform contraction or implication for RH is claimed.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker
