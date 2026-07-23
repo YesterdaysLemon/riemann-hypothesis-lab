@@ -22,6 +22,7 @@ Current finite results and documented theorem consequences:
 | Six natural-dilate Nyman distances for `N=8,16,32,64,128,256`; each has an exact bracket `L_N < d_N^2 <= U_N` of width `2^-120`, and all five exact comparisons `U_2N < L_N` pass | `EXPLORATORY` | A separate same-backend replay rebuilt the full kernel at 1536 bits and re-certified all six stored dyadic candidates and all 510 interval `LDL^T` pivots | Finite decay cannot establish the required limit `d_N -> 0` |
 | One exact 512-coefficient Nyman witness certifies `d_512^2 < (449/500)d_256^2`, so the normalized optimal block gain is greater than `51/500` | `CERTIFIED_FINITE` | The [N=512 audit](results/nyman-beta2-n512-v1.json) directly evaluates the stored `2^-256` dyadic vector and freshly replays the `N=256` lower certificate at 768 bits; both signs and enclosure containment replay at 1536 bits | This settles only the finite `k=8` beta=2 step. The uniform `k>=9` extension lemma that would complete this recurrence route to RH remains unproved |
 | The canonical eight-column arithmetic Nyman trial space at `256 -> 512` captures strictly less than `d_256^2/10` | `CERTIFIED_FINITE` | The [trial-space audit](results/nyman-trial-subspace-v1.json) certifies `F_V>(9/10)U_256` by 265 positive fixed-order interval `LDL^T` pivots and replays the complete construction at 1536 bits | This rigorously rejects one finite ansatz; it does not reject other trial spaces, and the successful full block captures more than `51/500` |
+| Báez-Duarte's first greedy Vasyunin correction converges pointwise but diverges in weighted `L^1`; at every nontrivial power of two its exact `L^1` increment is `log(2)/2` and its squared `L^2` increment is `n log(2)/4` | Cited 2005 theorem + `CERTIFIED_FINITE` prefix | The [exact prefix audit](results/nyman-vasyunin-greedy-v1.json) checks the recurrence, closed formula, interval interpolation, and rational increment multipliers through `n=4096`; the infinite conclusion is the theorem in the [cited preprint](https://arxiv.org/abs/math/0506318), not a finite extrapolation | This rejects the one-coefficient-at-a-time greedy rule only. Batched, regularized, and globally optimized Vasyunin/Nyman constructions remain open, and RH remains unresolved |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
@@ -43,6 +44,7 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Nyman Mobius core/tail audit](results/nyman-mobius-core-tail-v1.json),
 [Nyman N=512 finite contraction audit](results/nyman-beta2-n512-v1.json),
 [Nyman eight-column trial-space rejection](results/nyman-trial-subspace-v1.json),
+[Nyman first-Vasyunin-correction prefix audit](results/nyman-vasyunin-greedy-v1.json),
 [untrusted N=512 candidate](results/nyman-beta2-n512-candidate-v1.json),
 [public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
@@ -283,6 +285,54 @@ tail and its aliases beyond `2N`. The canonical artifact payload SHA-256 is
 `467d6d819700a87f656e917bcb3e63008d7243fa5f412f75b6eec4ade5a67956`.
 This rejects one finite trial rule only; RH remains `UNRESOLVED`.
 
+#### First greedy Vasyunin correction: exact route rejection
+
+The same binary dyadic seed used in the trial-space analysis,
+
+```text
+h_n(t) = 2{t/(2n)} - {t/n}
+       = floor(t/n) - 2 floor(t/(2n)),
+```
+
+is the first Vasyunin seed studied by Báez-Duarte. Its greedy coefficients
+satisfy
+
+```text
+c_n = 1 - sum_(k<n) c_k h_k(n),
+c_(2^r m) = 2^max(r-1,0) mu(m)    (m odd).
+```
+
+The resulting `phi_n=sum_(k<=n)c_k h_k` equals the target on `[1,n+1)`, so it
+converges pointwise. At `n=2^r`, however, `c_n=n/2`; since `h_n` is binary and
+has weighted integral `log(2)/n`,
+
+```text
+||phi_n-phi_(n-1)||_1       = log(2)/2,
+||phi_n-phi_(n-1)||_2^2     = n log(2)/4.
+```
+
+Because successive differences of a Cauchy sequence must tend to zero, the
+greedy approximants cannot be Cauchy. The theorem in Báez-Duarte's cited 2005
+preprint therefore rejects this sequential correction in the Hilbert norm
+required by the Nyman criterion. It explicitly does not settle the other
+Vasyunin corrections.
+
+The tracked exact-integer audit checks the recurrence, two-adic Möbius formula,
+and interval interpolation through `4096`, including all twelve nontrivial
+powers of two. Its reduced-rational increment factors are machine checked, but
+the `log(2)` integral identity and infinite divergence proof remain in the
+human-auditable theorem layer. The artifact payload SHA-256 is
+`62ad0afd58e4d213efaa49e07a3fa984f7297f2e237fad280144315c3a4ad985`; its
+whole canonical-JSON SHA-256 is
+`120494625d804daa5ce613cffda9266e26b2ed6b9dd580ed1650b9ba7ab96bc1`.
+
+The [multiscale follow-up](docs/nyman-multiscale-tail-v1.md) also proves an
+exact alias--Möbius extension identity. It cancels every later divisor alias
+pointwise, but finite truncations retain a slope whose weighted norm is at
+least `X|S_X|^2`. Controlling that term and the region beyond `X` is the
+surviving tail-stability problem; pointwise repair alone is now ruled out as a
+shortcut.
+
 #### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
 
 Set `E_k=d_(2^k)^2` and `F_k=k log(2) E_k`. The exact v1 upper endpoint and
@@ -463,6 +513,8 @@ python -m venv .venv
   --artifact results\nyman-trial-subspace-v1.json `
   --summary results\nyman-natural-v1-summary.json `
   --checkpoint-dir results\nyman-natural-v1 --bits 1536
+.\.venv\Scripts\rh-lab.exe verify-nyman-vasyunin-greedy-audit `
+  --artifact results\nyman-vasyunin-greedy-v1.json
 ```
 
 Generate fresh artifacts:
@@ -504,6 +556,8 @@ Generate fresh artifacts:
   --summary results\nyman-natural-v1-summary.json `
   --checkpoint-dir results\nyman-natural-v1 `
   --output results\nyman-trial-subspace-v1-new.json
+.\.venv\Scripts\rh-lab.exe nyman-vasyunin-greedy-audit `
+  --limit 4096 --output results\nyman-vasyunin-greedy-v1-new.json
 ```
 
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch

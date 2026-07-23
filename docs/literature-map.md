@@ -96,6 +96,14 @@ The following papers were checked specifically against the natural-dilate
 Schur target used in this repository.  Being posted on arXiv is not itself a
 correctness certificate.
 
+- Báez-Duarte,
+  [A divergent Vasyunin correction](https://arxiv.org/abs/math/0506318),
+  proves that the first sequential correction built from
+  `floor(x/n)-2 floor(x/(2n))` converges pointwise but diverges in weighted
+  `L^1`, precluding the `L^2` convergence needed for RH. The paper explicitly
+  leaves the other Vasyunin corrections open, so this is a rigorous narrow
+  route obstruction rather than a general negative result.
+
 - Wong,
   [Inequality and Nyman--Beurling--Baez-Duarte criteria](https://arxiv.org/abs/2310.03972),
   claims a proof of RH, but its central finite inequality step is false.  Its

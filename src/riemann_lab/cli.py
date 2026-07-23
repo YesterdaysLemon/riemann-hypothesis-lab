@@ -53,6 +53,12 @@ from .nyman_trial import (
     generate_nyman_trial_subspace_audit,
     verify_nyman_trial_subspace_audit,
 )
+from .nyman_vasyunin import (
+    DEFAULT_AUDIT_LIMIT as NYMAN_VASYUNIN_DEFAULT_LIMIT,
+    NymanVasyuninError,
+    audit_vasyunin_greedy,
+    verify_vasyunin_greedy_audit,
+)
 from .zeros import (
     ZeroCertificateError,
     certify_critical_line_zeros,
@@ -238,6 +244,15 @@ def _parser() -> argparse.ArgumentParser:
     nyman_trial.add_argument("--checkpoint-dir", type=Path, required=True)
     nyman_trial.add_argument("--output", type=Path, required=True)
 
+    nyman_vasyunin = commands.add_parser(
+        "nyman-vasyunin-greedy-audit",
+        help="audit an exact finite prefix of the first Vasyunin correction",
+    )
+    nyman_vasyunin.add_argument(
+        "--limit", type=int, default=NYMAN_VASYUNIN_DEFAULT_LIMIT
+    )
+    nyman_vasyunin.add_argument("--output", type=Path, required=True)
+
     parity = commands.add_parser(
         "weil-parity-audit",
         help="generate an exploratory reversal-parity audit for one Weil cell",
@@ -390,6 +405,14 @@ def _parser() -> argparse.ArgumentParser:
     )
     verify_nyman_trial.add_argument(
         "--bits", type=int, default=NYMAN_TRIAL_REPLAY_BITS
+    )
+
+    verify_nyman_vasyunin = commands.add_parser(
+        "verify-nyman-vasyunin-greedy-audit",
+        help="exactly regenerate a finite first-Vasyunin-correction audit",
+    )
+    verify_nyman_vasyunin.add_argument(
+        "--artifact", type=Path, required=True
     )
 
     verify_parity = commands.add_parser(
@@ -707,6 +730,28 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0
 
+    if args.command == "nyman-vasyunin-greedy-audit":
+        try:
+            artifact = audit_vasyunin_greedy(args.limit)
+            write_json(args.output, artifact)
+        except (NymanVasyuninError, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman Vasyunin greedy audit rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "audit_outcome": artifact["audit_outcome"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "limit": artifact["finite_scope"]["limit"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
     if args.command == "weil-parity-audit":
         try:
             artifact = certify_parity_audit(
@@ -954,6 +999,21 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.JSONDecodeError,
         ) as exc:
             print(f"Nyman trial-subspace audit rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-nyman-vasyunin-greedy-audit":
+        try:
+            result = verify_vasyunin_greedy_audit(args.artifact)
+        except (
+            NymanVasyuninError,
+            OSError,
+            json.JSONDecodeError,
+            TypeError,
+            ValueError,
+        ) as exc:
+            print(f"Nyman Vasyunin greedy audit rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0

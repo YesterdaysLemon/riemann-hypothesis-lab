@@ -323,6 +323,77 @@ def test_nyman_trial_cli_routes_audit_and_verifier(
     assert calls[-1][-1] == {"replay_precision_bits": 1536}
 
 
+def test_vasyunin_greedy_cli_generates_and_exactly_replays(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    artifact_path = tmp_path / "vasyunin-audit.json"
+
+    assert main(
+        [
+            "nyman-vasyunin-greedy-audit",
+            "--limit",
+            "32",
+            "--output",
+            str(artifact_path),
+        ]
+    ) == 0
+    generated = json.loads(capsys.readouterr().out)
+    assert generated["classification"] == "CERTIFIED_FINITE"
+    assert generated["hypothesis_status"] == "UNRESOLVED"
+    assert generated["limit"] == "32"
+
+    artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
+    assert artifact["payload_sha256"] == generated["payload_sha256"]
+    assert artifact["finite_scope"]["integer_intervals"] == "[1,33)"
+
+    assert main(
+        [
+            "verify-nyman-vasyunin-greedy-audit",
+            "--artifact",
+            str(artifact_path),
+        ]
+    ) == 0
+    replayed = json.loads(capsys.readouterr().out)
+    assert replayed == {
+        "classification": (
+            "REPRODUCED_CERTIFIED_FINITE_VASYUNIN_GREEDY_PREFIX"
+        ),
+        "hypothesis_status": "UNRESOLVED",
+        "infinite_divergence_machine_reproved": False,
+        "payload_sha256": artifact["payload_sha256"],
+        "verified_limit": "32",
+    }
+
+    duplicate_path = tmp_path / "duplicate-vasyunin-audit.json"
+    duplicate_path.write_text(
+        '{"schema":"first","schema":"second"}',
+        encoding="utf-8",
+    )
+    assert main(
+        [
+            "verify-nyman-vasyunin-greedy-audit",
+            "--artifact",
+            str(duplicate_path),
+        ]
+    ) == 2
+    assert "duplicate JSON object key: schema" in capsys.readouterr().out
+
+    deeply_nested_path = tmp_path / "deeply-nested-vasyunin-audit.json"
+    deeply_nested_path.write_text(
+        "[" * 10_000 + "0" + "]" * 10_000,
+        encoding="utf-8",
+    )
+    assert main(
+        [
+            "verify-nyman-vasyunin-greedy-audit",
+            "--artifact",
+            str(deeply_nested_path),
+        ]
+    ) == 2
+    assert "cannot read or parse Vasyunin audit" in capsys.readouterr().out
+
+
 def test_parity_and_nesting_cli_artifacts_replay(
     tmp_path: Path,
     capsys: pytest.CaptureFixture[str],

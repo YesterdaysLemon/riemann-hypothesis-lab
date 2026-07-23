@@ -99,6 +99,25 @@ The accompanying exact dyadic-lift and triangular-cancellation calculations
 identify the remaining analytic obstruction for those explicit routes as
 control of the truncated divisor tail and its aliases beyond `2N`.
 
+The [multiscale and divisor-alias audit](nyman-multiscale-tail-v1.md) closes one
+especially tempting continuation. The dyadic seed is exactly the first
+Vasyunin correction studied by Báez-Duarte. The theorem in his cited 2005
+preprint proves that the sequential greedy approximants diverge in weighted
+`L^1`, despite
+pointwise interpolation on every fixed compact interval. A repository audit
+checks the exact recurrence, two-adic Möbius coefficient formula, interpolation
+invariant, and rational increment multipliers through `4096`; it deliberately
+does not recast finite enumeration as a proof of the infinite theorem.
+
+The same follow-up proves an exact alias--Möbius extension lemma: an infinite
+arithmetic extension can cancel all divisor aliases pointwise, but its finite
+truncations differ from the intended compact step by `t S_X` on `0<t<=X`.
+Consequently Hilbert convergence requires at least `S_X=o(X^-1/2)` plus
+separate control beyond `X`; the prime-number-theorem limit used there gives
+only `S_X=o(1)`. Structured block scouts remain exploratory. The surviving
+proof target is a uniform global tail or bilinear operator estimate, not a
+pointwise repair rule.
+
 ### 3. Independent falsifiers
 
 - Li coefficients: a single interval-certified negative coefficient disproves

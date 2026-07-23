@@ -427,6 +427,13 @@ above narrow the next credible routes to one of the following:
 
 No one of these estimates is proved here.
 
+The [multiscale follow-up](nyman-multiscale-tail-v1.md) tests all three
+directions. It identifies the dyadic seed with Báez-Duarte's divergent first
+Vasyunin correction, proves an exact alias--Möbius extension identity, and
+shows why pointwise cancellation still leaves an uncontrolled weighted-norm
+tail. It also records exploratory block scouts; none supplies the uniform
+estimate above.
+
 ## Sources
 
 - Werner Ehm,
@@ -435,3 +442,5 @@ No one of these estimates is proved here.
   [An optimal choice of Dirichlet polynomials for the Nyman--Beurling criterion](https://arxiv.org/abs/1211.5191).
 - Baez-Duarte,
   [A strengthening of the Nyman--Beurling criterion for the Riemann Hypothesis](https://arxiv.org/abs/math/0202141).
+- Baez-Duarte,
+  [A divergent Vasyunin correction](https://arxiv.org/abs/math/0506318).

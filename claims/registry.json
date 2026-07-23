@@ -91,6 +91,23 @@
       "statement": "For the frozen eight-column arithmetic trial space at the N=256 to N=512 extension, fixed-order interval LDL^T proves F_V > (9/10)U_256 and therefore its optimal captured gain Gamma(V) is strictly less than d_256^2/10."
     },
     {
+      "artifact": "results/nyman-vasyunin-greedy-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "120494625d804daa5ce613cffda9266e26b2ed6b9dd580ed1650b9ba7ab96bc1",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-vasyunin-greedy-prefix-4096-v1",
+      "implies_rh": false,
+      "limitations": "This exact finite audit does not prove the log(2) integral identity or the infinite divergence theorem, which remain an external human-auditable bridge in the cited 2005 preprint. The theorem rejects only the first one-coefficient-at-a-time Vasyunin correction, not all Vasyunin or Nyman constructions, and does not prove or disprove RH.",
+      "reproduction": "rh-lab verify-nyman-vasyunin-greedy-audit --artifact results/nyman-vasyunin-greedy-v1.json",
+      "scope": {
+        "arithmetic": "exact integers and reduced rational multipliers",
+        "coefficient_count": "4096",
+        "integer_intervals": "[1,4097)",
+        "nontrivial_power_of_two_records": "12"
+      },
+      "statement": "For every 1 <= n <= 4096, the first Vasyunin greedy recurrence matches the two-adic Mobius closed formula, preserves exact interval interpolation, and has the recorded exact rational L1 and squared-L2 increment multipliers; at all twelve nontrivial powers of two those multipliers are 1/2 and n/4."
+    },
+    {
       "classification": "EXPLORATORY",
       "id": "weil-positivity-program-v1",
       "limitations": "No finite set of positive compressions controls every Fourier mode and a cofinal unbounded family of cutoffs; the universal positivity theorem remains missing.",
