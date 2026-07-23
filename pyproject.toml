@@ -19,7 +19,11 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "hypothesis>=6.0,<7",
+  "numpy==2.3.5",
   "pytest>=8.3,<9",
+]
+scout = [
+  "numpy==2.3.5",
 ]
 
 [project.scripts]

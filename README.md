@@ -24,6 +24,7 @@ Current finite results and documented theorem consequences:
 | The canonical eight-column arithmetic Nyman trial space at `256 -> 512` captures strictly less than `d_256^2/10` | `CERTIFIED_FINITE` | The [trial-space audit](results/nyman-trial-subspace-v1.json) certifies `F_V>(9/10)U_256` by 265 positive fixed-order interval `LDL^T` pivots and replays the complete construction at 1536 bits | This rigorously rejects one finite ansatz; it does not reject other trial spaces, and the successful full block captures more than `51/500` |
 | Báez-Duarte's first greedy Vasyunin correction converges pointwise but diverges in weighted `L^1`; at every nontrivial power of two its exact `L^1` increment is `log(2)/2` and its squared `L^2` increment is `n log(2)/4` | Cited 2005 theorem + `CERTIFIED_FINITE` prefix | The [exact prefix audit](results/nyman-vasyunin-greedy-v1.json) checks the recurrence, closed formula, interval interpolation, and rational increment multipliers through `n=4096`; the infinite conclusion is the theorem in the [cited preprint](https://arxiv.org/abs/math/0506318), not a finite extrapolation | This rejects the one-coefficient-at-a-time greedy rule only. Batched, regularized, and globally optimized Vasyunin/Nyman constructions remain open, and RH remains unresolved |
 | Every nonzero fixed finite shell `y` has `sum_(n<=X)(mu*y)(n)/n != o(X^-1/2)`, so its natural sharp alias sections cannot converge in weighted `L^2` | Human-auditable theorem + `CERTIFIED_FINITE` identity prefix | The [proof and regularization audit](docs/nyman-alias-regularization-v1.md) combines an exact growing-interval norm identity, Mellin continuation, an elementary boundary Abelian lemma, and Conrey's positive-proportion theorem for simple critical-line zeros; the [finite artifact](results/nyman-alias-sharp-truncation-v1.json) replays every arithmetic identity through `X=4096` | This unconditionally closes the fixed-shell hard-cutoff route. Scale-dependent balanced multipliers and genuinely multiscale constructions remain open; RH remains unresolved |
+| Balanced finite multipliers reduce to an exact interval quadratic, but their decisive quantity is signed direct gain `G+2X-E` and their coefficient support has cutoff at most `2NK` | Exact methodology + `EXPLORATORY` finite scout | The [balanced-multiplier audit](docs/nyman-balanced-multiplier-v1.md) and [frozen scout grid](results/nyman-balanced-multiplier-scout-v1.json) record the direct-gain and support-growth corrections; fixed `K=64` has positive truncated direct gain at all six stored scales, including about 7.08% of the certified energy-bracket midpoint at `N=256` through four million intervals, and three small cases match full Arb Gram evaluations | The signed tail is not certified and no uniform estimate is proved. Polynomial effective width paired with only `O(1/log N)` one-shell gain grows too quickly; fixed or polylogarithmic width is the surviving target, and RH remains unresolved |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
@@ -47,6 +48,7 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Nyman eight-column trial-space rejection](results/nyman-trial-subspace-v1.json),
 [Nyman first-Vasyunin-correction prefix audit](results/nyman-vasyunin-greedy-v1.json),
 [Nyman sharp alias-truncation prefix audit](results/nyman-alias-sharp-truncation-v1.json),
+[Nyman balanced-multiplier exploratory grid](results/nyman-balanced-multiplier-scout-v1.json),
 [untrusted N=512 candidate](results/nyman-beta2-n512-candidate-v1.json),
 [public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
@@ -372,6 +374,40 @@ prime-factor damping parameter has infinite weighted alias defect; finite
 scale-dependent balanced multipliers remain open. This is a route rejection,
 not a resolution of RH.
 
+#### Scale-dependent balanced multipliers: optimize gain, not alias norm
+
+The [balanced-multiplier follow-up](docs/nyman-balanced-multiplier-v1.md)
+turns the surviving finite problem into an exact integer-interval quadratic.
+For a balanced multiplier `c`, the alias error is constant on `[M,M+1)` with
+
+```text
+D_c(M) = Y(M) - sum_k c_k sum_j y_j floor(M/(j*k)).
+```
+
+However, minimizing `sum_M D_c(M)^2/(M(M+1))` is not the contraction problem.
+If `G` is the ideal local gain, `E` is the alias-error norm, and `X` is its
+signed correlation with the old residual, the actual fixed-addition gain is
+
+```text
+G + 2X - E,
+```
+
+while optimal rescaling captures `(G+X)^2/(G+E)`. The correction's coefficient
+cutoff is at most `2*N*K`, with exact top index equal to the product of the
+actual shell and multiplier endpoints. This dimension accounting rules out
+using polynomial effective width with only `O(1/log N)` gain in a one-shell
+recurrence; fixed or polylogarithmic width remains viable.
+
+A binary64 scout with fixed `K=64` reports positive truncated direct gain at
+all stored `N=8,...,256`. At `N=256`, the multiplier optimized through four
+million intervals has prefix gain fractions `0.07436`, `0.07243`, `0.07137`,
+and `0.07076` of the old candidate's certified energy-bracket midpoint at 0.5,
+1, 2, and 4 million intervals. Small `N=8,16` cases agree with independent full
+192-bit Arb Gram evaluations after exact dyadic rounding.
+These are convergence diagnostics only: the omitted direct-gain tail is
+signed, so the large-scale values are neither certified lower nor upper
+bounds and do not resolve RH.
+
 #### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
 
 Set `E_k=d_(2^k)^2` and `F_k=k log(2) E_k`. The exact v1 upper endpoint and
@@ -603,6 +639,15 @@ Generate fresh artifacts:
   --limit 4096 --output results\nyman-alias-sharp-truncation-v1-new.json
 ```
 
+The exploratory balanced-multiplier grid has one optional numerical
+dependency and is deliberately outside the certificate CLI:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[scout]"
+.\.venv\Scripts\python.exe tools\generate_nyman_balanced_scout.py `
+  --output results\nyman-balanced-multiplier-scout-v1-new.json
+```
+
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch
 without changing its frozen plan:
 
@@ -658,6 +703,7 @@ not an independent implementation.
 - `claims/registry.json`: the machine-checked claim ledger;
 - `docs/`: research charter, methodology, and primary-source map;
 - `tests/`: property tests, higher-precision replay, and adversarial mutations;
+- `tools/`: explicitly exploratory scouts and independent cross-check helpers;
 - `.github/workflows/ci.yml`: Linux and Windows certificate gates.
 
 Contributions are welcome, especially negative results and adversarial tests.
