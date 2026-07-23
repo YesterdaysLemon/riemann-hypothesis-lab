@@ -32,6 +32,8 @@ Current finite results and documented theorem consequences:
 | A third explicit rebased step satisfies `E(p2)-E(p3)>1/20000`; `p3` reoptimizes every old coordinate around a balanced shell reconstructed from exact published `p2` | `CERTIFIED_FINITE` | The [third-step proof](docs/nyman-rebased-third-step-v1.md) derives the denominator-weighted interval constant `C_loc=(3/2)Q sigma`; the [machine artifact](results/nyman-rebased-third-step-v1.json) pins its parent in raw, canonical, payload, and vector forms, then replays with block size 250,003 at 512 bits | This artifact proves one finite contraction. A separate refinement strengthens the same pair and a separate artifact certifies a fourth finite step; none supplies an all-scale lemma, recurrence, or convergence theorem, and RH remains unresolved |
 | The same exact `p2,p3` satisfy the strengthened inequality `E(p2)-E(p3)>1/17500` under a fixed-modulus local-spacing tail bound | `CERTIFIED_FINITE` | The [fixed-modulus proof](docs/nyman-fixed-modulus-refinement-v1.md) groups 17,157 active denominators into 32 `gcd(d,840)` classes; the [machine artifact](results/nyman-fixed-modulus-refinement-v1.json) pins the original third-step certificate and replays at 512 bits | No coefficients changed: this is a sharper tail proof for the same finite pair, not a new step or an all-scale estimate; RH remains unresolved |
 | A fourth explicit rebased step satisfies `E(p3)-E(p4)>1/100000`; `p4` overlaps the old support and retains one multiplier of a balanced shell reconstructed from exact published `p3` | `CERTIFIED_FINITE` | The [fourth-step proof](docs/nyman-rebased-fourth-step-v1.md) uses the denominator-weighted absolute tail through `T=2^26`; the [machine artifact](results/nyman-rebased-fourth-step-v1.json) reconstructs 47,345 exact coefficients and replays with block size 250,003 at 640 bits | The fourth weight list is an optimizer proposal only. Algebraically, the two latest finite claims give `E(p2)-E(p4)>47/700000`; no fifth step, all-scale recurrence, or convergence theorem is proved, and RH remains unresolved |
+| For the *optimal* natural-dilate spaces, RH is exactly equivalent to divergence of the dyadic relative-gain series `sum eta_k`, with each gain given by a finite Schur complement | Human-auditable exact reformulation | The [dyadic Schur-product note](docs/nyman-dyadic-schur-product-v1.md) proves `E_(k+1)=E_k(1-eta_k)`, `eta_k=t_k^T S_k^-1 t_k/E_k`, and all product/log/series equivalences, then isolates an inverse-free block-correlation target | The explicit rebased vectors `p1,...,p4` are not the optimal projections and their certified gains are not these `eta_k`. The note identifies the missing all-scale theorem; it does not prove it |
+| A fifth rebased candidate, exact-rational tail-upper-bound record, and large-cutoff verifier are frozen as a future-work preflight, but the `T=2^30` prefix generation and distinct-layout replay have not been run | `EXPLORATORY / UNFROZEN` | Exact p5 vector and tail-bound-record commitments pass the preflight; the [large-cutoff backend](tools/certify_nyman_absolute_prefix.py) has adversarial exact-containment tests, while the [p5 scaffold](tools/generate_nyman_rebased_fifth_step_certificate.py) deliberately has no frozen artifact payload | There is no p5 certificate or result artifact. The code refuses verification until generation, payload audit and freezing, regeneration, and a different-layout replay all succeed above the declared threshold |
 | One exact `N=256`, `K=16` balanced correction supported through index 8,192 has complete infinite direct gain greater than `7/50000` over an exact 16-bit old vector | `CERTIFIED_FINITE` | The [complete-tail artifact](results/nyman-balanced-full-tail-v1.json) encloses the first `2^26` intervals with exact integer recurrences, an explicit binary64 error radius, and Arb, then encloses every omitted interval by exact Jordan-`J_2` means, ordered-pair LCM bounds, and Abel summation; a 384-bit replay changes the block partition | This is one strict finite contraction. It supplies no uniform all-scale estimate and does not prove or disprove RH |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
@@ -662,6 +664,202 @@ E(p2) - E(p4) > 1/17500 + 1/100000 = 47/700000.
 That telescoped corollary is still finite. The fourth weights remain an
 optimizer proposal whose sign is proved afresh, and no fifth step, all-scale
 recurrence, or convergence theorem is certified. RH remains `UNRESOLVED`.
+
+#### Research handoff: exact all-scale target and unfinished fifth-step preflight
+
+This section is the stopping report for the July 2026 research wave. It
+separates what is proved, what was reduced to a precise theorem target, and
+what is only prepared for a future run.
+
+##### What is actually established
+
+The strongest new machine-certified chain in this wave ends at `p4`:
+
+```text
+E(p2) - E(p3) > 1/17500
+E(p3) - E(p4) > 1/100000
+E(p2) - E(p4) > 47/700000
+```
+
+These statements concern three explicit finite exact-dyadic vectors. They do
+not show that any sequence tends to zero.
+
+The separate
+[dyadic Schur-product note](docs/nyman-dyadic-schur-product-v1.md) gives an
+exact all-scale reformulation for the *optimal* natural-dilate spaces. Let
+
+```text
+V_k = span({t/n}: 1 <= n <= 2^k),
+r_k = (I-P_(V_k)) 1_[1,infinity),
+E_k = ||r_k||^2,
+eta_k = (E_k-E_(k+1))/E_k.
+```
+
+Residualizing the new block `2^k < n <= 2^(k+1)` gives a positive-definite
+Gram matrix `S_k` and correlation vector `t_k`, so
+
+```text
+E_k - E_(k+1) = t_k^T S_k^-1 t_k,
+E_K = E_0 product_(k<K) (1-eta_k),
+
+RH
+  <=> E_k -> 0
+  <=> sum_k -log(1-eta_k) diverges
+  <=> sum_k eta_k diverges.
+```
+
+This is a target, not a proof: the missing mathematics is a uniform lower
+bound on the block correlations. An inverse-free sufficient estimate isolated
+in the note is
+
+```text
+sum_(j=N+1)^(2N) |<r_k,{t/j}>|^2
+    >= c E_k / log(N)
+```
+
+for one fixed `c>0` and all sufficiently large dyadic `N=2^k`. The trace
+bound then gives `eta_k` of harmonic order and forces the required divergent
+series.
+
+Two guardrails matter for anyone continuing this route:
+
+- The certified rebased candidates `p1,...,p4` are not known to be the
+  projections `P_k 1_[1,infinity)`. Their finite gains cannot be substituted
+  into the product criterion.
+- Burnol's lower bound fixes the sharp scale. An eventual estimate
+  `eta_k >= c/k` with `c>1` is impossible; the plausible frontier is harmonic
+  order with leading constant at most one.
+
+The main arithmetic obstruction is signed divisor aliasing beyond the first
+new shell. A norm-only treatment would need alias energy relative to local
+capture to shrink like `O(1/k)`, not merely stay below a fixed fraction.
+Future work should therefore seek a genuinely signed bilinear correlation
+bound or a multiscale construction that cancels later aliases.
+
+##### What is prepared but not certified
+
+The prospective fifth step is frozen only as exact input data:
+
+```text
+fifth shell:
+  support          65537..131072
+  nonzeros         65489
+  grid             2^-9
+  L1 norm          186133/8
+  payload SHA-256  0cb080416c91cf8dc07b5b5ad154e5ec1974aa4d9bfa1bd42621fca8fe4fc759
+
+34 weights:
+  grid             2^-16
+  payload SHA-256  0560615ddbffb655c3b5f016f4fbf97c8797484e2cbaeb48dee4cf06aef68d73
+
+p5:
+  support          1..131072
+  nonzeros         112834
+  grid             2^-25
+  coefficient sum  127493/65536
+  c0               3579/131072
+  L1 norm          118651826999/16777216
+  payload SHA-256  a3ebe954f5a8f72f761fdb220a67e2d34c08ddda4d3e6ad362e69150ae3c92f5
+
+exact-rational tail-upper-bound-record SHA-256:
+  2594584fbf58095038da310b2e9120836016b41163f8054f5206a19cc979a4a5
+```
+
+The candidate changes 47,344 of the 47,345 old `p4` coefficients and adds the
+new shell. Its exact delta has 112,833 nonzero coefficients, coefficient sum
+`-9/65536`, and nonzero harmonic sum.
+
+At `T=2^26`, the available certified-prefix-plus-tail inequality cannot prove
+the proposed decrease: the rigorous tail upper bound is much larger than the
+prefix gain. This is a failure of that cutoff and bound, not proof that the
+true gain is negative. A floating-point scout at `T=2^30` suggested raw
+headroom for the conservative target
+
+```text
+E(p4) - E(p5) > 1/300000,
+```
+
+but that scout is not evidence for the inequality. There is intentionally no
+`results/nyman-rebased-fifth-step-v1.json`, and
+`FROZEN_ARTIFACT_PAYLOAD_SHA256` remains unset in the scaffold.
+
+The new prefix backend exists because `T=2^30` crosses the legacy helper's
+exact-product boundary. It:
+
+- streams the exact signed-int64 recurrence for `Q_M`;
+- scales by the dyadic denominator, squares, and divides sequentially by `M`
+  and `M+1`, never forming an inexact binary64 `M(M+1)`;
+- uses an explicit adjacent-pair reduction tree; and
+- encloses integer conversion, term evaluation, and every reduction level
+  with an exact rational forward-error radius before combining with Arb.
+
+A separate full-cutoff scout supplied the following prospective recurrence
+commitments. The exact-data `--self-check` does not recompute them; future
+certificate generation must reproduce them exactly:
+
+```text
+absolute recurrence bound  118831420454094570
+last Q numerator           207489199598882
+maximum |Q| numerator      207489384506602
+maximum Q^2 numerator      43051844682928530082981586404
+signed-int64 headroom      9104540616400681237
+```
+
+The legacy p1--p4 helper and every published artifact remain unchanged.
+
+##### Exact continuation protocol for a future agent
+
+Do not describe p5 as `CERTIFIED_FINITE` unless every step below succeeds:
+
+1. Run the exact-data preflight and retain its hashes. Its output must say
+   `certificate_verified: false`.
+2. Generate both prefixes at `T=2^30` with chunk `2^24`, reduction leaf
+   `2^20`, and 768-bit Arb. Require the gain lower endpoint to exceed
+   `1/300000`.
+3. Audit the complete artifact, then freeze its payload SHA-256 in the
+   generator.
+4. Regenerate and require byte-for-byte/canonical agreement with that frozen
+   payload.
+5. Verify with chunk `16000003`, leaf `1000003`, and 896-bit Arb. This is a
+   distinct-layout replay using the same implementation, not a clean-room
+   reproduction.
+6. Require the rational-sum intervals and every Arb logarithmic, prefix,
+   complete-upper, and gain enclosure to overlap. The replay lower endpoint
+   must independently clear `1/300000`.
+7. Only then add an artifact, proof note, claim-ledger entry, README certified
+   row, CI replay, and release.
+
+The expected layout metadata are 64 chunks, 1,024 leaves, total reduction
+depth 30 for generation; and 68 chunks, 1,074 leaves, total depth 31 for
+replay. A verifier that silently reuses one layout should fail.
+
+For a full-prefix-free, non-certificate preflight (about two to three minutes on
+the development machine):
+
+```powershell
+.\.venv\Scripts\python.exe tools\generate_nyman_rebased_fifth_step_certificate.py `
+  --self-check
+```
+
+Handoff validation snapshot:
+
+```text
+large-cutoff backend focused tests       56 passed
+p5 preflight/scaffold focused tests      15 passed
+backend + p5 + legacy p4 focused gate    88 passed, 1 slow deselected
+repository ordinary suite                572 passed, 2 slow deselected
+claim ledger                             18 claims, RH UNRESOLVED
+```
+
+Neither deselected slow job is the missing p5 run. One is the published p4
+full replay; p5 full generation/replay is deliberately absent from ordinary
+tests and remains a future publication gate.
+
+The fixed-modulus `L=840` refinement that helped the third step offered
+negligible improvement for this p5 tail, so the scaffold uses the ordinary
+denominator-weighted local-spacing bound. The larger research priority is the
+all-scale signed-correlation theorem above, not accumulating isolated
+optimizer-selected contractions.
 
 #### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
 
