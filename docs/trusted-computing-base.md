@@ -284,8 +284,39 @@ The separate small-scale full-Gram helper rounds the shell and multiplier to
 exact dyadics, reconstructs harmonic balance exactly, and evaluates a complete
 finite coefficient vector with the existing Arb autocorrelation kernel. It is
 an independent consistency check for selected rounded vectors, not a verifier
-for the large-scale binary64 grid. No balanced-multiplier value is entered in
-the claim ledger, and no uniform contraction or implication for RH is claimed.
+for the large-scale binary64 grid. None of those exploratory grid values is
+entered in the claim ledger, and no uniform contraction or implication for RH
+is claimed.
+
+### Balanced-multiplier complete-tail certificate
+
+The `CERTIFIED_FINITE` complete-tail path is separate from the exploratory
+grid. The grid selects one `N=256`, `K=16` direction, but every sign-bearing
+coefficient is then made explicit and exact: the old vector uses a `2^-16`
+grid, the shell and multiplier use `2^-9`, and their exact convolution uses
+`2^-18`. Python-FLINT 0.9.0 / Arb proves the first 255 shell rounding bins;
+the last shell coefficient is imposed by exact zero-sum balance. Arb also
+encloses the compressed logarithm and log-gamma evaluations. CPython integers
+and `Fraction` perform the balance checks, divisor aggregation, Jordan-`J_2`
+means, ordered-pair LCM bounds, tail center, and tail radius exactly.
+
+The first `2^26` interval numerators are computed with signed int64 after
+global and blockwise overflow proofs. NumPy 2.3.5 performs only the final
+binary64 term divisions and reductions under the required IEEE-754
+round-to-nearest-ties-to-even contract. These operations are not assumed
+exact: the checker derives an exact rational error radius from `u=2^-53`, the
+absolute computed term mass, and the within-block and final-block reduction
+bounds. A conservative dyadic-lattice gate rules out subnormal terms or
+partial sums. The verifier changes the block size from `2^20` to `2^19` and
+raises Arb precision from 256 to 384 bits.
+
+Generation and replay still share the same repository formulas, CPython,
+NumPy, Python-FLINT, and FLINT, so this is not a clean-room implementation.
+The test suite separately brute-forces small exact covariance, LCM, prefix,
+logarithmic-compression, and tail cases and rejects mutations of the source
+hash chain. The artifact proves only that one explicit correction has complete
+direct gain greater than `7/50000`; it supplies no all-scale contraction and
+does not resolve RH.
 
 ## Claim ledger
 

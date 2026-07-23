@@ -30,6 +30,13 @@ intervals. Small instances
 agree with an independent full Arb Gram evaluation. This keeps a fixed-width
 route alive, but does not supply the missing uniform theorem.
 
+**Certified follow-up.** A separately frozen 9-bit rounding of the
+`N=256`, `K=16` direction now has its entire signed tail enclosed. The
+[complete-tail certificate](nyman-balanced-full-tail-v1.md) proves direct gain
+greater than `7/50000` for that one exact vector. This does not retroactively
+certify the binary64 scout table or provide the missing uniform theorem; RH
+remains unresolved.
+
 ## Setup
 
 Work in

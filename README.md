@@ -25,6 +25,7 @@ Current finite results and documented theorem consequences:
 | Báez-Duarte's first greedy Vasyunin correction converges pointwise but diverges in weighted `L^1`; at every nontrivial power of two its exact `L^1` increment is `log(2)/2` and its squared `L^2` increment is `n log(2)/4` | Cited 2005 theorem + `CERTIFIED_FINITE` prefix | The [exact prefix audit](results/nyman-vasyunin-greedy-v1.json) checks the recurrence, closed formula, interval interpolation, and rational increment multipliers through `n=4096`; the infinite conclusion is the theorem in the [cited preprint](https://arxiv.org/abs/math/0506318), not a finite extrapolation | This rejects the one-coefficient-at-a-time greedy rule only. Batched, regularized, and globally optimized Vasyunin/Nyman constructions remain open, and RH remains unresolved |
 | Every nonzero fixed finite shell `y` has `sum_(n<=X)(mu*y)(n)/n != o(X^-1/2)`, so its natural sharp alias sections cannot converge in weighted `L^2` | Human-auditable theorem + `CERTIFIED_FINITE` identity prefix | The [proof and regularization audit](docs/nyman-alias-regularization-v1.md) combines an exact growing-interval norm identity, Mellin continuation, an elementary boundary Abelian lemma, and Conrey's positive-proportion theorem for simple critical-line zeros; the [finite artifact](results/nyman-alias-sharp-truncation-v1.json) replays every arithmetic identity through `X=4096` | This unconditionally closes the fixed-shell hard-cutoff route. Scale-dependent balanced multipliers and genuinely multiscale constructions remain open; RH remains unresolved |
 | Balanced finite multipliers reduce to an exact interval quadratic, but their decisive quantity is signed direct gain `G+2X-E` and their coefficient support has cutoff at most `2NK` | Exact methodology + `EXPLORATORY` finite scout | The [balanced-multiplier audit](docs/nyman-balanced-multiplier-v1.md) and [frozen scout grid](results/nyman-balanced-multiplier-scout-v1.json) record the direct-gain and support-growth corrections; fixed `K=64` has positive truncated direct gain at all six stored scales, including about 7.08% of the certified energy-bracket midpoint at `N=256` through four million intervals, and three small cases match full Arb Gram evaluations | The signed tail is not certified and no uniform estimate is proved. Polynomial effective width paired with only `O(1/log N)` one-shell gain grows too quickly; fixed or polylogarithmic width is the surviving target, and RH remains unresolved |
+| One exact `N=256`, `K=16` balanced correction supported through index 8,192 has complete infinite direct gain greater than `7/50000` over an exact 16-bit old vector | `CERTIFIED_FINITE` | The [complete-tail artifact](results/nyman-balanced-full-tail-v1.json) encloses the first `2^26` intervals with exact integer recurrences, an explicit binary64 error radius, and Arb, then encloses every omitted interval by exact Jordan-`J_2` means, ordered-pair LCM bounds, and Abel summation; a 384-bit replay changes the block partition | This is one strict finite contraction. It supplies no uniform all-scale estimate and does not prove or disprove RH |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
@@ -49,6 +50,7 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Nyman first-Vasyunin-correction prefix audit](results/nyman-vasyunin-greedy-v1.json),
 [Nyman sharp alias-truncation prefix audit](results/nyman-alias-sharp-truncation-v1.json),
 [Nyman balanced-multiplier exploratory grid](results/nyman-balanced-multiplier-scout-v1.json),
+[Nyman balanced-multiplier complete-tail certificate](results/nyman-balanced-full-tail-v1.json),
 [untrusted N=512 candidate](results/nyman-beta2-n512-candidate-v1.json),
 [public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
@@ -407,6 +409,24 @@ and `0.07076` of the old candidate's certified energy-bracket midpoint at 0.5,
 These are convergence diagnostics only: the omitted direct-gain tail is
 signed, so the large-scale values are neither certified lower nor upper
 bounds and do not resolve RH.
+
+The separate `N=256`, `K=16` direction has now crossed that finite-certification
+boundary after exact coarse rounding. Its [complete-tail proof](docs/nyman-balanced-full-tail-v1.md)
+uses a 16-bit old vector, a 9-bit shell and multiplier, and the resulting
+18-bit convolved correction supported through index 8,192. The prefix through
+`T=2^26` and the full analytic tail give
+
+```text
+0.0001420236276423717967... < complete direct gain
+                                    < 0.0003677819654619422937...,
+```
+
+so the exact public claim `gain > 7/50000` holds. The checked artifact payload
+SHA-256 is
+`47adcf95031f0e51203c56332beafcfd049374b3446fbe212d4ae7a474958377`.
+Its verifier replays at 384 bits with half-sized binary64 blocks. This proves
+one finite contraction only; the fixed- or polylogarithmic-width uniform
+estimate needed to drive the Nyman distance to zero remains open.
 
 #### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
 
