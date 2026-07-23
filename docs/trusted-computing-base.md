@@ -441,6 +441,78 @@ proves only `E(p1)-E(p2)>1/5000` for the two explicit vectors. It proves no
 third step, all-scale recurrence, convergence theorem, or implication for RH;
 the global status remains `UNRESOLVED`.
 
+### Certified third rebased step with local denominator spacing
+
+The third-step certificate first binds the published parent artifact by raw
+LF SHA-256
+`a2e68b81dc37a252b35070f73579cea73705a063060c4dab517d42e2738ef0aa`,
+canonical SHA-256
+`f26192ff4f2646cd74dc3f2e55582580618641722e2576ad0edd4a634891671c`,
+payload SHA-256
+`a6e1119fb457e18b521e70203483101a77be7509d52d4f41889951399ce95edd`,
+and exact `p2` commitment
+`b392a0c8d9ea2bf09b5fdf98575906bb8c17b75044c4a01586bdc12fa299520a`.
+It also requires the parent's inherited natural-source and shared-kernel
+lineage to equal a fresh exact reconstruction.
+
+From that exact `p2`, the verifier reconstructs a uniquely rounded, exactly
+balanced `2^-9` shell on indices 2,049 through 4,096. One frozen thirty-two
+entry `2^-16` weight list then rebuilds `p3` from eight direct coordinates and
+eight dilates of each of the three shells. Exact commitments bind the third
+shell, weights, and 14,660-term `p3`, whose support limit is 32,768 and whose
+coefficient grid is `2^-25`.
+
+The third weight list came from an exploratory optimizer. The optimizer,
+objective value, and numerical conditioning are not trusted evidence. The
+verifier reconstructs the integers and decides the sign without importing an
+optimizer score.
+
+Both the old and new energies use the local arbitrary-slope prefix helper.
+For `p2`, nonnegativity of the omitted weighted-square integral turns the
+prefix through `T=2^23` into a complete-energy lower bound. For `p3`, the same
+prefix plus an exact absolute tail gives a complete-energy upper bound. This
+lower-versus-upper comparison is essential: the certificate does not subtract
+two upper bounds.
+
+The new periodic discrepancy constant is
+
+```text
+sigma = c0^2 + (1/12) sum_d d*J2(d)*P_d^2,
+C_loc = (3/2)Q*sigma.
+```
+
+Its human-auditable bridge is Theorem 1 of Montgomery and Vaughan's 1974
+*Hilbert's inequality*, in the weighted periodic cosecant form. Exact
+denominator grouping supplies local gaps at least `1/(dQ)` for a reduced
+frequency with denominator `d`; a two-phase interval-kernel split preserves
+the theorem's `3/2` constant. The checker recomputes every rational divisor
+sum and constant and tests small exact periods, but it does not formally prove
+the published theorem.
+
+The prefix recurrence is exact signed int64 after its global overflow proof.
+Guarded NumPy 2.3.5 binary64 operations carry an exact rational error radius;
+Arb encloses the compressed logarithmic term. Generation uses block size
+65,536 and 320-bit Arb. Replay changes to the incommensurate block size
+250,003 and 512-bit Arb. The verifier requires the generation and replay
+enclosures for both prefixes, the new complete upper bound, and the gain
+computation to overlap; a replay sign cannot conceal disagreement with the
+stored generation proof.
+
+Strict JSON loading, exact schema equality, parent and source pins, payload
+verification, exact support and vector commitments, reconstruction of both
+proof directions, and the strict rational threshold reject relevant
+mutations. The frozen artifact has payload SHA-256
+`bbafc2c92acb954c9c9e550f781612965bc5c76fe59ebd4a1adc5b596c3bee02`
+and canonical SHA-256
+`811ebaf03089288c99d8155171a07e4b5e5731d53678265354ed2738157fa1ca`.
+
+Generation and replay share repository formulas, CPython, NumPy,
+Python-FLINT, FLINT, and the prefix implementation. This is reproducible
+finite certification, not a clean-room or formal verification. It proves only
+`E(p2)-E(p3)>1/20000` for the explicit declared vectors. The certificate has
+no fourth step, all-scale recurrence, convergence theorem, or implication for
+RH; the global status remains `UNRESOLVED`.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker
