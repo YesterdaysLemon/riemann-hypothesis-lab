@@ -57,7 +57,12 @@ oracle, and finite-result semantics are specified in
 [theorem frontier](nyman-theorem-frontier.md) records the exact
 Mellin/Dirichlet normalization, Burnol's asymptotic obstruction, and the
 all-`N` upper-family or infinite-tail statements that would actually bridge
-to a proof or disproof.
+to a proof or disproof. The separate
+[forced-rebound proof](nyman-forced-rebound-v1.md) combines the certified
+`N=256` upper endpoint with the published asymptotic lower bound. Its finite
+rational and Arb inequalities are reproducible, while its infinite bridge is
+human-auditable published-theorem mathematics rather than a Python-checked
+proof.
 
 ### 3. Independent falsifiers
 

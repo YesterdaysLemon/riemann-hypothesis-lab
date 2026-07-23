@@ -52,7 +52,9 @@ paper's approach is equally promising.
   rational autocorrelation, reciprocity, and the Vasyunin-sum formula used by
   the frozen natural-distance experiment.
 - Burnol,
-  [A lower bound in an approximation problem involving the zeros of the Riemann zeta function](https://arxiv.org/abs/math/0103058).
+  [A lower bound in an approximation problem involving the zeros of the Riemann zeta function](https://arxiv.org/abs/math/0103058):
+  the multiplicity-sensitive continuum lower bound used, through natural-space
+  inclusion, in the forced dyadic rebound theorem.
 - Chen and Qi,
   [The best bounds of harmonic sequence](https://arxiv.org/abs/math/0306233):
   the harmonic-number enclosure used for the independent `1-gamma`
@@ -62,7 +64,8 @@ paper's approach is equally promising.
   an RH-conditional explicit natural-dilate coefficient family and upper rate.
 - Bettin, Conrey, and Farmer,
   [An optimal choice of Dirichlet polynomials for the Nyman--Beurling criterion](https://arxiv.org/abs/1211.5191):
-  the log-tapered Mobius family and its optimal asymptotic under RH plus a
+  a direct statement of the unconditional natural-distance lower bound, plus
+  the log-tapered Mobius family and its optimal asymptotic under RH and a
   zero-derivative moment assumption.
 - Rodgers and Tao,
   [The de Bruijn-Newman constant is non-negative](https://arxiv.org/abs/1801.05914).

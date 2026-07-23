@@ -1,0 +1,311 @@
+{
+  "audit_id": "nyman-forced-rebound-v1",
+  "audit_outcome": "FINITE_FORCED_REBOUND_PRECONDITIONS_CERTIFIED",
+  "classification": "EXPLORATORY",
+  "dependency_manifest": {
+    "analytic_inference": {
+      "derivation_steps": [
+        "If RH is false, the strong natural-dilate criterion and nestedness give d_N decreasing to a positive limit, so d_N^2*log(N) tends to positive infinity.",
+        "If RH is true, natural-space inclusion transfers Burnol's bound: liminf d_N^2*log(N) is at least the sum over critical-line zeros of m(rho)^2/|rho|^2.",
+        "Under RH, m(rho)^2 is at least m(rho) and the classical Hadamard-product zero-sum identity becomes sum m(rho)/|rho|^2 = 2+EulerGamma-log(4*pi)=C0.",
+        "A dyadic subsequence has liminf at least the full-sequence liminf; because its N=256 value is below C0, it must eventually exceed that value and have an adjacent rise."
+      ],
+      "locates_rebound": false,
+      "machine_checked_by_this_artifact": false,
+      "resolves_rh": false,
+      "statement": "The published-theorem dichotomy gives liminf_N d_N^2*log(N) >= C0; together with the finite chain, a later dyadic scaled value must exceed the N=256 value."
+    },
+    "finite_inputs": {
+      "index_payload_sha256": "281f12c122897407d169e9830871ebd4764f86f03347e28dbc0cfa5b39876d23",
+      "plan_sha256": "27ebd77ca7bfae0ff898bd33fcd739c1c069a79b23b9bff4f03f84ac91f1540a",
+      "required_certified_cells": [
+        "8",
+        "16",
+        "32",
+        "64",
+        "128",
+        "256"
+      ],
+      "summary_payload_sha256": "35cf625bd2ff70def7c440065aae20e375691c483666b2411098a4136ec399cf",
+      "summary_schema": "rh-lab/nyman-natural-summary/v1"
+    },
+    "numeric_backend": {
+      "arithmetic": "python-flint Arb real balls",
+      "cache_boundary": "clean FLINT cache before and after the complete pinned 256-bit numerical core",
+      "flint": "3.6.0",
+      "precision_bits": "256",
+      "python_flint": "0.9.0"
+    },
+    "published_analytic_dependencies": [
+      {
+        "key": "baez-duarte-strong-natural-dilate-criterion",
+        "reproved_by_this_artifact": false,
+        "role": "RH is equivalent to d_N tending to zero for the nested natural-dilate spaces; if RH is false their decreasing distances have a positive limit.",
+        "title": "A strengthening of the Nyman-Beurling criterion for the Riemann Hypothesis",
+        "url": "https://arxiv.org/abs/math/0202141"
+      },
+      {
+        "key": "burnol-asymptotic-lower-bound",
+        "reproved_by_this_artifact": false,
+        "role": "For the continuum distance D(lambda), the lower bound gives a multiplicity-square zero sum. Inclusion of the natural span in the lambda=1/N continuum span transfers that lower bound to d_N.",
+        "title": "A lower bound in an approximation problem involving the zeros of the Riemann zeta function",
+        "url": "https://arxiv.org/abs/math/0103058"
+      },
+      {
+        "key": "bettin-conrey-farmer-natural-distance-normalization",
+        "reproved_by_this_artifact": false,
+        "role": "States the unconditional multiplicity-square lower bound directly for the natural Dirichlet-polynomial distance and records the C0 zero-sum identity under RH.",
+        "title": "An optimal choice of Dirichlet polynomials for the Nyman--Beurling criterion",
+        "url": "https://arxiv.org/abs/1211.5191"
+      }
+    ]
+  },
+  "finite_conclusion": "Five exact dyadic scaled declines are certified through N=256, and the N=256 scaled upper bound lies strictly below both 23/500 and the published-theorem asymptotic obstruction C0.",
+  "five_exact_scaled_declines": {
+    "all_certified": true,
+    "count": "5",
+    "records": [
+      {
+        "contraction_factor": {
+          "denominator": "4",
+          "numerator": "3"
+        },
+        "decision": "SCALED_DECLINE_CERTIFIED",
+        "derived_strict_inequality": "4*d_16^2 < 3*d_8^2",
+        "exact_margin_expression": "k/(k+1)*L_(2^k)-U_(2^(k+1))",
+        "exact_positive_margin": {
+          "denominator": "680564733841876926926749214863536422912",
+          "numerator": "154517263171367279791674247857369053"
+        },
+        "k": "3",
+        "n": "8",
+        "next_n": "16",
+        "source_lower_bound": {
+          "denominator": "170141183460469231731687303715884105728",
+          "numerator": "4110852862711789340762347958875385697"
+        },
+        "source_next_upper_bound": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "6089020662482000371247684814384394019"
+        }
+      },
+      {
+        "contraction_factor": {
+          "denominator": "5",
+          "numerator": "4"
+        },
+        "decision": "SCALED_DECLINE_CERTIFIED",
+        "derived_strict_inequality": "5*d_32^2 < 4*d_16^2",
+        "exact_margin_expression": "k/(k+1)*L_(2^k)-U_(2^(k+1))",
+        "exact_positive_margin": {
+          "denominator": "1701411834604692317316873037158841057280",
+          "numerator": "447939340349055324460925885756934487"
+        },
+        "k": "4",
+        "n": "16",
+        "next_n": "32",
+        "source_lower_bound": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "6089020662482000371247684814384393763"
+        },
+        "source_next_upper_bound": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "4781628661915789232105962674356128113"
+        }
+      },
+      {
+        "contraction_factor": {
+          "denominator": "6",
+          "numerator": "5"
+        },
+        "decision": "SCALED_DECLINE_CERTIFIED",
+        "derived_strict_inequality": "6*d_64^2 < 5*d_32^2",
+        "exact_margin_expression": "k/(k+1)*L_(2^k)-U_(2^(k+1))",
+        "exact_positive_margin": {
+          "denominator": "2041694201525630780780247644590609268736",
+          "numerator": "681747793413339184318081731991198117"
+        },
+        "k": "5",
+        "n": "32",
+        "next_n": "64",
+        "source_lower_bound": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "4781628661915789232105962674356127857"
+        },
+        "source_next_upper_bound": {
+          "denominator": "42535295865117307932921825928971026432",
+          "numerator": "483883239920116812004411075828946691"
+        }
+      },
+      {
+        "contraction_factor": {
+          "denominator": "7",
+          "numerator": "6"
+        },
+        "decision": "SCALED_DECLINE_CERTIFIED",
+        "derived_strict_inequality": "7*d_128^2 < 6*d_64^2",
+        "exact_margin_expression": "k/(k+1)*L_(2^k)-U_(2^(k+1))",
+        "exact_positive_margin": {
+          "denominator": "2381976568446569244243622252022377480192",
+          "numerator": "219957450516511237164219601584790211"
+        },
+        "k": "6",
+        "n": "64",
+        "next_n": "128",
+        "source_lower_bound": {
+          "denominator": "42535295865117307932921825928971026432",
+          "numerator": "483883239920116812004411075828946659"
+        },
+        "source_next_upper_bound": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "3286634009378442248435358862600664203"
+        }
+      },
+      {
+        "contraction_factor": {
+          "denominator": "8",
+          "numerator": "7"
+        },
+        "decision": "SCALED_DECLINE_CERTIFIED",
+        "derived_strict_inequality": "8*d_256^2 < 7*d_128^2",
+        "exact_margin_expression": "k/(k+1)*L_(2^k)-U_(2^(k+1))",
+        "exact_positive_margin": {
+          "denominator": "2722258935367507707706996859454145691648",
+          "numerator": "592130358594388597464686354695337461"
+        },
+        "k": "7",
+        "n": "128",
+        "next_n": "256",
+        "source_lower_bound": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "3286634009378442248435358862600663947"
+        },
+        "source_next_upper_bound": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "2801788463381838392697853210438663771"
+        }
+      }
+    ]
+  },
+  "frozen_source_bounds": {
+    "n128_lower": {
+      "denominator": "340282366920938463463374607431768211456",
+      "numerator": "3286634009378442248435358862600663947"
+    },
+    "n256_lower": {
+      "denominator": "340282366920938463463374607431768211456",
+      "numerator": "2801788463381838392697853210438663515"
+    },
+    "n256_upper": {
+      "denominator": "340282366920938463463374607431768211456",
+      "numerator": "2801788463381838392697853210438663771"
+    }
+  },
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This EXPLORATORY artifact certifies finite rational and 256-bit Arb inequalities derived from the frozen six-cell Nyman batch. The statement that a later scaled rebound must exist relies on the cited published Baez-Duarte and Burnol theorems, which this audit does not reprove. It does not locate a rebound, prove an all-N recurrence, or prove or disprove the Riemann Hypothesis; the global status remains UNRESOLVED.",
+  "n256_scaled_gap": {
+    "asymptotic_positive_margin": {
+      "display": "[0.0001914179322420676286204958129905832438643 +/- 4.57e-44]",
+      "dyadic": {
+        "mid_exponent": "-256",
+        "mid_mantissa": "22164682291796039812777789066921001735975388414658303155372521392632113323",
+        "radius_exponent": "-282",
+        "radius_mantissa": "617342481"
+      },
+      "is_exact": false
+    },
+    "beta_two_anchor_floor": {
+      "display": "[0.05136459500802605350219054235092688676797 +/- 4.26e-42]",
+      "dyadic": {
+        "mid_exponent": "-254",
+        "mid_mantissa": "1486903442201989692055424638746252059193582648274520143558400798960612821693",
+        "radius_exponent": "-289",
+        "radius_mantissa": "616438883"
+      },
+      "is_exact": false
+    },
+    "beta_two_compatibility_margin": {
+      "display": "[0.005173177075783985873570046537936303524110 +/- 3.60e-45]",
+      "dyadic": {
+        "mid_exponent": "-254",
+        "mid_mantissa": "149753245399904434731163863879610868446983977515989081315795452521453802503",
+        "radius_exponent": "-282",
+        "radius_mantissa": "617964105"
+      },
+      "is_exact": false
+    },
+    "c0": {
+      "display": "[0.04619141793224206762862049581299058324386 +/- 4.26e-42]",
+      "dyadic": {
+        "mid_exponent": "-253",
+        "mid_mantissa": "668575098401042628662130387433320595373299335379265531121302673219579509595",
+        "radius_exponent": "-278",
+        "radius_mantissa": "38321761"
+      },
+      "is_exact": false
+    },
+    "c0_formula": "2+EulerGamma-log(4*pi)",
+    "certified_chain": "d_256^2*log(256) < 23/500 < C0",
+    "checks": {
+      "23_over_500_strictly_below_c0": true,
+      "c0_strictly_below_9_l256_log_2": true,
+      "d256_squared_at_most_exact_source_upper": true,
+      "scaled_upper_strictly_below_23_over_500": true
+    },
+    "finite_positive_margin": {
+      "display": "[0.0003425822150879524424972956880649853678506 +/- 9.17e-45]",
+      "dyadic": {
+        "mid_exponent": "-260",
+        "mid_mantissa": "634692966729306239261865517718619750366899794008020209564755170917278097267",
+        "radius_exponent": "-288",
+        "radius_mantissa": "572234455"
+      },
+      "is_exact": false
+    },
+    "log_256": {
+      "display": "[5.545177444479562475337856971665412544604 +/- 1.09e-42]",
+      "dyadic": {
+        "mid_exponent": "-251",
+        "mid_mantissa": "20065240046497827215558476051577517633497666902897486651530716876354989244043",
+        "radius_exponent": "-284",
+        "radius_mantissa": "268435457"
+      },
+      "is_exact": false
+    },
+    "precision_bits": "256",
+    "rational_separator": {
+      "denominator": "500",
+      "numerator": "23"
+    },
+    "scaled_upper_bound": {
+      "display": "[0.04565741778491204755750270431193501463215 +/- 5.92e-43]",
+      "dyadic": {
+        "mid_exponent": "-260",
+        "mid_mantissa": "84588284711935413592486379448675680429639808919903434923476026658906785317725",
+        "radius_exponent": "-289",
+        "radius_mantissa": "607597997"
+      },
+      "is_exact": false
+    },
+    "source_lower_bound_d256_squared": {
+      "denominator": "340282366920938463463374607431768211456",
+      "numerator": "2801788463381838392697853210438663515"
+    },
+    "source_upper_bound_d256_squared": {
+      "denominator": "340282366920938463463374607431768211456",
+      "numerator": "2801788463381838392697853210438663771"
+    }
+  },
+  "payload_sha256": "4f5ecef5798cd273774aa4e2d05e7ac3d6b31cf241cadfe632742ea879bff825",
+  "schema": "rh-lab/nyman-forced-rebound-audit/v1",
+  "source_verification": {
+    "classification": "REPRODUCED_EXPLORATORY_NYMAN_SUMMARY",
+    "generation_kernel_rebuilt": false,
+    "hypothesis_status": "UNRESOLVED",
+    "index_payload_sha256": "281f12c122897407d169e9830871ebd4764f86f03347e28dbc0cfa5b39876d23",
+    "numerical_replay_performed": false,
+    "plan_sha256": "27ebd77ca7bfae0ff898bd33fcd739c1c069a79b23b9bff4f03f84ac91f1540a",
+    "summary_payload_sha256": "35cf625bd2ff70def7c440065aae20e375691c483666b2411098a4136ec399cf",
+    "verified_cells": "6"
+  }
+}

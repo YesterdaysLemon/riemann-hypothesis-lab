@@ -13,13 +13,14 @@ not.
 or disproved RH.** Clay Mathematics Institute continues to list RH as an
 [unsolved Millennium Prize Problem](https://www.claymath.org/millennium/riemann-hypothesis/).
 
-Current finite results:
+Current finite results and documented theorem consequences:
 
-| Result | Status | Higher-precision consistency replay (same backend) | Meaning |
+| Result | Status | Evidence / replay boundary | Meaning |
 |---|---:|---:|---|
 | Full `9x9` Weil matrix `A=P-R-S` for `c=5/2`, modes `-4..4`, certified positive definite by nine interval `LDL^T` pivots; the minimum among nine separated Rump eigenvalue enclosures is `[2.30606430783134e-5 +/- 4.40e-45]` | `CERTIFIED_FINITE` | All 45 upper-triangle component enclosures replayed at 384 bits; direct archimedean integrals cross-check a separate special-function formula | One positive finite compression cannot prove RH |
 | 81 complete Weil matrices around the prime-power transitions `q=7,8,9`, degrees `12..24`; every cell certified positive definite by interval `LDL^T` | `EXPLORATORY` | All 81 cells, 108 attempts, and 905 stored candidate evaluations replayed; 9 parity and 6 degree-nesting audits also passed | A bounded null search: no negative witness was found, and positive finite compressions cannot prove RH |
 | Six natural-dilate Nyman distances for `N=8,16,32,64,128,256`; each has an exact bracket `L_N < d_N^2 <= U_N` of width `2^-120`, and all five exact comparisons `U_2N < L_N` pass | `EXPLORATORY` | A separate same-backend replay rebuilt the full kernel at 1536 bits and re-certified all six stored dyadic candidates and all 510 interval `LDL^T` pivots | Finite decay cannot establish the required limit `d_N -> 0` |
+| The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
 | Lagarias inequality certified for every `1 <= n <= 1,000,000`, equality only at `n=1`, using exact integer divisor sums and Arb balls | `CERTIFIED_FINITE` | Full range replayed at 384 bits | A counterexample would disprove RH; a positive finite prefix does not prove it |
 | Proof or counterexample | `UNRESOLVED` | — | The actual objective remains open |
@@ -35,6 +36,8 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [transition-v2 release manifest](results/weil-transition-q7-q9-v2.release.json),
 [Nyman v1 summary](results/nyman-natural-v1-summary.json),
 [Nyman normalization audit](results/nyman-natural-v1-normalization.json),
+[Nyman finite rebound audit](results/nyman-forced-rebound-v1.json),
+[public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
 [Lagarias certificate](results/lagarias-1-1000000.json), and the
 [machine-checked claim ledger](claims/registry.json).
@@ -175,14 +178,45 @@ frozen rational checks and has payload SHA-256
 That oracle shares Arb and its generic tail resolves only about 12 bits; it is
 not a clean-room backend.
 
-These finite values do **not** prove RH. Burnol's unconditional asymptotic
-lower obstruction also rules out an eventual fixed-factor contraction under
-`N -> 2N`; the next proof-side target must be an explicit all-`N` upper family
-with a weakening, logarithmic-scale contraction. The exact normalization,
-known conditional families, and three valid infinite bridges are recorded in
-the [post-v1 theorem frontier](docs/nyman-theorem-frontier.md). Full formulas,
+The complete v1 source evidence is also published as the immutable
+[Nyman v1 release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1).
+The finite rebound audit has canonical payload SHA-256
+`4f5ecef5798cd273774aa4e2d05e7ac3d6b31cf241cadfe632742ea879bff825`.
+These finite values do **not** prove RH. The exact normalization, known
+conditional families, and valid infinite bridges are recorded in the
+[post-v1 theorem frontier](docs/nyman-theorem-frontier.md). Full formulas,
 certificate gates, oracle scope, and limitations are in the
 [v1 methodology](docs/nyman-natural-v1.md).
+
+#### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
+
+Set `E_k=d_(2^k)^2` and `F_k=k log(2) E_k`. The exact v1 upper endpoint and
+an Arb scalar replay give
+
+```text
+F_8 < U_256 log(256) < 23/500
+    < 2 + gamma - log(4*pi).
+```
+
+Published Nyman--Beurling lower-bound theory, combined with the exhaustive
+RH/false-RH dichotomy, gives the unconditional asymptotic floor
+`liminf F_k >= 2 + gamma - log(4*pi)`. Therefore all sufficiently large
+dyadic scaled distances exceed `F_8`, and some adjacent pair must satisfy
+`F_(j+1) > F_j`. This does not make the raw distances rise: `d_N` remains
+nonincreasing. The liminf theorem supplies no effective first rebound index.
+
+This also sharpens the theorem frontier. A recurrence
+`E_(k+1) <= (1-alpha/(k+beta)) E_k` is impossible for
+`alpha>1` even if it begins only eventually. If it is required at every
+dyadic step from the certified anchor `k=8`, then at `alpha=1` it is
+impossible for
+`beta <= C_0/(U_256 log(2))-7 = 1.09356642109646...`. Thus the formerly
+natural `beta=1` all-steps-from-`N=256` target is ruled out, while `beta=2`
+and `0<alpha<1` remain compatible with the obstruction. This does not rule
+out a `beta=1` recurrence beginning only after some later index. The finite
+separator is machine-certified; the universal bridge and recurrence
+consequences remain a published-theorem, human-auditable proof layer. See the
+[full auditable proof](docs/nyman-forced-rebound-v1.md).
 
 ## Research strategy
 
@@ -264,6 +298,10 @@ python -m venv .venv
   --checkpoint-dir results\nyman-natural-v1
 .\.venv\Scripts\rh-lab.exe verify-nyman-normalization-audit `
   --artifact results\nyman-natural-v1-normalization.json
+.\.venv\Scripts\rh-lab.exe verify-nyman-rebound-audit `
+  --artifact results\nyman-forced-rebound-v1.json `
+  --summary results\nyman-natural-v1-summary.json `
+  --checkpoint-dir results\nyman-natural-v1
 ```
 
 Generate fresh artifacts:
@@ -286,6 +324,10 @@ Generate fresh artifacts:
   --checkpoint-dir results\nyman-natural-v1-new
 .\.venv\Scripts\rh-lab.exe nyman-normalization-audit `
   --output results\nyman-natural-v1-normalization-new.json
+.\.venv\Scripts\rh-lab.exe nyman-rebound-audit `
+  --summary results\nyman-natural-v1-summary.json `
+  --checkpoint-dir results\nyman-natural-v1 `
+  --output results\nyman-forced-rebound-v1-new.json
 ```
 
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch

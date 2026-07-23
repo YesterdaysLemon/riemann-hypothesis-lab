@@ -110,6 +110,25 @@ payload commitments, but deliberately does not rebuild a kernel or rerun an
 interval certificate. The `verify-nyman-search` command is the numerical
 reproduction gate.
 
+### Forced-rebound audit
+
+The rebound artifact first regenerates the frozen Nyman summary from its
+checkpoint tree. It then trusts CPython `Fraction` arithmetic for the five
+dyadic scaled-decline comparisons and `python-flint==0.9.0` / FLINT 3.6.0 Arb
+at a clean 256-bit boundary for three scalar signs. Strict JSON
+loading rejects duplicate keys, nonstandard constants, floating-point values,
+unknown fields after regeneration, and payload mutations.
+
+That checker certifies only the finite chain
+`d_256^2 log(256) < 23/500 < 2+gamma-log(4*pi)` and the five preceding exact
+scaled declines, plus the lower-endpoint comparison showing that the
+`beta=2` anchor ceiling is not forced below the asymptotic floor. The
+conclusion that a later dyadic scaled rebound exists
+uses the published strong natural-dilate criterion and asymptotic lower-bound
+theory. Those analytic dependencies are recorded in the artifact but are not
+formalized or reproved by the Python verifier. The artifact therefore remains
+`EXPLORATORY`, and RH remains `UNRESOLVED`.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker
