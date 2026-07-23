@@ -29,7 +29,9 @@ Current finite results and documented theorem consequences:
 | Six exactly rounded fixed-width `K=64` directions at `N=8,16,32,64,128,256` all have strictly positive complete infinite direct gain under the common cutoff rule `T=32768N`; in particular every stored row satisfies `gain > 1/(20N)` | `CERTIFIED_FINITE` six-cell suite | The [scaling audit](docs/nyman-large-sieve-scaling-v1.md) and [artifact](results/nyman-large-sieve-scaling-v1.json) rebuild each frozen scout cell, certify its prefix, apply the Fourier/Farey tail theorem, and replay all six with different blocks at 384 bits | These are independent cross-sectional rows, not a nested recurrence: each correction can jump support to `128N`, tail headroom deteriorates across the table, and no arbitrary-`N` conclusion is justified |
 | One exact genuinely nested chain `p1=p0+a1`, `p2=p1+a2` has complete gains greater than `1/150` and `1/9000`, hence telescoped gain greater than `61/9000`; however every append-only harmonic-balanced shell chain from every finite seed freezes a nonzero initial residual interval and has a fixed positive norm floor | `CERTIFIED_FINITE` two-step chain + human-auditable `FAILED` route theorem | The [nested-chain proof and obstruction](docs/nyman-nested-chain-v1.md) and [machine artifact](results/nyman-nested-chain-v1.json) bind step 2's old-vector hash to step 1's updated-vector hash, replay at 448 bits, and prove the universal frozen-prefix theorem using Möbius inversion and Bertrand's postulate | Positive finite contractions can continue without approaching zero. Strictly append-only balanced updates are now ruled out as an RH route; overlapping or rebased corrections remain open, and RH remains unresolved |
 | Two explicit rebased exact-dyadic vectors satisfy `E(p1)-E(p2)>1/5000`; `p2` rebuilds the old coordinates and adds a shell derived from exact `p1`, so this step is not append-only or harmonic-balanced | `CERTIFIED_FINITE` | The [rebased Schur proof](docs/nyman-rebased-schur-v1.md) derives an arbitrary-harmonic-slope prefix identity and absolute large-sieve tail; the [machine artifact](results/nyman-rebased-schur-v1.json) directly evaluates `E(p1)`, bounds all of `E(p2)`, and replays with block size 32,749 at 448 bits | This escapes the frozen-prefix obstruction for one declared step only. The weight lists are optimizer proposals, and no all-scale recurrence or convergence theorem is proved; RH remains unresolved |
-| A third explicit rebased step satisfies `E(p2)-E(p3)>1/20000`; `p3` reoptimizes every old coordinate around a balanced shell reconstructed from exact published `p2` | `CERTIFIED_FINITE` | The [third-step proof](docs/nyman-rebased-third-step-v1.md) derives the denominator-weighted interval constant `C_loc=(3/2)Q sigma`; the [machine artifact](results/nyman-rebased-third-step-v1.json) pins its parent in raw, canonical, payload, and vector forms, then replays with block size 250,003 at 512 bits | This is one more finite contraction, not an extrapolation. The third weight list is an optimizer proposal only; no fourth step, all-scale lemma, recurrence, or convergence theorem is proved, and RH remains unresolved |
+| A third explicit rebased step satisfies `E(p2)-E(p3)>1/20000`; `p3` reoptimizes every old coordinate around a balanced shell reconstructed from exact published `p2` | `CERTIFIED_FINITE` | The [third-step proof](docs/nyman-rebased-third-step-v1.md) derives the denominator-weighted interval constant `C_loc=(3/2)Q sigma`; the [machine artifact](results/nyman-rebased-third-step-v1.json) pins its parent in raw, canonical, payload, and vector forms, then replays with block size 250,003 at 512 bits | This artifact proves one finite contraction. A separate refinement strengthens the same pair and a separate artifact certifies a fourth finite step; none supplies an all-scale lemma, recurrence, or convergence theorem, and RH remains unresolved |
+| The same exact `p2,p3` satisfy the strengthened inequality `E(p2)-E(p3)>1/17500` under a fixed-modulus local-spacing tail bound | `CERTIFIED_FINITE` | The [fixed-modulus proof](docs/nyman-fixed-modulus-refinement-v1.md) groups 17,157 active denominators into 32 `gcd(d,840)` classes; the [machine artifact](results/nyman-fixed-modulus-refinement-v1.json) pins the original third-step certificate and replays at 512 bits | No coefficients changed: this is a sharper tail proof for the same finite pair, not a new step or an all-scale estimate; RH remains unresolved |
+| A fourth explicit rebased step satisfies `E(p3)-E(p4)>1/100000`; `p4` overlaps the old support and retains one multiplier of a balanced shell reconstructed from exact published `p3` | `CERTIFIED_FINITE` | The [fourth-step proof](docs/nyman-rebased-fourth-step-v1.md) uses the denominator-weighted absolute tail through `T=2^26`; the [machine artifact](results/nyman-rebased-fourth-step-v1.json) reconstructs 47,345 exact coefficients and replays with block size 250,003 at 640 bits | The fourth weight list is an optimizer proposal only. Algebraically, the two latest finite claims give `E(p2)-E(p4)>47/700000`; no fifth step, all-scale recurrence, or convergence theorem is proved, and RH remains unresolved |
 | One exact `N=256`, `K=16` balanced correction supported through index 8,192 has complete infinite direct gain greater than `7/50000` over an exact 16-bit old vector | `CERTIFIED_FINITE` | The [complete-tail artifact](results/nyman-balanced-full-tail-v1.json) encloses the first `2^26` intervals with exact integer recurrences, an explicit binary64 error radius, and Arb, then encloses every omitted interval by exact Jordan-`J_2` means, ordered-pair LCM bounds, and Abel summation; a 384-bit replay changes the block partition | This is one strict finite contraction. It supplies no uniform all-scale estimate and does not prove or disprove RH |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
@@ -61,6 +63,8 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Nyman genuine nested-chain certificate](results/nyman-nested-chain-v1.json),
 [Nyman rebased Schur certificate](results/nyman-rebased-schur-v1.json),
 [Nyman certified third rebased step](results/nyman-rebased-third-step-v1.json),
+[Nyman fixed-modulus third-step refinement](results/nyman-fixed-modulus-refinement-v1.json),
+[Nyman certified fourth rebased step](results/nyman-rebased-fourth-step-v1.json),
 [untrusted N=512 candidate](results/nyman-beta2-n512-candidate-v1.json),
 [public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
@@ -591,8 +595,73 @@ E(p2) - E(p3) > 0.0000526174 > 1/20000.
 
 The artifact payload SHA-256 is
 `bbafc2c92acb954c9c9e550f781612965bc5c76fe59ebd4a1adc5b596c3bee02`.
-The optimizer is not evidence, no fourth step or all-scale continuation is
-certified, and RH remains `UNRESOLVED`.
+The optimizer is not evidence. This artifact alone contains no fourth step or
+all-scale continuation; the two separately bound certificates below extend
+the finite record without changing the global verdict.
+
+#### Fixed-modulus refinement of the same third step
+
+The
+[fixed-modulus certificate](docs/nyman-fixed-modulus-refinement-v1.md)
+keeps the published `p2`, `p3`, and cutoff `T=2^23` unchanged. For the active
+denominator set `D`, fixed `L`, and `m_d=gcd(d,L)`, it uses
+
+```text
+R_m = max_(e in D) e/gcd(m,e),
+C_L = (3/2) [Q_A c0^2
+             + (1/12) sum_(d in D) d R_(m_d) J2(d) P_d^2].
+```
+
+The Farey gap `gcd(d,e)/(de)` makes this a valid local reciprocal-spacing
+charge. At `L=1` the formula exactly recovers the active-`Q` third-step
+constant. For the frozen `p3`, choosing `L=840` groups 17,157 active
+denominators into 32 gcd classes and reduces the discrepancy constant from
+about `2.146613456e9` to `1.816711318e9`. The complete tail upper bound falls
+to about `0.0000269295240130`, and the exact enclosure subtraction proves
+
+```text
+E(p2) - E(p3) > 0.0000573056 > 1/17500.
+```
+
+The artifact payload SHA-256 is
+`de69623dee4550796471850d62bf78ec3162fdec34620526f21d0ac578f35f92`.
+This is a sharper finite proof for the same vectors, not a new coefficient
+construction or an arbitrary-scale theorem.
+
+#### Certified fourth rebased step
+
+The
+[fourth-step certificate](docs/nyman-rebased-fourth-step-v1.md) reconstructs
+the exact published `p3`, derives a balanced `2^-9` shell on
+`32769..65536`, and freezes a thirty-three-entry `2^-16` proposal. Its basis
+reoptimizes the earlier direct and shell coordinates while retaining only the
+first multiplier of the fourth shell. The resulting exact `p4` has 47,345
+nonzero coefficients, is supported through 65,536, and changes 13,537 old
+`p3` coefficients.
+
+At `T=2^26`, the ordinary denominator-weighted constant
+`C_loc=(3/2)Q sigma` gives a complete `p4` tail upper bound of about
+`0.00000523133452109`. The old-prefix-lower versus
+new-prefix-plus-tail-upper comparison proves
+
+```text
+E(p3) - E(p4) > 0.0000105439 > 1/100000.
+```
+
+Generation uses 512-bit Arb with block size 1,048,576; replay changes to
+640-bit Arb and block size 250,003. The artifact payload SHA-256 is
+`a807f63928869c6451fa397edcc294ff6b3553b69a54099e8053722bd2b594b0`.
+
+Algebraically composing the two separately certified finite inequalities
+gives
+
+```text
+E(p2) - E(p4) > 1/17500 + 1/100000 = 47/700000.
+```
+
+That telescoped corollary is still finite. The fourth weights remain an
+optimizer proposal whose sign is proved afresh, and no fifth step, all-scale
+recurrence, or convergence theorem is certified. RH remains `UNRESOLVED`.
 
 #### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
 
@@ -849,6 +918,10 @@ Generate or independently replay the Fourier/Farey complete-tail certificate:
   --verify --artifact results\nyman-rebased-schur-v1.json
 .\.venv\Scripts\python.exe tools\generate_nyman_rebased_third_step_certificate.py `
   --verify --artifact results\nyman-rebased-third-step-v1.json
+.\.venv\Scripts\python.exe tools\generate_nyman_fixed_modulus_refinement_certificate.py `
+  --verify --artifact results\nyman-fixed-modulus-refinement-v1.json
+.\.venv\Scripts\python.exe tools\generate_nyman_rebased_fourth_step_certificate.py `
+  --verify --artifact results\nyman-rebased-fourth-step-v1.json
 ```
 
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch

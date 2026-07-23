@@ -6,7 +6,8 @@ Status:
 
 - one explicit third rebased finite contraction: `CERTIFIED_FINITE`;
 - third weight list: optimizer proposal only, not evidence;
-- fourth step, all-scale recurrence, or convergence theorem: not proved;
+- this artifact contains no fourth step; a separate artifact now certifies one;
+- all-scale recurrence or convergence theorem: not proved;
 - Riemann Hypothesis: `UNRESOLVED`.
 
 ## 1. Exact public claim
@@ -404,10 +405,13 @@ periodic mean square \(\rho\) grows from about \(1.36681670\) to
 the discrepancy constant enough for this finite proof, but it does not
 control those adverse support and coefficient-growth trends.
 
-If the same basis shape were attempted once more, its bookkeeping alone
-would permit support as high as \(8\cdot65536=524288\). No fourth shell,
-fourth weight list, \(p_4\), or fourth contraction exists in this certificate.
-That number is a support-budget warning, not a prediction.
+If the same full basis shape were attempted once more, its bookkeeping alone
+would permit support as high as \(8\cdot65536=524288\). This certificate
+contains no fourth shell, weight list, \(p_4\), or fourth contraction. The
+separate [fourth-step certificate](nyman-rebased-fourth-step-v1.md) later
+certified a reduced basis retaining only the first fourth-shell multiplier,
+with support through 65,536. The larger number remains a full-basis
+support-budget warning, not a prediction.
 
 The current binary64 prefix path forms \(M(M+1)\) under the exactness guard
 \(T(T+1)<2^{53}\). A possible future implementation could divide a scaled
@@ -416,7 +420,7 @@ factor by one operation. That backend change is not implemented or audited
 here and cannot be used to support the present claim.
 
 There is no all-scale lemma, no rate estimate, and no justified inference
-from three finite vectors to \(E(p_k)\to0\).
+from the four now-published finite vectors to \(E(p_k)\to0\).
 
 ## 9. Reproduction and commitments
 
@@ -432,6 +436,8 @@ Relevant files:
 - [certificate generator and verifier](../tools/generate_nyman_rebased_third_step_certificate.py);
 - [focused tests](../tests/test_nyman_rebased_third_step_certificate.py);
 - [frozen artifact](../results/nyman-rebased-third-step-v1.json);
+- [fixed-modulus refinement](nyman-fixed-modulus-refinement-v1.md);
+- [separate fourth-step proof](nyman-rebased-fourth-step-v1.md);
 - [parent proof note](nyman-rebased-schur-v1.md).
 
 Hashes:
