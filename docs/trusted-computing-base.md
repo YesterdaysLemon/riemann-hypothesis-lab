@@ -214,6 +214,31 @@ implementation, so they are consistency checks rather than independent
 clean-room reproductions. The certificate rejects one eight-dimensional
 finite space only; it does not bound other trial spaces or resolve RH.
 
+### First Vasyunin-correction finite audit
+
+The finite prefix artifact trusts CPython arbitrary-precision integers and
+`Fraction`; this repository's greedy recurrence, integer floor seed, Möbius
+factorization, two-adic decomposition, canonical JSON, hashing, and exact
+regeneration code; and the induction that the binary seed is constant on each
+unit interval. It does not use FLINT, Arb, floating-point arithmetic, or an
+approximate solve.
+
+The verifier strictly rejects duplicate JSON keys, nonstandard constants,
+floating-point values, unknown fields, malformed canonical integers, payload
+mutations, and any record that does not exactly regenerate at the declared
+limit. Generation and verification nevertheless use the same Python
+implementation, so replay is a consistency check rather than a clean-room
+formal proof.
+
+Báez-Duarte's coefficient formula and divergence theorem are external
+mathematical dependencies from the cited 2005 preprint. The checker confirms
+their recurrence and rational increment factors only through `n=4096`; it does
+not prove the weighted
+integral `||h_n||_1=log(2)/n`, extend the coefficient formula to all integers,
+or derive infinite `L^1` divergence from a finite prefix. That cited theorem
+rejects the first sequential greedy correction only. It does not reject every
+Vasyunin seed or multiscale Nyman construction and does not resolve RH.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker

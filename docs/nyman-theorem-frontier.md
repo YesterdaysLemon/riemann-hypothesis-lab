@@ -372,6 +372,18 @@ passes it. This does not disfavor every low-dimensional or multiscale rule; it
 removes one natural ansatz and prevents fitting its approximate gain from being
 mistaken for a theorem.
 
+One sequential multiscale rule is now closed. The same dyadic seed
+`h_n(t)=floor(t/n)-2 floor(t/(2n))` is the first Vasyunin correction analyzed
+by Báez-Duarte. Its greedy coefficients satisfy
+`c_(2^r m)=2^max(r-1,0) mu(m)` for odd `m`. At every `n=2^r`, the weighted
+`L^1` increment is exactly `log(2)/2`, so the pointwise-interpolating sequence
+is not Cauchy in `L^1` and cannot converge in the required `L^2` space. The
+theorem in the cited 2005 preprint rejects the one-coefficient-at-a-time
+correction only;
+batched, regularized, and globally optimized block rules remain open. The
+[finite audit and exact proof bridge](nyman-multiscale-tail-v1.md) keep those
+scopes separate.
+
 The remaining proof target can be stated on an explicit trial subspace. Let
 `P_k` project onto the old span, let `r_k=(I-P_k)chi`, and put
 `w_j=(I-P_k)rho_j` for `2^k<j<=2^(k+1)`. Define
@@ -426,8 +438,8 @@ forced-rebound theorem proves that pattern must eventually fail. Finite
 coefficients may suggest an ansatz; fitting them is not evidence for a
 uniform inequality.
 
-Two exact coordinate calculations sharpen the remaining target. The dyadic
-lift
+The same follow-up sharpens the remaining target through exact coordinates.
+The dyadic lift
 
 \[
 h_n(t)=2\{t/(2n)\}-\{t/n\}
@@ -435,14 +447,28 @@ h_n(t)=2\{t/(2n)\}-\{t/n\}
 \]
 
 turns old coefficients into an even new-block direction. At `N=256`, the
-exploratory same-backend calculation finds that its ideal infinite Moebius
-core is strongly aligned with the residual, but the finite truncation tail
-cancels about 67.7 percent of the numerator. Separately, cumulative new-block
+exploratory same-backend calculation finds that its ideal infinite Möbius core
+is strongly aligned with the residual, but the finite truncation tail cancels
+about 67.7 percent of the numerator. Separately, cumulative new-block
 coordinates exactly minimize each interval's energy on `N+1<=t<2N`, leaving
 `s^2 sum(kappa_m)<s^2/(4N)` across those intervals; divisor aliases beyond
-`2N` then create a tail-energy increment with no fixed sign. A viable proof
-now needs a uniform alignment or tail-stability bound, or a multiscale
-construction that cancels those later aliases; none is presently known here.
+`2N` then create a tail-energy increment with no fixed sign.
+
+For a first-shell vector `y` with `sum y_j=0`, the exact arithmetic extension
+`a=mu*y` cancels every later divisor alias pointwise. If
+`S_X=sum_(n<=X)a_n/n` and `g_X=sum_(n<=X)a_n{t/n}`, then on `0<t<=X`,
+
+\[
+g_X(t)-f_y(t)=tS_X,
+\qquad
+\|g_X-f_y\|_2^2\ge X|S_X|^2.
+\]
+
+The prime number theorem gives pointwise convergence through `S_X=o(1)`, but
+Hilbert convergence needs at least `S_X=o(X^-1/2)` and separate control for
+`t>X`. Thus even exact alias cancellation does not supply norm convergence. A
+viable proof now needs a uniform alignment, tail-stability, or bilinear
+operator bound; none is presently known here.
 
 ### 3. Infinite-tail floor for a disproof
 
@@ -498,6 +524,8 @@ above.
   [A strengthening of the Nyman--Beurling criterion for the Riemann Hypothesis](https://arxiv.org/abs/math/0202141).
 - Baez-Duarte,
   [A strengthening of the Nyman--Beurling criterion for the Riemann hypothesis, 2](https://arxiv.org/abs/math/0205003).
+- Baez-Duarte,
+  [A divergent Vasyunin correction](https://arxiv.org/abs/math/0506318).
 - Burnol,
   [A lower bound in an approximation problem involving the zeros of the Riemann zeta function](https://arxiv.org/abs/math/0103058).
 - Burnol,
