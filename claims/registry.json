@@ -214,6 +214,34 @@
       "statement": "For explicit exact-dyadic vectors p1=p0+a1 and p2=p1+a2, where the verifier reconstructs p1 before deriving a2, the two complete infinite weighted-L2 direct gains are greater than 1/150 and 1/9000, and their telescoped sum is greater than 61/9000."
     },
     {
+      "artifact": "results/nyman-rebased-schur-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "f26192ff4f2646cd74dc3f2e55582580618641722e2576ad0edd4a634891671c",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-rebased-schur-v1",
+      "implies_rh": false,
+      "limitations": "This certifies one finite rebased contraction between two explicit vectors. The frozen weight lists were selected by an exploratory optimizer, and no third step, arbitrary-scale continuation, uniform recurrence, or convergence theorem is proved. It does not prove or disprove RH.",
+      "reproduction": ".venv\\Scripts\\python.exe tools\\generate_nyman_rebased_schur_certificate.py --verify --artifact results\\nyman-rebased-schur-v1.json",
+      "scope": {
+        "artifact_payload_sha256": "a6e1119fb457e18b521e70203483101a77be7509d52d4f41889951399ce95edd",
+        "claimed_complete_energy_gain_lower_bound": "1/5000",
+        "finite_prefix_last_interval": "131072",
+        "generation_block_size": "65536",
+        "generation_precision_bits": "256",
+        "p1_coefficient_grid": "2^-25",
+        "p1_nonzero_coefficients": "55",
+        "p1_support_limit": "128",
+        "p2_coefficient_grid": "2^-25",
+        "p2_nonzero_coefficients": "915",
+        "p2_support_limit": "2048",
+        "replay_block_size": "32749",
+        "replay_precision_bits": "448",
+        "selection_boundary": "optimizer proposed the two frozen 2^-16 weight lists; direct Gram and prefix-plus-absolute-tail verification decide the sign",
+        "shell_grid": "2^-9"
+      },
+      "statement": "For two explicit exact-dyadic rebased Nyman vectors p1 and p2, where the second shell is reconstructed from exact p1 and the old coordinates are reoptimized, the complete weighted-L2 energy satisfies E(p1)-E(p2)>1/5000."
+    },
+    {
       "artifact": "docs/nyman-nested-chain-v1.md",
       "artifact_hash_mode": "raw-bytes",
       "artifact_sha256": "3751c7db918f104ed0b114de37b912dcddb8fdaf3fbe0db6eb6d98c8e63963ab",

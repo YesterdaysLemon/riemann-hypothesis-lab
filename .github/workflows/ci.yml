@@ -35,3 +35,4 @@ jobs:
       - run: python tools/generate_nyman_large_sieve_tail_certificate.py --verify
       - run: python tools/generate_nyman_large_sieve_scaling_certificate.py --verify
       - run: python tools/generate_nyman_nested_chain_certificate.py --verify
+      - run: python tools/generate_nyman_rebased_schur_certificate.py --verify
