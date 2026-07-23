@@ -1,0 +1,173 @@
+{
+  "backend": {
+    "flint": "3.6.0",
+    "python_flint": "0.9.0"
+  },
+  "cells": [
+    {
+      "candidate_sha256": "e5da7950782bd701b3c1b272713e3642afba24d8e1f563cee95deef211f890b0",
+      "cell_contract_sha256": "9f6feeedd9c5832ba0bf3d162e66c3df4c8c5f878b871da2746fdd9da41ae1b9",
+      "cell_id": "n-0008",
+      "path": "cells/n-0008.json",
+      "payload_sha256": "07cabf14353ae6ce31b973b2184e00eec087f232aeb7ca2fe9d5352319fa14fa",
+      "status": "FINITE_DISTANCE_BRACKET_CERTIFIED"
+    },
+    {
+      "candidate_sha256": "9a7aad11d1c809ef1334ceb844c1cdb4bd6c6051345c41368bf689e38faeb4c5",
+      "cell_contract_sha256": "e8f3d13f6850f2550642f155433a927a16ed10616e13916876daa9b6c62a511e",
+      "cell_id": "n-0016",
+      "path": "cells/n-0016.json",
+      "payload_sha256": "949a2e3ebc56a12753b7257a2da27dafa7f9029a81fcbd555446787bcd26c7d3",
+      "status": "FINITE_DISTANCE_BRACKET_CERTIFIED"
+    },
+    {
+      "candidate_sha256": "62da7c4b140934288bee05ca12068319b79b050a413eb0a3f3952d11f0f10ab4",
+      "cell_contract_sha256": "f870bc247ff4c3b26b15386d7ce56c61705a64d981cbc72bed0258c6282fb8a4",
+      "cell_id": "n-0032",
+      "path": "cells/n-0032.json",
+      "payload_sha256": "61d1d934d319e0b7fab97dcf65258aeac55ca7eb5f40c5e16796a644a16d12f6",
+      "status": "FINITE_DISTANCE_BRACKET_CERTIFIED"
+    },
+    {
+      "candidate_sha256": "6c99f1b96197c7420393d82e10f572c7ba4321ecf88d149634df0b1f31c4539d",
+      "cell_contract_sha256": "d81506a08698689a0beb93bf162c683b76465668a3ea97bb9009b6fe1400b295",
+      "cell_id": "n-0064",
+      "path": "cells/n-0064.json",
+      "payload_sha256": "505ac0a76c3bca7cd1ca7a8b6f8a426ae9e01cff96745dbd2d732b91117cd4ed",
+      "status": "FINITE_DISTANCE_BRACKET_CERTIFIED"
+    },
+    {
+      "candidate_sha256": "ed6a66487456deb0b925a50d9b21cd6e6c38fae0a8da28b55324a8b529c0a896",
+      "cell_contract_sha256": "66dffa036b468d4da62103c5f2d31e541b82638ad50f45364e81db4eb01880ff",
+      "cell_id": "n-0128",
+      "path": "cells/n-0128.json",
+      "payload_sha256": "59f2e2fd2b870fa50f7a6c63cca5ecd2d034bf3f25f461423b2d78859114cf6f",
+      "status": "FINITE_DISTANCE_BRACKET_CERTIFIED"
+    },
+    {
+      "candidate_sha256": "10abf61719970a8e2aa92f5806a9cbd8f2e7f94092ad17d06b1f9fc20f100234",
+      "cell_contract_sha256": "d9d8fa7702a4023bb0a1e94b35d0a9dbae58742986e10449112dc3fdd5e7f97c",
+      "cell_id": "n-0256",
+      "path": "cells/n-0256.json",
+      "payload_sha256": "89ea59864d96b41f2527ce537325d62da93b7ef237dfbb576f2b979a4e74aaf9",
+      "status": "FINITE_DISTANCE_BRACKET_CERTIFIED"
+    }
+  ],
+  "classification": "EXPLORATORY",
+  "conclusion": "ALL_FINITE_DISTANCE_BRACKETS_CERTIFIED",
+  "generation_kernel": {
+    "core_system_content_sha256": "1587f9ab711c2b787f0072dcd82476cef3ee1ca0198ca167eccb0c86c95b8726",
+    "kernel_contract_sha256": "bc3bc8679379a7a2c3a7c0f530829b67b7170b6ada950c893f6010a32eba06cf",
+    "path": "kernels/generation.json",
+    "payload_sha256": "6fb54e7f63208f1bd81fb7ef2e592a8a655458dd7744081748590159b868cc26",
+    "precision_bits": "768"
+  },
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "These are rigorous bounds for six finite-dimensional natural-dilate distances only. Finite decay does not prove that the limiting distance is zero, and a positive finite lower bound does not disprove RH. The global Riemann Hypothesis status is UNRESOLVED.",
+  "missing_cell_ids": [],
+  "payload_sha256": "281f12c122897407d169e9830871ebd4764f86f03347e28dbc0cfa5b39876d23",
+  "plan": {
+    "path": "plan.json",
+    "plan_sha256": "27ebd77ca7bfae0ff898bd33fcd739c1c069a79b23b9bff4f03f84ac91f1540a"
+  },
+  "progress": {
+    "completed_cells": "6",
+    "planned_cells": "6",
+    "status_counts": {
+      "FINITE_DISTANCE_BRACKET_CERTIFIED": "6",
+      "INCONCLUSIVE": "0"
+    }
+  },
+  "run": {
+    "path": "run.json"
+  },
+  "schema": "rh-lab/nyman-natural-index/v1",
+  "strict_improvement_diagnostics": [
+    {
+      "cell_validity_gate": false,
+      "decision": "STRICT_IMPROVEMENT_CERTIFIED",
+      "exact_comparison": {
+        "l_n": {
+          "denominator": "170141183460469231731687303715884105728",
+          "numerator": "4110852862711789340762347958875385697"
+        },
+        "u_2n": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "6089020662482000371247684814384394019"
+        }
+      },
+      "inequality": "U_2N < L_N",
+      "larger_n": "16",
+      "smaller_n": "8"
+    },
+    {
+      "cell_validity_gate": false,
+      "decision": "STRICT_IMPROVEMENT_CERTIFIED",
+      "exact_comparison": {
+        "l_n": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "6089020662482000371247684814384393763"
+        },
+        "u_2n": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "4781628661915789232105962674356128113"
+        }
+      },
+      "inequality": "U_2N < L_N",
+      "larger_n": "32",
+      "smaller_n": "16"
+    },
+    {
+      "cell_validity_gate": false,
+      "decision": "STRICT_IMPROVEMENT_CERTIFIED",
+      "exact_comparison": {
+        "l_n": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "4781628661915789232105962674356127857"
+        },
+        "u_2n": {
+          "denominator": "42535295865117307932921825928971026432",
+          "numerator": "483883239920116812004411075828946691"
+        }
+      },
+      "inequality": "U_2N < L_N",
+      "larger_n": "64",
+      "smaller_n": "32"
+    },
+    {
+      "cell_validity_gate": false,
+      "decision": "STRICT_IMPROVEMENT_CERTIFIED",
+      "exact_comparison": {
+        "l_n": {
+          "denominator": "42535295865117307932921825928971026432",
+          "numerator": "483883239920116812004411075828946659"
+        },
+        "u_2n": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "3286634009378442248435358862600664203"
+        }
+      },
+      "inequality": "U_2N < L_N",
+      "larger_n": "128",
+      "smaller_n": "64"
+    },
+    {
+      "cell_validity_gate": false,
+      "decision": "STRICT_IMPROVEMENT_CERTIFIED",
+      "exact_comparison": {
+        "l_n": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "3286634009378442248435358862600663947"
+        },
+        "u_2n": {
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "2801788463381838392697853210438663771"
+        }
+      },
+      "inequality": "U_2N < L_N",
+      "larger_n": "256",
+      "smaller_n": "128"
+    }
+  ],
+  "strict_improvement_role": "separate exact diagnostic; never a cell-validity gate"
+}

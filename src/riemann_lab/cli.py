@@ -14,6 +14,22 @@ from .lagarias import (
     certify_lagarias_range,
     verify_lagarias_certificate,
 )
+from .nyman_search import (
+    NymanSearchError,
+    load_nyman_plan,
+    run_nyman_search,
+    verify_nyman_search,
+)
+from .nyman_normalization import (
+    NymanNormalizationError,
+    generate_nyman_normalization_bundle,
+    verify_nyman_normalization_bundle,
+)
+from .nyman_summary import (
+    NymanSummaryError,
+    generate_nyman_summary,
+    verify_nyman_summary,
+)
 from .zeros import (
     ZeroCertificateError,
     certify_critical_line_zeros,
@@ -130,6 +146,36 @@ def _parser() -> argparse.ArgumentParser:
         help="complete at most this many new cells before checkpointing",
     )
 
+    nyman_search = commands.add_parser(
+        "nyman-search",
+        help="run or resume the exploratory natural-dilate distance batch",
+    )
+    nyman_search.add_argument(
+        "--plan",
+        type=Path,
+        default=Path("plans/nyman-natural-v1.json"),
+    )
+    nyman_search.add_argument("--checkpoint-dir", type=Path, required=True)
+    nyman_search.add_argument("--resume", action="store_true")
+    nyman_search.add_argument(
+        "--max-cells",
+        type=int,
+        help="complete at most this many new cells before checkpointing",
+    )
+
+    nyman_normalization = commands.add_parser(
+        "nyman-normalization-audit",
+        help="generate the frozen exploratory Nyman normalization audit",
+    )
+    nyman_normalization.add_argument("--output", type=Path, required=True)
+
+    nyman_summary = commands.add_parser(
+        "summarize-nyman",
+        help="derive a compact structural summary of the frozen Nyman batch",
+    )
+    nyman_summary.add_argument("--checkpoint-dir", type=Path, required=True)
+    nyman_summary.add_argument("--output", type=Path, required=True)
+
     parity = commands.add_parser(
         "weil-parity-audit",
         help="generate an exploratory reversal-parity audit for one Weil cell",
@@ -207,6 +253,33 @@ def _parser() -> argparse.ArgumentParser:
     )
     verify_transition.add_argument("--index", type=Path, required=True)
     verify_transition.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
+
+    verify_nyman = commands.add_parser(
+        "verify-nyman-search",
+        help="validate and replay an exploratory natural-dilate distance batch",
+    )
+    verify_nyman.add_argument("--index", type=Path, required=True)
+    verify_nyman.add_argument("--checkpoint-dir", type=Path, required=True)
+    verify_nyman.add_argument("--bits", type=int, default=1536)
+
+    verify_nyman_normalization = commands.add_parser(
+        "verify-nyman-normalization-audit",
+        help="exactly regenerate a frozen Nyman normalization audit",
+    )
+    verify_nyman_normalization.add_argument(
+        "--artifact", type=Path, required=True
+    )
+
+    verify_nyman_summary_parser = commands.add_parser(
+        "verify-nyman-summary",
+        help="regenerate a compact Nyman summary from its evidence tree",
+    )
+    verify_nyman_summary_parser.add_argument(
+        "--summary", type=Path, required=True
+    )
+    verify_nyman_summary_parser.add_argument(
         "--checkpoint-dir", type=Path, required=True
     )
 
@@ -323,6 +396,78 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "index": str(args.checkpoint_dir / "index.json"),
                     "payload_sha256": index["payload_sha256"],
                     "progress": index["progress"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
+    if args.command == "nyman-search":
+        try:
+            plan = load_nyman_plan(args.plan)
+            index = run_nyman_search(
+                plan,
+                args.checkpoint_dir,
+                resume=args.resume,
+                max_cells=args.max_cells,
+            )
+        except (NymanSearchError, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman search rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": index["classification"],
+                    "conclusion": index["conclusion"],
+                    "hypothesis_status": index["hypothesis_status"],
+                    "index": str(args.checkpoint_dir / "index.json"),
+                    "payload_sha256": index["payload_sha256"],
+                    "progress": index["progress"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
+    if args.command == "nyman-normalization-audit":
+        try:
+            artifact = generate_nyman_normalization_bundle()
+            write_json(args.output, artifact)
+        except (NymanNormalizationError, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman normalization audit rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "audit_outcome": artifact["audit_outcome"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0 if artifact["audit_outcome"] == (
+            "NORMALIZATION_AUDIT_PASSED_EXPLORATORY"
+        ) else 2
+
+    if args.command == "summarize-nyman":
+        try:
+            artifact = generate_nyman_summary(args.checkpoint_dir)
+            write_json(args.output, artifact)
+        except (NymanSummaryError, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman summary rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "conclusion": artifact["conclusion"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                    "counts": artifact["counts"],
                 },
                 sort_keys=True,
             )
@@ -463,6 +608,48 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
         except (WeilTransitionError, OSError, json.JSONDecodeError) as exc:
             print(f"Weil transition search rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-nyman-search":
+        try:
+            result = verify_nyman_search(
+                args.index,
+                args.checkpoint_dir,
+                replay_precision_bits=args.bits,
+            )
+        except (NymanSearchError, OSError, json.JSONDecodeError) as exc:
+            print(f"Nyman search artifact rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-nyman-normalization-audit":
+        try:
+            result = verify_nyman_normalization_bundle(args.artifact)
+        except (
+            NymanNormalizationError,
+            OSError,
+            json.JSONDecodeError,
+        ) as exc:
+            print(f"Nyman normalization audit rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-nyman-summary":
+        try:
+            result = verify_nyman_summary(
+                args.summary,
+                args.checkpoint_dir,
+            )
+        except (
+            NymanSummaryError,
+            OSError,
+            json.JSONDecodeError,
+        ) as exc:
+            print(f"Nyman summary rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0

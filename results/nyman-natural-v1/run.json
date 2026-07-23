@@ -1,0 +1,17 @@
+{
+  "backend": {
+    "flint": "3.6.0",
+    "python_flint": "0.9.0"
+  },
+  "candidate_behavior": "run every planned N; never stop early",
+  "classification": "EXPLORATORY",
+  "engine_id": "natural-dilate-distance-search-v1",
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "These are rigorous bounds for six finite-dimensional natural-dilate distances only. Finite decay does not prove that the limiting distance is zero, and a positive finite lower bound does not disprove RH. The global Riemann Hypothesis status is UNRESOLVED.",
+  "payload_sha256": "58d51883701e8cd41f90592b3cae83c3aa71ecba791658d6a1b57a35bf9bfc15",
+  "plan": {
+    "path": "plan.json",
+    "plan_sha256": "27ebd77ca7bfae0ff898bd33fcd739c1c069a79b23b9bff4f03f84ac91f1540a"
+  },
+  "schema": "rh-lab/nyman-natural-run/v1"
+}

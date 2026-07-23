@@ -47,6 +47,23 @@ paper's approach is equally promising.
   [Complements to Li's criterion](https://doi.org/10.1006/jnth.1999.2392).
 - Baez-Duarte,
   [A strengthening of the Nyman-Beurling criterion](https://arxiv.org/abs/math/0202141).
+- Baez-Duarte, Balazard, Landreau, and Saias,
+  [Sur l'autocorrelation multiplicative de la fonction "partie fractionnaire"](https://arxiv.org/abs/math/0306251):
+  rational autocorrelation, reciprocity, and the Vasyunin-sum formula used by
+  the frozen natural-distance experiment.
+- Burnol,
+  [A lower bound in an approximation problem involving the zeros of the Riemann zeta function](https://arxiv.org/abs/math/0103058).
+- Chen and Qi,
+  [The best bounds of harmonic sequence](https://arxiv.org/abs/math/0306233):
+  the harmonic-number enclosure used for the independent `1-gamma`
+  normalization audit.
+- Balazard and de Roton,
+  [Sur un critere de Baez-Duarte pour l'hypothese de Riemann](https://arxiv.org/abs/0812.1689):
+  an RH-conditional explicit natural-dilate coefficient family and upper rate.
+- Bettin, Conrey, and Farmer,
+  [An optimal choice of Dirichlet polynomials for the Nyman--Beurling criterion](https://arxiv.org/abs/1211.5191):
+  the log-tapered Mobius family and its optimal asymptotic under RH plus a
+  zero-derivative moment assumption.
 - Rodgers and Tao,
   [The de Bruijn-Newman constant is non-negative](https://arxiv.org/abs/1801.05914).
 - Griffin, Ono, Rolen, Thorner, Tripp, and Wagner,

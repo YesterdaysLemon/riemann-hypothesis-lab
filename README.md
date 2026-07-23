@@ -19,6 +19,7 @@ Current finite results:
 |---|---:|---:|---|
 | Full `9x9` Weil matrix `A=P-R-S` for `c=5/2`, modes `-4..4`, certified positive definite by nine interval `LDL^T` pivots; the minimum among nine separated Rump eigenvalue enclosures is `[2.30606430783134e-5 +/- 4.40e-45]` | `CERTIFIED_FINITE` | All 45 upper-triangle component enclosures replayed at 384 bits; direct archimedean integrals cross-check a separate special-function formula | One positive finite compression cannot prove RH |
 | 81 complete Weil matrices around the prime-power transitions `q=7,8,9`, degrees `12..24`; every cell certified positive definite by interval `LDL^T` | `EXPLORATORY` | All 81 cells, 108 attempts, and 905 stored candidate evaluations replayed; 9 parity and 6 degree-nesting audits also passed | A bounded null search: no negative witness was found, and positive finite compressions cannot prove RH |
+| Six natural-dilate Nyman distances for `N=8,16,32,64,128,256`; each has an exact bracket `L_N < d_N^2 <= U_N` of width `2^-120`, and all five exact comparisons `U_2N < L_N` pass | `EXPLORATORY` | A separate same-backend replay rebuilt the full kernel at 1536 bits and re-certified all six stored dyadic candidates and all 510 interval `LDL^T` pivots | Finite decay cannot establish the required limit `d_N -> 0` |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
 | Lagarias inequality certified for every `1 <= n <= 1,000,000`, equality only at `n=1`, using exact integer divisor sums and Arb balls | `CERTIFIED_FINITE` | Full range replayed at 384 bits | A counterexample would disprove RH; a positive finite prefix does not prove it |
 | Proof or counterexample | `UNRESOLVED` | — | The actual objective remains open |
@@ -32,6 +33,8 @@ zeta Weil form. See the [full normalization, certificate, and limitations](docs/
 Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [transition-v2 summary](results/weil-transition-q7-q9-v2-summary.json),
 [transition-v2 release manifest](results/weil-transition-q7-q9-v2.release.json),
+[Nyman v1 summary](results/nyman-natural-v1-summary.json),
+[Nyman normalization audit](results/nyman-natural-v1-normalization.json),
 [zero certificate](results/zeros-1-10000.json),
 [Lagarias certificate](results/lagarias-1-1000000.json), and the
 [machine-checked claim ledger](claims/registry.json).
@@ -124,6 +127,63 @@ lie on the critical line through height **3,000,175,332,800**
 ([paper](https://arxiv.org/abs/2004.09765)). Our 10,000-zero run exists to test
 the certificate plumbing before new mathematics is trusted.
 
+### Natural-dilate Nyman distance v1 (`COMPLETED`, `EXPLORATORY`)
+
+For `rho_a(x)={1/(a*x)}` and `chi=1_(0,1]`, define
+
+```text
+d_N^2 = inf_c ||chi - sum_(a=1)^N c_a rho_a||_2^2.
+```
+
+Baez-Duarte's strong Nyman--Beurling theorem says RH is equivalent to
+`d_N -> 0`. The frozen [v1 plan](plans/nyman-natural-v1.json) uses one
+provenance-bound `N=256` Gram kernel at 768 bits, exact `2^-256` dyadic
+coefficients, direct interval evaluation of the primal error, and positive
+fixed-order interval `LDL^T` for the augmented lower-bound matrix. Approximate
+linear solves propose coefficients but never decide a sign.
+
+All six cells closed with the following shared decimal prefixes. Every exact
+bracket has width `2^-120`; the linked summary stores the full dyadic endpoints.
+
+| `N` | Certified `d_N^2` bracket's shared decimal prefix | Terminal status |
+|---:|---:|---|
+| 8 | `0.02416142158589668502280894301085133...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 16 | `0.01789402347696943509905506314795876...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 32 | `0.01405194369952985983642504072212329...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 64 | `0.01137604029967365814705897002932676...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 128 | `0.00965854927811190991003539257145257...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 256 | `0.00823371627726102144159803810263543...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+
+The run stores 504 exact coefficient numerators and 510 positive lower-bound
+pivots. All five separate diagnostics `U_2N < L_N` pass. The canonical plan
+payload SHA-256 is
+`27ebd77ca7bfae0ff898bd33fcd739c1c069a79b23b9bff4f03f84ac91f1540a`;
+the generation-kernel payload SHA-256 is
+`6fb54e7f63208f1bd81fb7ef2e592a8a655458dd7744081748590159b868cc26`;
+the index payload SHA-256 is
+`281f12c122897407d169e9830871ebd4764f86f03347e28dbc0cfa5b39876d23`;
+and the compact summary payload SHA-256 is
+`35cf625bd2ff70def7c440065aae20e375691c483666b2411098a4136ec399cf`.
+
+A separate same-backend replay rebuilt the complete kernel at 1536 bits and
+re-certified all six stored candidates without regenerating the approximate
+solves. Its replay-kernel payload SHA-256 is
+`0b914bd5902f119ace638e74947225bce3bc541f719afee7a313d8390d68dae8`.
+The independent piecewise-integral/harmonic normalization bundle passed all 14
+frozen rational checks and has payload SHA-256
+`021a060fb3eb0121c325a0af13cc39095c0c6f26bc5a4b235269611a66a9442c`.
+That oracle shares Arb and its generic tail resolves only about 12 bits; it is
+not a clean-room backend.
+
+These finite values do **not** prove RH. Burnol's unconditional asymptotic
+lower obstruction also rules out an eventual fixed-factor contraction under
+`N -> 2N`; the next proof-side target must be an explicit all-`N` upper family
+with a weakening, logarithmic-scale contraction. The exact normalization,
+known conditional families, and three valid infinite bridges are recorded in
+the [post-v1 theorem frontier](docs/nyman-theorem-frontier.md). Full formulas,
+certificate gates, oracle scope, and limitations are in the
+[v1 methodology](docs/nyman-natural-v1.md).
+
 ## Research strategy
 
 The main bet is **Weil explicit-formula positivity**. We define `Q` as the
@@ -196,6 +256,14 @@ python -m venv .venv
 .\.venv\Scripts\rh-lab.exe verify-weil-search `
   --index results\weil-search-grid-v1\index.json `
   --checkpoint-dir results\weil-search-grid-v1
+.\.venv\Scripts\rh-lab.exe verify-nyman-search `
+  --index results\nyman-natural-v1\index.json `
+  --checkpoint-dir results\nyman-natural-v1 --bits 1536
+.\.venv\Scripts\rh-lab.exe verify-nyman-summary `
+  --summary results\nyman-natural-v1-summary.json `
+  --checkpoint-dir results\nyman-natural-v1
+.\.venv\Scripts\rh-lab.exe verify-nyman-normalization-audit `
+  --artifact results\nyman-natural-v1-normalization.json
 ```
 
 Generate fresh artifacts:
@@ -213,6 +281,11 @@ Generate fresh artifacts:
 .\.venv\Scripts\rh-lab.exe weil-transition-search `
   --plan plans\weil-transition-q7-q9-v2.json `
   --checkpoint-dir results\weil-transition-q7-q9-v2
+.\.venv\Scripts\rh-lab.exe nyman-search `
+  --plan plans\nyman-natural-v1.json `
+  --checkpoint-dir results\nyman-natural-v1-new
+.\.venv\Scripts\rh-lab.exe nyman-normalization-audit `
+  --output results\nyman-natural-v1-normalization-new.json
 ```
 
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch
@@ -230,9 +303,24 @@ without changing its frozen plan:
   --checkpoint-dir results\weil-transition-q7-q9-v2
 ```
 
-Terminal cell files embed their ordered attempts; the redundant `attempts/`
-working directories are not published as primary evidence. The v2 batch is a
-substantial serial computation because FLINT's precision context is shared.
+Resume and summarize the frozen Nyman batch without changing its plan:
+
+```powershell
+.\.venv\Scripts\rh-lab.exe nyman-search `
+  --plan plans\nyman-natural-v1.json `
+  --checkpoint-dir results\nyman-natural-v1 --resume
+.\.venv\Scripts\rh-lab.exe verify-nyman-search `
+  --index results\nyman-natural-v1\index.json `
+  --checkpoint-dir results\nyman-natural-v1 --bits 1536
+.\.venv\Scripts\rh-lab.exe summarize-nyman `
+  --checkpoint-dir results\nyman-natural-v1 `
+  --output results\nyman-natural-v1-summary-new.json
+```
+
+Weil terminal cell files embed their ordered attempts; the redundant
+`attempts/` working directories are not published as primary evidence. The
+v2 Weil and v1 Nyman batches are substantial serial computations because
+FLINT's precision context is shared.
 Parity and nesting audits have their own `weil-parity-audit`,
 `weil-nesting-audit`, and corresponding `verify-...` commands; run
 `rh-lab <command> --help` for exact witness and precision options.
