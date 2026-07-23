@@ -187,6 +187,33 @@ transition. The Schur identity translates it into a normalized gain greater
 than `51/500`, but the uniform gain inequality for every later dyadic scale is
 unproved. Nothing in this audit resolves RH.
 
+### Arithmetic trial-subspace rejection audit
+
+The trial audit trusts the same CPython, repository code,
+`python-flint==0.9.0`, FLINT 3.6.0, Arb logarithms, and canonical
+natural-dilate kernel as the preceding Nyman audits. CPython exact integer and
+`Fraction` arithmetic constructs the Moebius and divisibility columns, exact
+rational thresholds, and the theorem bridge. Arb encloses the logarithmic
+columns, aggregate Gram entries, and every interval-elimination operation.
+
+The exploratory Schur solve is not part of the artifact and decides no sign.
+The sign-bearing route aggregates the old 256 natural dilates and eight frozen
+new-block functions, then proves positivity of the 265-by-265 matrix
+`[[G_V,-b_V],[-b_V^T,1-(9/10)U_256]]` by 265 positive fixed-order interval
+`LDL^T` pivots. This directly certifies `F_V>(9/10)U_256`; exact rational
+arithmetic and the source endpoint `d_256^2<=U_256` then give
+`Gamma(V)<d_256^2/10`.
+
+The artifact freezes the ordered coefficient matrix, aggregate system, lower
+certificate, source references, and complete payload. Strict loading rejects
+duplicate keys, nonstandard constants, floats, cycles, values that cannot be
+canonically serialized, and unknown structure. Verification regenerates the
+768-bit artifact and then rebuilds the kernel, basis, aggregate system, and all
+265 pivots at exactly 1536 bits. Both passes use the same backend and
+implementation, so they are consistency checks rather than independent
+clean-room reproductions. The certificate rejects one eight-dimensional
+finite space only; it does not bound other trial spaces or resolve RH.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker

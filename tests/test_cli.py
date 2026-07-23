@@ -252,6 +252,77 @@ def test_nyman_beta2_cli_routes_candidate_audit_and_verifier(
     assert calls[-1][-1] == {"replay_precision_bits": 1536}
 
 
+def test_nyman_trial_cli_routes_audit_and_verifier(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    audit_path = tmp_path / "trial-audit.json"
+    fake_audit = {
+        "classification": "CERTIFIED_FINITE",
+        "audit_outcome": (
+            "CANONICAL_EIGHT_COLUMN_TRIAL_SUBSPACE_REJECTED_AT_N512"
+        ),
+        "hypothesis_status": "UNRESOLVED",
+        "payload_sha256": "c" * 64,
+    }
+    calls: list[tuple[object, ...]] = []
+
+    def fake_generate(*args: object) -> dict[str, str]:
+        calls.append(args)
+        return fake_audit
+
+    def fake_verify(*args: object, **kwargs: object) -> dict[str, object]:
+        calls.append((*args, kwargs))
+        return {
+            "classification": (
+                "REPRODUCED_CERTIFIED_FINITE_NYMAN_TRIAL_SUBSPACE_REJECTION"
+            ),
+            "hypothesis_status": "UNRESOLVED",
+        }
+
+    monkeypatch.setattr(
+        cli, "generate_nyman_trial_subspace_audit", fake_generate
+    )
+    monkeypatch.setattr(
+        cli, "verify_nyman_trial_subspace_audit", fake_verify
+    )
+
+    assert main(
+        [
+            "nyman-trial-subspace-audit",
+            "--summary",
+            "summary.json",
+            "--checkpoint-dir",
+            "checkpoint",
+            "--output",
+            str(audit_path),
+        ]
+    ) == 0
+    generated = json.loads(capsys.readouterr().out)
+    assert generated["classification"] == "CERTIFIED_FINITE"
+    assert json.loads(audit_path.read_text(encoding="utf-8")) == fake_audit
+
+    assert main(
+        [
+            "verify-nyman-trial-subspace-audit",
+            "--artifact",
+            str(audit_path),
+            "--summary",
+            "summary.json",
+            "--checkpoint-dir",
+            "checkpoint",
+            "--bits",
+            "1536",
+        ]
+    ) == 0
+    replayed = json.loads(capsys.readouterr().out)
+    assert replayed["classification"] == (
+        "REPRODUCED_CERTIFIED_FINITE_NYMAN_TRIAL_SUBSPACE_REJECTION"
+    )
+    assert calls[-1][-1] == {"replay_precision_bits": 1536}
+
+
 def test_parity_and_nesting_cli_artifacts_replay(
     tmp_path: Path,
     capsys: pytest.CaptureFixture[str],

@@ -90,6 +90,63 @@ paper's approach is equally promising.
 Every criterion above retains an infinite or universal quantifier. Finite
 positivity, finite approximation, and finite inequality checks do not prove RH.
 
+## Audited non-bridges and claimed proofs
+
+The following papers were checked specifically against the natural-dilate
+Schur target used in this repository.  Being posted on arXiv is not itself a
+correctness certificate.
+
+- Wong,
+  [Inequality and Nyman--Beurling--Baez-Duarte criteria](https://arxiv.org/abs/2310.03972),
+  claims a proof of RH, but its central finite inequality step is false.  Its
+  system `S(epsilon,n)` asks for `||Aa-c||_infinity <= epsilon`, whereas
+  Theorem 2.5 only approximates the projection `AA^+c`.  At `n=3` its own
+  matrix is
+
+  \[
+  A=\begin{pmatrix}
+  1&1\\0&2\\1&0\\0&1\\1&2
+  \end{pmatrix}.
+  \]
+
+  Rows two and four require both `|2a_3-1|<=epsilon` and
+  `|a_3-1|<=epsilon`, which is impossible for `epsilon<1/3`.  The later norm
+  claim `||P_n||_infinity <= ||P_n||_2=1` also fails for this exact example:
+  one row of `P_3=A(A^T A)^-1 A^T` has absolute row sum `10/7`.
+- Carvill,
+  [Beurling Nyman Geometry and Gram Matrix Structure](https://arxiv.org/abs/2510.18132),
+  studies a smoothed sparse `theta=2^-j 3^-k` ladder, not the residualized natural
+  block `(S,t)` needed here.  Gram compressibility alone cannot lower-bound
+  `t^T S^-1 t`; even `S=I` can have `t=0`.  The posted proof also uses the
+  false uniform separation `|a log 2+b log 3| >= (|a|+|b|)log 2`: the pair
+  `(a,b)=(8,-5)` already gives `|log(256/243)|`, far below `13 log 2`.
+  Therefore this preprint supplies no valid bridge to the repository's
+  recurrence target.
+- Alouges, Darses, and Hillion,
+  [Polynomial approximations in a generalized Nyman--Beurling criterion](https://arxiv.org/abs/2006.02953),
+  obtain an unconditional generalized approximation component, but move the
+  remaining difficulty into coefficient and Gram control rather than closing
+  it.
+- Corvalan,
+  [Interpolation and Extrapolation Statements equivalent to the Riemann Hypothesis](https://arxiv.org/abs/2312.00211),
+  revised in June 2026, gives equivalences and sufficient conditions, not an
+  unconditional natural-distance decay theorem.
+- Manzur, Noor, and Quintero,
+  [A Hardy space approximation supporting zero-free half-planes for the zeta-function](https://arxiv.org/abs/2606.16097),
+  proves a zero-free implication for approximation in shifted Hardy spaces
+  and studies the critical range numerically; it does not establish the
+  `alpha=1/2` closure required for RH.
+- Pyvovarov,
+  [A few remarks on the Baez-Duarte Criterion](https://arxiv.org/abs/2607.12084),
+  revised on 2026-07-21, reduces an exponentially damped Moebius route to an
+  explicit global bilinear cancellation.  Its abstract explicitly leaves
+  that boundedness problem unresolved.
+
+No source in this audit supplies the uniform
+`Gamma_k >= E_k/(k+2)` inequality or an equivalent unconditional
+natural-dilate decay.  Proving such an estimate would itself settle RH, so a
+reformulation without the decisive norm or correlation bound is not a proof.
+
 ## Exact BCF coefficient audit
 
 For the Bettin--Conrey--Farmer taper, use the repository's sign convention

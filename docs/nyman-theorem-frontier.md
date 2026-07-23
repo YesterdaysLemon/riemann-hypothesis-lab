@@ -355,6 +355,23 @@ certified `N=256` lower endpoint. No `N=512` lower bound or interval Schur
 solve is needed. It is one finite step, not evidence that the recurrence
 persists.
 
+The first canonical low-dimensional attempt has also been settled, in the
+negative. The [eight-column arithmetic trial audit](nyman-trial-subspace-v1.md)
+uses log-tapered, raw, and quadratic Moebius columns; squarefree and squareful
+mass; and divisibility by two and three. At `k=8`, all 265 augmented interval
+`LDL^T` pivots certify
+
+\[
+F_V>\frac9{10}U_{256},
+\qquad
+\Gamma_8(V)<\frac1{10}E_8.
+\]
+
+Thus this exact span misses the target even though the unrestricted block
+passes it. This does not disfavor every low-dimensional or multiscale rule; it
+removes one natural ansatz and prevents fitting its approximate gain from being
+mistaken for a theorem.
+
 The remaining proof target can be stated on an explicit trial subspace. Let
 `P_k` project onto the old span, let `r_k=(I-P_k)chi`, and put
 `w_j=(I-P_k)rho_j` for `2^k<j<=2^(k+1)`. Define
@@ -408,6 +425,24 @@ from `N=8` through `N=256` satisfy the stronger `beta=1` comparison, but the
 forced-rebound theorem proves that pattern must eventually fail. Finite
 coefficients may suggest an ansatz; fitting them is not evidence for a
 uniform inequality.
+
+Two exact coordinate calculations sharpen the remaining target. The dyadic
+lift
+
+\[
+h_n(t)=2\{t/(2n)\}-\{t/n\}
+=\lfloor t/n\rfloor-2\lfloor t/(2n)\rfloor
+\]
+
+turns old coefficients into an even new-block direction. At `N=256`, the
+exploratory same-backend calculation finds that its ideal infinite Moebius
+core is strongly aligned with the residual, but the finite truncation tail
+cancels about 67.7 percent of the numerator. Separately, cumulative new-block
+coordinates exactly minimize each interval's energy on `N+1<=t<2N`, leaving
+`s^2 sum(kappa_m)<s^2/(4N)` across those intervals; divisor aliases beyond
+`2N` then create a tail-energy increment with no fixed sign. A viable proof
+now needs a uniform alignment or tail-stability bound, or a multiscale
+construction that cancels those later aliases; none is presently known here.
 
 ### 3. Infinite-tail floor for a disproof
 

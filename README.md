@@ -21,6 +21,7 @@ Current finite results and documented theorem consequences:
 | 81 complete Weil matrices around the prime-power transitions `q=7,8,9`, degrees `12..24`; every cell certified positive definite by interval `LDL^T` | `EXPLORATORY` | All 81 cells, 108 attempts, and 905 stored candidate evaluations replayed; 9 parity and 6 degree-nesting audits also passed | A bounded null search: no negative witness was found, and positive finite compressions cannot prove RH |
 | Six natural-dilate Nyman distances for `N=8,16,32,64,128,256`; each has an exact bracket `L_N < d_N^2 <= U_N` of width `2^-120`, and all five exact comparisons `U_2N < L_N` pass | `EXPLORATORY` | A separate same-backend replay rebuilt the full kernel at 1536 bits and re-certified all six stored dyadic candidates and all 510 interval `LDL^T` pivots | Finite decay cannot establish the required limit `d_N -> 0` |
 | One exact 512-coefficient Nyman witness certifies `d_512^2 < (449/500)d_256^2`, so the normalized optimal block gain is greater than `51/500` | `CERTIFIED_FINITE` | The [N=512 audit](results/nyman-beta2-n512-v1.json) directly evaluates the stored `2^-256` dyadic vector and freshly replays the `N=256` lower certificate at 768 bits; both signs and enclosure containment replay at 1536 bits | This settles only the finite `k=8` beta=2 step. The uniform `k>=9` extension lemma that would complete this recurrence route to RH remains unproved |
+| The canonical eight-column arithmetic Nyman trial space at `256 -> 512` captures strictly less than `d_256^2/10` | `CERTIFIED_FINITE` | The [trial-space audit](results/nyman-trial-subspace-v1.json) certifies `F_V>(9/10)U_256` by 265 positive fixed-order interval `LDL^T` pivots and replays the complete construction at 1536 bits | This rigorously rejects one finite ansatz; it does not reject other trial spaces, and the successful full block captures more than `51/500` |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
@@ -41,6 +42,7 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Nyman finite rebound audit](results/nyman-forced-rebound-v1.json),
 [Nyman Mobius core/tail audit](results/nyman-mobius-core-tail-v1.json),
 [Nyman N=512 finite contraction audit](results/nyman-beta2-n512-v1.json),
+[Nyman eight-column trial-space rejection](results/nyman-trial-subspace-v1.json),
 [untrusted N=512 candidate](results/nyman-beta2-n512-candidate-v1.json),
 [public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
@@ -241,6 +243,46 @@ RH. No such uniform bound is known here. The exact chain, trusted-computing
 boundary, Schur formulation, and remaining lemma are in the
 [N=512 audit note](docs/nyman-beta2-n512-v1.md).
 
+#### Canonical eight-column trial-space rejection (`CERTIFIED_FINITE`)
+
+The first explicit low-dimensional ansatz for the missing extension lemma has
+been decisively rejected at the same finite scale. On the new block
+`257 <= j <= 512`, the frozen columns are
+
+```text
+mu(j)log(512/j), mu(j), mu(j)log(512/j)^2,
+|mu(j)|log(512/j), |mu(j)|, 1-|mu(j)|,
+1_(2|j), 1_(3|j).
+```
+
+Let `F_V` be the squared distance after adjoining these eight aggregate
+functions to the old 256 natural dilates, and let
+`Gamma(V)=d_256^2-F_V` be their best possible gain after all old coefficients
+are reoptimized. The audit proves
+
+```text
+F_V > (9/10) U_256,
+d_256^2 <= U_256,
+therefore Gamma(V) < d_256^2/10.
+```
+
+The sign-bearing step is positivity of all 265 fixed-order interval `LDL^T`
+pivots of the augmented 264-dimensional aggregate Gram system. The verifier
+rejects source, basis, aggregate-system, certificate, or payload mutations;
+then it rebuilds the natural-dilate kernel and the aggregate certificate at
+exactly 1536 bits. Generation and replay share the Arb backend, so this is a
+strong consistency replay rather than a clean-room reproduction.
+
+This negative result is informative because the unrestricted new block is
+already certified to capture more than `51/500 = 0.102` of the residual. The
+frozen arithmetic span captures less than `0.1`, so it genuinely misses some
+of the successful full-block direction. Exact dyadic-lift and local triangular
+cancellation identities in the [audit note](docs/nyman-trial-subspace-v1.md)
+locate the obstruction for those two explicit routes in the truncated divisor
+tail and its aliases beyond `2N`. The canonical artifact payload SHA-256 is
+`467d6d819700a87f656e917bcb3e63008d7243fa5f412f75b6eec4ade5a67956`.
+This rejects one finite trial rule only; RH remains `UNRESOLVED`.
+
 #### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
 
 Set `E_k=d_(2^k)^2` and `F_k=k log(2) E_k`. The exact v1 upper endpoint and
@@ -417,6 +459,10 @@ python -m venv .venv
   --candidate results\nyman-beta2-n512-candidate-v1.json `
   --summary results\nyman-natural-v1-summary.json `
   --checkpoint-dir results\nyman-natural-v1 --bits 1536
+.\.venv\Scripts\rh-lab.exe verify-nyman-trial-subspace-audit `
+  --artifact results\nyman-trial-subspace-v1.json `
+  --summary results\nyman-natural-v1-summary.json `
+  --checkpoint-dir results\nyman-natural-v1 --bits 1536
 ```
 
 Generate fresh artifacts:
@@ -454,6 +500,10 @@ Generate fresh artifacts:
   --summary results\nyman-natural-v1-summary.json `
   --checkpoint-dir results\nyman-natural-v1 `
   --output results\nyman-beta2-n512-v1-new.json
+.\.venv\Scripts\rh-lab.exe nyman-trial-subspace-audit `
+  --summary results\nyman-natural-v1-summary.json `
+  --checkpoint-dir results\nyman-natural-v1 `
+  --output results\nyman-trial-subspace-v1-new.json
 ```
 
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch

@@ -260,14 +260,16 @@ An inverse-free sufficient form is to exhibit explicit vectors `z_k` with
 
 for every `k>=9`.
 
-The one-direction Mobius scout at `256 -> 512` was insufficient: its estimated
-gain was about `0.074991 E_8`. That one-direction number is an exploratory
-diagnostic, not a stored interval certificate. In contrast, the full optimal
-gain lower bound `>0.1028950255 E_8` follows rigorously from the endpoint chain
-above. A proof-oriented next basis should test the Mobius taper together with
-untapered/quadratic Mobius terms, squarefree and squareful mass, and small-prime
-divisibility strata. Success at this one block would still be finite evidence;
-the required object is a uniform arithmetic bound.
+The one-direction raw, untapered `mu(j)` scout at `256 -> 512` was
+insufficient: its estimated gain was about `0.074991 E_8`. That one-direction
+number is an exploratory diagnostic, not a stored interval certificate. In
+contrast, the full optimal gain lower bound `>0.1028950255 E_8` follows
+rigorously from the endpoint chain above. The follow-up
+[eight-column audit](nyman-trial-subspace-v1.md) tests the suggested Mobius,
+squarefree/squareful, and small-prime strata together and rigorously proves
+that their exact span still captures less than `0.1 E_8`. This is one finite
+rejection, not an all-scale obstruction; the required object remains a
+different explicit family with a uniform arithmetic lower bound.
 
 ## Reproduction
 

@@ -71,6 +71,26 @@
       "statement": "A direct exact-dyadic primal witness and a fresh replay of the certified N=256 lower endpoint prove d_512^2 < (449/500)d_256^2, so the normalized optimal block gain is greater than 51/500."
     },
     {
+      "artifact": "results/nyman-trial-subspace-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "37667823882c4928f87c24d75406c2fc437f7b75f6bf85de62197162ec934260",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-trial-subspace-v1",
+      "implies_rh": false,
+      "limitations": "This rejects one explicit eight-dimensional trial space at the single 256-to-512 extension using one FLINT/Arb backend. It does not reject other trial spaces, establish the uniform k>=9 recurrence, or prove or disprove RH.",
+      "reproduction": "rh-lab verify-nyman-trial-subspace-audit --artifact results/nyman-trial-subspace-v1.json --summary results/nyman-natural-v1-summary.json --checkpoint-dir results/nyman-natural-v1 --bits 1536",
+      "scope": {
+        "aggregate_dimension": "264",
+        "generation_precision_bits": "768",
+        "new_block_first_j": "257",
+        "new_block_last_j": "512",
+        "positive_augmented_ldlt_pivots": "265",
+        "replay_precision_bits": "1536",
+        "trial_dimension": "8"
+      },
+      "statement": "For the frozen eight-column arithmetic trial space at the N=256 to N=512 extension, fixed-order interval LDL^T proves F_V > (9/10)U_256 and therefore its optimal captured gain Gamma(V) is strictly less than d_256^2/10."
+    },
+    {
       "classification": "EXPLORATORY",
       "id": "weil-positivity-program-v1",
       "limitations": "No finite set of positive compressions controls every Fourier mode and a cofinal unbounded family of cutoffs; the universal positivity theorem remains missing.",
