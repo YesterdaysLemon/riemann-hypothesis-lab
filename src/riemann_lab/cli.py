@@ -30,6 +30,11 @@ from .nyman_summary import (
     generate_nyman_summary,
     verify_nyman_summary,
 )
+from .nyman_rebound import (
+    NymanReboundError,
+    generate_nyman_rebound_audit,
+    verify_nyman_rebound_audit,
+)
 from .zeros import (
     ZeroCertificateError,
     certify_critical_line_zeros,
@@ -176,6 +181,14 @@ def _parser() -> argparse.ArgumentParser:
     nyman_summary.add_argument("--checkpoint-dir", type=Path, required=True)
     nyman_summary.add_argument("--output", type=Path, required=True)
 
+    nyman_rebound = commands.add_parser(
+        "nyman-rebound-audit",
+        help="generate the frozen exploratory Nyman forced-rebound audit",
+    )
+    nyman_rebound.add_argument("--summary", type=Path, required=True)
+    nyman_rebound.add_argument("--checkpoint-dir", type=Path, required=True)
+    nyman_rebound.add_argument("--output", type=Path, required=True)
+
     parity = commands.add_parser(
         "weil-parity-audit",
         help="generate an exploratory reversal-parity audit for one Weil cell",
@@ -280,6 +293,16 @@ def _parser() -> argparse.ArgumentParser:
         "--summary", type=Path, required=True
     )
     verify_nyman_summary_parser.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
+
+    verify_nyman_rebound = commands.add_parser(
+        "verify-nyman-rebound-audit",
+        help="exactly regenerate the frozen Nyman forced-rebound audit",
+    )
+    verify_nyman_rebound.add_argument("--artifact", type=Path, required=True)
+    verify_nyman_rebound.add_argument("--summary", type=Path, required=True)
+    verify_nyman_rebound.add_argument(
         "--checkpoint-dir", type=Path, required=True
     )
 
@@ -474,6 +497,33 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0
 
+    if args.command == "nyman-rebound-audit":
+        try:
+            artifact = generate_nyman_rebound_audit(
+                args.summary,
+                args.checkpoint_dir,
+            )
+            write_json(args.output, artifact)
+        except (NymanReboundError, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman rebound audit rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "audit_outcome": artifact["audit_outcome"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                    "scaled_declines": artifact[
+                        "five_exact_scaled_declines"
+                    ]["count"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
     if args.command == "weil-parity-audit":
         try:
             artifact = certify_parity_audit(
@@ -650,6 +700,23 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.JSONDecodeError,
         ) as exc:
             print(f"Nyman summary rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-nyman-rebound-audit":
+        try:
+            result = verify_nyman_rebound_audit(
+                args.artifact,
+                args.summary,
+                args.checkpoint_dir,
+            )
+        except (
+            NymanReboundError,
+            OSError,
+            json.JSONDecodeError,
+        ) as exc:
+            print(f"Nyman rebound audit rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0

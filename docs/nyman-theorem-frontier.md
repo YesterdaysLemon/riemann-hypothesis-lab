@@ -2,9 +2,13 @@
 
 ## Status
 
-This is a theorem-level research roadmap, not a result. The finite v1 brackets
-remain `EXPLORATORY`, the global hypothesis status remains `UNRESOLVED`, and
-every proposed bridge below is explicitly unproved.
+This is a theorem-level research roadmap. The finite v1 brackets remain
+`EXPLORATORY` and the global hypothesis status remains `UNRESOLVED`. One
+unconditional consequence is now proved at the published-theorem,
+manual-proof layer: the dyadic scaled distances must eventually rebound above
+their certified `N=256` level. The
+[full proof and its trust boundaries](nyman-forced-rebound-v1.md) are separate
+from the still-unproved targets below.
 
 ## Exact normalization map
 
@@ -55,6 +59,9 @@ D(\lambda)^2\log(1/\lambda)
 \sum_{\Re\rho=1/2}\frac{m(\rho)^2}{|\rho|^2}.
 \]
 
+Here and below the sum is over distinct nontrivial zeros, including both
+positive and negative ordinates, and `m(rho)` is the multiplicity.
+
 The subspace inclusion transfers this lower bound to the natural `d_N`.
 Combining it with the strong Nyman--Beurling criterion gives the unconditional
 dichotomy:
@@ -72,7 +79,25 @@ C_0=2+\gamma-\log(4\pi)
 \]
 
 This is asymptotic. It supplies no lower bound for an individual finite `N`,
-so a finite scaled value below `C_0` is not contradictory.
+so a finite scaled value below `C_0` is not contradictory. It does, however,
+force every sufficiently late value above any fixed smaller separator.
+
+For the dyadic sequence, define
+
+\[
+E_k=d_{2^k}^2,\qquad F_k=k\log(2)E_k.
+\]
+
+The exact v1 upper endpoint at `N=256` and an Arb scalar replay prove
+
+\[
+F_8<U_{256}\log(256)<\frac{23}{500}<C_0.
+\]
+
+The liminf bound therefore forces `F_k > 23/500` for every sufficiently large
+`k`. In particular, some adjacent future pair has `F_(k+1)>F_k`, even though
+the raw distances `E_k` are nonincreasing. The theorem gives no effective
+first rebound index.
 
 One useful design consequence is rigorous: an eventual fixed contraction
 
@@ -88,7 +113,42 @@ is impossible, because it would force polynomial decay and hence
 E_{k+1}\le\left(1-\frac{\alpha}{k+\beta}\right)E_k
 \]
 
-can be compatible with the obstruction only for `0 < alpha <= 1`.
+with `0 < alpha/(k+beta) < 1` can be compatible with the obstruction only for
+`0 < alpha <= 1`.
+
+The certified `N=256` anchor rules out more at the endpoint. If the recurrence
+with `alpha=1` holds at every step `k>=8`, exact telescoping gives
+
+\[
+E_k\le E_8\frac{\beta+7}{k+\beta-1},
+\qquad
+\limsup_{k\to\infty}F_k
+\le(\beta+7)\log(2)E_8.
+\]
+
+Because the finite certificate is strict, `E_8<U_256`, every such recurrence
+with
+
+\[
+\beta\le
+\beta_*:=\frac{C_0}{U_{256}\log(2)}-7
+=1.0935664210964617\ldots
+\]
+
+contradicts the universal floor, including at the endpoint. Thus `beta=1` is
+ruled out as an all-steps-from-`k=8` law. This does not exclude a `beta=1`
+recurrence beginning only after a later index. The convenient next integer
+endpoint `beta=2`,
+
+\[
+E_{k+1}\le\frac{k+1}{k+2}E_k,
+\]
+
+remains compatible because its anchor-based ceiling
+is not forced below `C_0`: the stored lower endpoint certifies
+`9 log(2) E_8 > C_0`, while
+`9 log(2) U_256 = 0.051364595008026...`. Recurrences with `0<alpha<1`
+likewise remain compatible with this obstruction.
 
 ## Known conditional upper families
 
@@ -124,19 +184,28 @@ Mellin identity above.
 
 ### 2. Harmonic dyadic extension theorem
 
-Use the exact autocorrelation kernel to seek an explicit extension
-`c^(k) -> c^(k+1)` satisfying
+Use the exact autocorrelation kernel to seek a uniform dyadic distance
+inequality, perhaps by an explicit extension of each finite optimizer, with
+the still-compatible target
 
 \[
-E(c^{(k+1)})
-\le
-\left(1-\frac{\alpha}{k+\beta}\right)E(c^{(k)}),
-\qquad 0<\alpha\le1.
+E_{k+1}\le\frac{k+1}{k+2}E_k.
 \]
 
-Unlike the impossible fixed-factor contraction, iteration would give a
-logarithmic-scale upper family. Finite v1 coefficients may suggest an ansatz,
-but fitting those coefficients is not evidence for the uniform inequality.
+Equivalently, the new block must capture at least `E_k/(k+2)` of the residual
+energy. If a larger Gram matrix is split into old and new blocks, block
+elimination gives the exact Schur identity
+
+\[
+E_{k+1}=E_k-t^\mathsf{T}S^{-1}t,
+\]
+
+so the target is `t^T S^-1 t >= E_k/(k+2)`. A recurrence with
+`0<alpha<1` is another compatible direction. The five certified extensions
+from `N=8` through `N=256` satisfy the stronger `beta=1` comparison, but the
+forced-rebound theorem proves that pattern must eventually fail. Finite v1
+coefficients may suggest an ansatz; fitting them is not evidence for a
+uniform inequality.
 
 ### 3. Infinite-tail floor for a disproof
 
@@ -150,6 +219,18 @@ need an explicit `delta>0` with
 
 Then the limiting squared distance would be at least `delta`. A positive
 finite lower bound alone says nothing about this tail and cannot disprove RH.
+The exact identity is
+
+\[
+d_\infty^2=d_N^2-\|P_{T_N}r_N\|^2.
+\]
+
+Controlling only a finite sub-block of the tail gives the projection from
+below, in the wrong direction. A valid certificate must dominate the entire
+infinite tail. An off-critical-line zero would provide an exact annihilating
+dual witness and hence a positive all-`N` floor, but producing such a zero
+would already disprove RH. The construction and its exact constant are
+derived in the [forced-rebound proof note](nyman-forced-rebound-v1.md).
 
 ## Role of the v1 data
 
@@ -161,9 +242,12 @@ d_N^2 log N
         .0502423 .0496128 .0487003 .0473116 .0468636 .0456574
 ```
 
-They are consistent with a logarithmic scale, but do not establish it. In
-particular, the `N=256` scaled value being about 1.2 percent below `C_0` does
-not conflict with an asymptotic liminf theorem.
+They are consistent with a logarithmic scale, but do not establish decay to
+zero. The `N=256` scaled value being about 1.2 percent below `C_0` does not
+conflict with an asymptotic liminf theorem; combined with that theorem, its
+strict certified separator forces a later scaled rebound and at least one
+adjacent scaled increase. It still supplies neither an effective rebound
+index nor a proof or disproof of RH.
 
 ## Primary sources
 
