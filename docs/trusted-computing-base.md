@@ -239,6 +239,30 @@ or derive infinite `L^1` divergence from a finite prefix. That cited theorem
 rejects the first sequential greedy correction only. It does not reject every
 Vasyunin seed or multiscale Nyman construction and does not resolve RH.
 
+### Sharp alias-truncation finite audit
+
+The sharp alias artifact trusts CPython arbitrary-precision integers and
+`Fraction`; this repository's linear Möbius sieve, finite Dirichlet
+convolution and divisor-sum implementations, canonical JSON, hashing, and
+exact regeneration code. It does not use FLINT, Arb, floating point, or an
+approximate solve. The frozen shell is `y_9=1, y_16=-1`, and every arithmetic
+identity is checked only through `X=4096`.
+
+The verifier rejects duplicate keys, nonstandard constants, floats, unknown
+fields, malformed canonical limits, payload mutations, and any tree that does
+not exactly regenerate. Generation and verification share the same Python
+implementation. The three vector hashes bind the Möbius, alias-coefficient,
+and divisor-inversion prefixes, but this remains a consistency replay rather
+than a clean-room implementation.
+
+The theorem that `sum_(n<=X)(mu*y)(n)/n` is not `o(X^-1/2)` for every nonzero
+finite `y` is a separate human-auditable analytic bridge. The finite checker
+does not prove Mellin continuation, Jensen's exponential-polynomial zero
+count, Conrey's positive-proportion theorem for simple critical-line zeros,
+or the boundary Abelian contradiction. The theorem rejects fixed-shell sharp
+truncation only; it does not cover scale-dependent regularization or resolve
+RH.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker

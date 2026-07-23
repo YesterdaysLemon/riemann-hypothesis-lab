@@ -1,0 +1,203 @@
+{
+  "audit_outcome": "SHARP_ALIAS_FINITE_IDENTITIES_CERTIFIED",
+  "checkpoint_records": [
+    {
+      "S_X": {
+        "denominator": "144",
+        "numerator": "7"
+      },
+      "X": "16",
+      "X_times_S_X_squared": {
+        "denominator": "1296",
+        "numerator": "49"
+      },
+      "nonzero_alias_coefficients_through_X": "2"
+    },
+    {
+      "S_X": {
+        "denominator": "864",
+        "numerator": "-11"
+      },
+      "X": "32",
+      "X_times_S_X_squared": {
+        "denominator": "23328",
+        "numerator": "121"
+      },
+      "nonzero_alias_coefficients_through_X": "5"
+    },
+    {
+      "S_X": {
+        "denominator": "30240",
+        "numerator": "-347"
+      },
+      "X": "64",
+      "X_times_S_X_squared": {
+        "denominator": "14288400",
+        "numerator": "120409"
+      },
+      "nonzero_alias_coefficients_through_X": "9"
+    },
+    {
+      "S_X": {
+        "denominator": "2162160",
+        "numerator": "-137"
+      },
+      "X": "128",
+      "X_times_S_X_squared": {
+        "denominator": "36522936450",
+        "numerator": "18769"
+      },
+      "nonzero_alias_coefficients_through_X": "16"
+    },
+    {
+      "S_X": {
+        "denominator": "1003917915",
+        "numerator": "354181"
+      },
+      "X": "256",
+      "X_times_S_X_squared": {
+        "denominator": "1007851180057947225",
+        "numerator": "32113710274816"
+      },
+      "nonzero_alias_coefficients_through_X": "28"
+    },
+    {
+      "S_X": {
+        "denominator": "312855921381024429408",
+        "numerator": "1171435311891284729"
+      },
+      "X": "512",
+      "X_times_S_X_squared": {
+        "denominator": "191169585045253395931754424495492139122",
+        "numerator": "1372260689945831529205719906148603441"
+      },
+      "nonzero_alias_coefficients_through_X": "54"
+    },
+    {
+      "S_X": {
+        "denominator": "910369573644027104298581941196457479806310985312",
+        "numerator": "-3521522132523430580735363915537551280784449299"
+      },
+      "X": "1024",
+      "X_times_S_X_squared": {
+        "denominator": "809348399039851259078343675484645265515538765599246196745524033550787099377871583916804960681",
+        "numerator": "12401118129852370173524373300128291346917312101356984093103122034736293020160466142701591401"
+      },
+      "nonzero_alias_coefficients_through_X": "110"
+    },
+    {
+      "S_X": {
+        "denominator": "2999203528492956421352262469675717376680848157470971327566247198930782535098780456464063960",
+        "numerator": "7425519487394902798670318266754894378868312693493500774814048729309780116296195807491963"
+      },
+      "X": "2048",
+      "X_times_S_X_squared": {
+        "denominator": "140550340708196875943483223328425601216815994259573574448717571041345170030763450203621051676937056376763546565814713779091279888714587548952136288241920574392594302801357483920025",
+        "numerator": "1764426869045806720740816645662678875150726295816170223153401898260379956533733056457381033631136795599768144979036464393605532360164478984292189280797884505319424154889906987808"
+      },
+      "nonzero_alias_coefficients_through_X": "219"
+    },
+    {
+      "S_X": {
+        "denominator": "42104992436601485057786283076272800535577053759674245590507859185808804676078637449401275602116885852557139015264624309695226728038012454024834540229882839639726040377448744673512142760",
+        "numerator": "-42131792535748749422602711278328874276147734197238009893587514456753928052305087125126960954881735690554977953028643298565666630345520737818175980118928024753572815530736367000933511"
+      },
+      "X": "4096",
+      "X_times_S_X_squared": {
+        "denominator": "27700474813847941589269980124012223805273993711311161764161083614335970376179062171446928004000653896766494165636210397505619430364010151958034151118989798742652423524504753345017485944716994346320064169191621070555044608366612340905772641437667728313807999433955811252690581497098078106569869164592596336583738170978426903019396338527782736704718134999895705728444025",
+        "numerator": "113605628305623938361162084371965532066075890226053798412419914854668944931872574227118921012644620777524902755710862736028314372178674687906447643510771846215351838288042491904871048663621442264100161909408665594443631816272542951623971192446088249291829592932890907914603735359202553446958820896800522805199075388035177355036078492081042019616990296956508338375744"
+      },
+      "nonzero_alias_coefficients_through_X": "436"
+    }
+  ],
+  "checks": {
+    "a_equals_mu_convolved_with_y_through_limit": true,
+    "cumulative_floor_alias_matches_target_on_every_integer_interval": true,
+    "direct_and_factored_S_X_match_for_every_X": true,
+    "frozen_shell_has_zero_coefficient_sum": true,
+    "integer_and_fraction_arithmetic_only": true,
+    "mobius_sieve_completed": true,
+    "one_convolved_with_a_equals_y_through_limit": true
+  },
+  "classification": "CERTIFIED_FINITE",
+  "definitions": {
+    "extension": "a_n=sum_(j|n)y_j*mu(n/j)",
+    "factored_slope": "S_X=sum_j (y_j/j)*sum_(k<=X/j)mu(k)/k",
+    "finite_error_identity": "g_X(t)-f_y(t)=t*S_X for 0<t<=X",
+    "norm_lower_bound": "||g_X-f_y||_2^2>=X*|S_X|^2",
+    "sharp_section": "g_X(t)=sum_(n<=X)a_n*{t/n}",
+    "slope": "S_X=sum_(n<=X)a_n/n",
+    "target": "f_y(t)=-sum_(j<=floor(t))y_j"
+  },
+  "external_theorem_bridge": {
+    "machine_scope": {
+      "conrey_zero_theorem_machine_reproved": false,
+      "exponential_polynomial_zero_count_machine_proved": false,
+      "finite_divisor_inversion_checked": true,
+      "finite_mobius_convolution_checked": true,
+      "finite_slope_factorization_checked": true,
+      "infinite_non_little_o_conclusion_machine_proved": false,
+      "mellin_continuation_machine_proved": false,
+      "resolves_rh": false,
+      "scale_dependent_regularizations_covered": false
+    },
+    "primary_sources": [
+      {
+        "author": "Luis Baez-Duarte",
+        "primary_url": "https://arxiv.org/abs/math/0504402",
+        "relevance": "Mellin-convolution RH criteria and the analogous critical x^(-1/2) non-little-o obstruction",
+        "title": "Moebius-convolutions and the Riemann hypothesis",
+        "year": "2005"
+      },
+      {
+        "author": "J. B. Conrey",
+        "primary_url": "https://doi.org/10.1515/crll.1989.399.1",
+        "relevance": "positive-proportion theorem for simple critical-line zeros",
+        "title": "More than two fifths of the zeros of the Riemann zeta function are on the critical line",
+        "year": "1989"
+      }
+    ],
+    "proof_outline": [
+      "For Re(z)>0, D(z)=sum_n a_n*n^(-1-z)=B_y(1+z)/zeta(1+z), where B_y(s)=sum_j y_j*j^(-s).",
+      "If S_X=o(X^(-1/2)), partial summation extends D holomorphically to Re(z)>-1/2 and a boundary Abelian lemma forces epsilon*D(-1/2+epsilon+i*gamma) to zero.",
+      "A nonzero finite Dirichlet polynomial is an entire exponential polynomial with only O(T) zeros, counted with multiplicity, in a bounded vertical strip.",
+      "Conrey proved that a positive proportion, hence order T*log(T), of zeta zeros are simple and on the critical line. One is not a zero of B_y, giving a boundary pole that contradicts the Abelian limit.",
+      "The exact identity ||g_X-f_y||_2^2 >= X*|S_X|^2 then excludes sharp-section norm convergence."
+    ],
+    "theorem": "For every nonzero finitely supported y, if a=mu*y and S_X=sum_(n<=X)a_n/n, then S_X is not o(X^(-1/2)). Consequently the sharp sections g_X=sum_(n<=X)a_n*{t/n} do not converge to f_y in L2((0,infinity),dt/t^2)."
+  },
+  "finite_scope": {
+    "arithmetic": "exact CPython integers and Fraction",
+    "checked_integer_arguments": "[1,4096]",
+    "checkpoint_count": "9",
+    "limit": "4096"
+  },
+  "frozen_shell": {
+    "coefficient_sum": "0",
+    "harmonic_sum": {
+      "denominator": "144",
+      "numerator": "7"
+    },
+    "records": [
+      {
+        "coefficient": "1",
+        "index": "9"
+      },
+      {
+        "coefficient": "-1",
+        "index": "16"
+      }
+    ],
+    "support_interval": "(8,16]",
+    "target_step": "f_y(t)=-1 on [9,16) and 0 elsewhere"
+  },
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This CERTIFIED_FINITE artifact checks exact arithmetic identities only through its declared limit for the frozen shell y_9=1, y_16=-1. The all-shell sharp-truncation obstruction uses the cited critical-line zero theorem plus the human-auditable Mellin and Abelian argument; it is not proved by finite enumeration. The obstruction does not cover scale-dependent shells, non-sharp summability methods, or arbitrary multiscale constructions, and it does not prove or disprove the Riemann Hypothesis. The global status remains UNRESOLVED.",
+  "payload_sha256": "c19d949db86c372916c2cbe583c3e2ff7ea96b3399c0937483eef795e8b56575",
+  "schema": "rh-lab/nyman-alias-sharp-truncation-audit/v1",
+  "vector_bindings": {
+    "alias_coefficient_prefix_sha256": "6eb3fe0110db7175b3e28b0eff046aad648951b3592e5373f492ccec605b87c5",
+    "divisor_inversion_prefix_sha256": "05e53e0ea8096f99e3a64f58f8c4845d5fc94b4d930ece65ab41f892cfd8d5c3",
+    "mobius_prefix_sha256": "e708cbbfd306386dfffe634f23dcd23d9bb9a9daf3e006024bc0589d2862ded5"
+  }
+}

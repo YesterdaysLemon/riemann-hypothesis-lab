@@ -394,6 +394,63 @@ def test_vasyunin_greedy_cli_generates_and_exactly_replays(
     assert "cannot read or parse Vasyunin audit" in capsys.readouterr().out
 
 
+def test_alias_sharp_truncation_cli_generates_and_exactly_replays(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    artifact_path = tmp_path / "alias-audit.json"
+
+    assert main(
+        [
+            "nyman-alias-sharp-truncation-audit",
+            "--limit",
+            "64",
+            "--output",
+            str(artifact_path),
+        ]
+    ) == 0
+    generated = json.loads(capsys.readouterr().out)
+    assert generated["classification"] == "CERTIFIED_FINITE"
+    assert generated["hypothesis_status"] == "UNRESOLVED"
+    assert generated["limit"] == "64"
+
+    artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
+    assert artifact["payload_sha256"] == generated["payload_sha256"]
+    assert artifact["frozen_shell"]["target_step"] == (
+        "f_y(t)=-1 on [9,16) and 0 elsewhere"
+    )
+
+    assert main(
+        [
+            "verify-nyman-alias-sharp-truncation-audit",
+            "--artifact",
+            str(artifact_path),
+        ]
+    ) == 0
+    replayed = json.loads(capsys.readouterr().out)
+    assert replayed == {
+        "classification": "REPRODUCED_CERTIFIED_FINITE_ALIAS_IDENTITIES",
+        "hypothesis_status": "UNRESOLVED",
+        "infinite_sharp_truncation_obstruction_machine_reproved": False,
+        "payload_sha256": artifact["payload_sha256"],
+        "verified_limit": "64",
+    }
+
+    duplicate_path = tmp_path / "duplicate-alias-audit.json"
+    duplicate_path.write_text(
+        '{"schema":"first","schema":"second"}',
+        encoding="utf-8",
+    )
+    assert main(
+        [
+            "verify-nyman-alias-sharp-truncation-audit",
+            "--artifact",
+            str(duplicate_path),
+        ]
+    ) == 2
+    assert "duplicate JSON object key: schema" in capsys.readouterr().out
+
+
 def test_parity_and_nesting_cli_artifacts_replay(
     tmp_path: Path,
     capsys: pytest.CaptureFixture[str],
