@@ -21,6 +21,7 @@ Current finite results and documented theorem consequences:
 | 81 complete Weil matrices around the prime-power transitions `q=7,8,9`, degrees `12..24`; every cell certified positive definite by interval `LDL^T` | `EXPLORATORY` | All 81 cells, 108 attempts, and 905 stored candidate evaluations replayed; 9 parity and 6 degree-nesting audits also passed | A bounded null search: no negative witness was found, and positive finite compressions cannot prove RH |
 | Six natural-dilate Nyman distances for `N=8,16,32,64,128,256`; each has an exact bracket `L_N < d_N^2 <= U_N` of width `2^-120`, and all five exact comparisons `U_2N < L_N` pass | `EXPLORATORY` | A separate same-backend replay rebuilt the full kernel at 1536 bits and re-certified all six stored dyadic candidates and all 510 interval `LDL^T` pivots | Finite decay cannot establish the required limit `d_N -> 0` |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
+| The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
 | Lagarias inequality certified for every `1 <= n <= 1,000,000`, equality only at `n=1`, using exact integer divisor sums and Arb balls | `CERTIFIED_FINITE` | Full range replayed at 384 bits | A counterexample would disprove RH; a positive finite prefix does not prove it |
 | Proof or counterexample | `UNRESOLVED` | — | The actual objective remains open |
@@ -37,6 +38,7 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Nyman v1 summary](results/nyman-natural-v1-summary.json),
 [Nyman normalization audit](results/nyman-natural-v1-normalization.json),
 [Nyman finite rebound audit](results/nyman-forced-rebound-v1.json),
+[Nyman Mobius core/tail audit](results/nyman-mobius-core-tail-v1.json),
 [public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
 [Lagarias certificate](results/lagarias-1-1000000.json), and the
@@ -218,6 +220,59 @@ separator is machine-certified; the universal bridge and recurrence
 consequences remain a published-theorem, human-auditable proof layer. See the
 [full auditable proof](docs/nyman-forced-rebound-v1.md).
 
+#### Log-tapered Mobius core/tail audit (`EXPLORATORY`)
+
+For the Bettin--Conrey--Farmer coefficients
+
+```text
+a_n = mu(n) (1 - log(n)/log(N)),    c_n = -a_n,
+```
+
+the reciprocal-variable residual is
+`R_N(t)=1_[1,infinity)(t)+sum_(n<=N) a_n {t/n}`. Write
+`S_N=sum a_n/n`, `h_N(k)=sum_(d|k,d<=N) a_d`,
+`H_N(m)=sum_(k<=m)h_N(k)`, and `q_N(m)=1-H_N(m)`. Directly expanding the
+floors gives the exact finite core
+
+```text
+C_N = S_N^2 + sum_(m=1)^(N-1)
+      [S_N^2 + 2 S_N q_N(m) log((m+1)/m) + q_N(m)^2/(m(m+1))].
+```
+
+The exact identities `sum_(d|k) mu(d)=1_(k=1)` and
+`sum_(d|k) mu(d)log(d)=-Lambda(k)` reduce this, below the cutoff, to a
+weighted prime-counting error:
+
+```text
+R_N(t) = (kappa_N t - psi(floor(t)))/log(N),    1 <= t < N,
+kappa_N = sum_(n<=N) mu(n) log(N/n)/n.
+```
+
+That shortcut generally fails after `floor(t)>N`, where divisors above the
+finite cutoff are missing. The audit therefore computes the total energy from
+the full Gram form, computes the core by two separate same-backend formulas,
+and defines the nonnegative tail by `T_N=E_BCF(N)-C_N`.
+
+| `N` | `E_BCF(N)` | Core `C_N` | Tail `T_N` | Core share | Certified `E_BCF(N)/d_N^2` lower factor |
+|---:|---:|---:|---:|---:|---:|
+| 8 | `0.824866775` | `0.727107142` | `0.097759633` | 88.1484% | `>34` |
+| 16 | `0.475766238` | `0.443633153` | `0.032133085` | 93.2460% | `>26` |
+| 32 | `0.308865047` | `0.296948577` | `0.011916470` | 96.1419% | `>21` |
+| 64 | `0.216590742` | `0.211282265` | `0.005308477` | 97.5491% | `>19` |
+| 128 | `0.159843770` | `0.157252637` | `0.002591134` | 98.3790% | `>16` |
+| 256 | `0.124287708` | `0.122749844` | `0.001537864` | 98.7627% | `>15` |
+
+All totals, cores, tails, and their products with `log(N)` strictly decrease
+on this six-point grid. Those are finite interval-certified facts, not an
+asymptotic inference. The exact missing theorem is an all-scale estimate such
+as `E_BCF(N)<=K/log(N)` for every sufficiently large `N`; it would force
+`d_N^2->0` and hence prove RH. Neither this repository nor the cited
+literature proves that bound unconditionally. The derivation, trust boundary,
+and all-scale target are in the
+[core/tail audit note](docs/nyman-mobius-core-tail-v1.md).
+The canonical artifact payload SHA-256 is
+`b6579bf5774e5413ee5f05b2d3f125d1afcd6f8e519a3942b7352924d01acb8e`.
+
 ## Research strategy
 
 The main bet is **Weil explicit-formula positivity**. We define `Q` as the
@@ -302,6 +357,10 @@ python -m venv .venv
   --artifact results\nyman-forced-rebound-v1.json `
   --summary results\nyman-natural-v1-summary.json `
   --checkpoint-dir results\nyman-natural-v1
+.\.venv\Scripts\rh-lab.exe verify-nyman-mobius-core-tail-audit `
+  --artifact results\nyman-mobius-core-tail-v1.json `
+  --summary results\nyman-natural-v1-summary.json `
+  --checkpoint-dir results\nyman-natural-v1
 ```
 
 Generate fresh artifacts:
@@ -328,6 +387,10 @@ Generate fresh artifacts:
   --summary results\nyman-natural-v1-summary.json `
   --checkpoint-dir results\nyman-natural-v1 `
   --output results\nyman-forced-rebound-v1-new.json
+.\.venv\Scripts\rh-lab.exe nyman-mobius-core-tail-audit `
+  --summary results\nyman-natural-v1-summary.json `
+  --checkpoint-dir results\nyman-natural-v1 `
+  --output results\nyman-mobius-core-tail-v1-new.json
 ```
 
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch

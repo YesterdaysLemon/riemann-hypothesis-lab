@@ -160,27 +160,165 @@ likewise remain compatible with this obstruction.
   `c_{n,N}=-mu(n)n^-epsilon` with a scale-dependent `epsilon`.
 - Bettin, Conrey, and Farmer use the log-tapered family
   `c_{n,N}=-mu(n)(1-log(n)/log(N))`. Under RH plus a zero-derivative negative
-  moment estimate, they prove the expected leading scale `C_0/log N`.
+  moment estimate
+  `sum_(|Im rho|<=T) 1/|zeta'(rho)|^2 << T^(3/2-delta)` for some
+  `delta>0`, they prove the expected leading scale `C_0/log N`. The moment
+  assumption in particular excludes multiple zeros.
+- Burnol's 2002 analytic variant proves a conditional uniform estimate for
+  `zeta(s)/zeta(s+A)` on the critical line. It also proves that square
+  integrability of the associated functions `f_epsilon` along any sequence
+  `epsilon -> 0` already implies RH. This is a useful warning: apparently
+  technical `L^2` estimates in this setting can contain the whole hypothesis.
+- Ehm's 2024 Gram-kernel decomposition makes a related obstruction explicit.
+  Its exact quadratic-form formulas isolate a truncated Mobius-inversion error
+  `E_a^(q)(N)`; estimating that error is identified as a major challenge and
+  is set aside. The paper supplies useful identities and modified
+  Levinson--Selberg coefficients, not an unconditional proof that the natural
+  distance tends to zero.
 
 These are conditional analyses, not unconditional certificate families. A
 proof that any explicit family has error `epsilon_N -> 0` for all sufficiently
 large `N` would itself prove RH.
 
+## Exact BCF core/tail split
+
+The following is an exact arithmetic rewriting of the error of the
+Bettin--Conrey--Farmer (BCF) log taper. It is an identity, not an asymptotic
+estimate. For `N>1`, put
+
+\[
+L=\log N,\qquad
+a_n=\mu(n)\left(1-\frac{\log n}{L}\right),\qquad
+s_N=\sum_{n\le N}\frac{a_n}{n},\qquad
+\kappa_N=Ls_N.
+\]
+
+The corresponding primal coefficients are `c_n=-a_n`. In the `t`-space
+normalization define the residual
+
+\[
+r_N(t)=\mathbf 1_{[1,\infty)}(t)+\sum_{n\le N}a_n\{t/n\}.
+\]
+
+For integers `k,m>=1`, define the truncated divisor and cumulative sums
+
+\[
+h_N(k)=\sum_{\substack{d\mid k\\d\le N}}a_d,\qquad
+H_N(m)=\sum_{k\le m}h_N(k),\qquad
+q_N(m)=1-H_N(m).
+\]
+
+Then `r_N(t)=ts_N` on `0<t<1`, while on every interval
+`m<=t<m+1`,
+
+\[
+r_N(t)=ts_N+q_N(m).
+\]
+
+Consequently the BCF squared error splits exactly as
+
+\[
+\|r_N\|_{L^2(t^{-2}dt)}^2=\mathcal C_N+\mathcal T_N,
+\]
+
+where
+
+\[
+\mathcal C_N=s_N^2+\sum_{m=1}^{N-1}
+\left[
+s_N^2+2s_Nq_N(m)\log\frac{m+1}{m}
++\frac{q_N(m)^2}{m(m+1)}
+\right]
+\]
+
+and
+
+\[
+\mathcal T_N=\sum_{m=N}^{\infty}
+\left[
+s_N^2+2s_Nq_N(m)\log\frac{m+1}{m}
++\frac{q_N(m)^2}{m(m+1)}
+\right].
+\]
+
+Each bracket is the integral of the nonnegative squared residual over one
+unit interval; its three displayed terms must not be bounded separately
+without preserving their cancellation.
+
+For `k<=N`, the full divisor sum is available and the elementary Mobius
+identities give
+
+\[
+h_N(k)=\mathbf 1_{k=1}+\frac{\Lambda(k)}{L}.
+\]
+
+Thus `H_N(m)=1+\psi(m)/L` and `q_N(m)=-\psi(m)/L` throughout the core
+`m<N`. In particular,
+
+\[
+L^2\mathcal C_N
+=N\kappa_N^2
+-2\kappa_N\sum_{m=1}^{N-1}\psi(m)\log\frac{m+1}{m}
++\sum_{m=1}^{N-1}\frac{\psi(m)^2}{m(m+1)}.
+\]
+
+For the tail, put `Q_N(m)=Lq_N(m)`. The exact expression is
+
+\[
+L^2\mathcal T_N=\sum_{m=N}^{\infty}
+\left[
+\kappa_N^2+2\kappa_NQ_N(m)\log\frac{m+1}{m}
++\frac{Q_N(m)^2}{m(m+1)}
+\right].
+\]
+
+Although `Q_N(N)=-psi(N)`, the identity `Q_N(m)=-psi(m)` does not continue
+for `m>N`: the divisor sum is truncated at `d<=N`. That truncation is the
+arithmetic tail obstruction.
+
+The recommended next lemma is the explicitly `UNRESOLVED` comparison
+
+\[
+\boxed{\quad
+\mathcal T_N\le A\mathcal C_N+\frac{B}{\log N}
+\quad}
+\tag{unproved target}
+\]
+
+for absolute constants `A,B` and all sufficiently large `N`. Together with
+the separate estimate `mathcal C_N=o(1)`, it would give an explicit family
+with total error tending to zero and hence prove RH. The comparison alone
+does not prove RH.
+
+The core estimate is not a routine consequence of the prime number theorem.
+It is a positive quadratic expression at the scale of fluctuations of
+`psi(x)-x`; known estimates strong enough to make it vanish are
+zero-sensitive and must be treated as RH-strength. This note does not claim a
+published equivalence `mathcal C_N -> 0 iff RH`, but it also does not assume
+unconditional core decay. Both that decay and the boxed tail comparison
+remain `UNRESOLVED`. Ehm's inversion-error term is the closest audited
+quadratic-form analogue of the tail obstruction; no theorem in that paper
+closes the boxed estimate.
+
 ## Prioritized theorem targets
 
 ### 1. Explicit all-N upper family
 
-Start from the Bettin--Conrey--Farmer log taper and derive a completely
-explicit main-term-plus-tail inequality. The immediate objective is not to
-assume their zero estimate, but to isolate one exact residue or tail lemma
-whose unconditional proof would imply
+Start from the exact BCF split above and isolate the truncation obstruction.
+The first target is the boxed comparison
+`mathcal T_N <= A mathcal C_N+B/log N`, potentially by translating
+`mathcal T_N` into Ehm's Mobius-inversion error and then controlling it in
+dyadic blocks. This is deliberately narrower than assuming the BCF zero
+estimate. A complete proof would still need a valid core estimate strong
+enough to imply
 
 \[
 E(c^{(N)})\le \frac{K}{(\log N)^\alpha}
 \]
 
-for some `alpha>0`. This single statement would prove RH through the exact
-Mellin identity above.
+for some `alpha>0`. Such a total estimate would prove RH through the exact
+Mellin identity above. Neither the tail comparison nor the required core
+estimate is currently proved here.
 
 ### 2. Harmonic dyadic extension theorem
 
@@ -210,11 +348,11 @@ uniform inequality.
 ### 3. Infinite-tail floor for a disproof
 
 Let `S_N=span(rho_1,...,rho_N)`, `r_N=chi-P_N chi`, and
-`T_N=closure((I-P_N)span{rho_a:a>N})`. A valid counterexample bridge would
+`\mathscr T_N=closure((I-P_N)span{rho_a:a>N})`. A valid counterexample bridge would
 need an explicit `delta>0` with
 
 \[
-\|P_{T_N}r_N\|^2\le d_N^2-\delta.
+\|P_{\mathscr T_N}r_N\|^2\le d_N^2-\delta.
 \]
 
 Then the limiting squared distance would be at least `delta`. A positive
@@ -222,7 +360,7 @@ finite lower bound alone says nothing about this tail and cannot disprove RH.
 The exact identity is
 
 \[
-d_\infty^2=d_N^2-\|P_{T_N}r_N\|^2.
+d_\infty^2=d_N^2-\|P_{\mathscr T_N}r_N\|^2.
 \]
 
 Controlling only a finite sub-block of the tail gives the projection from
@@ -257,7 +395,11 @@ index nor a proof or disproof of RH.
   [A strengthening of the Nyman--Beurling criterion for the Riemann hypothesis, 2](https://arxiv.org/abs/math/0205003).
 - Burnol,
   [A lower bound in an approximation problem involving the zeros of the Riemann zeta function](https://arxiv.org/abs/math/0103058).
+- Burnol,
+  [On an analytic estimate in the theory of the Riemann Zeta function and a Theorem of Baez-Duarte](https://arxiv.org/abs/math/0202166).
 - Balazard and de Roton,
   [Sur un critere de Baez-Duarte pour l'hypothese de Riemann](https://arxiv.org/abs/0812.1689).
 - Bettin, Conrey, and Farmer,
   [An optimal choice of Dirichlet polynomials for the Nyman--Beurling criterion](https://arxiv.org/abs/1211.5191).
+- Ehm,
+  [On certain Gram matrices and their associated series](https://arxiv.org/abs/2405.06349).

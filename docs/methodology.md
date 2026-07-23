@@ -64,6 +64,16 @@ rational and Arb inequalities are reproducible, while its infinite bridge is
 human-auditable published-theorem mathematics rather than a Python-checked
 proof.
 
+The [log-tapered Mobius core/tail audit](nyman-mobius-core-tail-v1.md)
+evaluates the Bettin--Conrey--Farmer candidate on the same six finite
+dimensions. It checks the exact divisor identities through `256`, assembles
+the core by separate same-backend truncated-divisor and `psi` paths, and obtains
+the tail from the complete Gram energy. The `psi` simplification is explicitly
+forbidden beyond the cutoff. A 512-bit same-backend replay must lie inside all
+stored 256-bit enclosures. The isolated all-scale target
+`E_BCF(N)<=K/log(N)` remains unproved; finite decreases are not promoted into
+an asymptotic claim.
+
 ### 3. Independent falsifiers
 
 - Li coefficients: a single interval-certified negative coefficient disproves
