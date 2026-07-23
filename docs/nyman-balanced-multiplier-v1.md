@@ -33,9 +33,15 @@ route alive, but does not supply the missing uniform theorem.
 **Certified follow-up.** A separately frozen 9-bit rounding of the
 `N=256`, `K=16` direction now has its entire signed tail enclosed. The
 [complete-tail certificate](nyman-balanced-full-tail-v1.md) proves direct gain
-greater than `7/50000` for that one exact vector. This does not retroactively
-certify the binary64 scout table or provide the missing uniform theorem; RH
-remains unresolved.
+greater than `7/50000` for that one exact vector. The later
+[Fourier/Farey large-sieve certificate](nyman-large-sieve-tail-v1.md) proves
+the stronger bound `1/5000` from a prefix sixteen times shorter and replaces
+the coefficientwise LCM estimate by a general support-energy lemma. The
+[six-scale fixed-width suite](nyman-large-sieve-scaling-v1.md) then certifies
+positive complete gain for all six stored `K=64` rows under `T=32768N`.
+Those rows are independent rather than a nested recurrence. This does not
+retroactively certify the binary64 scout table or provide the missing uniform
+theorem; RH remains unresolved.
 
 ## Setup
 
@@ -538,15 +544,16 @@ full Hilbert space. Since the next dimension is at most `2KN`, the resulting
 reciprocal-log gains would have a divergent sum and force the distances to
 zero.
 
-The missing proof has two parts:
+The remaining proof has two parts:
 
-1. control the complete signed alias tail for the actual ideal shell, not a
-   shell-uniform surrogate that is already RH-equivalent;
-2. prove a uniform local-gain lower bound and direct-gain retention estimate.
+1. prove uniform scale bounds for the old and new periodic energies entering
+   the large-sieve tail lemma;
+2. prove a uniform local-gain lower bound and choose a cutoff that retains a
+   fixed fraction of that gain.
 
-Neither statement is proved here. The fixed-width finite table identifies a
-specific target for those estimates and replaces the earlier polynomial-width
-norm-only target.
+Neither uniform statement is proved here. The finite-support tail itself is
+now controlled exactly by `Q(Q-1)(rho+tau)`, so the fixed-width table identifies
+a concrete energy-to-gain target instead of an unresolved pairwise-LCM tail.
 
 ## Primary sources
 
@@ -561,3 +568,6 @@ norm-only target.
   criterion*](https://arxiv.org/abs/1211.5191).
 - Alexandre Pyvovarov,
   [*A few remarks on the Baez-Duarte Criterion*](https://arxiv.org/abs/2607.12084).
+- H. L. Montgomery and R. C. Vaughan,
+  [*The large sieve*](https://doi.org/10.1112/S0025579300004708),
+  *Mathematika* 20 (1973), 119-134.

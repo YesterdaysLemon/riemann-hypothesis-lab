@@ -1,0 +1,1310 @@
+{
+  "as_of": "2026-07-23",
+  "cells": [
+    {
+      "checks": {
+        "added_coefficient_sum_zero": true,
+        "added_harmonic_sum_zero": true,
+        "added_support_at_most_2nk": true,
+        "full_gain_strictly_above_claim": true,
+        "old_support_at_most_n": true,
+        "resolves_rh": false,
+        "uniform_cutoff_rule": true
+      },
+      "claimed_gain_lower_bound": {
+        "denominator": "150",
+        "numerator": "1"
+      },
+      "cutoff": "262144",
+      "full_gain": {
+        "enclosure": {
+          "display": "[0.0068 +/- 3.72e-5]",
+          "dyadic": {
+            "mid_exponent": "-263",
+            "mid_mantissa": "100853756142177276876610571390848146512516944045081206166910488285706352260705",
+            "radius_exponent": "-44",
+            "radius_mantissa": "571931603"
+          },
+          "is_exact": false
+        }
+      },
+      "n": "8",
+      "prefix": {
+        "added_denominator": "262144",
+        "block_count": "1",
+        "block_size": "262144",
+        "computed_absolute_term_sum_upper": {
+          "denominator": "324518553639537332909271477649408",
+          "numerator": "39998293849647659032710024737147"
+        },
+        "cutoff": "262144",
+        "last_added_step_numerator": "-34590",
+        "last_old_intercept_numerator": "150479576",
+        "logarithmic_gain": {
+          "display": "[-0.002017608106588485318259268582616320596430 +/- 1.95e-43]",
+          "dyadic": {
+            "mid_exponent": "-263",
+            "mid_mantissa": "-29903751414275386631475785267848320011660119505590994045066070936259541217125",
+            "radius_exponent": "-261",
+            "radius_mantissa": "16824509"
+          },
+          "is_exact": false
+        },
+        "maximum_added_step_numerator": "1721772",
+        "maximum_interval_numerator": "1678447338815553",
+        "maximum_old_intercept_numerator": "150495357",
+        "old_denominator": "65536",
+        "prefix_gain": {
+          "display": "[0.00681153607 +/- 7.43e-12]",
+          "dyadic": {
+            "mid_exponent": "-263",
+            "mid_mantissa": "100956415091913001248598586520031047495947424351314241594326770025904924119195",
+            "radius_exponent": "-64",
+            "radius_mantissa": "66171897"
+          },
+          "is_exact": false
+        },
+        "rational_error": {
+          "denominator": "1897137589953760393646554697448789253285832421426965738232156447406367218698551296",
+          "numerator": "6805384872188470563800847035572856818086744482372495855338456089844123"
+        },
+        "rational_lower": {
+          "denominator": "948568794976880196823277348724394626642916210713482869116078223703183609349275648",
+          "numerator": "8375050652505871349672503252137342789758126376902859295285420050916857024289421"
+        },
+        "rational_midpoint": {
+          "denominator": "576460752303423488",
+          "numerator": "5089655096446645"
+        },
+        "rational_upper": {
+          "denominator": "118571099372110024602909668590549328330364526339185358639509777962897951168659456",
+          "numerator": "1046881332413907027732621726992273728166372899373700472207239488281914139266693"
+        }
+      },
+      "source": {
+        "candidate": {
+          "candidate_sha256": "e5da7950782bd701b3c1b272713e3642afba24d8e1f563cee95deef211f890b0",
+          "path": "results/nyman-natural-v1/cells/n-0008.json",
+          "payload_sha256": "07cabf14353ae6ce31b973b2184e00eec087f232aeb7ca2fe9d5352319fa14fa",
+          "raw_sha256": "a4f24c707c3dd7b1a1ca39313abad588647908f302f6b29cfdfaaba09c918af7"
+        },
+        "scout": {
+          "cell_payload_sha256": "937ec80051f5a96b95a2d93e98bbb74a039c4d93d2f7c70e4806c740331e8976",
+          "path": "results/nyman-balanced-multiplier-scout-v1.json",
+          "payload_sha256": "f31c330b373b3e8616fb1837193d8fbac6e31ce56dd4986364342dc4369f3144",
+          "raw_sha256": "6dbd2db984632cec02722d53354dd3dbf87cbcd20be5198aaec991fb10e8cc74"
+        },
+        "scout_section": "fixed_width_grid"
+      },
+      "tail": {
+        "a0": {
+          "denominator": "131072",
+          "numerator": "10871883"
+        },
+        "c0": {
+          "denominator": "65536",
+          "numerator": "1933"
+        },
+        "center": {
+          "denominator": "83226838597789286400",
+          "numerator": "-576462890874473"
+        },
+        "cutoff": "262144",
+        "delta_radius": {
+          "denominator": "330565653800875164958720",
+          "numerator": "291193722259"
+        },
+        "farey_spacing_reciprocal": "1047552",
+        "lower": {
+          "denominator": "39356437989605904284525794015838208000",
+          "numerator": "-1552097885900550634425313950532267"
+        },
+        "mu": {
+          "denominator": "4127291772764160",
+          "numerator": "7594408528821313"
+        },
+        "new_periodic_mean_square": {
+          "denominator": "6250465905868800",
+          "numerator": "12339797376023431"
+        },
+        "new_square_discrepancy_bound": {
+          "denominator": "184968806400",
+          "numerator": "382533718656726361"
+        },
+        "nu": {
+          "denominator": "2063645886382080",
+          "numerator": "25097736863291"
+        },
+        "old_periodic_mean_square": {
+          "denominator": "9091586772172800",
+          "numerator": "1440995217355991"
+        },
+        "old_square_discrepancy_bound": {
+          "denominator": "2959500902400",
+          "numerator": "491379369118392931"
+        },
+        "p1": {
+          "denominator": "27525120",
+          "numerator": "241057"
+        },
+        "periodic_partial_sum_bound": {
+          "denominator": "2959500902400",
+          "numerator": "6611918867626014707"
+        },
+        "periodic_radius": {
+          "denominator": "203377680864780484608000",
+          "numerator": "6611918867626014707"
+        },
+        "radius": {
+          "denominator": "3577857999055082207684163092348928000",
+          "numerator": "116318109981579420855489358138337"
+        },
+        "support_limit": "1024",
+        "upper": {
+          "denominator": "39356437989605904284525794015838208000",
+          "numerator": "1006900533694196624395451928511147"
+        }
+      },
+      "vector_commitments": {
+        "added": {
+          "denominator_exponent": "18",
+          "maximum_index": "1024",
+          "payload_sha256": "a040ca91c2b384d3405c4c9a3dbcee7c6b897606f39f39a5cf16c93814595d66",
+          "support_count": "302"
+        },
+        "multiplier": {
+          "denominator_exponent": "9",
+          "maximum_index": "64",
+          "payload_sha256": "4b4550afabc66462a87a23a8836391044dcf38d306cde7e7293d2ba091b37532",
+          "support_count": "58"
+        },
+        "old": {
+          "denominator_exponent": "16",
+          "maximum_index": "8",
+          "payload_sha256": "0c8993a802581160e9a6f0744540457fa60893e3f4e563da966adc34df775890",
+          "support_count": "8"
+        },
+        "shell": {
+          "denominator_exponent": "9",
+          "maximum_index": "16",
+          "payload_sha256": "376513fa3ce5dfe30d6b1b738ea0ddf1163e643da2600426bc5c7ca68683eeb8",
+          "support_count": "7"
+        }
+      }
+    },
+    {
+      "checks": {
+        "added_coefficient_sum_zero": true,
+        "added_harmonic_sum_zero": true,
+        "added_support_at_most_2nk": true,
+        "full_gain_strictly_above_claim": true,
+        "old_support_at_most_n": true,
+        "resolves_rh": false,
+        "uniform_cutoff_rule": true
+      },
+      "claimed_gain_lower_bound": {
+        "denominator": "300",
+        "numerator": "1"
+      },
+      "cutoff": "524288",
+      "full_gain": {
+        "enclosure": {
+          "display": "[0.0034 +/- 6.10e-5]",
+          "dyadic": {
+            "mid_exponent": "-264",
+            "mid_mantissa": "101253011572211913019735895330477955336258858265109918255038339038021463686569",
+            "radius_exponent": "-43",
+            "radius_mantissa": "397456747"
+          },
+          "is_exact": false
+        }
+      },
+      "n": "16",
+      "prefix": {
+        "added_denominator": "262144",
+        "block_count": "2",
+        "block_size": "262144",
+        "computed_absolute_term_sum_upper": {
+          "denominator": "2596148429116298663274171821195264",
+          "numerator": "268960923668868072804244418738337"
+        },
+        "cutoff": "524288",
+        "last_added_step_numerator": "245498",
+        "last_old_intercept_numerator": "214311527",
+        "logarithmic_gain": {
+          "display": "[0.001547024042241468007139908444274804132246 +/- 6.45e-44]",
+          "dyadic": {
+            "mid_exponent": "-265",
+            "mid_mantissa": "91716170727166813648351165493420123718799550561742367784140706082994565915631",
+            "radius_exponent": "-265",
+            "radius_mantissa": "751246901"
+          },
+          "is_exact": false
+        },
+        "maximum_added_step_numerator": "1853121",
+        "maximum_interval_numerator": "2917574189558849",
+        "maximum_old_intercept_numerator": "214359472",
+        "old_denominator": "65536",
+        "prefix_gain": {
+          "display": "[0.00342077739 +/- 7.29e-12]",
+          "dyadic": {
+            "mid_exponent": "-264",
+            "mid_mantissa": "101401333839087014717291460417849798649635931516746202113964225086970683838967",
+            "radius_exponent": "-65",
+            "radius_mantissa": "111240071"
+          },
+          "is_exact": false
+        },
+        "rational_error": {
+          "denominator": "971334446056325213707249342768322654400965221737944418448853689436945099714231009280",
+          "numerator": "2928736692835929509316811615827541619637560752654284769682087152253498209"
+        },
+        "rational_lower": {
+          "denominator": "971334446056325213707249342768322654400965221737944418448853689436945099714231009280",
+          "numerator": "1820041163010624787433653174023160054644171388166576927422561321097166667091633951"
+        },
+        "rational_midpoint": {
+          "denominator": "4611686018427387904",
+          "numerator": "8641162096127413"
+        },
+        "rational_upper": {
+          "denominator": "971334446056325213707249342768322654400965221737944418448853689436945099714231009280",
+          "numerator": "1820041168868098173105512192656783286299254627441698432731130860461340971598630369"
+        }
+      },
+      "source": {
+        "candidate": {
+          "candidate_sha256": "9a7aad11d1c809ef1334ceb844c1cdb4bd6c6051345c41368bf689e38faeb4c5",
+          "path": "results/nyman-natural-v1/cells/n-0016.json",
+          "payload_sha256": "949a2e3ebc56a12753b7257a2da27dafa7f9029a81fcbd555446787bcd26c7d3",
+          "raw_sha256": "0e03324504b71f173f003442d185ecfb4cf8a90ba79197dc7b7d1a064ddd9f75"
+        },
+        "scout": {
+          "cell_payload_sha256": "c87959a59d2302ba155a94f38ac45eea16518d8c49ba1df7025133fac051ee30",
+          "path": "results/nyman-balanced-multiplier-scout-v1.json",
+          "payload_sha256": "f31c330b373b3e8616fb1837193d8fbac6e31ce56dd4986364342dc4369f3144",
+          "raw_sha256": "6dbd2db984632cec02722d53354dd3dbf87cbcd20be5198aaec991fb10e8cc74"
+        },
+        "scout_section": "fixed_width_grid"
+      },
+      "tail": {
+        "a0": {
+          "denominator": "131072",
+          "numerator": "18858491"
+        },
+        "c0": {
+          "denominator": "131072",
+          "numerator": "1209"
+        },
+        "center": {
+          "denominator": "1300674054839333755712805273600",
+          "numerator": "-6508126357595325195612301"
+        },
+        "cutoff": "524288",
+        "delta_radius": {
+          "denominator": "756334215896402377425551360",
+          "numerator": "205779572914543"
+        },
+        "farey_spacing_reciprocal": "4192256",
+        "lower": {
+          "denominator": "1250900324618479733998696133009559680371119882240",
+          "numerator": "-62781754409395575924567056177311686755234621"
+        },
+        "mu": {
+          "denominator": "354404878345267524403200",
+          "numerator": "945611933203407406328057"
+        },
+        "new_periodic_mean_square": {
+          "denominator": "19866519860522316347945779200",
+          "numerator": "55488273049983428866532111569"
+        },
+        "new_square_discrepancy_bound": {
+          "denominator": "421758658723724446924800",
+          "numerator": "4938456301448525169121357929641"
+        },
+        "nu": {
+          "denominator": "2480834148416872670822400",
+          "numerator": "55578587414263324342049"
+        },
+        "old_periodic_mean_square": {
+          "denominator": "330513525162953932800",
+          "numerator": "56085629051383038799"
+        },
+        "old_square_discrepancy_bound": {
+          "denominator": "161383557208473600",
+          "numerator": "114807282668181080421553"
+        },
+        "p1": {
+          "denominator": "5248122880",
+          "numerator": "32735319"
+        },
+        "periodic_partial_sum_bound": {
+          "denominator": "42175865872372444692480",
+          "numerator": "523849285032257092742748158897"
+        },
+        "periodic_radius": {
+          "denominator": "11593280071534069447646897818828800",
+          "numerator": "523849285032257092742748158897"
+        },
+        "radius": {
+          "denominator": "815804559533791130868714869354060661111599923200",
+          "numerator": "36862616548047052507693708282398447457137893"
+        },
+        "support_limit": "2048",
+        "upper": {
+          "denominator": "18763504869277196009980441995143395205566798233600",
+          "numerator": "753954045069230776485404738330653281699823763"
+        }
+      },
+      "vector_commitments": {
+        "added": {
+          "denominator_exponent": "18",
+          "maximum_index": "2048",
+          "payload_sha256": "da119bd8a84394f300d6b7b166d4095520eebd1f8ef9d91a624d7f5a009e48df",
+          "support_count": "641"
+        },
+        "multiplier": {
+          "denominator_exponent": "9",
+          "maximum_index": "64",
+          "payload_sha256": "38cdfb4fcb18a5a92bd4876082ae9bd0635798070a43d2b67c3914894de2161b",
+          "support_count": "59"
+        },
+        "old": {
+          "denominator_exponent": "16",
+          "maximum_index": "16",
+          "payload_sha256": "5415f5b2e763ed8df3e409043f24133d20cb099610579f33b22f06134abbac98",
+          "support_count": "16"
+        },
+        "shell": {
+          "denominator_exponent": "9",
+          "maximum_index": "32",
+          "payload_sha256": "c6282960014ac33c565ffb23c33714d098786725bd1acb390e24dd9e808afaa0",
+          "support_count": "16"
+        }
+      }
+    },
+    {
+      "checks": {
+        "added_coefficient_sum_zero": true,
+        "added_harmonic_sum_zero": true,
+        "added_support_at_most_2nk": true,
+        "full_gain_strictly_above_claim": true,
+        "old_support_at_most_n": true,
+        "resolves_rh": false,
+        "uniform_cutoff_rule": true
+      },
+      "claimed_gain_lower_bound": {
+        "denominator": "625",
+        "numerator": "1"
+      },
+      "cutoff": "1048576",
+      "full_gain": {
+        "enclosure": {
+          "display": "[0.002 +/- 3.33e-4]",
+          "dyadic": {
+            "mid_exponent": "-264",
+            "mid_mantissa": "51397433021657605954241483288312703452759194207303893389842589545617915942801",
+            "radius_exponent": "-39",
+            "radius_mantissa": "36489729"
+          },
+          "is_exact": false
+        }
+      },
+      "n": "32",
+      "prefix": {
+        "added_denominator": "262144",
+        "block_count": "4",
+        "block_size": "262144",
+        "computed_absolute_term_sum_upper": {
+          "denominator": "2596148429116298663274171821195264",
+          "numerator": "248404095294439386954492226228805"
+        },
+        "cutoff": "1048576",
+        "last_added_step_numerator": "-775352",
+        "last_old_intercept_numerator": "330666683",
+        "logarithmic_gain": {
+          "display": "[-0.0006644954391077217109998039819260365674335 +/- 2.91e-44]",
+          "dyadic": {
+            "mid_exponent": "-265",
+            "mid_mantissa": "-39394977373670872285532815824760537982982058513414934673188042217461757159939",
+            "radius_exponent": "-264",
+            "radius_mantissa": "1043053373"
+          },
+          "is_exact": false
+        },
+        "maximum_added_step_numerator": "2224783",
+        "maximum_interval_numerator": "5007019728491060",
+        "maximum_old_intercept_numerator": "330700662",
+        "old_denominator": "65536",
+        "prefix_gain": {
+          "display": "[0.00173776046 +/- 3.43e-12]",
+          "dyadic": {
+            "mid_exponent": "-265",
+            "mid_mantissa": "103024084137741407385817083412544102785605659863581936364577469154728529450493",
+            "radius_exponent": "-68",
+            "radius_mantissa": "821903661"
+          },
+          "is_exact": false
+        },
+        "rational_error": {
+          "denominator": "2168157245661439727740348254726356624638846575162098971867930504836418007132536832",
+          "numerator": "6037706330724109921666612650579073072471002531864585205943956012702705"
+        },
+        "rational_lower": {
+          "denominator": "2168157245661439727740348254726356624638846575162098971867930504836418007132536832",
+          "numerator": "5208468528933624813852287522558002877471649531989472250738792209461583132382327"
+        },
+        "rational_midpoint": {
+          "denominator": "2305843009213693952",
+          "numerator": "5539224972776027"
+        },
+        "rational_upper": {
+          "denominator": "2168157245661439727740348254726356624638846575162098971867930504836418007132536832",
+          "numerator": "5208468541009037475300507365891228178629795676931477314467962621349495157787737"
+        }
+      },
+      "source": {
+        "candidate": {
+          "candidate_sha256": "62da7c4b140934288bee05ca12068319b79b050a413eb0a3f3952d11f0f10ab4",
+          "path": "results/nyman-natural-v1/cells/n-0032.json",
+          "payload_sha256": "61d1d934d319e0b7fab97dcf65258aeac55ca7eb5f40c5e16796a644a16d12f6",
+          "raw_sha256": "472546f28f6cafe21591c873ad635b1fa701e738f707d158a0d789f71a22b683"
+        },
+        "scout": {
+          "cell_payload_sha256": "8b5bfab4c8693b089cff75218934cbe927444d13d046c5129dce9bccd597ab9d",
+          "path": "results/nyman-balanced-multiplier-scout-v1.json",
+          "payload_sha256": "f31c330b373b3e8616fb1837193d8fbac6e31ce56dd4986364342dc4369f3144",
+          "raw_sha256": "6dbd2db984632cec02722d53354dd3dbf87cbcd20be5198aaec991fb10e8cc74"
+        },
+        "scout_section": "fixed_width_grid"
+      },
+      "tail": {
+        "a0": {
+          "denominator": "131072",
+          "numerator": "30795963"
+        },
+        "c0": {
+          "denominator": "32768",
+          "numerator": "-255"
+        },
+        "center": {
+          "denominator": "89486752546143699336940534801804925337600",
+          "numerator": "-345986214219860252176509182555481869"
+        },
+        "cutoff": "1048576",
+        "delta_radius": {
+          "denominator": "247973272069829313065387785872998400",
+          "numerator": "21246887745507495371857"
+        },
+        "farey_spacing_reciprocal": "16252992",
+        "lower": {
+          "denominator": "175625318768574587754134593991574126184098801765691798565714657280000",
+          "numerator": "-12336057189373568405989647522219064671661906950823840305148771849"
+        },
+        "mu": {
+          "denominator": "96719954330770360766892597722480640",
+          "numerator": "398804704895396765460052835718014549"
+        },
+        "new_periodic_mean_square": {
+          "denominator": "157125431712037209536667706817946074910472273920000",
+          "numerator": "671270067339200875096779780329320089377729349416549"
+        },
+        "new_square_discrepancy_bound": {
+          "denominator": "1343779348932994744942765691861197274480640000",
+          "numerator": "93306539360148921638452389465775492423504379568900311"
+        },
+        "nu": {
+          "denominator": "1450799314961555411503388965837209600",
+          "numerator": "50152465846663597450068216163513231"
+        },
+        "old_periodic_mean_square": {
+          "denominator": "268680948878373739067849054858772480000",
+          "numerator": "58582418179011625045731041742708616631"
+        },
+        "old_square_discrepancy_bound": {
+          "denominator": "2297832417200103816603799388160000",
+          "numerator": "8142956126882615881356614802236497711709"
+        },
+        "p1": {
+          "denominator": "4731815621217484800",
+          "numerator": "22767506754107587"
+        },
+        "periodic_partial_sum_bound": {
+          "denominator": "671889674466497372471382845930598637240320000",
+          "numerator": "49034282368524874186247383574323003550158856889510611"
+        },
+        "periodic_radius": {
+          "denominator": "738752623242050929878016629309995854420282701690961920000",
+          "numerator": "49034282368524874186247383574323003550158856889510611"
+        },
+        "radius": {
+          "denominator": "6498136794437259746902979977688242668811655665330596546931442319360000",
+          "numerator": "431310109547532862443606510506595951681823864506552594315757320013"
+        },
+        "support_limit": "4032",
+        "upper": {
+          "denominator": "928305256348179963843282853955463238401665095047228078133063188480000",
+          "numerator": "58026586155463384837942294670155215787451024547517585334430011659"
+        }
+      },
+      "vector_commitments": {
+        "added": {
+          "denominator_exponent": "18",
+          "maximum_index": "4032",
+          "payload_sha256": "8d1b592f1ee9bfe16a48352c6c79912b907ea6733d3212c6bb47965ffaef9c2e",
+          "support_count": "1122"
+        },
+        "multiplier": {
+          "denominator_exponent": "9",
+          "maximum_index": "63",
+          "payload_sha256": "83407b204cbeb47e27eec4f9c73ad133fe1e3c301de5a3d289128105380141e5",
+          "support_count": "59"
+        },
+        "old": {
+          "denominator_exponent": "16",
+          "maximum_index": "32",
+          "payload_sha256": "8a9baa8ee737d0536258cf3b78c66bf6a92f660d2845295a96f65f209951720e",
+          "support_count": "32"
+        },
+        "shell": {
+          "denominator_exponent": "9",
+          "maximum_index": "64",
+          "payload_sha256": "92b37d62238c4f0f7d04b70fe8cc461e69f585d2b0d6aa043b6ae7fcbe9c9c74",
+          "support_count": "32"
+        }
+      }
+    },
+    {
+      "checks": {
+        "added_coefficient_sum_zero": true,
+        "added_harmonic_sum_zero": true,
+        "added_support_at_most_2nk": true,
+        "full_gain_strictly_above_claim": true,
+        "old_support_at_most_n": true,
+        "resolves_rh": false,
+        "uniform_cutoff_rule": true
+      },
+      "claimed_gain_lower_bound": {
+        "denominator": "750",
+        "numerator": "1"
+      },
+      "cutoff": "2097152",
+      "full_gain": {
+        "enclosure": {
+          "display": "[0.002 +/- 5.85e-4]",
+          "dyadic": {
+            "mid_exponent": "-261",
+            "mid_mantissa": "5624908118021839580770555089922762150512610025980015124905387470077198133727",
+            "radius_exponent": "-42",
+            "radius_mantissa": "452625333"
+          },
+          "is_exact": false
+        }
+      },
+      "n": "64",
+      "prefix": {
+        "added_denominator": "262144",
+        "block_count": "8",
+        "block_size": "262144",
+        "computed_absolute_term_sum_upper": {
+          "denominator": "5192296858232597326548343642390528",
+          "numerator": "507874542620157037053544901050553"
+        },
+        "cutoff": "2097152",
+        "last_added_step_numerator": "338120",
+        "last_old_intercept_numerator": "534600715",
+        "logarithmic_gain": {
+          "display": "[8.086008583438592032160228845045946961166e-5 +/- 4.04e-46]",
+          "dyadic": {
+            "mid_exponent": "-269",
+            "mid_mantissa": "76701354186115167666714491157815316562008601316973597872940440451800369324403",
+            "radius_exponent": "-259",
+            "radius_mantissa": "93853681"
+          },
+          "is_exact": false
+        },
+        "maximum_added_step_numerator": "2893643",
+        "maximum_interval_numerator": "10028716042663287",
+        "maximum_old_intercept_numerator": "534693062",
+        "old_denominator": "65536",
+        "prefix_gain": {
+          "display": "[0.00152098223 +/- 7.21e-12]",
+          "dyadic": {
+            "mid_exponent": "-265",
+            "mid_mantissa": "90172267832071224744842532043262117303838061473545685805584208011869249478167",
+            "radius_exponent": "-68",
+            "radius_mantissa": "840211551"
+          },
+          "is_exact": false
+        },
+        "rational_error": {
+          "denominator": "3153683266416638203469251197453175307508699199811597991210361102682648058953465856",
+          "numerator": "8977739813897268386502046481207801162224363638013019739723793117231193"
+        },
+        "rational_lower": {
+          "denominator": "3153683266416638203469251197453175307508699199811597991210361102682648058953465856",
+          "numerator": "4541689112426963280893528071231192909633689208992471043235263578369662941659943"
+        },
+        "rational_midpoint": {
+          "denominator": "4611686018427387904",
+          "numerator": "6641391177188299"
+        },
+        "rational_upper": {
+          "denominator": "3153683266416638203469251197453175307508699199811597991210361102682648058953465856",
+          "numerator": "4541689130382442908688064844235285872049291533441198319261303057817249176122329"
+        }
+      },
+      "source": {
+        "candidate": {
+          "candidate_sha256": "6c99f1b96197c7420393d82e10f572c7ba4321ecf88d149634df0b1f31c4539d",
+          "path": "results/nyman-natural-v1/cells/n-0064.json",
+          "payload_sha256": "505ac0a76c3bca7cd1ca7a8b6f8a426ae9e01cff96745dbd2d732b91117cd4ed",
+          "raw_sha256": "45cfd008d362a79407ec86c7c01d291055e139d21a3165dd06859d7d53e64827"
+        },
+        "scout": {
+          "cell_payload_sha256": "3d8966b649aec637ef5a12c4ab12b3ce55b44e00bd64606a95c1e34d3c145759",
+          "path": "results/nyman-balanced-multiplier-scout-v1.json",
+          "payload_sha256": "f31c330b373b3e8616fb1837193d8fbac6e31ce56dd4986364342dc4369f3144",
+          "raw_sha256": "6dbd2db984632cec02722d53354dd3dbf87cbcd20be5198aaec991fb10e8cc74"
+        },
+        "scout_section": "fixed_width_grid"
+      },
+      "tail": {
+        "a0": {
+          "denominator": "131072",
+          "numerator": "61281835"
+        },
+        "c0": {
+          "denominator": "131072",
+          "numerator": "3"
+        },
+        "center": {
+          "denominator": "11000548679785125088896974555596556416761495317952857532744597504000",
+          "numerator": "-32237412277475065888086730694879096878182756289503743030014319"
+        },
+        "cutoff": "2097152",
+        "delta_radius": {
+          "denominator": "23122405552209418829074144649201794112469073920",
+          "numerator": "796815548360296934291014865149943"
+        },
+        "farey_spacing_reciprocal": "67100672",
+        "lower": {
+          "denominator": "2264042832852936110743546260132573940814401725628329428423189851842298143328833906432133939259180958351360000",
+          "numerator": "-239638995116708107803851837785663926717414843249332767181373027773339776362104812018287782923315179919519"
+        },
+        "mu": {
+          "denominator": "382482032180929115678289119270545467460977986314809901056000",
+          "numerator": "2397303487896544042075776433176106533831840679424806667036441"
+        },
+        "new_periodic_mean_square": {
+          "denominator": "1872769658306246597338573804778176254564609695489329691709692354863197550930821120000",
+          "numerator": "12071162321501539934324447437306078459227781123462617764285092175806210665901476537949"
+        },
+        "new_square_discrepancy_bound": {
+          "denominator": "228609577429961742839181372653585968574781456968912315882530805037011419791360000",
+          "numerator": "98874890575419113602051548958974088659534755182282302107259190012028671564398994322340259"
+        },
+        "nu": {
+          "denominator": "230208621249963605674706930720829873832312769192612855808000",
+          "numerator": "14041532588535319193314804767249370221245803129326767477737"
+        },
+        "old_periodic_mean_square": {
+          "denominator": "63685256681000174330284479410268375964748069016887623680000",
+          "numerator": "19096375240883166321830545805468993727461915028516799293821"
+        },
+        "old_square_discrepancy_bound": {
+          "denominator": "7774079184692404093052304615511276362884285768663040000",
+          "numerator": "156418409598074015342114000692596527621640545998581103015687811"
+        },
+        "p1": {
+          "denominator": "16712908221864227809237401600",
+          "numerator": "65012376698600566896455929"
+        },
+        "periodic_partial_sum_bound": {
+          "denominator": "114304788714980871419590686326792984287390728484456157941265402518505709895680000",
+          "numerator": "51737315514841622860739212503933656173354528917525845649697220425897301839465121244283579"
+        },
+        "periodic_radius": {
+          "denominator": "502718496354178892181151785430464937934758423849397208288001215735163050475094760656732160000",
+          "numerator": "51737315514841622860739212503933656173354528917525845649697220425897301839465121244283579"
+        },
+        "radius": {
+          "denominator": "2264042832852936110743546260132573940814401725628329428423189851842298143328833906432133939259180958351360000",
+          "numerator": "233004154951811139071774800486746991109637456499577529366834403797534644639396231705195309282182600038559"
+        },
+        "support_limit": "8192",
+        "upper": {
+          "denominator": "2264042832852936110743546260132573940814401725628329428423189851842298143328833906432133939259180958351360000",
+          "numerator": "226369314786914170339697763187830055501860069749822291552295779821729512916687651392102835641050020157599"
+        }
+      },
+      "vector_commitments": {
+        "added": {
+          "denominator_exponent": "18",
+          "maximum_index": "8192",
+          "payload_sha256": "e679e3cc2ccf465664ae5bd9493def810cf65f01abc74e08bc9b8392138ee061",
+          "support_count": "2551"
+        },
+        "multiplier": {
+          "denominator_exponent": "9",
+          "maximum_index": "64",
+          "payload_sha256": "ece4b864ea9a27be85731f1934624ee25c8c7a582178acddc6168f1d2e58bb3e",
+          "support_count": "59"
+        },
+        "old": {
+          "denominator_exponent": "16",
+          "maximum_index": "64",
+          "payload_sha256": "18e596e3236eaa08a91447436944f9d7a74040208678148ea5753bf889994308",
+          "support_count": "64"
+        },
+        "shell": {
+          "denominator_exponent": "9",
+          "maximum_index": "128",
+          "payload_sha256": "1da80043a76eeb43873f2ddb1aaf096ca87078092016b9815f24d57370f86d8c",
+          "support_count": "64"
+        }
+      }
+    },
+    {
+      "checks": {
+        "added_coefficient_sum_zero": true,
+        "added_harmonic_sum_zero": true,
+        "added_support_at_most_2nk": true,
+        "full_gain_strictly_above_claim": true,
+        "old_support_at_most_n": true,
+        "resolves_rh": false,
+        "uniform_cutoff_rule": true
+      },
+      "claimed_gain_lower_bound": {
+        "denominator": "1600",
+        "numerator": "1"
+      },
+      "cutoff": "4194304",
+      "full_gain": {
+        "enclosure": {
+          "display": "[+/- 1.03e-3]",
+          "dyadic": {
+            "mid_exponent": "-266",
+            "mid_mantissa": "99625718973933225273730579896061964363831939293862566751240156733744261182629",
+            "radius_exponent": "-37",
+            "radius_mantissa": "25922023"
+          },
+          "is_exact": false
+        }
+      },
+      "n": "128",
+      "prefix": {
+        "added_denominator": "262144",
+        "block_count": "16",
+        "block_size": "262144",
+        "computed_absolute_term_sum_upper": {
+          "denominator": "10384593716465194653096687284781056",
+          "numerator": "1086211046113161000623366345612927"
+        },
+        "cutoff": "4194304",
+        "last_added_step_numerator": "771217",
+        "last_old_intercept_numerator": "906812272",
+        "logarithmic_gain": {
+          "display": "[-0.0007675048044309621744888060099571947339322 +/- 3.69e-44]",
+          "dyadic": {
+            "mid_exponent": "-264",
+            "mid_mantissa": "-22750972110013154974952756341511914230216077307292319545682852372572826093487",
+            "radius_exponent": "-261",
+            "radius_mantissa": "972458431"
+          },
+          "is_exact": false
+        },
+        "maximum_added_step_numerator": "4048664",
+        "maximum_interval_numerator": "25112629678082880",
+        "maximum_old_intercept_numerator": "906904424",
+        "old_denominator": "65536",
+        "prefix_gain": {
+          "display": "[0.00084295310 +/- 6.58e-12]",
+          "dyadic": {
+            "mid_exponent": "-264",
+            "mid_mantissa": "24987469052785809061829704196946566947930100897156392518582104187179987253329",
+            "radius_exponent": "-68",
+            "radius_mantissa": "898497119"
+          },
+          "is_exact": false
+        },
+        "rational_error": {
+          "denominator": "15177100719630057874222438597061225757212992645010560391948561352270879251285147648",
+          "numerator": "46202534414497037227245069408689757525936478571536341851857865872350247"
+        },
+        "rational_lower": {
+          "denominator": "15177100719630057874222438597061225757212992645010560391948561352270879251285147648",
+          "numerator": "24442081827727775340656517934912555851591119096517216147535981988218447620977001"
+        },
+        "rational_midpoint": {
+          "denominator": "4611686018427387904",
+          "numerator": "7426926217434329"
+        },
+        "rational_upper": {
+          "denominator": "15177100719630057874222438597061225757212992645010560391948561352270879251285147648",
+          "numerator": "24442081920132844169650592389402694668970634148390173290608665691934179365677495"
+        }
+      },
+      "source": {
+        "candidate": {
+          "candidate_sha256": "ed6a66487456deb0b925a50d9b21cd6e6c38fae0a8da28b55324a8b529c0a896",
+          "path": "results/nyman-natural-v1/cells/n-0128.json",
+          "payload_sha256": "59f2e2fd2b870fa50f7a6c63cca5ecd2d034bf3f25f461423b2d78859114cf6f",
+          "raw_sha256": "8cddd7a5741826a39bc48c4b5cbc5a538ef57e3f08c865a481ddbb8dbb1296c9"
+        },
+        "scout": {
+          "cell_payload_sha256": "8d76c93cbc871bb365f451eb2d33f43b6296dc77936cbdbd5d9e432c4a120733",
+          "path": "results/nyman-balanced-multiplier-scout-v1.json",
+          "payload_sha256": "f31c330b373b3e8616fb1837193d8fbac6e31ce56dd4986364342dc4369f3144",
+          "raw_sha256": "6dbd2db984632cec02722d53354dd3dbf87cbcd20be5198aaec991fb10e8cc74"
+        },
+        "scout_section": "fixed_width_grid"
+      },
+      "tail": {
+        "a0": {
+          "denominator": "131072",
+          "numerator": "105501265"
+        },
+        "c0": {
+          "denominator": "65536",
+          "numerator": "243"
+        },
+        "center": {
+          "denominator": "628740960658311263192044087462865548271883517323833399610390875225742137275425196521088088326947856759099182658848030720000",
+          "numerator": "-1718892156648442623058872952357721530079432076184710887472316687539345917378940541055282972993784013872123459307955401"
+        },
+        "cutoff": "4194304",
+        "delta_radius": {
+          "denominator": "55035342706509860474822969369835208991822102456033616625911340071075918643200",
+          "numerator": "692274384146210725733499095022495728677874069790229984736667079"
+        },
+        "farey_spacing_reciprocal": "268419072",
+        "lower": {
+          "denominator": "2039252532987440251809538837110743935691760554351292959749757145682506719455478118125597497038003101219350065320294598926894489395444114606659511115508674969989482324577209783177707520000000",
+          "numerator": "-390193436902602022177309360266616055760136420461062993839415029369828103067420030755885321520292673068182165341110412019781596264729284644743461478195860893489250805999328183395760668713"
+        },
+        "mu": {
+          "denominator": "54409415151430423971993700780746330092691015023798074312861973532385186538865216365971577471022228652803971717529600",
+          "numerator": "632358464316315176210036431635288967993645274174887189560876530977787116421745002291051295373027788561143148255528443"
+        },
+        "new_periodic_mean_square": {
+          "denominator": "9499640815125854054632803651395982395791965249653385168965500057677338479017251867306535344747451932404191476822906477073577046162178497761611716018074420600897536000000",
+          "numerator": "113178746888069408515039596820082780177947485705589032916591238476623929719609307494693819148815825669343975785140099427501430941180331846659503578158093556201319529978813"
+        },
+        "new_square_discrepancy_bound": {
+          "denominator": "35391079867550745628957407510133938604004879540204151994704385453196628587618587204215262858622251448675716592980794140714326909535617863106283729414258688000000",
+          "numerator": "113178746888069408515039596820082780177947485705589032916591238476623929719609307494693819148815825669343975785140099427501430941180331846659503578158093556201319529978813"
+        },
+        "nu": {
+          "denominator": "3672635522721553618109574802700377281256643514106370016118183213436000091373402104703081479294000434064268090933248000",
+          "numerator": "285669251732215064617535901308913926312485070139734276143703498143327691341872199395764799665833694005068877101631289"
+        },
+        "old_periodic_mean_square": {
+          "denominator": "1186813948752830166346625498818332390741693920832740832483470499920169978031646927945119820696113894285557891072000000",
+          "numerator": "530914244543318461856301444136460156816870561109675458734824089935827572425912731099653438276839833409848816109885751"
+        },
+        "old_square_discrepancy_bound": {
+          "denominator": "4421496356089146177908794419862730136931901473948694794993816608978403658409365665138428839721619685376000000",
+          "numerator": "530914244543318461856301444136460156816870561109675458734824089935827572425912731099653438276839833409848816109885751"
+        },
+        "p1": {
+          "denominator": "9944906354313708696225046680252219796043495005499817984000",
+          "numerator": "32808819123932339850782788956250701291490394441726835443"
+        },
+        "periodic_partial_sum_bound": {
+          "denominator": "70782159735101491257914815020267877208009759080408303989408770906393257175237174408430525717244502897351433185961588281428653819071235726212567458828517376000000",
+          "numerator": "234856710746238301137967689493239165951159546329786777040088839568795602994247665479765347828148358974647254139164803882771520007697878596174262270740011655456508899269127"
+        },
+        "periodic_radius": {
+          "denominator": "1245213813331305250925725003797627415547642276575602968538410342397713898799375092895179299302579007580774090786681661990655777447194755318163584948998069671926253486080000000",
+          "numerator": "234856710746238301137967689493239165951159546329786777040088839568795602994247665479765347828148358974647254139164803882771520007697878596174262270740011655456508899269127"
+        },
+        "radius": {
+          "denominator": "22431777862861842769904927208218183292609366097864222557247328602507573914010259299381572467418034113412850718523240588195839383349885260673254622270595424669884305570349307614954782720000000",
+          "numerator": "4230802380291039848000095618400534012030430434894073060696035339098861069292005256674739923662956810462057865097358403814681501389522023768601330945305034199605405607946929933110705979843"
+        },
+        "support_limit": "16384",
+        "upper": {
+          "denominator": "22431777862861842769904927208218183292609366097864222557247328602507573914010259299381572467418034113412850718523240588195839383349885260673254622270595424669884305570349307614954782720000000",
+          "numerator": "4169476954653457452049788273868291410699360244716453189158505355129613004842390175034741310602694217174111911442502275411765443867021916445024585630455598570829052349901249848868044603843"
+        }
+      },
+      "vector_commitments": {
+        "added": {
+          "denominator_exponent": "18",
+          "maximum_index": "16384",
+          "payload_sha256": "058521dc631234cb7f38554f4b92a643f21f018defb9dd902cfc57f519e9ba72",
+          "support_count": "5262"
+        },
+        "multiplier": {
+          "denominator_exponent": "9",
+          "maximum_index": "64",
+          "payload_sha256": "12ad729447d3d7047adfb66d5ef8806945ce6f23fe064f54338f3f0555bcfedc",
+          "support_count": "60"
+        },
+        "old": {
+          "denominator_exponent": "16",
+          "maximum_index": "128",
+          "payload_sha256": "d42efbae34d3cd2cc54ad00436712320f4597c4d7765b890827132e6c724562d",
+          "support_count": "128"
+        },
+        "shell": {
+          "denominator_exponent": "9",
+          "maximum_index": "256",
+          "payload_sha256": "ab2a8ea2571f510fdf591c42d84b47c4db78fe92b8da568ac5dd8a123bc32bee",
+          "support_count": "128"
+        }
+      }
+    },
+    {
+      "checks": {
+        "added_coefficient_sum_zero": true,
+        "added_harmonic_sum_zero": true,
+        "added_support_at_most_2nk": true,
+        "full_gain_strictly_above_claim": true,
+        "old_support_at_most_n": true,
+        "resolves_rh": false,
+        "uniform_cutoff_rule": true
+      },
+      "claimed_gain_lower_bound": {
+        "denominator": "5000",
+        "numerator": "1"
+      },
+      "cutoff": "8388608",
+      "full_gain": {
+        "enclosure": {
+          "display": "[+/- 9.21e-4]",
+          "dyadic": {
+            "mid_exponent": "-265",
+            "mid_mantissa": "34150211407731897386694349846960827118713021788640935633542371160530201365497",
+            "radius_exponent": "-41",
+            "radius_mantissa": "757195851"
+          },
+          "is_exact": false
+        }
+      },
+      "n": "256",
+      "prefix": {
+        "added_denominator": "262144",
+        "block_count": "32",
+        "block_size": "262144",
+        "computed_absolute_term_sum_upper": {
+          "denominator": "41538374865860778612386749139124224",
+          "numerator": "4668613327176453653480725883396613"
+        },
+        "cutoff": "8388608",
+        "last_added_step_numerator": "-761855",
+        "last_old_intercept_numerator": "1540277460",
+        "logarithmic_gain": {
+          "display": "[0.0007970342305735369521461764683675694809473 +/- 3.65e-44]",
+          "dyadic": {
+            "mid_exponent": "-266",
+            "mid_mantissa": "94505224961809042462478170050381511709333405601719919051352371068306629311983",
+            "radius_exponent": "-258",
+            "radius_mantissa": "355927591"
+          },
+          "is_exact": false
+        },
+        "maximum_added_step_numerator": "6085332",
+        "maximum_interval_numerator": "59071294341985100",
+        "maximum_old_intercept_numerator": "1540359848",
+        "old_denominator": "65536",
+        "prefix_gain": {
+          "display": "[0.00057853491 +/- 6.13e-12]",
+          "dyadic": {
+            "mid_exponent": "-266",
+            "mid_mantissa": "68597519969244259675666128027250220127908074886012976229256837610102391029231",
+            "radius_exponent": "-68",
+            "radius_mantissa": "965451263"
+          },
+          "is_exact": false
+        },
+        "rational_error": {
+          "denominator": "34690515930582927804058909750164262712840567169931544023876476442267771854693335040",
+          "numerator": "113475317932202522521350014158171217735981617418427471992212772182718963"
+        },
+        "rational_lower": {
+          "denominator": "34690515930582927804058909750164262712840567169931544023876476442267771854693335040",
+          "numerator": "-7579854373715896151912921216907220366040421214797415759358543352604446336213683"
+        },
+        "rational_midpoint": {
+          "denominator": "36893488147419103232",
+          "numerator": "-8061202199152501"
+        },
+        "rational_upper": {
+          "denominator": "34690515930582927804058909750164262712840567169931544023876476442267771854693335040",
+          "numerator": "-7579854146765260287507876174207192049697985742834180922503599368178901970775757"
+        }
+      },
+      "source": {
+        "candidate": {
+          "candidate_sha256": "10abf61719970a8e2aa92f5806a9cbd8f2e7f94092ad17d06b1f9fc20f100234",
+          "path": "results/nyman-natural-v1/cells/n-0256.json",
+          "payload_sha256": "89ea59864d96b41f2527ce537325d62da93b7ef237dfbb576f2b979a4e74aaf9",
+          "raw_sha256": "9fe6e8331026c742556faf02a8840926ceaf14692731c3fd60dcdd7f409d7cb8"
+        },
+        "scout": {
+          "cell_payload_sha256": "9f926c8c94b9efec8bac806347ed7e646fd5c61a0b331e03e1ce02a4ecbab7ec",
+          "path": "results/nyman-balanced-multiplier-scout-v1.json",
+          "payload_sha256": "f31c330b373b3e8616fb1837193d8fbac6e31ce56dd4986364342dc4369f3144",
+          "raw_sha256": "6dbd2db984632cec02722d53354dd3dbf87cbcd20be5198aaec991fb10e8cc74"
+        },
+        "scout_section": "fixed_width_grid"
+      },
+      "tail": {
+        "a0": {
+          "denominator": "131072",
+          "numerator": "232019973"
+        },
+        "c0": {
+          "denominator": "8192",
+          "numerator": "-69"
+        },
+        "center": {
+          "denominator": "2702350443523494263259736322580738797282449953496736263149266233861326672099186640868712647775288424985529502112197575744485023872314344809903551115790124640880668137706155059697569981014952740210450671319613315804345767681863253089058816000",
+          "numerator": "-6771132506091287029785002429620998218290735680303713713012727373325235579880759751924585015202083794984714865273439853384236862497408557592445328092535983821658482663112420551496349398544968142309225315452760083274038183747863296100477"
+        },
+        "cutoff": "8388608",
+        "delta_radius": {
+          "denominator": "895920998461473598791938922192695231897765193474051759575460160227986664585180212675411686946170162088535067046927862454665451929600",
+          "numerator": "5261919329810405322401517384015570928933916935845983513810777036326151113294498247125273578946163929705142653875101927"
+        },
+        "farey_spacing_reciprocal": "1073709056",
+        "lower": {
+          "denominator": "18699309974672452293480192372873570231002907299785417640874052041190968907126496355766430423740405688821133722341279490083975470510912904819301313430000217435051853145736595928111232220929052817732533975862615280310561917678425351305026932122189939601811227133522452468410318820113822724177449551228232088595958080036182386277132955504437491020978559385600000",
+          "numerator": "-6485639674732872402983844713999256293567769531436907148513087033539872280029353117167716799812791641869378808185298023329539320637030151125184893119885975439695870558193181512154518683939298036830954372622398026363136569364972577670161155410015838817536801623802711619015028111551754442775585307434772125032246740176307972014356490499026777400437447602321"
+        },
+        "mu": {
+          "denominator": "9474859943734394018405815071158641849856611765033835004353790023160211775765651341173813791364850431963327405589698993790567745156186501767924571760804108919609872281447920695712518435328588552469505588294559765525823971116711936000",
+          "numerator": "201086842641878735534238089354953367959123902801785458827162156473739687020436409170260927032987469639291613645141022830100738551494266277970830856446891927400562101530555201737124354120352089492751671719526506071916983234316121555287"
+        },
+        "new_periodic_mean_square": {
+          "denominator": "31676885218731792323103579560453648834516230565083290545482466460520865216598965702490159837606288892241847744233616588580469648971881570429265111010245052199571663703243122059062418332043579693424113491924009958788443101175263755839733220139161897900579517016476764963375428619065113323082986043794889144002792772888224748827228241920000",
+          "numerator": "690330758464107636648045382334202508096360032135395320339496712171995237929014390623980357406205104028679919597075234876801371036271510942350590715768906760666408777819968647450862798884538449762194060040437435141219096161796388931618408784365135029523493154899076974056622769535196386136978748027575450734349635163695685228950270482761299"
+        },
+        "new_square_discrepancy_bound": {
+          "denominator": "29502298636411791913864214963325827471195540112016425560894651204768142717983153252355692003780853732728363747947764900457791844285125942375645857466107701525776889510786730347799561012591086587076446798567385799145614267013562150527054155850541599511832297534870344768122574742505583675623749273653224308841810469826404024320000",
+          "numerator": "690330758464107636648045382334202508096360032135395320339496712171995237929014390623980357406205104028679919597075234876801371036271510942350590715768906760666408777819968647450862798884538449762194060040437435141219096161796388931618408784365135029523493154899076974056622769535196386136978748027575450734349635163695685228950270482761299"
+        },
+        "nu": {
+          "denominator": "644290476173938793251595424838787645790249600022300780296057721574894400752064291199819337812809829373506263580099531577758606670620682120218870879734679406533471315138458607308451253602344021567926380004030064055756030035936411648000",
+          "numerator": "65820143732589978379092608447416292319477014956991887110785946781913778814078159864286503919490172751199998661354922839188248253396495858562921026658341709960628788926456307565878641547002900444331523011141123171139246218884836779281"
+        },
+        "old_periodic_mean_square": {
+          "denominator": "63688900351127639662785148757562925758277670583948215234456126469331924336708346493888353656545529385295586332938444345670316271195163169966860929458957127513313722423705845744142522009071434119347631977682381651684590878720000",
+          "numerator": "49295531320611659572727208288699165182928783628772977817482517904812388631515023363131815521796631816702380480387483832952401977911397625736273952707303246681095321731902051977268095531443240330055057519801897985778870891250199"
+        },
+        "old_square_discrepancy_bound": {
+          "denominator": "59316720852103569910455471428530938793048300957934935434181647127070449461411962323887071374897232295762238902955144997557249131737939975023234720168884491101203604287850810251657709785649264486922267308959329157120000",
+          "numerator": "49295531320611659572727208288699165182928783628772977817482517904812388631515023363131815521796631816702380480387483832952401977911397625736273952707303246681095321731902051977268095531443240330055057519801897985778870891250199"
+        },
+        "p1": {
+          "denominator": "72851961968048396355322986503761146021021065801060196242578707541912843609396709230255217332186898258721138278400",
+          "numerator": "204108609082088152392008322732371571995680097862151943377292752839581444221832075741718417536905218790566292691"
+        },
+        "periodic_partial_sum_bound": {
+          "denominator": "776376279905573471417479341140153354505145792421484883181438189599161650473240875061991894836338256124430624945993813169941890639082261641464364670160728987520444460810177114415777921383975962817801231541246994714358270184567425013869846206593199987153481514075535388634804598486989044095361822990874323916889749205958000640000",
+          "numerator": "18811811263143824105141110101212753802960421001302200274106500457227063405560743857314090592935515956935817458271031571084243900815083022167079188083090810238852580192326054138509734321588369226549801371490151065869568216138715957575546990769895181609531331099953094237146535697561620832684843579372397318234126217350409298118871126612801"
+        },
+        "periodic_radius": {
+          "denominator": "54632643364432129807470138016153626915978989317201948620442451575673812521226263139648676502654175508416721499530951477084213531548182057064132750432896151547938838963478374057098183535844723045260347418528068765101828312292334721422893821791436640369504571797100963583973440793237713083773196849779556986874211482554451925492525799833600000",
+          "numerator": "18811811263143824105141110101212753802960421001302200274106500457227063405560743857314090592935515956935817458271031571084243900815083022167079188083090810238852580192326054138509734321588369226549801371490151065869568216138715957575546990769895181609531331099953094237146535697561620832684843579372397318234126217350409298118871126612801"
+        },
+        "radius": {
+          "denominator": "984174209193286962814746966993345801631731963146600928467055370588998363532973492408759495986337141516901774860067341583367130026890152885226384917368432496581676481354557680426906958996265937775396525045400804226871679877811860595001417480115259979042696164922234340442648358953359090746181555327801688873471477896641178225112260816023025843209397862400000",
+          "numerator": "338883464785214751357108444137177936728487712589791846276819201071206752256168269388549708433257306098317557261298110680497867299218753674951294417240614531523050912329827559947234518266510616875762230983348683531175615706982771229016741218234583212454825423776609025525809270304689638367065671436076661903227875176590455541294993635092479142970847562059"
+        },
+        "support_limit": "32768",
+        "upper": {
+          "denominator": "1099959410274850134910599551345504131235465135281495155345532473011233465125088020927437083749435628754184336608310558240233851206524288518782430201764718672650109008572740936947719542407591342219560822109565604724150701039907373606178054830717055270694778066677791321671195224712577807304555855954601887564468122355069552133948997382613970060057562316800000",
+          "numerator": "375995999241487538152133891953735606006750796880893118235649565127410841512061242329245418861822705286275786337884128384081155101957793442527311455015139809304709653549427397990611353540476788496941788514403055754208048676492513472498530051935195485632150851747554785350924950589791283245465306302125942781788971560831137562050192213793378237203221162113"
+        }
+      },
+      "vector_commitments": {
+        "added": {
+          "denominator_exponent": "18",
+          "maximum_index": "32768",
+          "payload_sha256": "672f2c3c4e35e5b317c5aa305058bd0c0c1132593c364b1508dbf65402d2d5fe",
+          "support_count": "10685"
+        },
+        "multiplier": {
+          "denominator_exponent": "9",
+          "maximum_index": "64",
+          "payload_sha256": "e9f654071a7294ea0a4a048bd9eacc572acb1f83d017a4f2fcc2c2593ceb77cb",
+          "support_count": "60"
+        },
+        "old": {
+          "denominator_exponent": "16",
+          "maximum_index": "256",
+          "payload_sha256": "e4c11eed17a58d66900041a8f57a3d6606dc0da4d406238ecbb5e9ac1852c76f",
+          "support_count": "256"
+        },
+        "shell": {
+          "denominator_exponent": "9",
+          "maximum_index": "512",
+          "payload_sha256": "e1dcd4ed79f96d1de58b3961df94c85f629282bde1c51a31c68237b2d4b2bd3c",
+          "support_count": "256"
+        }
+      }
+    }
+  ],
+  "checks": {
+    "all_complete_gains_strictly_above_claims": true,
+    "all_corrections_balanced": true,
+    "all_six_cells_present": true,
+    "all_uniform_cutoffs": true,
+    "resolves_rh": false
+  },
+  "classification": "CERTIFIED_FINITE",
+  "configuration": {
+    "cutoff_per_n": "32768",
+    "generation_block_size": "262144",
+    "generation_precision_bits": "256",
+    "multiplier_limit": "64",
+    "n_values": [
+      "8",
+      "16",
+      "32",
+      "64",
+      "128",
+      "256"
+    ],
+    "old_bits": "16",
+    "replay_block_size": "131072",
+    "replay_precision_bits": "384",
+    "scout_section": "fixed_width_grid",
+    "shell_bits": "9",
+    "z_bits": "9"
+  },
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This certifies six finite contractions selected from one frozen numerical scout. It does not prove that the construction continues, that the lower bounds have a uniform asymptotic size, or that iterating these corrections drives a Nyman distance to zero. RH remains unresolved.",
+  "method": {
+    "exactization": "old coefficients on 2^-16; shells and multiplier harmonic variables on 2^-9; exact balance and Dirichlet convolution",
+    "interpretation": "the six signs are certified finite; any scaling trend or continuation past N=256 is exploratory",
+    "periodic_tail": "C_LS=Q(Q-1)(rho+tau), tau=rho+mu-2nu, followed by Abel summation",
+    "prefix": "exact int64 divisor recurrences, certified binary64 reductions, and Arb logarithmic compression",
+    "selection": "frozen direct-gain fixed_width_grid cells with K=64",
+    "uniform_cutoff_rule": "T=32768*N"
+  },
+  "payload_sha256": "e974817e59e33efd84b18aa6e81d0592e96c7bb5fd5584dfb83f7763de8c0320",
+  "reference": {
+    "authors": "H. L. Montgomery and R. C. Vaughan",
+    "doi": "10.1112/S0025579300004708",
+    "journal": "Mathematika 20 (1973), 119-134",
+    "title": "The large sieve",
+    "url": "https://doi.org/10.1112/S0025579300004708",
+    "used_result": "Theorem 1 in dual form: a delta-separated frequency set has consecutive-interval square norm at most (H+delta^-1) times its Fourier coefficient energy."
+  },
+  "schema": "rh-lab/nyman-large-sieve-scaling-certificate/v1",
+  "statement": "For each N in {8,16,32,64,128,256}, one explicit exact-dyadic balanced K=64 correction has strictly positive complete infinite weighted-L2 direct gain. Every prefix ends at the common-rule cutoff T=32768*N, and every omitted tail uses the Fourier/Farey large-sieve bound.",
+  "trend_diagnostics": {
+    "classification": "EXPLORATORY",
+    "limitation": "Six points cannot establish an asymptotic energy or gain law.",
+    "observation": "All six complete gains are positive at an approximately constant cutoff/support ratio, but the periodic energy grows and the certified gain fraction deteriorates across this finite range.",
+    "rows": [
+      {
+        "cutoff_to_support_ratio": {
+          "denominator": "1",
+          "numerator": "256"
+        },
+        "n": "8",
+        "old_plus_new_periodic_mean_square": {
+          "denominator": "100007454493900800",
+          "numerator": "213287705407290797"
+        },
+        "periodic_tail_radius": {
+          "denominator": "203377680864780484608000",
+          "numerator": "6611918867626014707"
+        },
+        "support_limit": "1024"
+      },
+      {
+        "cutoff_to_support_ratio": {
+          "denominator": "1",
+          "numerator": "256"
+        },
+        "n": "16",
+        "old_plus_new_periodic_mean_square": {
+          "denominator": "1986651986052231634794577920",
+          "numerator": "5885947022834349356660091673"
+        },
+        "periodic_tail_radius": {
+          "denominator": "11593280071534069447646897818828800",
+          "numerator": "523849285032257092742748158897"
+        },
+        "support_limit": "2048"
+      },
+      {
+        "cutoff_to_support_ratio": {
+          "denominator": "63",
+          "numerator": "16384"
+        },
+        "n": "32",
+        "old_plus_new_periodic_mean_square": {
+          "denominator": "78562715856018604768333853408973037455236136960000",
+          "numerator": "352764621356294058893866068880021608274524150284249"
+        },
+        "periodic_tail_radius": {
+          "denominator": "738752623242050929878016629309995854420282701690961920000",
+          "numerator": "49034282368524874186247383574323003550158856889510611"
+        },
+        "support_limit": "4032"
+      },
+      {
+        "cutoff_to_support_ratio": {
+          "denominator": "1",
+          "numerator": "256"
+        },
+        "n": "64",
+        "old_plus_new_periodic_mean_square": {
+          "denominator": "936384829153123298669286902389088127282304847744664845854846177431598775465410560000",
+          "numerator": "6316361313007156984585424551817074371060252584241954053192189039909327535034198662469"
+        },
+        "periodic_tail_radius": {
+          "denominator": "502718496354178892181151785430464937934758423849397208288001215735163050475094760656732160000",
+          "numerator": "51737315514841622860739212503933656173354528917525845649697220425897301839465121244283579"
+        },
+        "support_limit": "8192"
+      },
+      {
+        "cutoff_to_support_ratio": {
+          "denominator": "1",
+          "numerator": "256"
+        },
+        "n": "128",
+        "old_plus_new_periodic_mean_square": {
+          "denominator": "18999281630251708109265607302791964791583930499306770337931000115354676958034503734613070689494903864808382953645812954147154092324356995523223432036148841201795072000000",
+          "numerator": "234856710746238301137967689493239165951159546329786777040088839568795602994247665479765347828148358974647254139164803882771520007697878596174262270740011655456508899269127"
+        },
+        "periodic_tail_radius": {
+          "denominator": "1245213813331305250925725003797627415547642276575602968538410342397713898799375092895179299302579007580774090786681661990655777447194755318163584948998069671926253486080000000",
+          "numerator": "234856710746238301137967689493239165951159546329786777040088839568795602994247665479765347828148358974647254139164803882771520007697878596174262270740011655456508899269127"
+        },
+        "support_limit": "16384"
+      },
+      {
+        "cutoff_to_support_ratio": {
+          "denominator": "1",
+          "numerator": "256"
+        },
+        "n": "256",
+        "old_plus_new_periodic_mean_square": {
+          "denominator": "833602242598205061134304725275096021960953435923244488039012275276864874121025413223425258884376023480048624848253068120538674972944251853401713447638027689462412202716924264712168903474831044563792460313789735757590607925664835679992979477346365734225776763591493814825669174185924034817973316941970766947441915076005914442821795840000",
+          "numerator": "18811811263143824105141110101212753802960421001302200274106500457227063405560743857314090592935515956935817458271031571084243900815083022167079188083090810238852580192326054138509734321588369226549801371490151065869568216138715957575546990769895181609531331099953094237146535697561620832684843579372397318234126217350409298118871126612801"
+        },
+        "periodic_tail_radius": {
+          "denominator": "54632643364432129807470138016153626915978989317201948620442451575673812521226263139648676502654175508416721499530951477084213531548182057064132750432896151547938838963478374057098183535844723045260347418528068765101828312292334721422893821791436640369504571797100963583973440793237713083773196849779556986874211482554451925492525799833600000",
+          "numerator": "18811811263143824105141110101212753802960421001302200274106500457227063405560743857314090592935515956935817458271031571084243900815083022167079188083090810238852580192326054138509734321588369226549801371490151065869568216138715957575546990769895181609531331099953094237146535697561620832684843579372397318234126217350409298118871126612801"
+        },
+        "support_limit": "32768"
+      }
+    ]
+  },
+  "trusted_computing_base": {
+    "binary64": "IEEE-754 round-to-nearest-ties-to-even",
+    "numpy": "2.3.5",
+    "python": "CPython >=3.11",
+    "python_flint": "0.9.0",
+    "reduction": "NumPy add.reduce with an order-independent gamma bound"
+  }
+}

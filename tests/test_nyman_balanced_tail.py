@@ -21,11 +21,14 @@ from tools.certify_nyman_balanced_tail import (
     centered_fractional_part,
     coefficient_sum,
     convolve_coefficients,
+    farey_spacing_reciprocal,
     harmonic_sum,
     jordan_gcd_means,
+    large_sieve_tail_center_radius,
     lcm_absolute_cross,
     lcm_absolute_self,
     old_periodic_center,
+    old_periodic_mean_square,
     pairwise_lcm_absolute,
     phi_covariance,
     require_balanced,
@@ -90,6 +93,82 @@ def test_jordan_means_match_one_complete_period() -> None:
     assert nu == brute_nu
 
 
+def test_old_periodic_mean_square_matches_one_complete_period() -> None:
+    old = {
+        1: Fraction(2, 5),
+        2: Fraction(-1, 3),
+        5: Fraction(7, 11),
+    }
+    period = math.lcm(*old)
+    brute = sum(
+        (
+            old_periodic_center(old, interval) ** 2
+            for interval in range(1, period + 1)
+        ),
+        start=Fraction(0),
+    ) / period
+    assert old_periodic_mean_square(old) == brute
+
+
+@pytest.mark.parametrize(
+    ("maximum_denominator", "expected"),
+    [(0, 0), (1, 0), (2, 2), (6, 30), (8192, 67_100_672)],
+)
+def test_farey_spacing_reciprocal(
+    maximum_denominator: int,
+    expected: int,
+) -> None:
+    assert farey_spacing_reciprocal(maximum_denominator) == expected
+
+
+def test_large_sieve_bound_contains_every_cyclic_interval_discrepancy() -> None:
+    added = _balanced_example()
+    old = {
+        1: Fraction(2, 5),
+        2: Fraction(-1, 3),
+        5: Fraction(7, 11),
+    }
+    period = math.lcm(*old, *added)
+    bound = large_sieve_tail_center_radius(old, added, cutoff=19)
+    g_values = [alias_step(added, interval) for interval in range(period)]
+    r_values = [old_periodic_center(old, interval) for interval in range(period)]
+    mu = sum((value * value for value in g_values), start=Fraction(0)) / period
+    nu = sum(
+        (g_value * r_value for g_value, r_value in zip(g_values, r_values)),
+        start=Fraction(0),
+    ) / period
+    rho = sum((value * value for value in r_values), start=Fraction(0)) / period
+    tau = rho + mu - 2 * nu
+    mean_h = 2 * nu - mu
+    doubled_g = g_values + g_values
+    doubled_r = r_values + r_values
+    for start in range(period):
+        old_square_sum = Fraction(0)
+        new_square_sum = Fraction(0)
+        h_sum = Fraction(0)
+        for length in range(1, period + 1):
+            g_value = doubled_g[start + length - 1]
+            r_value = doubled_r[start + length - 1]
+            old_square_sum += r_value * r_value
+            new_value = r_value - g_value
+            new_square_sum += new_value * new_value
+            h_sum += 2 * g_value * r_value - g_value * g_value
+            assert abs(old_square_sum - length * rho) <= (
+                bound.old_square_discrepancy_bound
+            )
+            assert abs(new_square_sum - length * tau) <= (
+                bound.new_square_discrepancy_bound
+            )
+            assert abs(h_sum - length * mean_h) <= (
+                bound.periodic_partial_sum_bound
+            )
+    assert bound.periodic_partial_sum_bound == (
+        bound.old_square_discrepancy_bound
+        + bound.new_square_discrepancy_bound
+    )
+    assert bound.radius == bound.periodic_radius + bound.delta_radius
+
+
 def test_lcm_divisor_aggregation_matches_pairwise_baseline() -> None:
     left = {
         2: Fraction(-3, 8),
@@ -130,6 +209,28 @@ def test_exact_builder_rounds_then_enforces_both_balances() -> None:
         value.denominator <= 1 << 16
         for value in vectors.old_coefficients.values()
     )
+
+
+def test_exact_builder_can_select_frozen_fixed_width_cell() -> None:
+    vectors = build_exact_vectors(
+        ROOT,
+        n=8,
+        multiplier_limit=64,
+        shell_bits=9,
+        z_bits=9,
+        old_bits=16,
+        scout_section="fixed_width_grid",
+    )
+    assert vectors.n == 8
+    assert vectors.multiplier_limit == 64
+    assert max(vectors.old_coefficients) <= 8
+    assert max(vectors.added_coefficients) <= 2 * 8 * 64
+    require_balanced(vectors.added_coefficients)
+
+
+def test_exact_builder_rejects_unknown_scout_section() -> None:
+    with pytest.raises(ValueError, match="unsupported frozen scout section"):
+        build_exact_vectors(ROOT, scout_section="invented")
 
 
 def test_every_frozen_shell_rounding_bin_is_proved_by_arb() -> None:

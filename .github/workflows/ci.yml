@@ -32,3 +32,5 @@ jobs:
       - run: rh-lab verify-weil-search --index results/weil-search-grid-v1/index.json --checkpoint-dir results/weil-search-grid-v1
       - run: rh-lab verify-nyman-vasyunin-greedy-audit --artifact results/nyman-vasyunin-greedy-v1.json
       - run: python tools/generate_nyman_balanced_tail_certificate.py --verify
+      - run: python tools/generate_nyman_large_sieve_tail_certificate.py --verify
+      - run: python tools/generate_nyman_large_sieve_scaling_certificate.py --verify
