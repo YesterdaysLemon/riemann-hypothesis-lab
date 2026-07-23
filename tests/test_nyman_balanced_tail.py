@@ -187,6 +187,126 @@ def test_lcm_divisor_aggregation_matches_pairwise_baseline() -> None:
     )
 
 
+def test_sparse_ideal_shell_matches_zero_padded_dense_input() -> None:
+    sparse = {
+        1: Fraction(7, 8),
+        3: Fraction(-5, 16),
+        6: Fraction(9, 32),
+    }
+    dense = {
+        index: sparse.get(index, Fraction(0))
+        for index in range(1, 7)
+    }
+
+    previous_precision = ctx.prec
+    ctx.prec = 256
+    try:
+        sparse_arb = _ideal_shell_arb(sparse, support_cutoff=6)
+        dense_arb = _ideal_shell_arb(dense)
+    finally:
+        ctx.prec = previous_precision
+
+    assert len(sparse_arb) == len(dense_arb) == 6
+    for sparse_value, dense_value in zip(
+        sparse_arb,
+        dense_arb,
+        strict=True,
+    ):
+        assert sparse_value.contains(dense_value)
+        assert dense_value.contains(sparse_value)
+    assert tail_core.rounded_ideal_shell(
+        sparse,
+        12,
+        support_cutoff=6,
+    ) == tail_core.rounded_ideal_shell(dense, 12)
+
+
+@pytest.mark.parametrize(
+    ("coefficients", "support_cutoff"),
+    [
+        (
+            {
+                1: Fraction(5, 8),
+                2: Fraction(-3, 16),
+                3: Fraction(7, 32),
+                4: Fraction(-9, 64),
+                5: Fraction(11, 128),
+            },
+            None,
+        ),
+        (
+            {
+                1: Fraction(5, 8),
+                4: Fraction(-9, 64),
+                7: Fraction(13, 128),
+            },
+            7,
+        ),
+    ],
+)
+def test_first_shell_intercept_recurrence_matches_naive_exact_reference(
+    coefficients: dict[int, Fraction],
+    support_cutoff: int | None,
+) -> None:
+    cutoff = len(coefficients) if support_cutoff is None else support_cutoff
+    expected = tuple(
+        Fraction(1)
+        + sum(
+            (
+                value * (interval // index)
+                for index, value in coefficients.items()
+            ),
+            start=Fraction(0),
+        )
+        for interval in range(cutoff + 1, 2 * cutoff)
+    )
+    assert tail_core._first_shell_intercepts(
+        coefficients,
+        support_cutoff=support_cutoff,
+    ) == expected
+
+
+def test_explicit_shell_cutoff_rejects_invalid_ranges() -> None:
+    with pytest.raises(ValueError, match="at least two"):
+        tail_core.rounded_ideal_shell(
+            {1: Fraction(1)},
+            8,
+            support_cutoff=1,
+        )
+    with pytest.raises(ValueError, match="indices must lie"):
+        _ideal_shell_arb(
+            {0: Fraction(1), 1: Fraction(1)},
+            support_cutoff=4,
+        )
+    with pytest.raises(ValueError, match="indices must lie"):
+        _ideal_shell_arb(
+            {1: Fraction(1), 5: Fraction(1)},
+            support_cutoff=4,
+        )
+
+
+def test_ideal_shell_default_retains_legacy_dense_contract() -> None:
+    dense = {
+        1: Fraction(3, 4),
+        2: Fraction(-1, 8),
+        3: Fraction(5, 16),
+        4: Fraction(-7, 32),
+    }
+    assert tail_core.rounded_ideal_shell(
+        dense,
+        11,
+    ) == tail_core.rounded_ideal_shell(
+        dense,
+        11,
+        support_cutoff=4,
+    )
+    with pytest.raises(ValueError, match="contiguous indices 1..N"):
+        tail_core.rounded_ideal_shell(
+            {1: Fraction(3, 4), 4: Fraction(-7, 32)},
+            11,
+        )
+
+
 def test_exact_builder_rounds_then_enforces_both_balances() -> None:
     vectors = build_exact_vectors(
         ROOT,

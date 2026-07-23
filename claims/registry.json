@@ -192,6 +192,45 @@
       "statement": "For each N in {8,16,32,64,128,256}, one explicit exact-dyadic balanced K=64 correction has positive complete infinite weighted-L2 direct gain under T=32768N; all six declared rows satisfy gain greater than 1/(20N)."
     },
     {
+      "artifact": "results/nyman-nested-chain-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "c21082e8382f3128fac262c43d81d722a70ae3770be097fe4fafa709b6ee51e6",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-nested-chain-v1",
+      "implies_rh": false,
+      "limitations": "This certifies one linked chain of length two. The companion frozen-prefix theorem proves that an indefinitely append-only harmonic-balanced continuation cannot drive the energy to zero. The finite gains neither prove nor disprove RH.",
+      "reproduction": ".venv\\Scripts\\python.exe tools\\generate_nyman_nested_chain_certificate.py --verify",
+      "scope": {
+        "generation_precision_bits": "256",
+        "replay_precision_bits": "448",
+        "step_1_complete_gain_lower_bound": "1/150",
+        "step_1_support_transition": "8 to 1024",
+        "step_2_complete_gain_lower_bound": "1/9000",
+        "step_2_multiplier_limit": "8",
+        "step_2_outer_scale": "1/4",
+        "step_2_support_transition": "1024 to 16384",
+        "telescoped_complete_gain_lower_bound": "61/9000"
+      },
+      "statement": "For explicit exact-dyadic vectors p1=p0+a1 and p2=p1+a2, where the verifier reconstructs p1 before deriving a2, the two complete infinite weighted-L2 direct gains are greater than 1/150 and 1/9000, and their telescoped sum is greater than 61/9000."
+    },
+    {
+      "artifact": "docs/nyman-nested-chain-v1.md",
+      "artifact_hash_mode": "raw-bytes",
+      "artifact_sha256": "3751c7db918f104ed0b114de37b912dcddb8fdaf3fbe0db6eb6d98c8e63963ab",
+      "classification": "FAILED",
+      "id": "nyman-append-only-balanced-no-go-v1",
+      "implies_rh": false,
+      "limitations": "The proof is human-auditable rather than formally checked. It rejects only corrections that remain outside a fixed finite seed core and have zero harmonic sum; overlapping, rebased, or harmonic-changing constructions remain open. It does not prove or disprove RH.",
+      "scope": {
+        "correction_condition": "support strictly above the initial finite core and sum(a_n/n)=0",
+        "exact_n8_harmonic_moment": "241057/27525120",
+        "exact_n8_norm_floor": "58108477249/757632231014400",
+        "seed_scope": "every finite coefficient vector",
+        "theorem_inputs": "elementary interval identities, Mobius inversion, and Bertrand's postulate"
+      },
+      "statement": "Every append-only harmonic-balanced correction chain from every finite Nyman seed freezes a nonzero initial residual interval and therefore has a fixed positive weighted-L2 norm floor; this architecture cannot drive the Nyman distance to zero."
+    },
+    {
       "artifact": "docs/nyman-alias-regularization-v1.md",
       "artifact_hash_mode": "raw-bytes",
       "artifact_sha256": "36c50497bb8dc87a9db2b3b65d35c6047f6a8861044cd98ca4f82238ac74f02c",
