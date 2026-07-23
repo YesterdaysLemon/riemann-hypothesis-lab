@@ -1,0 +1,210 @@
+{
+  "archive": {
+    "builder_id": "canonical-weil-transition-ustar-v1",
+    "byte_size": "200980480",
+    "checksum_sidecar": "riemann-hypothesis-lab-weil-transition-q7-q9-v2.tar.sha256",
+    "content_set_algorithm": "sha256(canonical-json(sorted [{path,sha256,size_bytes}]))",
+    "content_set_sha256": "2d3b738eacdc9d5d6f4ff478fbf4343be1ab37bffe99b98c6eec8693452914dd",
+    "excluded_paths": [
+      "attempts/"
+    ],
+    "file_count": "99",
+    "format": "ustar-uncompressed",
+    "member_file_bytes": "200896002",
+    "metadata_profile": {
+      "directory_mode": "0755",
+      "file_mode": "0644",
+      "gid": "0",
+      "gname": "",
+      "mtime": "0",
+      "ordering": "fixed-directories-then-lexicographic-posix-files",
+      "uid": "0",
+      "uname": ""
+    },
+    "name": "riemann-hypothesis-lab-weil-transition-q7-q9-v2.tar",
+    "root": "weil-transition-q7-q9-v2/",
+    "sha256": "9e6a76c5328ce2e6763da642bf16ad1982152ba21780ca48500c3447b7c961dc"
+  },
+  "classification": "EXPLORATORY",
+  "evidence": {
+    "audits": [
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/nesting/q-7-exact-n-12-to-n-16.json",
+        "payload_sha256": "42b39441b183de3bfe00c953c99277d2a2a9e409e4d2d62c2125be2a26b44413",
+        "schema": "rh-lab/weil-degree-nesting-audit/v1",
+        "target_contract_ids": [
+          "q-7-exact-n-12",
+          "q-7-exact-n-16"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/nesting/q-7-exact-n-16-to-n-20.json",
+        "payload_sha256": "c80e9a750f0994d8cef0b3e9c1be469c50733e6d0b389721bc81cd856fed511d",
+        "schema": "rh-lab/weil-degree-nesting-audit/v1",
+        "target_contract_ids": [
+          "q-7-exact-n-16",
+          "q-7-exact-n-20"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/nesting/q-8-exact-n-16-to-n-20.json",
+        "payload_sha256": "705aba855fbc7d216189cc6f1274caada9f4b1e032934d105c8d80d5ef5a564c",
+        "schema": "rh-lab/weil-degree-nesting-audit/v1",
+        "target_contract_ids": [
+          "q-8-exact-n-16",
+          "q-8-exact-n-20"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/nesting/q-8-exact-n-20-to-n-24.json",
+        "payload_sha256": "ad47a2b9fa276acf41cac115095f5c3e99838a6f958f5a77e44bc4a72ec214da",
+        "schema": "rh-lab/weil-degree-nesting-audit/v1",
+        "target_contract_ids": [
+          "q-8-exact-n-20",
+          "q-8-exact-n-24"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/nesting/q-9-exact-n-16-to-n-20.json",
+        "payload_sha256": "64661ccd931659b49dd75d5aa290a99d17969d1a83a0d0bc23a50c5ce27bae36",
+        "schema": "rh-lab/weil-degree-nesting-audit/v1",
+        "target_contract_ids": [
+          "q-9-exact-n-16",
+          "q-9-exact-n-20"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/nesting/q-9-exact-n-20-to-n-24.json",
+        "payload_sha256": "fa3a88e1d2ca8787f83223a0d58c4af2c809e277b6eb1d6c5d90f9448de64efa",
+        "schema": "rh-lab/weil-degree-nesting-audit/v1",
+        "target_contract_ids": [
+          "q-9-exact-n-20",
+          "q-9-exact-n-24"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-7-exact-n-12.json",
+        "payload_sha256": "e370339510506bee284434199fae80fd84cf1289b21509e31adfb5fff8340bc7",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-7-exact-n-12"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-7-exact-n-16.json",
+        "payload_sha256": "0751e79a796eca79351e6e1975cc4991d9ccae52f3fdd3a5f7006efb099fa391",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-7-exact-n-16"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-7-exact-n-20.json",
+        "payload_sha256": "352b42d353e9e9ded30f2c2a82b96fd10d1b58feffacd48420d99290550060e7",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-7-exact-n-20"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-8-exact-n-16.json",
+        "payload_sha256": "0be964882c53f308c02e3d450768fca47edf044e01d525c753e139cfa24d3876",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-8-exact-n-16"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-8-exact-n-20.json",
+        "payload_sha256": "108838f1d86ef908ea5462bf445ef5eb65fc060f0359499e89a1c216b0449b6c",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-8-exact-n-20"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-8-exact-n-24.json",
+        "payload_sha256": "4da6f0ab9db37552c8f90129e3656713ef59a8f1febabedf705478155db7c688",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-8-exact-n-24"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-9-exact-n-16.json",
+        "payload_sha256": "9b954bbd7da8953d600087da05fda31c968607a9571207c2172f154240ca710b",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-9-exact-n-16"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-9-exact-n-20.json",
+        "payload_sha256": "e4e6318c813e0983b84bcd2ac811d6bf9e55455b988ebec49598bbdac2044ef0",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-9-exact-n-20"
+        ]
+      },
+      {
+        "decision": "AUDIT_PASSED_EXPLORATORY",
+        "path": "audits/parity/q-9-exact-n-24.json",
+        "payload_sha256": "6e64c1f03caa9f6672a52c21cfdf992857a58b557dacfbf272a3722226f7ee73",
+        "schema": "rh-lab/weil-parity-audit/v1",
+        "target_contract_ids": [
+          "q-9-exact-n-24"
+        ]
+      }
+    ],
+    "counts": {
+      "cells": "81",
+      "confirmations": "0",
+      "nesting_audits": "6",
+      "parity_audits": "9"
+    },
+    "index": {
+      "path": "index.json",
+      "payload_sha256": "b1d00edb4dd3115992e1e377c7cf81475824d16d175396a40fd2cadb7c03d3ff"
+    },
+    "plan": {
+      "path": "plan.json",
+      "plan_sha256": "33185881cc619fda99b7835f5e71422b0c5cf745cb5411162638a8e08dd05336"
+    },
+    "run": {
+      "path": "run.json",
+      "payload_sha256": "e1141e64355f7261886cbea7ea6855183a3676f90f35850e8217ac5eaa7a1c16"
+    },
+    "transition_summary": {
+      "conclusion": "NO_CERTIFIED_NEGATIVE_WITNESS_FOUND_IN_FINITE_TRANSITION_BATCH",
+      "numerical_replay_performed": false,
+      "payload_sha256": "32a08241f112fddfe496bd10934bf03760b0bde939b7f91938fd08475f701467",
+      "schema": "rh-lab/weil-transition-summary/v2"
+    }
+  },
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This release contains exploratory finite-dimensional evidence. It does not prove or disprove the Riemann Hypothesis.",
+  "manifest_storage": "tracked adjacent to evidence tree; not in archive",
+  "payload_sha256": "c915fabea4f82a5e4ec07afd9543b23b9ab557b4987d8d100ca1c7b43eb5f1fc",
+  "producer_git_commit": "18b075a6d201576da6c6f44e0a6a62dadeff8270",
+  "release": {
+    "asset_url": "https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/download/weil-transition-q7-q9-v2/riemann-hypothesis-lab-weil-transition-q7-q9-v2.tar",
+    "repository": "YesterdaysLemon/riemann-hypothesis-lab",
+    "tag": "weil-transition-q7-q9-v2",
+    "url": "https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/weil-transition-q7-q9-v2"
+  },
+  "schema": "rh-lab/weil-transition-release-manifest/v1"
+}
