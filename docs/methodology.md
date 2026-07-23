@@ -85,6 +85,20 @@ to remain inside the generation enclosures. This certifies only
 `d_512^2 < (449/500)d_256^2`. It settles the `k=8` beta=2 step but leaves the
 uniform `k>=9` trial-subspace inequality wholly open.
 
+The follow-up [arithmetic trial-subspace audit](nyman-trial-subspace-v1.md)
+tests one frozen eight-column rule on the same new block. Rather than trusting
+an ill-conditioned approximate Schur solve, it builds the 264-dimensional
+aggregate space and certifies the strict restricted-distance lower bound
+`F_V>(9/10)U_256` using all 265 positive pivots of an augmented fixed-order
+interval `LDL^T`. Combined with the frozen `d_256^2<=U_256` endpoint, this
+proves that the best gain in that exact span is less than `d_256^2/10`.
+Generation at 768 bits and complete replay at exactly 1536 bits share the
+natural-dilate/Arb backend. The result rejects only this finite ansatz; it does
+not weaken the full-block contraction or establish anything at later scales.
+The accompanying exact dyadic-lift and triangular-cancellation calculations
+identify the remaining analytic obstruction for those explicit routes as
+control of the truncated divisor tail and its aliases beyond `2N`.
+
 ### 3. Independent falsifiers
 
 - Li coefficients: a single interval-certified negative coefficient disproves
