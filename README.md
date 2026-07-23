@@ -28,6 +28,7 @@ Current finite results and documented theorem consequences:
 | If an old vector and a finite balanced correction are both supported through `Q`, their periodic direct-gain partial sums are bounded by `Q(Q-1)(rho+tau)`, via denominator-collapsed Fourier spectra, Farey spacing, and the Montgomery--Vaughan large sieve; for the frozen `N=256`, `K=16` direction this proves complete gain greater than `1/5000` | Human-auditable theorem + `CERTIFIED_FINITE` artifact | The [Fourier/Farey proof](docs/nyman-large-sieve-tail-v1.md) and [machine certificate](results/nyman-large-sieve-tail-v1.json) reduce the prior periodic bound by more than `632x`, use only the first `2^22` intervals instead of `2^26`, and replay with a different block partition at 384 bits | This removes the pairwise-LCM bottleneck for finite support and strengthens one finite contraction. A uniform all-scale energy/gain estimate is still missing, so RH remains unresolved |
 | Six exactly rounded fixed-width `K=64` directions at `N=8,16,32,64,128,256` all have strictly positive complete infinite direct gain under the common cutoff rule `T=32768N`; in particular every stored row satisfies `gain > 1/(20N)` | `CERTIFIED_FINITE` six-cell suite | The [scaling audit](docs/nyman-large-sieve-scaling-v1.md) and [artifact](results/nyman-large-sieve-scaling-v1.json) rebuild each frozen scout cell, certify its prefix, apply the Fourier/Farey tail theorem, and replay all six with different blocks at 384 bits | These are independent cross-sectional rows, not a nested recurrence: each correction can jump support to `128N`, tail headroom deteriorates across the table, and no arbitrary-`N` conclusion is justified |
 | One exact genuinely nested chain `p1=p0+a1`, `p2=p1+a2` has complete gains greater than `1/150` and `1/9000`, hence telescoped gain greater than `61/9000`; however every append-only harmonic-balanced shell chain from every finite seed freezes a nonzero initial residual interval and has a fixed positive norm floor | `CERTIFIED_FINITE` two-step chain + human-auditable `FAILED` route theorem | The [nested-chain proof and obstruction](docs/nyman-nested-chain-v1.md) and [machine artifact](results/nyman-nested-chain-v1.json) bind step 2's old-vector hash to step 1's updated-vector hash, replay at 448 bits, and prove the universal frozen-prefix theorem using Möbius inversion and Bertrand's postulate | Positive finite contractions can continue without approaching zero. Strictly append-only balanced updates are now ruled out as an RH route; overlapping or rebased corrections remain open, and RH remains unresolved |
+| Two explicit rebased exact-dyadic vectors satisfy `E(p1)-E(p2)>1/5000`; `p2` rebuilds the old coordinates and adds a shell derived from exact `p1`, so this step is not append-only or harmonic-balanced | `CERTIFIED_FINITE` | The [rebased Schur proof](docs/nyman-rebased-schur-v1.md) derives an arbitrary-harmonic-slope prefix identity and absolute large-sieve tail; the [machine artifact](results/nyman-rebased-schur-v1.json) directly evaluates `E(p1)`, bounds all of `E(p2)`, and replays with block size 32,749 at 448 bits | This escapes the frozen-prefix obstruction for one declared step only. The weight lists are optimizer proposals, and no all-scale recurrence or convergence theorem is proved; RH remains unresolved |
 | One exact `N=256`, `K=16` balanced correction supported through index 8,192 has complete infinite direct gain greater than `7/50000` over an exact 16-bit old vector | `CERTIFIED_FINITE` | The [complete-tail artifact](results/nyman-balanced-full-tail-v1.json) encloses the first `2^26` intervals with exact integer recurrences, an explicit binary64 error radius, and Arb, then encloses every omitted interval by exact Jordan-`J_2` means, ordered-pair LCM bounds, and Abel summation; a 384-bit replay changes the block partition | This is one strict finite contraction. It supplies no uniform all-scale estimate and does not prove or disprove RH |
 | The certified `N=256` Nyman value obeys `d_256^2 log(256) < 23/500`, while the published asymptotic theory gives the unconditional floor `liminf d_N^2 log(N) >= 2 + gamma - log(4*pi) > 23/500` | Human-auditable theorem consequence | The [finite audit](results/nyman-forced-rebound-v1.json) machine-replays the exact rational and Arb preconditions; the infinite bridge is a published-theorem argument reproduced in a human-auditable proof note, not a checker-proved repository claim | Every sufficiently large dyadic scaled distance exceeds the `N=256` value, so at least one future adjacent scaled increase is forced; no effective index is known and RH remains unresolved |
 | The Bettin--Conrey--Farmer log-tapered Mobius candidate is split exactly into a prime-counting core and truncated-divisor tail for `N=8,16,32,64,128,256`; both core formulas agree and every scalar replays at 512 bits | `EXPLORATORY` | The [core/tail artifact](results/nyman-mobius-core-tail-v1.json) rebuilds the Gram kernel, verifies all 256 exact divisor identities, and binds the six certified optimal-distance brackets | At `N=256`, `E_BCF=0.1242877...`, 98.7627% is core, and `E_BCF>15*d_256^2`; the unproved all-`N` bound needed for RH is isolated explicitly |
@@ -57,6 +58,7 @@ Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
 [Nyman Fourier/Farey large-sieve tail certificate](results/nyman-large-sieve-tail-v1.json),
 [Nyman six-scale large-sieve certificate](results/nyman-large-sieve-scaling-v1.json),
 [Nyman genuine nested-chain certificate](results/nyman-nested-chain-v1.json),
+[Nyman rebased Schur certificate](results/nyman-rebased-schur-v1.json),
 [untrusted N=512 candidate](results/nyman-beta2-n512-candidate-v1.json),
 [public Nyman v1 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/nyman-natural-v1),
 [zero certificate](results/zeros-1-10000.json),
@@ -507,6 +509,48 @@ This is a route rejection, not a disproof of RH. The surviving construction
 must modify earlier coefficients through overlap, rebasing, or residualized
 Schur-complement reoptimization.
 
+#### Rebased Schur contraction with arbitrary harmonic slope
+
+The [rebased certificate](docs/nyman-rebased-schur-v1.md) takes that surviving
+route for one explicit step. Starting from the exact sparse `p1`, it derives a
+new rounded ideal shell but then rebuilds `p2` from eight direct coordinates,
+eight dilates of the first shell, and eight dilates of the new shell. The old
+coordinates are reoptimized, so `p2-p1` is not an append-only
+harmonic-balanced correction and the frozen-prefix theorem does not apply.
+
+For an arbitrary finite vector `p`, put
+
+```text
+P = sum(p_n/n),  q_M = 1 + sum p_n floor(M/n).
+```
+
+Including `(0,1)`, the exact prefix through interval `T` is
+
+```text
+(T+1)P^2 + sum_(M<=T) q_M^2/[M(M+1)] - 2P L_T,
+```
+
+where Abel summation compresses `L_T` to finitely many `log` and `log Gamma`
+terms. Centering the periodic residual gives exact mean square `rho`; the
+Montgomery--Vaughan large sieve and Abel summation then give the absolute tail
+
+```text
+rho/(T+1) + Q(Q-1)rho/[(T+1)(T+2)]
+  + |P|V/(T+1) + P^2/[4(T+1)].
+```
+
+At `T=2^17`, the exact rational tail upper bound for the 915-term `p2` is
+about `0.000346903036160492`. Direct Arb evaluation of the 55-term `p1` and
+the complete upper bound for `p2` produce a certified gain-lower computation
+`[0.0003176470 +/- 5.96e-11]`, whose lower endpoint is greater than `1/5000`.
+The artifact payload SHA-256 is
+`a6e1119fb457e18b521e70203483101a77be7509d52d4f41889951399ce95edd`.
+
+That finite inequality is the only public claim. Both weight lists came from
+an exploratory optimizer and are treated only as frozen proposals; the
+verifier proves the sign afresh. No third step, uniform all-scale recurrence,
+or convergence theorem is known here, and RH remains `UNRESOLVED`.
+
 #### Forced dyadic scaled rebound (unconditional, manual theorem bridge)
 
 Set `E_k=d_(2^k)^2` and `F_k=k log(2) E_k`. The exact v1 upper endpoint and
@@ -758,6 +802,8 @@ Generate or independently replay the Fourier/Farey complete-tail certificate:
   --verify --artifact results\nyman-large-sieve-scaling-v1.json
 .\.venv\Scripts\python.exe tools\generate_nyman_nested_chain_certificate.py `
   --verify --artifact results\nyman-nested-chain-v1.json
+.\.venv\Scripts\python.exe tools\generate_nyman_rebased_schur_certificate.py `
+  --verify --artifact results\nyman-rebased-schur-v1.json
 ```
 
 Both search engines write atomic per-attempt checkpoints. Resume the v2 batch

@@ -382,6 +382,65 @@ rules that seed out. The checker verifies the finite balance, support, update,
 and gain identities; it does not formalize Möbius inversion or Bertrand's
 postulate. The theorem rejects this recurrence architecture, not RH.
 
+### Rebased Schur certificate with arbitrary harmonic slope
+
+The rebased certificate binds the frozen exact `N=8` source cell and shared
+natural-dilate kernel before constructing anything. The first ideal shell is
+derived from the source's full `2^-256` coefficient vector, rounded by the
+declared unique-nearest `2^-9` rule, and combined with a frozen sixteen-entry
+`2^-16` weight list to reconstruct `p1`. A second ideal shell is derived from
+that exact sparse `p1`; a new twenty-four-entry weight list then rebuilds
+`p2` from the eight direct coordinates and eight dilates of each shell. Exact
+vector commitments bind the source, both shells, both weight lists, `p1`, and
+`p2`, including the second shell's `p1` parent.
+
+The two weight lists came from an exploratory Schur-complement optimizer. The
+optimizer, its objective value, and its numerical conditioning diagnostics are
+not trusted evidence. Once the lists are frozen, the verifier reconstructs
+every coefficient and decides the sign independently.
+
+`E(p1)` is enclosed by the canonical Arb natural-dilate Gram builder. Because
+`p2` has a nonzero harmonic sum, its complete energy uses a local
+arbitrary-slope proof path. The prefix includes `(0,1)` and integer intervals
+`M=1,...,T`, with
+
+```text
+(T+1)P^2 + sum q_M^2/[M(M+1)] - 2P L_T.
+```
+
+The `q_M` recurrence is exact signed int64 after a global overflow proof.
+NumPy 2.3.5 performs only guarded binary64 conversions, products, divisions,
+and fixed reductions under IEEE-754 round-to-nearest-ties-to-even. Their
+rounding contribution is covered by an exact rational error radius, including
+block and final-reduction gamma bounds. Arb evaluates the Abel-compressed
+logarithmic term at 256 bits.
+
+The omitted tail is bounded by exact rational arithmetic:
+
+```text
+rho/(T+1) + Q(Q-1)rho/[(T+1)(T+2)]
+  + |P|V/(T+1) + P^2/[4(T+1)].
+```
+
+Exact Jordan-`J_2` divisor sums compute `rho`, including its constant
+coefficient `c0^2`. The `Q(Q-1)` discrepancy term uses the dual
+consecutive-interval form of Montgomery and Vaughan's large-sieve theorem,
+Farey spacing, a cyclic-complement argument, and Abel summation. The checker
+does not formally prove that published theorem.
+
+Generation uses cutoff `T=2^17`, block size `2^16`, and 256-bit Arb. Replay
+reconstructs the vectors and complete proof with the incommensurate block size
+32,749 and 448-bit Arb. Strict JSON loading, exact schema equality, source and
+kernel pins, canonical payload verification, support checks, and the strict
+rational threshold reject relevant mutations.
+
+Generation and replay nevertheless share the repository formulas, CPython,
+NumPy, Python-FLINT, FLINT, and the same Gram implementation. This is
+reproducible finite certification, not clean-room or formal verification. It
+proves only `E(p1)-E(p2)>1/5000` for the two explicit vectors. It proves no
+third step, all-scale recurrence, convergence theorem, or implication for RH;
+the global status remains `UNRESOLVED`.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker
