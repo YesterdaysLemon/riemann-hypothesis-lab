@@ -39,9 +39,12 @@ the stronger bound `1/5000` from a prefix sixteen times shorter and replaces
 the coefficientwise LCM estimate by a general support-energy lemma. The
 [six-scale fixed-width suite](nyman-large-sieve-scaling-v1.md) then certifies
 positive complete gain for all six stored `K=64` rows under `T=32768N`.
-Those rows are independent rather than a nested recurrence. This does not
-retroactively certify the binary64 scout table or provide the missing uniform
-theorem; RH remains unresolved.
+The later [nested-chain audit](nyman-nested-chain-v1.md) certifies two actual
+linked updates, then proves a frozen-prefix obstruction: every strictly
+append-only harmonic-balanced continuation from a finite seed has a fixed
+positive norm floor. Thus the finite gains are real, but this exact recurrence
+architecture cannot prove RH. Overlapping or rebased updates remain open, and
+RH remains unresolved.
 
 ## Setup
 
@@ -544,16 +547,26 @@ full Hilbert space. Since the next dimension is at most `2KN`, the resulting
 reciprocal-log gains would have a divergent sum and force the distances to
 zero.
 
-The remaining proof has two parts:
+The append-only target formerly posed here is now impossible. Every correction
+`a=y*c` is supported strictly above the old core and has
+`sum_n a_n/n=0`. It consequently vanishes on the entire initial interval, so
+the seed residual there is frozen forever. The
+[nested-chain proof](nyman-nested-chain-v1.md) shows that no finite seed can
+have zero residual on that whole interval: otherwise Möbius inversion forces
+`p_n=-mu(n)`, contradicting an exact Bertrand-prime argument for
+`sum_(n<=N)mu(n)/n`.
 
-1. prove uniform scale bounds for the old and new periodic energies entering
-   the large-sieve tail lemma;
-2. prove a uniform local-gain lower bound and choose a cutoff that retains a
-   fixed fraction of that gain.
+A repaired, non-append-only construction would instead need both:
 
-Neither uniform statement is proved here. The finite-support tail itself is
-now controlled exactly by `Q(Q-1)(rho+tau)`, so the fixed-width table identifies
-a concrete energy-to-gain target instead of an unresolved pairwise-LCM tail.
+1. an overlapping or residualized update that reoptimizes old coefficients
+   and removes the frozen-core obstruction;
+2. uniform scale bounds and a local-gain estimate of order at least
+   `c/log N` for that repaired recurrence.
+
+Neither statement is proved here. The finite-support tail itself remains
+controlled exactly by `Q(Q-1)(rho+tau)`, but that tool must now be paired with
+a recurrence that changes the earlier residual rather than merely appending
+balanced outer support.
 
 ## Primary sources
 

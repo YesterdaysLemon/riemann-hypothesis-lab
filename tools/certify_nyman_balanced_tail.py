@@ -188,24 +188,109 @@ def _arb_from_fraction(value: Fraction) -> arb:
     return arb(exact.numerator) / exact.denominator
 
 
+def _resolve_old_support_cutoff(
+    coefficients: Mapping[int, Fraction],
+    support_cutoff: int | None,
+) -> tuple[int, tuple[int, ...]]:
+    """Resolve the first-shell cutoff while preserving the legacy dense API."""
+
+    indices = tuple(sorted(coefficients))
+    if support_cutoff is None:
+        if indices != tuple(range(1, len(indices) + 1)):
+            raise ValueError(
+                "the old candidate must have contiguous indices 1..N"
+            )
+        cutoff = len(indices)
+    else:
+        if isinstance(support_cutoff, bool) or not isinstance(
+            support_cutoff,
+            int,
+        ):
+            raise TypeError("the old support cutoff must be an integer")
+        cutoff = support_cutoff
+        if any(index < 1 or index > cutoff for index in indices):
+            raise ValueError(
+                "old coefficient indices must lie in 1..support_cutoff"
+            )
+    if cutoff < 2:
+        if support_cutoff is None:
+            raise ValueError(
+                "the old candidate must have dimension at least two"
+            )
+        raise ValueError("the old support cutoff must be at least two")
+    return cutoff, indices
+
+
+def _first_shell_intercepts(
+    coefficients: Mapping[int, Fraction],
+    *,
+    support_cutoff: int | None = None,
+) -> tuple[Fraction, ...]:
+    """Return ``1 + sum_n p_n floor(m/n)`` for ``N < m < 2N``.
+
+    The value at ``m=N`` is formed once. Each later value is obtained by
+    adding the exact coefficient sum over divisors of the new integer. For a
+    sparse vector this costs
+
+        O(N + support_size + sum_(n in support) N/n)
+
+    instead of recomputing a support-sized dot product on every interval.
+    """
+
+    cutoff, indices = _resolve_old_support_cutoff(
+        coefficients,
+        support_cutoff,
+    )
+    intercept = ONE + sum(
+        (
+            Fraction(coefficients[index]) * (cutoff // index)
+            for index in indices
+        ),
+        start=ZERO,
+    )
+    jumps = [ZERO for _ in range(cutoff - 1)]
+    for index in indices:
+        value = Fraction(coefficients[index])
+        if not value:
+            continue
+        first_multiple = (cutoff // index + 1) * index
+        for multiple in range(first_multiple, 2 * cutoff, index):
+            offset = multiple - cutoff - 1
+            jumps[offset] += value
+
+    result: list[Fraction] = []
+    for jump in jumps:
+        intercept += jump
+        result.append(intercept)
+    return tuple(result)
+
+
 def _ideal_shell_arb(
     coefficients: Mapping[int, Fraction],
+    *,
+    support_cutoff: int | None = None,
 ) -> tuple[arb, ...]:
-    indices = tuple(sorted(coefficients))
-    if indices != tuple(range(1, len(indices) + 1)):
-        raise ValueError("the old candidate must have contiguous indices 1..N")
-    n = len(indices)
+    """Return the ideal shell for an old vector supported through ``N``.
+
+    Omitting ``support_cutoff`` retains the historical contract that
+    ``coefficients`` has every key in ``1..N``. Supplying it permits a sparse
+    mapping; omitted indices through the cutoff are interpreted as exact
+    zeros.
+    """
+
+    n, _ = _resolve_old_support_cutoff(coefficients, support_cutoff)
     slope = -harmonic_sum(coefficients)
     slope_ball = _arb_from_fraction(slope)
     cumulative: dict[int, arb] = {}
-    for m in range(n + 1, 2 * n):
-        intercept = ONE + sum(
-            (
-                coefficients[index] * (m // index)
-                for index in indices
-            ),
-            start=ZERO,
-        )
+    intercepts = _first_shell_intercepts(
+        coefficients,
+        support_cutoff=support_cutoff,
+    )
+    for m, intercept in zip(
+        range(n + 1, 2 * n),
+        intercepts,
+        strict=True,
+    ):
         log_mass = (arb(m + 1) / m).log()
         averaged_residual = (
             _arb_from_fraction(intercept)
@@ -242,26 +327,31 @@ def _unique_nearest_integer(value: arb) -> int | None:
 def rounded_ideal_shell(
     coefficients: Mapping[int, Fraction],
     bits: int,
+    *,
+    support_cutoff: int | None = None,
 ) -> dict[int, Fraction]:
     """Construct the ideal first shell and round it to exact dyadics.
 
     Arb precision is increased until every exact logarithmic expression is
     enclosed strictly inside one nearest-dyadic rounding bin.  The final shell
     coefficient is then replaced by the exact negative sum of the preceding
-    coefficients.
+    coefficients. With an explicit ``support_cutoff``, the old coefficient
+    mapping may be sparse; omitted indices through the cutoff are exact zeros.
+    The default retains the legacy dense ``1..N`` contract.
     """
 
     if bits < 0:
         raise ValueError("dyadic bit count must be nonnegative")
-    n = len(coefficients)
-    if n < 2:
-        raise ValueError("the old candidate must have dimension at least two")
+    n, _ = _resolve_old_support_cutoff(coefficients, support_cutoff)
     rounded: tuple[Fraction, ...] | None = None
     previous_precision = ctx.prec
     try:
         for precision in (128, 192, 256, 384, 512, 768, 1024):
             ctx.prec = max(precision, bits + 64)
-            values = _ideal_shell_arb(coefficients)
+            values = _ideal_shell_arb(
+                coefficients,
+                support_cutoff=support_cutoff,
+            )
             integers = tuple(
                 _unique_nearest_integer(value * (1 << bits))
                 for value in values[:-1]

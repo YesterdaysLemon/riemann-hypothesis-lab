@@ -362,6 +362,26 @@ the frozen source files and deterministic reconstruction code; it is not a
 self-contained formal proof object. The same shared-backend and published-
 theorem limitations as the single-cell large-sieve certificate apply.
 
+### Genuine nested-chain certificate and route obstruction
+
+The nested-chain artifact reconstructs the frozen `N=8,K=64` exact update,
+forms `p1=p0+a1`, and builds the second ideal shell from that sparse updated
+vector with explicit support cutoff 1,024. It then applies the prescribed
+exact `K=8` multiplier and outer scale `1/4`, certifies the prefix through
+`2^25`, and applies the same Fourier/Farey tail bound. Generation uses
+`2^18` blocks and 256-bit Arb; replay changes to the incommensurate block size
+196,613 and 448-bit Arb. Exact vector commitments force step 1's updated vector
+to be step 2's old vector.
+
+The artifact proves two finite complete gains and their telescoped sum. It
+does not prove an indefinitely iterable recurrence. The companion
+frozen-prefix theorem is a human-auditable analytic argument: append-only
+harmonic-balanced corrections vanish on the initial interval, Möbius inversion
+identifies the only hypothetical zero seed prefix, and Bertrand's postulate
+rules that seed out. The checker verifies the finite balance, support, update,
+and gain identities; it does not formalize Möbius inversion or Bertrand's
+postulate. The theorem rejects this recurrence architecture, not RH.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker

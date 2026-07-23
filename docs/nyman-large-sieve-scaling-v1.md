@@ -191,16 +191,23 @@ raw-file SHA-256: 02886cec84010235b3a6e564b7aba8d42e57bbcf2f4e28783dc91894d01f9c
 whole canonical artifact SHA-256: b8a22d0d419b282b70c705c6df0edad77dcc3a69f91189ae11c2035567d3fcdb
 ```
 
-## Next theorem target
+## Certified follow-up and revised target
 
-The suite narrows the live problem to a nested construction.  One needs an
-explicit rule that consumes the residual produced at one step and returns the
-next balanced correction, together with uniform bounds comparing:
+The [nested-chain audit](nyman-nested-chain-v1.md) subsequently constructed
+two genuine linked corrections. It also proved that the strictly append-only
+harmonic-balanced architecture has a frozen nonzero residual prefix for every
+finite seed, so no uniform estimate can make that particular chain converge
+to zero.
+
+The revised live problem is an overlapping or rebased nested construction
+that consumes the residual produced at one step, changes earlier coefficients,
+and returns a new correction, together with uniform bounds comparing:
 
 \[
 \text{complete gain},\qquad Q^2(\rho+\tau),\qquad
 \text{and the current residual norm}.
 \]
 
-Without that nested rule and its uniform estimates, the six contractions are
-valuable finite evidence and nothing more.  They do not prove or disprove RH.
+Without such a non-append-only rule and its uniform estimates, the finite
+contractions remain valuable evidence and nothing more. The frozen-prefix
+theorem rejects one architecture; it does not prove or disprove RH.
