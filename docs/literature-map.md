@@ -55,6 +55,12 @@ paper's approach is equally promising.
   [A lower bound in an approximation problem involving the zeros of the Riemann zeta function](https://arxiv.org/abs/math/0103058):
   the multiplicity-sensitive continuum lower bound used, through natural-space
   inclusion, in the forced dyadic rebound theorem.
+- Burnol,
+  [On an analytic estimate in the theory of the Riemann Zeta function and a Theorem of Baez-Duarte](https://arxiv.org/abs/math/0202166):
+  an RH-conditional critical-line estimate for `zeta(s)/zeta(s+A)` and an
+  important converse guardrail. Its Theorem 4.2 says that square
+  integrability of the associated `f_epsilon` for a sequence
+  `epsilon -> 0` implies RH.
 - Chen and Qi,
   [The best bounds of harmonic sequence](https://arxiv.org/abs/math/0306233):
   the harmonic-number enclosure used for the independent `1-gamma`
@@ -66,7 +72,16 @@ paper's approach is equally promising.
   [An optimal choice of Dirichlet polynomials for the Nyman--Beurling criterion](https://arxiv.org/abs/1211.5191):
   a direct statement of the unconditional natural-distance lower bound, plus
   the log-tapered Mobius family and its optimal asymptotic under RH and a
-  zero-derivative moment assumption.
+  zero-derivative negative-moment assumption
+  `sum_(|Im rho|<=T) 1/|zeta'(rho)|^2 << T^(3/2-delta)` for some
+  `delta>0`. This assumption in particular excludes multiple zeros.
+- Ehm,
+  [On certain Gram matrices and their associated series](https://arxiv.org/abs/2405.06349):
+  exact Gram-kernel and quadratic-form decompositions for the `q=1` and `q=2`
+  Nyman--Beurling problems, including `S_1(x)=O(x^-2)`. The paper constructs
+  modified Levinson--Selberg coefficients, but explicitly sets aside
+  estimation of its Mobius-inversion error `E_a^(q)(N)` as a major challenge;
+  the kernel decay alone does not prove natural-distance convergence.
 - Rodgers and Tao,
   [The de Bruijn-Newman constant is non-negative](https://arxiv.org/abs/1801.05914).
 - Griffin, Ono, Rolen, Thorner, Tripp, and Wagner,
@@ -74,6 +89,66 @@ paper's approach is equally promising.
 
 Every criterion above retains an infinite or universal quantifier. Finite
 positivity, finite approximation, and finite inequality checks do not prove RH.
+
+## Exact BCF coefficient audit
+
+For the Bettin--Conrey--Farmer taper, use the repository's sign convention
+
+\[
+a_n=\mu(n)\left(1-\frac{\log n}{\log N}\right),\qquad c_n=-a_n,
+\]
+
+and set
+
+\[
+s_N=\sum_{n\le N}\frac{a_n}{n},\quad
+h_N(k)=\sum_{\substack{d\mid k\\d\le N}}a_d,\quad
+H_N(m)=\sum_{k\le m}h_N(k),\quad q_N(m)=1-H_N(m).
+\]
+
+The residual in the equivalent `t`-space is `ts_N` on `0<t<1` and
+`ts_N+q_N(m)` on `m<=t<m+1`. Therefore its squared norm has the exact,
+unconditional split
+
+\[
+\mathcal E_N^{\rm BCF}=\mathcal C_N+\mathcal T_N,
+\]
+
+\[
+\mathcal C_N=s_N^2+\sum_{m=1}^{N-1}
+\left[s_N^2+2s_Nq_N(m)\log\frac{m+1}{m}
++\frac{q_N(m)^2}{m(m+1)}\right],
+\]
+
+\[
+\mathcal T_N=\sum_{m=N}^{\infty}
+\left[s_N^2+2s_Nq_N(m)\log\frac{m+1}{m}
++\frac{q_N(m)^2}{m(m+1)}\right].
+\]
+
+Inside the core, the full divisor identity gives
+`h_N(k)=1_(k=1)+Lambda(k)/log N` for `k<=N`, hence
+`q_N(m)=-psi(m)/log N` for `m<N`. Beyond `N` the divisor truncation means
+that this `psi` formula is no longer available. The three terms in each
+bracket represent a single nonnegative interval integral and should not be
+estimated independently in a way that loses their cancellation. The full
+scaled core formula and normalization checks are recorded in
+[the theorem-frontier note](nyman-theorem-frontier.md#exact-bcf-coretail-split).
+
+The next proposed statement is only an `EXPLORATORY`, `UNRESOLVED` target:
+
+\[
+\mathcal T_N\le A\mathcal C_N+\frac{B}{\log N}
+\]
+
+for fixed constants `A,B` and all sufficiently large `N`. It would compare
+the truncated-divisor tail with the prime-error core, but it would not by
+itself prove RH. One would also need `mathcal C_N=o(1)`. That core estimate is
+zero-sensitive at the scale of `psi(x)-x` and must be treated as RH-strength,
+not as a routine unconditional prime-number-theorem bound. No cited source is
+claimed to prove either missing estimate. Ehm's inversion error is the closest
+audited quadratic-form analogue of the tail obstruction, while Burnol's 2002
+theorem explains why seemingly technical `L^2` control can already encode RH.
 
 ## Current reproducible directions
 

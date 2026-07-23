@@ -129,6 +129,34 @@ theory. Those analytic dependencies are recorded in the artifact but are not
 formalized or reproved by the Python verifier. The artifact therefore remains
 `EXPLORATORY`, and RH remains `UNRESOLVED`.
 
+### Log-tapered Mobius core/tail audit
+
+The Mobius artifact first regenerates the frozen six-cell Nyman summary and
+binds its exact optimized-distance brackets. That summary operation is an
+integrity check, not a numerical replay of the old optimizer certificates.
+The new computation independently rebuilds the canonical natural-dilate Gram
+kernel at 256 bits, evaluates the Bettin--Conrey--Farmer coefficient formula,
+and recomputes every stored scalar at 512 bits. Generation and replay share
+CPython, this repository, python-flint, FLINT, and the rational Vasyunin kernel,
+so the replay is not a clean-room backend.
+
+CPython integer and `Fraction` arithmetic checks the Mobius divisor sums and
+the rational products encoding
+`sum_(d|k) mu(d)log(d)=-Lambda(k)` for every `k<=256`. Arb evaluates the
+formula-defined logarithmic coefficients, both finite core expressions, the
+full Gram energy, their comparisons, and the tail obtained by subtraction.
+The mathematical identity `T_N=E_N-C_N` is part of the manual proof layer;
+the checker does not directly sum the infinite tail. Requiring the two core
+enclosures to overlap guards the divisor/prime-counting translation, but both
+paths still share code and Arb logarithms.
+
+The shortcut `q_m=-psi(m)/log(N)` is used only in the core, where `m<N`.
+Beyond the cutoff the divisor sum is truncated and that identity generally
+fails. The artifact certifies six finite energies and strict comparisons only.
+It neither proves the required all-scale upper estimate nor imports the
+conditional Bettin--Conrey--Farmer asymptotic as an unconditional fact; its
+classification is `EXPLORATORY` and RH remains `UNRESOLVED`.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker

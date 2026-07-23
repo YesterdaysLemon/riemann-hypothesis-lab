@@ -35,6 +35,11 @@ from .nyman_rebound import (
     generate_nyman_rebound_audit,
     verify_nyman_rebound_audit,
 )
+from .nyman_mobius import (
+    NymanMobiusError,
+    generate_nyman_mobius_audit,
+    verify_nyman_mobius_audit,
+)
 from .zeros import (
     ZeroCertificateError,
     certify_critical_line_zeros,
@@ -189,6 +194,14 @@ def _parser() -> argparse.ArgumentParser:
     nyman_rebound.add_argument("--checkpoint-dir", type=Path, required=True)
     nyman_rebound.add_argument("--output", type=Path, required=True)
 
+    nyman_mobius = commands.add_parser(
+        "nyman-mobius-core-tail-audit",
+        help="generate the frozen log-tapered Mobius core/tail audit",
+    )
+    nyman_mobius.add_argument("--summary", type=Path, required=True)
+    nyman_mobius.add_argument("--checkpoint-dir", type=Path, required=True)
+    nyman_mobius.add_argument("--output", type=Path, required=True)
+
     parity = commands.add_parser(
         "weil-parity-audit",
         help="generate an exploratory reversal-parity audit for one Weil cell",
@@ -303,6 +316,16 @@ def _parser() -> argparse.ArgumentParser:
     verify_nyman_rebound.add_argument("--artifact", type=Path, required=True)
     verify_nyman_rebound.add_argument("--summary", type=Path, required=True)
     verify_nyman_rebound.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
+
+    verify_nyman_mobius = commands.add_parser(
+        "verify-nyman-mobius-core-tail-audit",
+        help="regenerate at 256 bits and replay the Mobius audit at 512 bits",
+    )
+    verify_nyman_mobius.add_argument("--artifact", type=Path, required=True)
+    verify_nyman_mobius.add_argument("--summary", type=Path, required=True)
+    verify_nyman_mobius.add_argument(
         "--checkpoint-dir", type=Path, required=True
     )
 
@@ -524,6 +547,33 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0
 
+    if args.command == "nyman-mobius-core-tail-audit":
+        try:
+            artifact = generate_nyman_mobius_audit(
+                args.summary,
+                args.checkpoint_dir,
+            )
+            write_json(args.output, artifact)
+        except (NymanMobiusError, OSError, TypeError, ValueError) as exc:
+            print(f"Nyman Mobius audit rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "audit_outcome": artifact["audit_outcome"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                    "certified_cells": str(
+                        len(artifact["generation"]["records"])
+                    ),
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
     if args.command == "weil-parity-audit":
         try:
             artifact = certify_parity_audit(
@@ -717,6 +767,23 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.JSONDecodeError,
         ) as exc:
             print(f"Nyman rebound audit rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-nyman-mobius-core-tail-audit":
+        try:
+            result = verify_nyman_mobius_audit(
+                args.artifact,
+                args.summary,
+                args.checkpoint_dir,
+            )
+        except (
+            NymanMobiusError,
+            OSError,
+            json.JSONDecodeError,
+        ) as exc:
+            print(f"Nyman Mobius audit rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0
