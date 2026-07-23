@@ -295,7 +295,51 @@ def _ball_from_record(record: object, name: str) -> Any:
         raise ValueError(f"{name} has invalid Arb fields")
     if not isinstance(record["dyadic"], dict):
         raise ValueError(f"{name} has no dyadic Arb enclosure")
-    return arb_from_dyadic(record["dyadic"])
+    if not isinstance(record["display"], str):
+        raise ValueError(f"{name} has invalid Arb display")
+    if not isinstance(record["is_exact"], bool):
+        raise ValueError(f"{name} has invalid Arb exactness flag")
+
+    dyadic = record["dyadic"]
+    required_dyadic = {
+        "mid_mantissa",
+        "mid_exponent",
+        "radius_mantissa",
+        "radius_exponent",
+    }
+    if set(dyadic) != required_dyadic:
+        raise ValueError(f"{name} has invalid dyadic Arb fields")
+
+    parsed: dict[str, int] = {}
+    for field in sorted(required_dyadic):
+        value = dyadic[field]
+        if not isinstance(value, str):
+            raise ValueError(f"{name} {field} is not a string")
+        try:
+            integer = int(value)
+        except ValueError as exc:
+            raise ValueError(f"{name} {field} is not an integer") from exc
+        if str(integer) != value:
+            raise ValueError(f"{name} {field} is not canonical")
+        parsed[field] = integer
+
+    if parsed["radius_mantissa"] < 0:
+        raise ValueError(f"{name} radius cannot be negative")
+    for prefix in ("mid", "radius"):
+        mantissa = parsed[f"{prefix}_mantissa"]
+        exponent = parsed[f"{prefix}_exponent"]
+        if mantissa == 0:
+            if exponent != 0:
+                raise ValueError(f"{name} zero {prefix} is not normalized")
+        elif abs(mantissa) % 2 != 1:
+            raise ValueError(f"{name} {prefix} dyadic is not normalized")
+
+    ball = arb_from_dyadic(dyadic)
+    if record["display"] != ball.str(40):
+        raise ValueError(f"{name} Arb display changed")
+    if record["is_exact"] != bool(ball.is_exact()):
+        raise ValueError(f"{name} Arb exactness flag changed")
+    return ball
 
 
 def _wide_ball_record(ball: Any) -> dict[str, object]:

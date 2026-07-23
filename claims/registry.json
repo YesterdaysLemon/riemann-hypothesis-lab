@@ -148,6 +148,50 @@
       "statement": "For one explicit exact-dyadic N=256 old Nyman vector and one explicit balanced K=16 correction supported through index 8192, the complete infinite weighted-L2 direct gain is greater than 7/50000."
     },
     {
+      "artifact": "results/nyman-large-sieve-tail-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "f23aa26f7b9bcdffddc4fe908471c2293107cb5e9a9c516046bfd6f7f3bea912",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-large-sieve-tail-v1",
+      "implies_rh": false,
+      "limitations": "This proves a general finite-support periodic-tail lemma and one complete finite-dimensional contraction. It gives no uniform all-scale energy-to-gain estimate and does not prove or disprove RH.",
+      "reproduction": ".venv\\Scripts\\python.exe tools\\generate_nyman_large_sieve_tail_certificate.py --verify",
+      "scope": {
+        "claimed_complete_direct_gain_lower_bound": "1/5000",
+        "correction_coefficient_grid": "2^-18",
+        "finite_prefix_last_interval": "4194304",
+        "generation_precision_bits": "256",
+        "large_sieve_periodic_bound_reduction_factor_lower": "632",
+        "maximum_support_index": "8192",
+        "multiplier_limit": "16",
+        "old_coefficient_grid": "2^-16",
+        "old_dimension": "256",
+        "replay_precision_bits": "384"
+      },
+      "statement": "If an old vector and a finite balanced correction are both supported through Q, their periodic direct-gain partial sums are bounded by Q(Q-1)(rho+tau); for the frozen N=256, K=16 direction this proves complete infinite weighted-L2 direct gain greater than 1/5000 using a prefix through 2^22."
+    },
+    {
+      "artifact": "results/nyman-large-sieve-scaling-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "b8a22d0d419b282b70c705c6df0edad77dcc3a69f91189ae11c2035567d3fcdb",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-large-sieve-scaling-v1",
+      "implies_rh": false,
+      "limitations": "This certifies six independently selected finite contractions, not a nested recurrence. It proves no arbitrary-N continuation or uniform energy-to-gain estimate and does not prove or disprove RH.",
+      "reproduction": ".venv\\Scripts\\python.exe tools\\generate_nyman_large_sieve_scaling_certificate.py --verify",
+      "scope": {
+        "common_cutoff_rule": "T=32768*N",
+        "correction_coefficient_grid": "at most 2^-18",
+        "individual_gain_lower_bounds": "1/150,1/300,1/625,1/750,1/1600,1/5000",
+        "multiplier_limit": "64",
+        "n_values": "8,16,32,64,128,256",
+        "old_coefficient_grid": "2^-16",
+        "replay_precision_bits": "384",
+        "uniform_finite_gain_lower_bound": "gain>1/(20N) for the six declared N values"
+      },
+      "statement": "For each N in {8,16,32,64,128,256}, one explicit exact-dyadic balanced K=64 correction has positive complete infinite weighted-L2 direct gain under T=32768N; all six declared rows satisfy gain greater than 1/(20N)."
+    },
+    {
       "artifact": "docs/nyman-alias-regularization-v1.md",
       "artifact_hash_mode": "raw-bytes",
       "artifact_sha256": "36c50497bb8dc87a9db2b3b65d35c6047f6a8861044cd98ca4f82238ac74f02c",

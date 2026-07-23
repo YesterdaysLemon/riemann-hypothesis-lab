@@ -318,6 +318,50 @@ hash chain. The artifact proves only that one explicit correction has complete
 direct gain greater than `7/50000`; it supplies no all-scale contraction and
 does not resolve RH.
 
+### Fourier/Farey large-sieve tail certificate
+
+The large-sieve certificate reuses the exact source-vector construction,
+integer prefix recurrence, binary64 error analysis, and Arb enclosure boundary
+above, but its prefix ends at `2^22`. Generation uses `2^18`-sized blocks and
+256-bit Arb; replay changes to `2^17`-sized blocks and 384-bit Arb. The stored
+generation balls must contain the replay balls.
+
+The omitted periodic tail is recomputed with exact `Fraction` arithmetic.
+Jordan-`J_2` divisor sums give the old, added, cross, and new periodic mean
+squares. The coefficient support gives the exact Farey reciprocal-spacing
+bound `Q(Q-1)`, and the direct-gain difference-of-squares identity gives the
+partial-sum constant `Q(Q-1)(rho+tau)`. No numerical Fourier transform, common
+period, square root, or LCM pair sum is trusted by this path. Small tests
+enumerate every cyclic interval for independent exact examples.
+
+The analytic bridge is the dual consecutive-interval form of Montgomery and
+Vaughan's large-sieve theorem, plus the human-auditable cyclic-complement
+argument documented in `docs/nyman-large-sieve-tail-v1.md`. The Python checker
+does not formally prove that published theorem. Generation and replay still
+share repository code and the same CPython, NumPy, Python-FLINT, and FLINT
+families, so this remains reproducible certification rather than independent
+formal verification. It proves complete gain greater than `1/5000` for one
+explicit correction and a general finite-support tail lemma; it does not prove
+the uniform all-scale energy/gain estimate needed for RH.
+
+### Six-scale fixed-width large-sieve suite
+
+The scaling suite applies the same exact-vector, prefix, and Fourier/Farey
+tail path to the six frozen `fixed_width_grid` cells with `K=64` and
+`N=8,16,32,64,128,256`. Every cutoff is fixed in advance by `T=32768N`.
+Generation uses `2^18` blocks and 256-bit Arb; replay changes to `2^17`
+blocks and 384-bit Arb. Each source candidate and scout cell is hash-bound,
+and each complete sparse dyadic vector is committed by a canonical payload
+hash before its balance, prefix, tail, and strict rational gain gate replay.
+
+The artifact stores exact proof records for all six signs but labels its trend
+summary `EXPLORATORY`. The rows are independently optimized old candidates,
+not states of a nested recurrence, and the checker proves nothing for an
+undeclared `N`. The compact vector commitments make the artifact dependent on
+the frozen source files and deterministic reconstruction code; it is not a
+self-contained formal proof object. The same shared-backend and published-
+theorem limitations as the single-cell large-sieve certificate apply.
+
 ## Claim ledger
 
 The ledger gate checks schemas, declared SHA-256 binding modes, a pinned checker

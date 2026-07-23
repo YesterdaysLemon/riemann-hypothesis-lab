@@ -349,13 +349,16 @@ def _scout_cell(
     artifact: Mapping[str, object],
     n: int,
     multiplier_limit: int,
+    section: str = "n256_width_sweep",
 ) -> Mapping[str, object]:
-    width_sweep = artifact.get("n256_width_sweep")
-    if not isinstance(width_sweep, Mapping):
-        raise ValueError("frozen scout has no N=256 width sweep")
-    cells = width_sweep.get("cells")
+    if section not in {"n256_width_sweep", "fixed_width_grid"}:
+        raise ValueError("unsupported frozen scout section")
+    collection = artifact.get(section)
+    if not isinstance(collection, Mapping):
+        raise ValueError(f"frozen scout has no {section}")
+    cells = collection.get("cells")
     if not isinstance(cells, list):
-        raise ValueError("frozen scout width sweep has no cells")
+        raise ValueError(f"frozen scout {section} has no cells")
     matches = [
         cell
         for cell in cells
@@ -402,6 +405,7 @@ def build_exact_vectors(
     shell_bits: int = 80,
     z_bits: int | None = None,
     old_bits: int | None = None,
+    scout_section: str = "n256_width_sweep",
 ) -> ExactTailInputs:
     """Load, dyadically round, balance, and convolve the frozen scout vectors."""
 
@@ -423,7 +427,12 @@ def build_exact_vectors(
         name="frozen scout",
         expected=FROZEN_SCOUT_PAYLOAD_SHA256,
     )
-    hash_cell = _scout_cell(hash_artifact, n, multiplier_limit)
+    hash_cell = _scout_cell(
+        hash_artifact,
+        n,
+        multiplier_limit,
+        scout_section,
+    )
     scout_cell_payload_sha256 = _verify_payload_hash(
         hash_cell,
         name="frozen scout cell",
@@ -432,7 +441,7 @@ def build_exact_vectors(
     # Reparse decimal literals exactly only after authenticating their native
     # JSON representation and the selected cell.
     artifact = strict_json_loads(raw_scout, parse_float=Decimal)
-    cell = _scout_cell(artifact, n, multiplier_limit)
+    cell = _scout_cell(artifact, n, multiplier_limit, scout_section)
     source_binding = cell.get("source_binding")
     if not isinstance(source_binding, Mapping):
         raise ValueError("scout cell has no source binding")
@@ -665,6 +674,57 @@ def jordan_gcd_means(
     return mu, nu
 
 
+def old_periodic_mean_square(
+    old: Mapping[int, Fraction],
+) -> Fraction:
+    """Return the exact period mean of ``old_periodic_center(old, M)^2``.
+
+    If ``P_d = sum_{d|n} old[n]/n`` and
+    ``C0 = 1-sum_n old[n]/2``, the covariance identity gives
+
+        mean(r_bar^2) = C0^2 + (1/12) sum_{d>=2} J_2(d) P_d^2.
+
+    The missing ``d=1`` term is exactly the ``-1`` in
+    ``gcd(m,n)^2-1``.
+    """
+
+    cleaned_old = _clean(old)
+    c0 = ONE - coefficient_sum(cleaned_old) / 2
+    limit = max(cleaned_old, default=0)
+    if limit < 2:
+        return c0 * c0
+    old_sums = divisor_harmonic_sums(cleaned_old, limit)
+    jordan = jordan_j2_sieve(limit)
+    variance = sum(
+        (
+            jordan[divisor]
+            * old_sums[divisor]
+            * old_sums[divisor]
+            for divisor in range(2, limit + 1)
+        ),
+        start=ZERO,
+    ) / 12
+    result = c0 * c0 + variance
+    if result < 0:
+        raise ArithmeticError("exact old periodic mean square became negative")
+    return result
+
+
+def farey_spacing_reciprocal(maximum_denominator: int) -> int:
+    """Return a safe reciprocal spacing for reduced Farey frequencies.
+
+    Distinct reduced fractions whose denominators are at most ``Q`` are
+    separated modulo one by at least ``1/(Q*(Q-1))`` for ``Q >= 2``.  The
+    same bound remains valid after adjoining frequency zero.
+    """
+
+    if maximum_denominator < 0:
+        raise ValueError("maximum denominator must be nonnegative")
+    if maximum_denominator < 2:
+        return 0
+    return maximum_denominator * (maximum_denominator - 1)
+
+
 def absolute_moments(
     values: Mapping[int, Fraction],
 ) -> tuple[Fraction, Fraction]:
@@ -803,6 +863,31 @@ class TailBound:
     upper: Fraction
 
 
+@dataclass(frozen=True)
+class LargeSieveTailBound:
+    """Exact tail enclosure using the Fourier/Farey large-sieve bound."""
+
+    cutoff: int
+    support_limit: int
+    farey_spacing_reciprocal: int
+    mu: Fraction
+    nu: Fraction
+    old_periodic_mean_square: Fraction
+    new_periodic_mean_square: Fraction
+    p1: Fraction
+    c0: Fraction
+    a0: Fraction
+    old_square_discrepancy_bound: Fraction
+    new_square_discrepancy_bound: Fraction
+    periodic_partial_sum_bound: Fraction
+    center: Fraction
+    periodic_radius: Fraction
+    delta_radius: Fraction
+    radius: Fraction
+    lower: Fraction
+    upper: Fraction
+
+
 def tail_center_radius(
     old: Mapping[int, Fraction],
     added: Mapping[int, Fraction],
@@ -847,6 +932,78 @@ def tail_center_radius(
         a1=a1,
         lambda_a=lambda_a,
         lambda_cross=lambda_cross,
+        periodic_partial_sum_bound=periodic_bound,
+        center=center,
+        periodic_radius=periodic_radius,
+        delta_radius=delta_radius,
+        radius=radius,
+        lower=center - radius,
+        upper=center + radius,
+    )
+
+
+def large_sieve_tail_center_radius(
+    old: Mapping[int, Fraction],
+    added: Mapping[int, Fraction],
+    cutoff: int,
+) -> LargeSieveTailBound:
+    """Enclose the complete tail with a Farey large-sieve discrepancy bound.
+
+    For ``g_M=sum a_n phi_n(M)``, every nonzero Fourier frequency has a
+    reduced denominator at most the coefficient support limit ``Q``.  The
+    Montgomery--Vaughan large sieve and periodic complementation therefore
+    bound every interval square discrepancy by its period mean times
+    ``D=Q*(Q-1)``.  If ``v`` is the old periodic residual center, then the
+    direct-gain summand has the difference-of-squares identity
+
+        2*g_M*v_M-g_M^2 = v_M^2-(v_M-g_M)^2.
+
+    Its zero-mean interval sums are therefore bounded by
+    ``D*(rho+tau)``, where ``rho=mean(v^2)`` and
+    ``tau=mean((v-g)^2)=rho+mu-2*nu``.  The implemented bound is entirely
+    rational and needs no coefficientwise absolute values.
+    """
+
+    if cutoff < 1:
+        raise ValueError("tail cutoff must be positive")
+    cleaned_old = _clean(old)
+    cleaned_added = _clean(added)
+    require_balanced(cleaned_added, "added vector")
+    support_limit = max(
+        max(cleaned_old, default=0),
+        max(cleaned_added, default=0),
+    )
+    spacing_reciprocal = farey_spacing_reciprocal(support_limit)
+    mu, nu = jordan_gcd_means(cleaned_old, cleaned_added)
+    rho = old_periodic_mean_square(cleaned_old)
+    tau = rho + mu - 2 * nu
+    if tau < 0:
+        raise ArithmeticError("exact new periodic mean square became negative")
+    p1 = harmonic_sum(cleaned_old)
+    c0 = ONE - coefficient_sum(cleaned_old) / 2
+    a0, _ = absolute_moments(cleaned_added)
+    old_square_bound = spacing_reciprocal * rho
+    new_square_bound = spacing_reciprocal * tau
+    periodic_bound = old_square_bound + new_square_bound
+    center = (2 * nu - mu) / (cutoff + 1)
+    periodic_radius = periodic_bound / (
+        (cutoff + 1) * (cutoff + 2)
+    )
+    delta_radius = abs(p1) * a0 / (12 * cutoff * cutoff)
+    radius = periodic_radius + delta_radius
+    return LargeSieveTailBound(
+        cutoff=cutoff,
+        support_limit=support_limit,
+        farey_spacing_reciprocal=spacing_reciprocal,
+        mu=mu,
+        nu=nu,
+        old_periodic_mean_square=rho,
+        new_periodic_mean_square=tau,
+        p1=p1,
+        c0=c0,
+        a0=a0,
+        old_square_discrepancy_bound=old_square_bound,
+        new_square_discrepancy_bound=new_square_bound,
         periodic_partial_sum_bound=periodic_bound,
         center=center,
         periodic_radius=periodic_radius,
