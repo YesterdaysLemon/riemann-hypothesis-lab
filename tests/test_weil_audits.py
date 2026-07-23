@@ -3,11 +3,12 @@ from __future__ import annotations
 import copy
 from fractions import Fraction
 import json
-from typing import Any, Callable
+from typing import Any, Callable, Mapping
 
 from flint import arb
 import pytest
 
+import riemann_lab.weil_audits as weil_audits
 from riemann_lab.artifacts import content_sha256
 from riemann_lab.weil_audits import (
     NESTING_AUDIT_SCHEMA,
@@ -165,6 +166,98 @@ def test_degree_nesting_supports_arbitrary_gap_and_canonical_replay(
     assert replay["decision"] == "AUDIT_PASSED_EXPLORATORY"
     assert replay["verified_zero_padding_witnesses"] == "1"
     assert replay["hypothesis_status"] == "UNRESOLVED"
+
+
+def test_sequential_nesting_then_parity_replay_is_backend_isolated(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    backend_state = {"dirty": True}
+    cleanup_calls: list[bool] = []
+
+    def cleanup() -> None:
+        cleanup_calls.append(backend_state["dirty"])
+        backend_state["dirty"] = False
+
+    def nesting_replay(artifact: Mapping[str, Any]) -> dict[str, Any]:
+        assert artifact == {"kind": "nesting"}
+        assert backend_state["dirty"] is False
+        backend_state["dirty"] = True
+        return {"audit_kind": "DEGREE_NESTING"}
+
+    def parity_replay(artifact: Mapping[str, Any]) -> dict[str, Any]:
+        assert artifact == {"kind": "parity"}
+        assert backend_state["dirty"] is False
+        backend_state["dirty"] = True
+        return {"audit_kind": "PARITY"}
+
+    monkeypatch.setattr(weil_audits, "_cleanup_flint_backend", cleanup)
+    monkeypatch.setattr(
+        weil_audits, "_verify_degree_nesting_audit", nesting_replay
+    )
+    monkeypatch.setattr(weil_audits, "_verify_parity_audit", parity_replay)
+
+    assert verify_degree_nesting_audit({"kind": "nesting"}) == {
+        "audit_kind": "DEGREE_NESTING"
+    }
+    assert verify_parity_audit({"kind": "parity"}) == {
+        "audit_kind": "PARITY"
+    }
+    assert cleanup_calls == [True, True, False, True]
+    assert backend_state["dirty"] is False
+
+
+def test_parity_generation_uses_the_same_clean_backend_boundary(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    backend_state = {"dirty": True}
+    cleanup_calls: list[bool] = []
+    cell = WeilSearchCell(3, 2, 1)
+    policy = WeilSearchPolicy(
+        attempt_bits=(96,),
+        confirmation_bits=192,
+        eigenpair_count=1,
+        scale_bits=(4,),
+    )
+
+    def cleanup() -> None:
+        cleanup_calls.append(backend_state["dirty"])
+        backend_state["dirty"] = False
+
+    def generate(
+        supplied_cell: WeilSearchCell,
+        precision_bits: int,
+        supplied_policy: WeilSearchPolicy,
+        witnesses: tuple[tuple[int, ...], ...],
+    ) -> dict[str, Any]:
+        assert (supplied_cell, precision_bits, supplied_policy, witnesses) == (
+            cell,
+            96,
+            policy,
+            (),
+        )
+        assert backend_state["dirty"] is False
+        backend_state["dirty"] = True
+        return {"decision": "AUDIT_PASSED_EXPLORATORY"}
+
+    monkeypatch.setattr(weil_audits, "_cleanup_flint_backend", cleanup)
+    monkeypatch.setattr(weil_audits, "_certify_parity_audit", generate)
+
+    assert certify_parity_audit(cell, 96, policy) == {
+        "decision": "AUDIT_PASSED_EXPLORATORY"
+    }
+    assert cleanup_calls == [True, True]
+    assert backend_state["dirty"] is False
+
+
+def test_small_fixture_nesting_then_parity_replays_canonically(
+    nesting_artifact: dict[str, Any], parity_artifact: dict[str, Any]
+) -> None:
+    assert verify_degree_nesting_audit(nesting_artifact)["decision"] == (
+        "AUDIT_PASSED_EXPLORATORY"
+    )
+    assert verify_parity_audit(parity_artifact)["decision"] == (
+        "AUDIT_PASSED_EXPLORATORY"
+    )
 
 
 def test_zero_padding_positive_and_inconclusive_states_are_not_false_failures() -> None:

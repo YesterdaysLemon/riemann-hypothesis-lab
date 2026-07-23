@@ -9,6 +9,45 @@ transcript, normalization, parity identity, degree transport, and independent
 backend reproduction have all been checked. Every v2 artifact keeps the
 global hypothesis status `UNRESOLVED`.
 
+## Executed result
+
+The frozen batch completed on 2026-07-22. All 81 cells closed
+`FINITE_POSITIVE_CERTIFIED`: 9 at 192 bits and 72 at 384 bits. The run
+contains 108 ordered attempts and 905 stored candidate-evaluation records.
+There were no terminally inconclusive cells, quarantined negative candidates,
+or conflicting negative observations. A separate same-backend process
+replayed all 81 cells, 108 attempts, and 905 evaluations.
+
+All nine exact-cell reversal-parity audits and all six adjacent
+degree-nesting audits reproduced strictly. The audit entry points clear
+FLINT's process-global caches before and after canonical generation or replay;
+this prevents earlier Rump eigensolves from changing otherwise equivalent Arb
+radius ulps while preserving exact artifact comparison.
+
+The secondary Rump diagnostic is explicitly incomplete: 107 of 108 search
+attempts produced usable, pairwise-separated spectra containing 3,963 stored
+eigenvalue enclosures. Attempt 0 of `q-9-j-4-above-n-16` at 192 bits retains
+`RUMP_EIGENVALUE_ISOLATION_FAILED`; its cell later closed by interval
+`LDL^T` at higher precision. Rump data are diagnostic and do not decide any
+cell status.
+
+The compact [summary](../results/weil-transition-q7-q9-v2-summary.json) binds
+plan SHA-256
+`33185881cc619fda99b7835f5e71422b0c5cf745cb5411162638a8e08dd05336`
+and index payload SHA-256
+`b1d00edb4dd3115992e1e377c7cf81475824d16d175396a40fd2cadb7c03d3ff`.
+Its payload SHA-256 is
+`32a08241f112fddfe496bd10934bf03760b0bde939b7f91938fd08475f701467`.
+The complete evidence is a deterministic 200,980,480-byte USTAR archive in
+the [public release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/weil-transition-q7-q9-v2),
+with SHA-256
+`9e6a76c5328ce2e6763da642bf16ad1982152ba21780ca48500c3447b7c961dc`
+and a tracked [release manifest](../results/weil-transition-q7-q9-v2.release.json).
+
+The aggregate conclusion is
+`NO_CERTIFIED_NEGATIVE_WITNESS_FOUND_IN_FINITE_TRANSITION_BATCH`. This is a
+bounded null result, not a proof of RH; the hypothesis remains `UNRESOLVED`.
+
 ## Why examine transitions
 
 The finite Weil matrix uses the complete prime-power transcript satisfying
@@ -121,6 +160,9 @@ contracts, and existing checkpoints still agree:
   --checkpoint-dir results\weil-transition-q7-q9-v2 --resume
 .\.venv\Scripts\rh-lab.exe verify-weil-transition-search `
   --index results\weil-transition-q7-q9-v2\index.json `
+  --checkpoint-dir results\weil-transition-q7-q9-v2
+.\.venv\Scripts\rh-lab.exe verify-weil-transition-summary `
+  --summary results\weil-transition-q7-q9-v2-summary.json `
   --checkpoint-dir results\weil-transition-q7-q9-v2
 ```
 

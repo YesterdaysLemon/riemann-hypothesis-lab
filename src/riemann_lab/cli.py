@@ -44,6 +44,11 @@ from .weil_transition import (
     run_weil_transition_search,
     verify_weil_transition_search,
 )
+from .weil_transition_summary import (
+    WeilTransitionSummaryError,
+    generate_weil_transition_summary,
+    verify_weil_transition_summary,
+)
 
 
 def _integer_witness(value: str) -> tuple[int, ...]:
@@ -161,6 +166,15 @@ def _parser() -> argparse.ArgumentParser:
     )
     nesting.add_argument("--output", type=Path, required=True)
 
+    transition_summary = commands.add_parser(
+        "summarize-weil-transition",
+        help="derive a compact non-numerical summary of a complete v2 batch",
+    )
+    transition_summary.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
+    transition_summary.add_argument("--output", type=Path, required=True)
+
     verify_zeros = commands.add_parser(
         "verify-zeros", help="validate and replay a zero certificate"
     )
@@ -207,6 +221,15 @@ def _parser() -> argparse.ArgumentParser:
         help="validate and replay an exploratory Weil degree-nesting audit",
     )
     verify_nesting.add_argument("--artifact", type=Path, required=True)
+
+    verify_summary = commands.add_parser(
+        "verify-weil-transition-summary",
+        help="regenerate a compact v2 summary from its evidence tree",
+    )
+    verify_summary.add_argument("--summary", type=Path, required=True)
+    verify_summary.add_argument(
+        "--checkpoint-dir", type=Path, required=True
+    )
 
     claims = commands.add_parser("verify-claims", help="validate the claim ledger")
     claims.add_argument(
@@ -372,6 +395,27 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0 if artifact["decision"] != "AUDIT_FAILED" else 2
 
+    if args.command == "summarize-weil-transition":
+        try:
+            artifact = generate_weil_transition_summary(args.checkpoint_dir)
+            write_json(args.output, artifact)
+        except (WeilTransitionSummaryError, OSError) as exc:
+            print(f"Weil transition summary rejected: {exc}")
+            return 2
+        print(
+            json.dumps(
+                {
+                    "classification": artifact["classification"],
+                    "conclusion": artifact["conclusion"],
+                    "hypothesis_status": artifact["hypothesis_status"],
+                    "output": str(args.output),
+                    "payload_sha256": artifact["payload_sha256"],
+                },
+                sort_keys=True,
+            )
+        )
+        return 0
+
     if args.command == "verify-zeros":
         try:
             artifact = json.loads(args.artifact.read_text(encoding="utf-8"))
@@ -447,6 +491,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.JSONDecodeError,
         ) as exc:
             print(f"Weil nesting audit rejected: {exc}")
+            return 2
+        print(json.dumps(result, sort_keys=True))
+        return 0
+
+    if args.command == "verify-weil-transition-summary":
+        try:
+            result = verify_weil_transition_summary(
+                args.summary,
+                args.checkpoint_dir,
+            )
+        except (WeilTransitionSummaryError, OSError, json.JSONDecodeError) as exc:
+            print(f"Weil transition summary rejected: {exc}")
             return 2
         print(json.dumps(result, sort_keys=True))
         return 0

@@ -30,6 +30,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 addopts = "-ra --strict-markers"
+pythonpath = ["."]
 testpaths = ["tests"]
 markers = [
   "slow: certificate jobs intentionally omitted from the default test run",

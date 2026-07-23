@@ -13,11 +13,12 @@ not.
 or disproved RH.** Clay Mathematics Institute continues to list RH as an
 [unsolved Millennium Prize Problem](https://www.claymath.org/millennium/riemann-hypothesis/).
 
-The initial release establishes a reproducible baseline for future experiments:
+Current finite results:
 
 | Result | Status | Higher-precision consistency replay (same backend) | Meaning |
 |---|---:|---:|---|
 | Full `9x9` Weil matrix `A=P-R-S` for `c=5/2`, modes `-4..4`, certified positive definite by nine interval `LDL^T` pivots; the minimum among nine separated Rump eigenvalue enclosures is `[2.30606430783134e-5 +/- 4.40e-45]` | `CERTIFIED_FINITE` | All 45 upper-triangle component enclosures replayed at 384 bits; direct archimedean integrals cross-check a separate special-function formula | One positive finite compression cannot prove RH |
+| 81 complete Weil matrices around the prime-power transitions `q=7,8,9`, degrees `12..24`; every cell certified positive definite by interval `LDL^T` | `EXPLORATORY` | All 81 cells, 108 attempts, and 905 stored candidate evaluations replayed; 9 parity and 6 degree-nesting audits also passed | A bounded null search: no negative witness was found, and positive finite compressions cannot prove RH |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
 | Lagarias inequality certified for every `1 <= n <= 1,000,000`, equality only at `n=1`, using exact integer divisor sums and Arb balls | `CERTIFIED_FINITE` | Full range replayed at 384 bits | A counterexample would disprove RH; a positive finite prefix does not prove it |
 | Proof or counterexample | `UNRESOLVED` | — | The actual objective remains open |
@@ -29,6 +30,8 @@ as `[-0.190845397282370... +/- 1.75e-41]`. This is a successful
 zeta Weil form. See the [full normalization, certificate, and limitations](docs/weil-matrix-v1.md).
 
 Artifacts: [finite Weil certificate](results/weil-matrix-c5-over-2-n4.json),
+[transition-v2 summary](results/weil-transition-q7-q9-v2-summary.json),
+[transition-v2 release manifest](results/weil-transition-q7-q9-v2.release.json),
 [zero certificate](results/zeros-1-10000.json),
 [Lagarias certificate](results/lagarias-1-1000000.json), and the
 [machine-checked claim ledger](claims/registry.json).
@@ -62,15 +65,31 @@ claim ledger, and leaves the headline verdict `UNRESOLVED`. The adaptive
 engine, quarantine gates, and prime-power transition frontier are documented
 in the [v1 search methodology](docs/weil-search-plan-v1.md).
 
-### Prime-power transition search v2 (`ACTIVE`, `EXPLORATORY`)
+### Prime-power transition search v2 (`COMPLETED`, `EXPLORATORY`)
 
-The next frozen experiment consists of 81 explicitly hashed matrices around
-the prime-power cutoffs `q=7,8,9`. For each transition it uses the exact point
+The frozen experiment evaluated all 81 explicitly hashed matrices around the
+prime-power cutoffs `q=7,8,9`. For each transition it used the exact point
 `c=q` and four log-symmetric rational pairs
 `c_-=q*2^j/(2^j+1)`, `c_+=q*(2^j+1)/2^j`, with
-`j in {4,6,8,10}`. Each cutoff is evaluated at three scheduled degrees; the
+`j in {4,6,8,10}`. Each cutoff was evaluated at three scheduled degrees; the
 largest matrix has degree 24 and dimension 49. The canonical plan hash is
 `33185881cc619fda99b7835f5e71422b0c5cf745cb5411162638a8e08dd05336`.
+
+Every cell closed `FINITE_POSITIVE_CERTIFIED`: 9 at 192 bits and 72 at
+384 bits. There were no terminally inconclusive cells, quarantined negative
+candidates, or conflicting negative observations. The run used 108 ordered
+attempts and stored 905 candidate-evaluation records. A separate same-backend
+process replayed all 81 cells, all 108 attempts, and all 905 evaluations.
+All 9 reversal-parity audits and all 6 adjacent degree-nesting audits also
+reproduced strictly. The aggregate conclusion is
+`NO_CERTIFIED_NEGATIVE_WITNESS_FOUND_IN_FINITE_TRANSITION_BATCH`.
+
+The secondary Rump diagnostic covered 107 of 108 search attempts and 3,963
+stored eigenvalue enclosures. One failed spectrum construction at
+`q-9-j-4-above-n-16`, attempt 0 at 192 bits, is retained explicitly; the
+cell subsequently closed at higher precision. Rump spectra are diagnostic
+only. The interval `LDL^T` pivots, not the eigensolver, certify each positive
+finite matrix.
 
 V2 adds exact transition-contract validation, per-cell precision policies,
 dedicated 768- or 1536-bit candidate replay, reversal-parity audits, and
@@ -78,15 +97,26 @@ degree-nesting/zero-padding audits. It completes the full bounded plan even if
 a finite negative candidate appears. Approximate eigenvectors and Rump
 spectra remain diagnostic only; interval `LDL^T` and direct evaluation of an
 exact primitive integer vector are the sign-bearing computations. The frozen
-[plan](plans/weil-transition-q7-q9-v2.json) and
-[methodology](docs/weil-transition-v2.md) are public now; executed results will
-replace this active-run notice after generation and separate-process
-same-backend replay.
+[plan](plans/weil-transition-q7-q9-v2.json),
+[methodology](docs/weil-transition-v2.md), and
+[compact summary](results/weil-transition-q7-q9-v2-summary.json) are tracked.
+The summary has payload SHA-256
+`32a08241f112fddfe496bd10934bf03760b0bde939b7f91938fd08475f701467`;
+the index it binds has payload SHA-256
+`b1d00edb4dd3115992e1e377c7cf81475824d16d175396a40fd2cadb7c03d3ff`.
 
-This design still cannot turn 81 positive matrices into a proof. A negative
-finite direction would remain quarantined until every promotion gate and an
+The complete 99-file evidence set is published in the
+[v2 evidence release](https://github.com/YesterdaysLemon/riemann-hypothesis-lab/releases/tag/weil-transition-q7-q9-v2)
+as a deterministic 200,980,480-byte USTAR archive. Its SHA-256 is
+`9e6a76c5328ce2e6763da642bf16ad1982152ba21780ca48500c3447b7c961dc`;
+the tracked [release manifest](results/weil-transition-q7-q9-v2.release.json)
+binds the plan, index, summary, every cell, and all 15 audits.
+
+This result cannot turn 81 positive matrices into a proof. A negative finite
+direction would remain quarantined until every promotion gate and an
 independent implementation reproduce the bridge back to the full Weil
-criterion. The global verdict remains `UNRESOLVED` throughout the run.
+criterion. No such direction was found, and the global verdict remains
+`UNRESOLVED`.
 
 The zero result is intentionally nowhere near a record. Platt and Trudgian
 already proved that the lowest **12,363,153,437,138** positive-ordinate zeros
@@ -194,6 +224,9 @@ without changing its frozen plan:
   --checkpoint-dir results\weil-transition-q7-q9-v2 --resume
 .\.venv\Scripts\rh-lab.exe verify-weil-transition-search `
   --index results\weil-transition-q7-q9-v2\index.json `
+  --checkpoint-dir results\weil-transition-q7-q9-v2
+.\.venv\Scripts\rh-lab.exe verify-weil-transition-summary `
+  --summary results\weil-transition-q7-q9-v2-summary.json `
   --checkpoint-dir results\weil-transition-q7-q9-v2
 ```
 

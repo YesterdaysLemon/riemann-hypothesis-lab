@@ -16,9 +16,9 @@ Fourier basis.
 from __future__ import annotations
 
 from fractions import Fraction
-from typing import Any, Mapping, Sequence
+from typing import Any, Callable, Mapping, Sequence, TypeVar
 
-from flint import arb, arb_mat
+from flint import arb, arb_mat, ctx
 
 from .artifacts import content_sha256
 from .balls import arb_to_dyadic
@@ -67,6 +67,35 @@ _COMPONENTS = (
 
 class WeilAuditVerificationError(ValueError):
     """Raised when a parity or nesting audit cannot be replayed safely."""
+
+
+_OperationResult = TypeVar("_OperationResult")
+
+
+def _cleanup_flint_backend() -> None:
+    """Clear process-global FLINT caches between canonical audit replays."""
+
+    ctx.cleanup()
+
+
+def _isolated_flint_operation(
+    operation: Callable[[], _OperationResult],
+) -> _OperationResult:
+    """Run one canonical operation from a clean FLINT cache and leave one behind.
+
+    FLINT's cache state can change the final radius of an otherwise equivalent
+    Arb enclosure by a few ulps after a higher-degree Rump eigensolve.  Audit
+    artifacts intentionally compare canonical serialized enclosures exactly,
+    so every public verifier must start from the same clean backend state.
+    """
+
+    previous_precision = ctx.prec
+    _cleanup_flint_backend()
+    try:
+        return operation()
+    finally:
+        ctx.prec = previous_precision
+        _cleanup_flint_backend()
 
 
 def _validate_precision(value: int, name: str = "precision_bits") -> int:
@@ -729,7 +758,7 @@ def extract_parity_integer_witnesses(
         )
 
 
-def certify_parity_audit(
+def _certify_parity_audit(
     cell: WeilSearchCell,
     precision_bits: int = 192,
     policy: WeilSearchPolicy = WeilSearchPolicy(),
@@ -902,6 +931,21 @@ def certify_parity_audit(
             "decision": decision,
         }
         return _with_payload_hash(payload)
+
+
+def certify_parity_audit(
+    cell: WeilSearchCell,
+    precision_bits: int = 192,
+    policy: WeilSearchPolicy = WeilSearchPolicy(),
+    witnesses: Sequence[Sequence[int]] = (),
+) -> dict[str, Any]:
+    """Build one parity artifact from the canonical clean FLINT state."""
+
+    return _isolated_flint_operation(
+        lambda: _certify_parity_audit(
+            cell, precision_bits, policy, witnesses
+        )
+    )
 
 
 def _component_snapshot(
@@ -1743,7 +1787,7 @@ def _verify_parity_audit(artifact: Mapping[str, Any]) -> dict[str, Any]:
     if not isinstance(construction, Mapping):
         raise WeilAuditVerificationError("matrix construction record is malformed")
     if construction.get("classification") == "INCONCLUSIVE":
-        expected = certify_parity_audit(cell, precision_bits, policy)
+        expected = _certify_parity_audit(cell, precision_bits, policy)
         if record != expected:
             raise WeilAuditVerificationError(
                 "inconclusive parity audit does not canonically regenerate"
@@ -1903,7 +1947,7 @@ def verify_parity_audit(artifact: Mapping[str, Any]) -> dict[str, Any]:
     if not isinstance(artifact, Mapping):
         raise WeilAuditVerificationError("parity audit must be an object")
     try:
-        return _verify_parity_audit(artifact)
+        return _isolated_flint_operation(lambda: _verify_parity_audit(artifact))
     except WeilAuditVerificationError:
         raise
     except (
@@ -2010,7 +2054,9 @@ def verify_degree_nesting_audit(
     if not isinstance(artifact, Mapping):
         raise WeilAuditVerificationError("degree-nesting audit must be an object")
     try:
-        return _verify_degree_nesting_audit(artifact)
+        return _isolated_flint_operation(
+            lambda: _verify_degree_nesting_audit(artifact)
+        )
     except WeilAuditVerificationError:
         raise
     except (

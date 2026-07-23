@@ -1,0 +1,176 @@
+{
+  "classification": "EXPLORATORY",
+  "conclusion": "NO_CERTIFIED_NEGATIVE_WITNESS_FOUND_IN_FINITE_TRANSITION_BATCH",
+  "counts": {
+    "by_degree": {
+      "12": "9",
+      "16": "27",
+      "20": "27",
+      "24": "18"
+    },
+    "by_position": {
+      "above": "36",
+      "below": "36",
+      "exact": "9"
+    },
+    "by_q": {
+      "7": "27",
+      "8": "27",
+      "9": "27"
+    },
+    "by_status": {
+      "FINITE_POSITIVE_CERTIFIED": "81",
+      "INCONCLUSIVE_MAX_PRECISION": "0",
+      "NEGATIVE_CANDIDATE_QUARANTINED": "0",
+      "NEGATIVE_OBSERVATION_QUARANTINED_INCONCLUSIVE": "0"
+    },
+    "by_terminal_precision_bits": {
+      "192": "9",
+      "384": "72"
+    },
+    "cells": "81",
+    "stored_candidate_evaluation_records": {
+      "definition": "hash-bound stored records counted from candidate-generation tested arrays or confirmation fields; this summary neither replays their numerical values nor validates that recorded witness entries are canonical integers",
+      "total": "905",
+      "v1_confirmation": "0",
+      "v1_search": "905",
+      "v2_dedicated_confirmation": "0"
+    },
+    "terminal_precision_definition": "dedicated v2 confirmation precision when present; otherwise the final v1 attempt precision",
+    "total_v1_attempts": "108"
+  },
+  "frozen_batch": {
+    "batch_id": "weil-transition-q7-q9-v2",
+    "cell_count": "81",
+    "degree_ladders": {
+      "7": [
+        "12",
+        "16",
+        "20"
+      ],
+      "8": [
+        "16",
+        "20",
+        "24"
+      ],
+      "9": [
+        "16",
+        "20",
+        "24"
+      ]
+    },
+    "prime_powers": [
+      {
+        "exponent": "1",
+        "prime": "7",
+        "q": "7"
+      },
+      {
+        "exponent": "3",
+        "prime": "2",
+        "q": "8"
+      },
+      {
+        "exponent": "2",
+        "prime": "3",
+        "q": "9"
+      }
+    ],
+    "stencil_exponents": [
+      "4",
+      "6",
+      "8",
+      "10"
+    ],
+    "stencil_shape": "four exact below/above pairs plus one unparameterized exact point for every q and degree"
+  },
+  "hypothesis_status": "UNRESOLVED",
+  "limitation": "This is a bounded finite-dimensional search at explicitly selected prime-power transition stencils. Positive cells do not prove RH, and negative candidates remain quarantined pending independent mathematical and backend audits. The global Riemann Hypothesis status is UNRESOLVED. This compact summary checks canonical checkpoint records and their content hashes without replaying the numerical calculations.",
+  "payload_sha256": "32a08241f112fddfe496bd10934bf03760b0bde939b7f91938fd08475f701467",
+  "quarantine_references": {
+    "conflicting_negative_observations": [],
+    "negative_candidates": []
+  },
+  "rump_diagnostic": {
+    "coverage": {
+      "failure_references": [
+        {
+          "attempt_payload_sha256": "49f3e2cede52641365d4bf45e187e68908c07a6aff6011c2a865c046d0372fc0",
+          "attempt_sequence": "0",
+          "cell_payload_sha256": "9d98cc8474211cd7577d417f9e247368641c90b165913d4c1797625c3a050ab8",
+          "contract_id": "q-9-j-4-above-n-16",
+          "failure_code": "RUMP_EIGENVALUE_ISOLATION_FAILED",
+          "precision_bits": "192"
+        }
+      ],
+      "failure_sentinels": "1",
+      "matrix_construction_inconclusive_references": [],
+      "matrix_construction_inconclusive_without_spectrum": "0",
+      "pairwise_separated_usable_spectra": "107",
+      "search_attempts": "108",
+      "unseparated_references": [],
+      "unseparated_usable_spectra": "0",
+      "usable_eigenvalue_enclosures": "3963",
+      "usable_spectra": "107"
+    },
+    "least_lower_endpoint_among_usable_stored_enclosures": {
+      "attempt_payload_sha256": "8ddceec261c131f9e035977844d260e108184ad3a31c5d1bed9fe4cdbbae2bc5",
+      "attempt_sequence": "0",
+      "cell_payload_sha256": "a5961b65bdb862144fe32364a7b9da9bad43c626d6b703216ce762f84459e102",
+      "contract_id": "q-9-j-4-above-n-24",
+      "precision_bits": "384",
+      "real_enclosure": {
+        "is_exact": false,
+        "lower_bound": {
+          "denominator": "9173994463960286046443283581208347763186259956673124494950355357547691504353939232280074212440502746218496",
+          "numerator": "7076029125607360672375662647214917706859440666014889531284456375003765"
+        },
+        "midpoint": {
+          "denominator": "18347988927920572092886567162416695526372519913346248989900710715095383008707878464560148424881005492436992",
+          "numerator": "14152058251214721344751325294429835413718881332029779062568912750007533"
+        },
+        "radius": {
+          "denominator": "18347988927920572092886567162416695526372519913346248989900710715095383008707878464560148424881005492436992",
+          "numerator": "3"
+        },
+        "upper_bound": {
+          "denominator": "1146749307995035755805410447651043470398282494584140561868794419693461438044242404035009276555062843277312",
+          "numerator": "884503640700920084046957830901864713357430083251861191410557046875471"
+        }
+      },
+      "selection_rule": "least exact lower endpoint, then least exact upper endpoint, then canonical cell, attempt, and stored eigenvalue order",
+      "spectrum_classification": "POSITIVE_SPECTRUM",
+      "spectrum_pairwise_separated_in_stored_order": true,
+      "stored_eigenvalue_index": "0"
+    },
+    "role": "DIAGNOSTIC_ONLY",
+    "scope": "all stored Rump eigenvalue enclosures in usable spectra from SEARCH attempts; this is not an ordered-eigenvalue or RH claim"
+  },
+  "schema": "rh-lab/weil-transition-summary/v2",
+  "source": {
+    "index": {
+      "path": "index.json",
+      "payload_sha256": "b1d00edb4dd3115992e1e377c7cf81475824d16d175396a40fd2cadb7c03d3ff"
+    },
+    "plan": {
+      "path": "plan.json",
+      "plan_sha256": "33185881cc619fda99b7835f5e71422b0c5cf745cb5411162638a8e08dd05336"
+    },
+    "run": {
+      "path": "run.json",
+      "payload_sha256": "e1141e64355f7261886cbea7ea6855183a3676f90f35850e8217ac5eaa7a1c16"
+    }
+  },
+  "summary_method": {
+    "content_hashes_checked": [
+      "plan_sha256",
+      "run.payload_sha256",
+      "index.payload_sha256",
+      "cell.payload_sha256",
+      "attempt.payload_sha256",
+      "dedicated_confirmation.payload_sha256_when_present"
+    ],
+    "numerical_replay_performed": false,
+    "stored_terminal_state_semantically_derived": true
+  }
+}
