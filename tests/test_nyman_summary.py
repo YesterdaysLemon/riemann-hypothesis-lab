@@ -193,6 +193,79 @@ def test_verifier_accepts_mapping_and_path_and_exactly_regenerates(
     assert summary.verify_nyman_summary(summary_path, REAL_CHECKPOINT) == expected
 
 
+def test_summary_verifier_rejects_duplicate_json_keys(tmp_path: Path) -> None:
+    canonical = json.dumps(
+        summary.generate_nyman_summary(REAL_CHECKPOINT),
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+    path = tmp_path / "duplicate-summary-key.json"
+    path.write_text('{"schema":"ignored",' + canonical[1:], encoding="utf-8")
+
+    with pytest.raises(
+        summary.NymanSummaryVerificationError,
+        match="duplicate JSON object key: schema",
+    ):
+        summary.verify_nyman_summary(path, REAL_CHECKPOINT)
+
+
+@pytest.mark.parametrize("constant", ["NaN", "Infinity", "-Infinity"])
+def test_summary_verifier_rejects_nonstandard_json_constants(
+    constant: str,
+    tmp_path: Path,
+) -> None:
+    canonical = json.dumps(
+        summary.generate_nyman_summary(REAL_CHECKPOINT),
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+    path = tmp_path / "nonstandard-summary-constant.json"
+    path.write_text('{"extra":' + constant + "," + canonical[1:], encoding="utf-8")
+
+    with pytest.raises(
+        summary.NymanSummaryVerificationError,
+        match=f"nonstandard JSON constant: {constant}",
+    ):
+        summary.verify_nyman_summary(path, REAL_CHECKPOINT)
+
+
+def test_summary_generator_rejects_duplicate_checkpoint_keys(
+    tmp_path: Path,
+) -> None:
+    checkpoint = _copy_checkpoint(tmp_path)
+    path = checkpoint / "index.json"
+    canonical = path.read_text(encoding="utf-8")
+    path.write_text('{"schema":"ignored",' + canonical.lstrip()[1:], encoding="utf-8")
+
+    with pytest.raises(
+        summary.NymanSummaryError,
+        match="duplicate JSON object key: schema",
+    ):
+        summary.generate_nyman_summary(checkpoint)
+
+
+@pytest.mark.parametrize("constant", ["NaN", "Infinity", "-Infinity"])
+def test_summary_generator_rejects_nonstandard_checkpoint_constants(
+    constant: str,
+    tmp_path: Path,
+) -> None:
+    checkpoint = _copy_checkpoint(tmp_path)
+    path = checkpoint / "index.json"
+    canonical = path.read_text(encoding="utf-8")
+    path.write_text(
+        '{"extra":' + constant + "," + canonical.lstrip()[1:],
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        summary.NymanSummaryError,
+        match=f"nonstandard JSON constant: {constant}",
+    ):
+        summary.generate_nyman_summary(checkpoint)
+
+
 def test_verifier_rejects_rehashed_summary_tampering() -> None:
     artifact = summary.generate_nyman_summary(REAL_CHECKPOINT)
     tampered = copy.deepcopy(artifact)

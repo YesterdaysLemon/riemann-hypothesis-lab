@@ -20,6 +20,7 @@ FROZEN_PLAN_SHA256 = (
 FROZEN_PLAN_FILE_SHA256 = (
     "563b136f43bb6129ce182d0f29806dc5bbb70c30983cee8593806417aacfa9ba"
 )
+REAL_CHECKPOINT = Path("results/nyman-natural-v1")
 
 
 def _raw_plan() -> dict[str, Any]:
@@ -205,6 +206,69 @@ def test_frozen_plan_is_exact_canonical_and_hash_bound() -> None:
     assert plan["policy"] == search._policy_record(
         768, 1536, 256, 128, 120
     )
+
+
+def test_plan_loader_rejects_duplicate_json_keys(tmp_path: Path) -> None:
+    canonical = json.dumps(
+        _raw_plan(), ensure_ascii=False, separators=(",", ":"), sort_keys=True
+    )
+    path = tmp_path / "duplicate-plan-key.json"
+    path.write_text('{"schema":"ignored",' + canonical[1:], encoding="utf-8")
+
+    with pytest.raises(
+        search.NymanSearchPlanError,
+        match="duplicate JSON object key: schema",
+    ):
+        search.load_nyman_plan(path)
+
+
+@pytest.mark.parametrize("constant", ["NaN", "Infinity", "-Infinity"])
+def test_plan_loader_rejects_nonstandard_json_constants(
+    constant: str,
+    tmp_path: Path,
+) -> None:
+    canonical = json.dumps(
+        _raw_plan(), ensure_ascii=False, separators=(",", ":"), sort_keys=True
+    )
+    path = tmp_path / "nonstandard-plan-constant.json"
+    path.write_text('{"extra":' + constant + "," + canonical[1:], encoding="utf-8")
+
+    with pytest.raises(
+        search.NymanSearchPlanError,
+        match=f"nonstandard JSON constant: {constant}",
+    ):
+        search.load_nyman_plan(path)
+
+
+def test_search_verifier_rejects_duplicate_json_keys(tmp_path: Path) -> None:
+    canonical = (REAL_CHECKPOINT / "index.json").read_text(encoding="utf-8")
+    path = tmp_path / "duplicate-index-key.json"
+    path.write_text('{"schema":"ignored",' + canonical.lstrip()[1:], encoding="utf-8")
+
+    with pytest.raises(
+        search.NymanSearchVerificationError,
+        match="duplicate JSON object key: schema",
+    ):
+        search.verify_nyman_search(path, REAL_CHECKPOINT)
+
+
+@pytest.mark.parametrize("constant", ["NaN", "Infinity", "-Infinity"])
+def test_search_verifier_rejects_nonstandard_json_constants(
+    constant: str,
+    tmp_path: Path,
+) -> None:
+    canonical = (REAL_CHECKPOINT / "index.json").read_text(encoding="utf-8")
+    path = tmp_path / "nonstandard-index-constant.json"
+    path.write_text(
+        '{"extra":' + constant + "," + canonical.lstrip()[1:],
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        search.NymanSearchVerificationError,
+        match=f"nonstandard JSON constant: {constant}",
+    ):
+        search.verify_nyman_search(path, REAL_CHECKPOINT)
 
 
 def test_all_cells_bind_exact_prefixes_of_one_shared_n256_kernel() -> None:

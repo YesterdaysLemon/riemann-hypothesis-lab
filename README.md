@@ -19,7 +19,7 @@ Current finite results:
 |---|---:|---:|---|
 | Full `9x9` Weil matrix `A=P-R-S` for `c=5/2`, modes `-4..4`, certified positive definite by nine interval `LDL^T` pivots; the minimum among nine separated Rump eigenvalue enclosures is `[2.30606430783134e-5 +/- 4.40e-45]` | `CERTIFIED_FINITE` | All 45 upper-triangle component enclosures replayed at 384 bits; direct archimedean integrals cross-check a separate special-function formula | One positive finite compression cannot prove RH |
 | 81 complete Weil matrices around the prime-power transitions `q=7,8,9`, degrees `12..24`; every cell certified positive definite by interval `LDL^T` | `EXPLORATORY` | All 81 cells, 108 attempts, and 905 stored candidate evaluations replayed; 9 parity and 6 degree-nesting audits also passed | A bounded null search: no negative witness was found, and positive finite compressions cannot prove RH |
-| Six natural-dilate Nyman distances for `N=8,16,32,64,128,256`; each has an exact bracket `L_N < d_N^2 <= U_N` of width `2^-120`, and all five exact comparisons `U_2N < L_N` pass | `EXPLORATORY` | A separate process rebuilt the full kernel at 1536 bits and re-certified all six stored dyadic candidates and all 510 interval `LDL^T` pivots | Finite decay cannot establish the required limit `d_N -> 0` |
+| Six natural-dilate Nyman distances for `N=8,16,32,64,128,256`; each has an exact bracket `L_N < d_N^2 <= U_N` of width `2^-120`, and all five exact comparisons `U_2N < L_N` pass | `EXPLORATORY` | A separate same-backend replay rebuilt the full kernel at 1536 bits and re-certified all six stored dyadic candidates and all 510 interval `LDL^T` pivots | Finite decay cannot establish the required limit `d_N -> 0` |
 | 10,000 ordered critical-line Hardy-Z roots isolated at 192-bit working precision; Turing counts account for every nontrivial zeta zero below the exact final separator `T ~= 9878.2187131956` | `CERTIFIED_FINITE` | All 10,000 stored enclosures and all ten total-count separators replayed at 384 bits | Calibration only; finite checks cannot prove RH |
 | Lagarias inequality certified for every `1 <= n <= 1,000,000`, equality only at `n=1`, using exact integer divisor sums and Arb balls | `CERTIFIED_FINITE` | Full range replayed at 384 bits | A counterexample would disprove RH; a positive finite prefix does not prove it |
 | Proof or counterexample | `UNRESOLVED` | — | The actual objective remains open |
@@ -147,12 +147,12 @@ bracket has width `2^-120`; the linked summary stores the full dyadic endpoints.
 
 | `N` | Certified `d_N^2` bracket's shared decimal prefix | Terminal status |
 |---:|---:|---|
-| 8 | `0.024161421585896685022808943010851337...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
-| 16 | `0.017894023476969435099055063147958761...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
-| 32 | `0.014051943699529859836425040722123291...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
-| 64 | `0.011376040299673658147058970029326766...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
-| 128 | `0.009658549278111909910035392571452577...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
-| 256 | `0.008233716277261021441598038102635434...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 8 | `0.02416142158589668502280894301085133...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 16 | `0.01789402347696943509905506314795876...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 32 | `0.01405194369952985983642504072212329...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 64 | `0.01137604029967365814705897002932676...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 128 | `0.00965854927811190991003539257145257...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
+| 256 | `0.00823371627726102144159803810263543...` | `FINITE_DISTANCE_BRACKET_CERTIFIED` |
 
 The run stores 504 exact coefficient numerators and 510 positive lower-bound
 pivots. All five separate diagnostics `U_2N < L_N` pass. The canonical plan
@@ -165,9 +165,9 @@ the index payload SHA-256 is
 and the compact summary payload SHA-256 is
 `35cf625bd2ff70def7c440065aae20e375691c483666b2411098a4136ec399cf`.
 
-A fresh verifier rebuilt the complete kernel at 1536 bits and re-certified all
-six stored candidates without regenerating the approximate solves. Its replay
-kernel payload SHA-256 is
+A separate same-backend replay rebuilt the complete kernel at 1536 bits and
+re-certified all six stored candidates without regenerating the approximate
+solves. Its replay-kernel payload SHA-256 is
 `0b914bd5902f119ace638e74947225bce3bc541f719afee7a313d8390d68dae8`.
 The independent piecewise-integral/harmonic normalization bundle passed all 14
 frozen rational checks and has payload SHA-256

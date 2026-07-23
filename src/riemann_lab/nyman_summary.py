@@ -50,13 +50,35 @@ class NymanSummaryVerificationError(NymanSummaryError):
     """Raised when a supplied summary does not canonically regenerate."""
 
 
-def _load_object(path: Path) -> dict[str, Any]:
+def _load_object(
+    path: Path,
+    error_type: type[NymanSummaryError] = NymanSummaryError,
+) -> dict[str, Any]:
+    def reject_duplicate_keys(
+        pairs: list[tuple[str, Any]],
+    ) -> dict[str, Any]:
+        value: dict[str, Any] = {}
+        for key, item in pairs:
+            if key in value:
+                raise error_type(f"duplicate JSON object key: {key}")
+            value[key] = item
+        return value
+
+    def reject_nonstandard_constant(value: str) -> Any:
+        raise error_type(f"nonstandard JSON constant: {value}")
+
     try:
-        value = json.loads(path.read_text(encoding="utf-8"))
+        value = json.loads(
+            path.read_text(encoding="utf-8"),
+            object_pairs_hook=reject_duplicate_keys,
+            parse_constant=reject_nonstandard_constant,
+        )
+    except error_type:
+        raise
     except (OSError, json.JSONDecodeError) as exc:
-        raise NymanSummaryError(f"cannot read Nyman checkpoint object: {path}") from exc
+        raise error_type(f"cannot read Nyman checkpoint object: {path}") from exc
     if not isinstance(value, dict):
-        raise NymanSummaryError("Nyman checkpoint object must be a JSON object")
+        raise error_type("Nyman checkpoint object must be a JSON object")
     return value
 
 
@@ -877,7 +899,7 @@ def verify_nyman_summary(
     """Regenerate a compact summary and reject every supplied difference."""
 
     if isinstance(summary, Path):
-        supplied = _load_object(summary)
+        supplied = _load_object(summary, NymanSummaryVerificationError)
     elif isinstance(summary, Mapping):
         supplied = dict(summary)
     else:

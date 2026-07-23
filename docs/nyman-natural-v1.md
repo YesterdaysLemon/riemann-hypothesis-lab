@@ -198,7 +198,6 @@ autocorrelation formula. A separate finite harmonic-sum interval checks the
   before storing a shared symmetric enclosure.
 - Bind every smaller `(G_N,b_N)` to the exact prefix of the shared `N=256`
   kernel.
-- Zero-pad `c_N` into the `2N` space and reproduce the same primal value.
 - Check `U_2N<L_N` separately. Passing proves strict finite improvement;
   failure does not invalidate either bracket and has no implication for RH.
 - Reject a reversed Vasyunin sign, `p` replacing the outer `q`, either omitted
@@ -222,16 +221,16 @@ stored exact dyadic coefficients and 510 positive augmented-`LDL^T` pivots.
   `281f12c122897407d169e9830871ebd4764f86f03347e28dbc0cfa5b39876d23`;
 - compact summary payload SHA-256:
   `35cf625bd2ff70def7c440065aae20e375691c483666b2411098a4136ec399cf`;
-- independently rebuilt 1536-bit replay-kernel payload SHA-256:
+- separate same-backend 1536-bit replay-kernel payload SHA-256:
   `0b914bd5902f119ace638e74947225bce3bc541f719afee7a313d8390d68dae8`;
 - normalization-audit payload SHA-256:
   `021a060fb3eb0121c325a0af13cc39095c0c6f26bc5a4b235269611a66a9442c`.
 
 The tracked [summary](../results/nyman-natural-v1-summary.json) gives the exact
 dyadic endpoints and binds every cell, certificate, candidate, and kernel
-prefix. The separate verifier rebuilt the full kernel at 1536 bits and
-re-certified all six stored candidates; it did not regenerate or trust the
-approximate solves.
+prefix. The separate same-backend replay rebuilt the full kernel at 1536 bits
+and re-certified all six stored candidates; it did not regenerate or trust
+the approximate solves.
 
 ## Interpretation
 

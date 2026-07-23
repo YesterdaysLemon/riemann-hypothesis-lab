@@ -148,12 +148,12 @@ need an explicit `delta>0` with
 \|P_{T_N}r_N\|^2\le d_N^2-\delta.
 \]
 
-Then the limiting distance would be at least `delta`. A positive finite lower
-bound alone says nothing about this tail and cannot disprove RH.
+Then the limiting squared distance would be at least `delta`. A positive
+finite lower bound alone says nothing about this tail and cannot disprove RH.
 
 ## Role of the v1 data
 
-The six certified midpoint displays give the finite diagnostics
+The six certified energy enclosures give the finite diagnostics
 
 ```text
 N       8        16       32       64       128      256

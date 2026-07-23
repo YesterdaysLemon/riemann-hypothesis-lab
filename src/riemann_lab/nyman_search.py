@@ -414,10 +414,7 @@ def canonicalize_nyman_plan(raw: Mapping[str, Any]) -> dict[str, Any]:
 
 
 def load_nyman_plan(path: Path) -> dict[str, Any]:
-    try:
-        raw = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        raise NymanSearchPlanError(f"cannot read Nyman plan: {path}") from exc
+    raw = _load_json(path, NymanSearchPlanError, label="Nyman plan")
     return canonicalize_nyman_plan(raw)
 
 
@@ -894,13 +891,37 @@ def _atomic_write_json(path: Path, value: Mapping[str, Any]) -> None:
             pass
 
 
-def _load_json(path: Path, error_type: type[NymanSearchError]) -> dict[str, Any]:
+def _load_json(
+    path: Path,
+    error_type: type[NymanSearchError],
+    *,
+    label: str = "Nyman artifact",
+) -> dict[str, Any]:
+    def reject_duplicate_keys(
+        pairs: list[tuple[str, Any]],
+    ) -> dict[str, Any]:
+        value: dict[str, Any] = {}
+        for key, item in pairs:
+            if key in value:
+                raise error_type(f"duplicate JSON object key: {key}")
+            value[key] = item
+        return value
+
+    def reject_nonstandard_constant(value: str) -> Any:
+        raise error_type(f"nonstandard JSON constant: {value}")
+
     try:
-        value = json.loads(path.read_text(encoding="utf-8"))
+        value = json.loads(
+            path.read_text(encoding="utf-8"),
+            object_pairs_hook=reject_duplicate_keys,
+            parse_constant=reject_nonstandard_constant,
+        )
+    except error_type:
+        raise
     except (OSError, json.JSONDecodeError) as exc:
-        raise error_type(f"cannot read Nyman artifact: {path}") from exc
+        raise error_type(f"cannot read {label}: {path}") from exc
     if not isinstance(value, dict):
-        raise error_type("Nyman artifact must contain an object")
+        raise error_type(f"{label} must contain an object")
     return value
 
 
