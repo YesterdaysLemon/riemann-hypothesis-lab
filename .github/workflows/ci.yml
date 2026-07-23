@@ -37,3 +37,5 @@ jobs:
       - run: python tools/generate_nyman_nested_chain_certificate.py --verify
       - run: python tools/generate_nyman_rebased_schur_certificate.py --verify
       - run: python tools/generate_nyman_rebased_third_step_certificate.py --verify --artifact results/nyman-rebased-third-step-v1.json
+      - run: python tools/generate_nyman_fixed_modulus_refinement_certificate.py --verify --artifact results/nyman-fixed-modulus-refinement-v1.json
+      - run: python tools/generate_nyman_rebased_fourth_step_certificate.py --verify --artifact results/nyman-rebased-fourth-step-v1.json

@@ -510,8 +510,91 @@ Generation and replay share repository formulas, CPython, NumPy,
 Python-FLINT, FLINT, and the prefix implementation. This is reproducible
 finite certification, not a clean-room or formal verification. It proves only
 `E(p2)-E(p3)>1/20000` for the explicit declared vectors. The certificate has
-no fourth step, all-scale recurrence, convergence theorem, or implication for
-RH; the global status remains `UNRESOLVED`.
+no fourth step within its own payload. Separate artifacts now sharpen the same
+pair and certify a fourth finite step, but no all-scale recurrence,
+convergence theorem, or implication for RH follows; the global status remains
+`UNRESOLVED`.
+
+### Fixed-modulus refinement of the third step
+
+The fixed-modulus certificate pins the third-step parent by raw LF, canonical,
+payload, schema, semantic status, and exact `p3` commitments. It reconstructs
+the same `p2,p3` and uses the same cutoff `T=2^23`; the inherited optimizer
+proposal is unchanged and is not evidence.
+
+CPython integers, `Fraction`, and the repository's divisor-sieve code compute
+the active denominator set, gcd classes modulo 840, Jordan-`J_2` weights, and
+the exact grouped spacing constant. For active denominators `D`, it uses
+
+```text
+m_d = gcd(d,L),
+R_m = max_(e in D) e/gcd(m,e),
+C_L = (3/2)[Q_A*c0^2
+            + (1/12) sum_(d in D) d*R_(m_d)*J2(d)*P_d^2].
+```
+
+The analytic bridge is again Montgomery and Vaughan's published weighted
+periodic cosecant theorem, now combined with the exact Farey gap
+`gcd(d,e)/(d*e)`. The checker tests the arithmetic identities and small exact
+periods but does not formally prove that theorem.
+
+The prefix path retains the third-step NumPy 2.3.5 guarded-binary64 and Arb
+boundary. Generation uses block size 65,536 and 320-bit Arb; replay changes to
+250,003 and 512 bits and requires enclosure overlap. Strict loading, exact
+schema equality, payload verification, parent reconstruction, exact group
+records, and the rational `1/17500` gate reject relevant mutations.
+
+Generation and replay still share repository formulas, CPython, NumPy,
+Python-FLINT, FLINT, and the prefix implementation. The artifact proves only
+the stronger finite inequality `E(p2)-E(p3)>1/17500` for the same published
+vectors. Its payload SHA-256 is
+`de69623dee4550796471850d62bf78ec3162fdec34620526f21d0ac578f35f92`
+and its canonical artifact SHA-256 is
+`5666bfbd314da21f0d286924f2a4b93c3ff97fc025d269dc769f396e627efe54`.
+It supplies no arbitrary-scale estimate and does not resolve RH.
+
+### Certified fourth rebased step
+
+The fourth-step certificate pins the third-step parent by raw LF, canonical,
+payload, schema, source lineage, and the exact `p3` commitment. It then
+reconstructs the fourth uniquely rounded, exactly balanced `2^-9` shell and
+all 33 frozen `2^-16` weights. Exact commitments bind all inherited vectors
+and shells, the fourth shell, the weight list, and the 47,345-term `p4`
+supported through 65,536.
+
+The fourth weight list came from an exploratory optimizer. Its objective and
+conditioning diagnostics are excluded from the proof. The verifier decides
+the sign after exact reconstruction. It checks that the reduced basis retains
+one fourth-shell multiplier, overlaps the old support, changes 13,537 old
+`p3` coefficients, and lies outside the append-only frozen-prefix
+architecture.
+
+Both energies use the arbitrary-slope prefix helper. Nonnegativity of the
+omitted `p3` integral gives the old lower bound, while the exact
+denominator-weighted local-spacing tail gives the complete `p4` upper bound.
+The analytic dependency remains Montgomery and Vaughan's weighted periodic
+cosecant theorem; the checker recomputes every rational tail constant but does
+not formally prove that theorem.
+
+The exact integer recurrence is guarded against overflow. NumPy 2.3.5
+binary64 operations carry the repository's rational rounding-error bound, and
+Arb encloses the compressed logarithmic term. Generation uses cutoff
+`T=2^26`, block size 1,048,576, and 512-bit Arb. Replay changes to block size
+250,003 and 640-bit Arb and requires all sign-bearing enclosures to overlap.
+Strict loading, parent and source pins, exact vector reconstruction, payload
+verification, support and dyadic-grid checks, and the rational `1/100000`
+gate reject relevant mutations.
+
+Generation and replay share repository formulas, CPython, NumPy,
+Python-FLINT, FLINT, and the prefix implementation. This is reproducible
+finite certification, not clean-room or formal verification. It proves only
+`E(p3)-E(p4)>1/100000`; algebraic composition with the separate fixed-modulus
+claim gives the finite corollary `E(p2)-E(p4)>47/700000`. Neither statement
+proves a fifth step, an all-scale recurrence, convergence, or RH. The
+artifact payload SHA-256 is
+`a807f63928869c6451fa397edcc294ff6b3553b69a54099e8053722bd2b594b0`
+and its canonical SHA-256 is
+`48b142aa8e21bcc7ac0ec980765f30ca13da831fad54c99a6d9e655db9258f3d`.
 
 ## Claim ledger
 
