@@ -125,6 +125,29 @@
       "statement": "For the frozen shell y_9=1, y_16=-1, every finite Mobius extension, divisor inversion, direct/factored slope, and integer-interval alias identity agrees exactly through X=4096."
     },
     {
+      "artifact": "results/nyman-balanced-full-tail-v1.json",
+      "artifact_hash_mode": "canonical-json-v1",
+      "artifact_sha256": "47845a061d113e6125bf406c0a06caa3f14148801ad88f9bd257db25e43f1263",
+      "classification": "CERTIFIED_FINITE",
+      "id": "nyman-balanced-full-tail-v1",
+      "implies_rh": false,
+      "limitations": "This certifies one complete finite-dimensional contraction for one explicit exact-dyadic vector. It gives no uniform all-scale estimate and does not prove or disprove RH.",
+      "reproduction": ".venv\\Scripts\\python.exe tools\\generate_nyman_balanced_tail_certificate.py --verify",
+      "scope": {
+        "claimed_complete_direct_gain_lower_bound": "7/50000",
+        "correction_coefficient_grid": "2^-18",
+        "correction_support_count": "3151",
+        "finite_prefix_last_interval": "67108864",
+        "generation_precision_bits": "256",
+        "maximum_support_index": "8192",
+        "multiplier_limit": "16",
+        "old_coefficient_grid": "2^-16",
+        "old_dimension": "256",
+        "replay_precision_bits": "384"
+      },
+      "statement": "For one explicit exact-dyadic N=256 old Nyman vector and one explicit balanced K=16 correction supported through index 8192, the complete infinite weighted-L2 direct gain is greater than 7/50000."
+    },
+    {
       "artifact": "docs/nyman-alias-regularization-v1.md",
       "artifact_hash_mode": "raw-bytes",
       "artifact_sha256": "36c50497bb8dc87a9db2b3b65d35c6047f6a8861044cd98ca4f82238ac74f02c",
